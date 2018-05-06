@@ -1,3 +1,6 @@
+# TODO : Add author mention
+# TODO : Change heading comments
+
 # Copyright 2017-present, Facebook, Inc.
 # All rights reserved.
 #
@@ -44,6 +47,8 @@ us to efficiently prune the search space and terminate early when we know that
 
 parser = argparse.ArgumentParser()
 
+# TODO : Change defaults values for arguments
+# TODO : Change argument text
 # Inputs
 parser.add_argument('--input_scene_file', default='../output/CLEVR_scenes.json',
     help="JSON file containing ground-truth scene information for all images " +
@@ -96,7 +101,7 @@ def precompute_filter_options(scene_struct, metadata):
   # and values are lists of object idxs that match the filter criterion
   attribute_map = {}
 
-  if metadata['dataset'] == 'CLEVR-v1.0':
+  if metadata['dataset'] == 'CLEVR-v1.0':     # FIXME : Hardcoded dataset name
     attr_keys = ['size', 'color', 'material', 'shape']
   else:
     assert False, 'Unrecognized dataset'
@@ -110,7 +115,7 @@ def precompute_filter_options(scene_struct, metadata):
     masks.append(mask)
 
   for object_idx, obj in enumerate(scene_struct['objects']):
-    if metadata['dataset'] == 'CLEVR-v1.0':
+    if metadata['dataset'] == 'CLEVR-v1.0':     # FIXME : Hardcoded dataset name
       keys = [tuple(obj[k] for k in attr_keys)]
 
     for mask in masks:
@@ -146,8 +151,8 @@ def find_filter_options(object_idxs, scene_struct, metadata):
 def add_empty_filter_options(attribute_map, metadata, num_to_add):
   # Add some filtering criterion that do NOT correspond to objects
 
-  if metadata['dataset'] == 'CLEVR-v1.0':
-    attr_keys = ['Size', 'Color', 'Material', 'Shape']
+  if metadata['dataset'] == 'CLEVR-v1.0':         # FIXME : Hardcoded dataset name
+    attr_keys = ['Size', 'Color', 'Material', 'Shape']    # FIXME : Hardcoded attributes
   else:
     assert False, 'Unrecognized dataset'
   
@@ -168,7 +173,7 @@ def find_relate_filter_options(object_idx, scene_struct, metadata,
   if '_filter_options' not in scene_struct:
     precompute_filter_options(scene_struct, metadata)
 
-  # TODO: Right now this is only looking for nontrivial combinations; in some
+  # TODO_ORIG: Right now this is only looking for nontrivial combinations; in some
   # cases I may want to add trivial combinations, either where the intersection
   # is empty or where the intersection is equal to the filtering output.
   trivial_options = {}
@@ -211,13 +216,13 @@ def other_heuristic(text, param_vals):
   if ' other ' not in text and ' another ' not in text:
     return text
   target_keys = {
-    '<Z>',  '<C>',  '<M>',  '<S>',
+    '<Z>',  '<C>',  '<M>',  '<S>',        # FIXME : Hardcoded string placeholder
     '<Z2>', '<C2>', '<M2>', '<S2>',
   }
   if param_vals.keys() != target_keys:
     return text
   key_pairs = [
-    ('<Z>', '<Z2>'),
+    ('<Z>', '<Z2>'),                      # FIXME : Hardcoded string placeholder
     ('<C>', '<C2>'),
     ('<M>', '<M2>'),
     ('<S>', '<S2>'),
@@ -316,7 +321,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
       answer_counts_sorted = sorted(answer_counts.values())
       median_count = answer_counts_sorted[len(answer_counts_sorted) // 2]
       median_count = max(median_count, 5)
-      if cur_answer_count > 1.1 * answer_counts_sorted[-2]:
+      if cur_answer_count > 1.1 * answer_counts_sorted[-2]:         # TODO : Those skipping probabilities should be in config file
         if verbose: print('skipping due to second count')
         continue
       if cur_answer_count > 5.0 * median_count:
@@ -344,7 +349,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
     next_node = template['nodes'][state['next_template_node']]
     next_node = node_shallow_copy(next_node)
 
-    special_nodes = {
+    special_nodes = {                                             # FIXME : Some harcoded special node
         'filter_unique', 'filter_count', 'filter_exist', 'filter',
         'relate_filter', 'relate_filter_unique', 'relate_filter_count',
         'relate_filter_exist',
@@ -408,7 +413,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
             cur_next_vals[param_name] = param_val
             next_input = len(state['nodes']) + len(new_nodes) - 1
           elif param_val is None:
-            if metadata['dataset'] == 'CLEVR-v1.0' and param_type == 'Shape':
+            if metadata['dataset'] == 'CLEVR-v1.0' and param_type == 'Shape':       # FIXME : Hardcoded dataset name
               param_val = 'thing'
             else:
               param_val = ''
@@ -436,7 +441,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
 
     elif 'side_inputs' in next_node:
       # If the next node has template parameters, expand them out
-      # TODO: Generalize this to work for nodes with more than one side input
+      # TODO_ORIG: Generalize this to work for nodes with more than one side input
       assert len(next_node['side_inputs']) == 1, 'NOT IMPLEMENTED'
 
       # Use metadata to figure out domain of valid values for this parameter.
@@ -533,7 +538,7 @@ def main(args):
   with open(args.metadata_file, 'r') as f:
     metadata = json.load(f)
     dataset = metadata['dataset']
-    if dataset != 'CLEVR-v1.0':
+    if dataset != 'CLEVR-v1.0':       # TODO : Change dataset name verification (Should be loaded from config file ?)
       raise ValueError('Unrecognized dataset "%s"' % dataset)
   
   functions_by_name = {}
@@ -571,8 +576,8 @@ def main(args):
       if final_dtype == 'Bool':
         answers = [True, False]
       if final_dtype == 'Integer':
-        if metadata['dataset'] == 'CLEVR-v1.0':
-          answers = list(range(0, 11))
+        if metadata['dataset'] == 'CLEVR-v1.0':     # FIXME : Hardcoded dataset name
+          answers = list(range(0, 11))              # TODO : Max integer anser should be loaded from config
       template_answer_counts[key[:2]] = {}
       for a in answers:
         template_answer_counts[key[:2]][a] = 0
@@ -600,7 +605,7 @@ def main(args):
   questions = []
   scene_count = 0
   for i, scene in enumerate(all_scenes):
-    scene_fn = scene['image_filename']
+    scene_fn = scene['image_filename']          # FIXME : Scene key related to image. Should refer to "sound_filename" or scene
     scene_struct = scene
     print('starting image %s (%d / %d)'
           % (scene_fn, i + 1, len(all_scenes)))
@@ -657,7 +662,7 @@ def main(args):
       if num_instantiated >= args.templates_per_image:
         break
 
-  # Change "side_inputs" to "value_inputs" in all functions of all functional
+  # Change "side_inputs" to "value_inputs" in all functions of all functional         # FIXME : Fix this at the same time
   # programs. My original name for these was "side_inputs" but I decided to
   # change the name to "value_inputs" for the public CLEVR release. I should
   # probably go through all question generation code and templates and rename,
