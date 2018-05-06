@@ -538,7 +538,7 @@ def main(args):
   with open(args.metadata_file, 'r') as f:
     metadata = json.load(f)
     dataset = metadata['dataset']
-    if dataset != 'CLEVR-v1.0':       # TODO : Change dataset name verification (Should be loaded from config file ?)
+    if dataset != 'CLEVR-v1.0':       # FIXME : Hardcoded dataset name
       raise ValueError('Unrecognized dataset "%s"' % dataset)
   
   functions_by_name = {}
@@ -580,7 +580,7 @@ def main(args):
           answers = list(range(0, 11))              # TODO : Max integer anser should be loaded from config
       template_answer_counts[key[:2]] = {}
       for a in answers:
-        template_answer_counts[key[:2]][a] = 0
+        template_answer_counts[key[:2]][a] = 0      # FIXME/INVESTIGATE : What happend when the answers is Null/None ? This will happen with Object and ObjectSet
     return template_counts, template_answer_counts
 
   template_counts, template_answer_counts = reset_counts()

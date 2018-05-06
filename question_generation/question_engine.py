@@ -202,7 +202,7 @@ def answer_question(question, metadata, scene_struct, all_outputs=False,
       assert node_type in execute_handlers, msg
       handler = execute_handlers[node_type]
       node_inputs = [node_outputs[idx] for idx in node['inputs']]
-      side_inputs = node.get('side_inputs', [])
+      side_inputs = node.get('side_inputs', [])                     # FIXME : Side_inputs key
       node_output = handler(scene_struct, node_inputs, side_inputs)
       if cache_outputs:
         node['_output'] = node_output
