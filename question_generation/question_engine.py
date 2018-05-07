@@ -144,8 +144,9 @@ def greater_than_handler(scene_struct, inputs, side_inputs):
   return inputs[0] > inputs[1]
 
 
+# TODO : Set appropriate handler for new attributes
 # Register all of the answering handlers here.
-# TODO maybe this would be cleaner with a function decorator that takes
+# TODO_ORIG maybe this would be cleaner with a function decorator that takes
 # care of registration? Not sure. Also what if we want to reuse the same engine
 # for different sets of node types?
 execute_handlers = {
@@ -154,7 +155,7 @@ execute_handlers = {
   'filter_shape': make_filter_handler('shape'),
   'filter_material': make_filter_handler('material'),
   'filter_size': make_filter_handler('size'),
-  'filter_objectcategory': make_filter_handler('objectcategory'),
+  'filter_objectcategory': make_filter_handler('objectcategory'),         # FIXKE : Doesn't seem to have an objectcategory attribute in the scene
   'unique': unique_handler,
   'relate': relate_handler,
   'union': union_handler,

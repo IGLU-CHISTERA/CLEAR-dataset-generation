@@ -173,6 +173,7 @@ def find_relate_filter_options(object_idx, scene_struct, metadata,
   if '_filter_options' not in scene_struct:
     precompute_filter_options(scene_struct, metadata)
 
+  # TODO/VERIFY : Will probably have to change the definition of "trivial"
   # TODO_ORIG: Right now this is only looking for nontrivial combinations; in some
   # cases I may want to add trivial combinations, either where the intersection
   # is empty or where the intersection is equal to the filtering output.
