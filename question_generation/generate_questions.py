@@ -9,7 +9,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 
 from __future__ import print_function
-import argparse, json, os, itertools, random, shutil
+import argparse, json, os, itertools, random, shutil, math
 import time
 import re
 
@@ -102,7 +102,7 @@ def precompute_filter_options(scene_struct, metadata):
   attribute_map = {}
 
   if metadata['dataset'] == 'CLEVR-v1.0':     # FIXME : Hardcoded dataset name
-    attr_keys = ['size', 'color', 'material', 'shape']
+    attr_keys = ['type', 'loudness', 'position']    # FIXME : The tuple structure assume the attributes. Should be loaded from metadata
   else:
     assert False, 'Unrecognized dataset'
 
@@ -152,7 +152,7 @@ def add_empty_filter_options(attribute_map, metadata, num_to_add):
   # Add some filtering criterion that do NOT correspond to objects
 
   if metadata['dataset'] == 'CLEVR-v1.0':         # FIXME : Hardcoded dataset name
-    attr_keys = ['Size', 'Color', 'Material', 'Shape']    # FIXME : Hardcoded attributes
+    attr_keys = ['Type', 'Loudness', 'Position']    # FIXME : Hardcoded attributes
   else:
     assert False, 'Unrecognized dataset'
   
@@ -273,7 +273,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
       if constraint['type'] == 'NEQ':
         p1, p2 = constraint['params']
         v1, v2 = state['vals'].get(p1), state['vals'].get(p2)
-        if v1 is not None and v2 is not None and v1 != v2:
+        if v1 is not None and v2 is not None and v1 == v2:
           if verbose:
             print('skipping due to NEQ constraint')
             print(constraint)
@@ -286,7 +286,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
         v = state['vals'].get(p)
         if v is not None:
           skip = False
-          if p_type == 'Shape' and v != 'thing': skip = True
+          if p_type == 'Shape' and v != 'thing': skip = True        # FIXME : Hardcoded stuff here
           if p_type != 'Shape' and v != '': skip = True
           if skip:
             if verbose:
@@ -503,7 +503,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
   return text_questions, structured_questions, answers
 
 
-
+# FIXME : The probability should be loaded from config
 def replace_optionals(s):
   """
   Each substring of s that is surrounded in square brackets is treated as
@@ -535,6 +535,41 @@ def replace_optionals(s):
   return s
 
 
+def position_from_index(idx, nb_obj):
+  if idx + 1 == nb_obj:
+    return "last"
+  elif idx == 0:
+    return "first"
+  elif idx == 1:
+    return "second"
+  elif idx == 2:
+    return "third"
+  else:
+    return "More than Third"
+
+
+def global_position_from_index(idx, nb_obj):
+  """
+  Separate the scene in 3 parts (Beginning, middle, end) based on the index of the object
+  """
+
+  # FIXME : Handle correctly whe nthe number of objects is not a multiple of 3
+  part_size = math.floor(nb_obj/3)
+  if idx + 1 <= part_size:
+    return "beginning"
+  elif idx + 1 <= 2*part_size:
+    return "middle"
+  else:
+    return "end"
+
+
+def augment_scene(scene):
+  nb_obj = len(scene['objects'])
+  for i, object in enumerate(scene['objects']):
+    object['position'] = position_from_index(i, nb_obj)
+    object['global_position'] = global_position_from_index(i, nb_obj)
+
+
 def main(args):
   with open(args.metadata_file, 'r') as f:
     metadata = json.load(f)
@@ -561,6 +596,7 @@ def main(args):
         templates[key] = template
   print('Read %d templates from disk' % num_loaded_templates)
 
+  # TODO : Handle augmentedScene attributes (Position)
   def reset_counts():
     # Maps a template (filename, index) to the number of questions we have
     # so far using that template
@@ -606,6 +642,7 @@ def main(args):
   questions = []
   scene_count = 0
   for i, scene in enumerate(all_scenes):
+    augment_scene(scene)
     scene_fn = scene['image_filename']          # FIXME : Scene key related to image. Should refer to "sound_filename" or scene
     scene_struct = scene
     print('starting image %s (%d / %d)'
@@ -635,7 +672,7 @@ def main(args):
                       template_answer_counts[(fn, idx)],
                       synonyms,
                       max_instances=args.instances_per_template,
-                      verbose=False)
+                      verbose=args.verbose)
       if args.time_dfs and args.verbose:
         toc = time.time()
         print('that took ', toc - tic)

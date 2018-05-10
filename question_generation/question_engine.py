@@ -149,35 +149,29 @@ def greater_than_handler(scene_struct, inputs, side_inputs):
 # TODO_ORIG maybe this would be cleaner with a function decorator that takes
 # care of registration? Not sure. Also what if we want to reuse the same engine
 # for different sets of node types?
-execute_handlers = {
+execute_handlers = {                              # FIXME : The handlers are related to the attributes. This should not be hardcoded. Should be read from metadata
   'scene': scene_handler,
-  'filter_color': make_filter_handler('color'),
-  'filter_shape': make_filter_handler('shape'),
-  'filter_material': make_filter_handler('material'),
-  'filter_size': make_filter_handler('size'),
+  'filter_loudness': make_filter_handler('loudness'),
+  'filter_type': make_filter_handler('type'),
+  'filter_position': make_filter_handler('position'),
   'filter_objectcategory': make_filter_handler('objectcategory'),         # FIXKE : Doesn't seem to have an objectcategory attribute in the scene
   'unique': unique_handler,
   'relate': relate_handler,
   'union': union_handler,
   'intersect': intersect_handler,
   'count': count_handler,
-  'query_color': make_query_handler('color'),
-  'query_shape': make_query_handler('shape'),
-  'query_material': make_query_handler('material'),
-  'query_size': make_query_handler('size'),
+  'query_loudness': make_query_handler('loudness'),
+  'query_type': make_query_handler('type'),
+  'query_position': make_query_handler('position'),
   'exist': exist_handler,
-  'equal_color': equal_handler,
-  'equal_shape': equal_handler,
+  'equal_loudness': equal_handler,
+  'equal_type': equal_handler,
   'equal_integer': equal_handler,
-  'equal_material': equal_handler,
-  'equal_size': equal_handler,
   'equal_object': equal_handler,
   'less_than': less_than_handler,
   'greater_than': greater_than_handler,
-  'same_color': make_same_attr_handler('color'),
-  'same_shape': make_same_attr_handler('shape'),
-  'same_size': make_same_attr_handler('size'),
-  'same_material': make_same_attr_handler('material'),
+  'same_loudness': make_same_attr_handler('loudness'),
+  'same_type': make_same_attr_handler('type')
 }
 
 

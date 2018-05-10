@@ -1,0 +1,58 @@
+[
+  {
+    "text": [
+      "What is the <T> <L> <P> sound playing ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<T>",
+          "<L>",
+          "<P>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "query_type"
+      }
+    ],
+    "params": [
+      {
+        "type": "Type",
+        "name": "<T>"
+      },
+      {
+        "type": "Loudness",
+        "name": "<L>"
+      },
+      {
+        "type": "Position",
+        "name": "<P>"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<T>"
+        ],
+        "type": "NULL"
+      },
+      {
+        "params": [
+          "<L>"
+        ],
+        "type": "NULL"
+      }
+    ]
+  }
+]

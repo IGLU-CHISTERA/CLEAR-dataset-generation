@@ -5,20 +5,17 @@
     "ObjectSet": null,
     "Integer": null,
     "Bool": null,
-    "Shape": [
-      "cube", "sphere", "cylinder"
+    "Type": [
+      "instrument", "speech", "ambiant"
     ],
-    "Color": [
-      "gray", "red", "blue", "green", "brown", "purple", "cyan", "yellow"
+    "Loudness": [
+      "quiet", "normal", "loud"
     ],
     "Relation": [
-      "left", "right", "behind", "front"
+      "before", "after"
     ],
-    "Size": [
-      "small", "large"
-    ],
-    "Material": [
-      "rubber", "metal"
+    "Position": [
+      "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "last"
     ]
   },
   "functions": [
@@ -29,30 +26,16 @@
       "terminal": false
     },
     {
-      "name": "filter_color",
+      "name": "filter_loudness",
       "inputs": ["ObjectSet"],
-      "side_inputs": ["Color"],
+      "side_inputs": ["Loudness"],
       "output": "ObjectSet",
       "terminal": false
     },
     {
-      "name": "filter_shape",
+      "name": "filter_type",
       "inputs": ["ObjectSet"],
-      "side_inputs": ["Shape"],
-      "output": "ObjectSet",
-      "terminal": false
-    },
-    {
-      "name": "filter_size",
-      "inputs": ["ObjectSet"],
-      "side_inputs": ["Size"],
-      "output": "ObjectSet",
-      "terminal": false
-    },
-    {
-      "name": "filter_material",
-      "inputs": ["ObjectSet"],
-      "side_inputs": ["Material"],
+      "side_inputs": ["Type"],
       "output": "ObjectSet",
       "terminal": false
     },
@@ -89,27 +72,21 @@
       "terminal": true
     },
     {
-      "name": "query_shape",
+      "name": "query_loudness",
       "inputs": ["Object"],
-      "output": "Shape",
+      "output": "Loudness",
       "terminal": true
     },
     {
-      "name": "query_color",
+      "name": "query_type",
       "inputs": ["Object"],
-      "output": "Color",
+      "output": "Type",
       "terminal": true
     },
     {
-      "name": "query_size",
+      "name": "query_position",
       "inputs": ["Object"],
-      "output": "Size",
-      "terminal": true
-    },
-    {
-      "name": "query_material",
-      "inputs": ["Object"],
-      "output": "Material",
+      "output": "Position",
       "terminal": true
     },
     {
@@ -119,14 +96,14 @@
       "terminal": true
     },
     {
-      "name": "equal_color",
-      "inputs": ["Color", "Color"],
+      "name": "equal_loudness",
+      "inputs": ["Loudness", "Loudness"],
       "output": "Bool",
       "terminal": true
     },
     {
-      "name": "equal_shape",
-      "inputs": ["Shape", "Shape"],
+      "name": "equal_type",
+      "inputs": ["Type", "Type"],
       "output": "Bool",
       "terminal": true
     },
@@ -149,43 +126,19 @@
       "terminal": true
     },
     {
-      "name": "equal_size",
-      "inputs": ["Size", "Size"],
-      "output": "Bool",
-      "terminal": true
-    },
-    {
-      "name": "equal_material",
-      "inputs": ["Material", "Material"],
-      "output": "Bool",
-      "terminal": true
-    },
-    {
       "name": "equal_object",
       "inputs": ["Object", "Object"],
       "output": "Bool",
       "terminal": true
     },
     {
-      "name": "same_size",
+      "name": "same_loudness",
       "inputs": ["Object"],
       "output": "ObjectSet",
       "terminal": false
     },
     {
-      "name": "same_color",
-      "inputs": ["Object"],
-      "output": "ObjectSet",
-      "terminal": false
-    },
-    {
-      "name": "same_material",
-      "inputs": ["Object"],
-      "output": "ObjectSet",
-      "terminal": false
-    },
-    {
-      "name": "same_shape",
+      "name": "same_type",
       "inputs": ["Object"],
       "output": "ObjectSet",
       "terminal": false
@@ -193,7 +146,7 @@
     {
       "name": "filter",
       "inputs": ["ObjectSet"],
-      "side_inputs": ["Size", "Color", "Material", "Shape"],
+      "side_inputs": ["Type", "Loudness", "Position"],
       "output": "ObjectSet",
       "terminal": false,
       "template_only": true
@@ -201,7 +154,7 @@
     {
       "name": "filter_unique",
       "inputs": ["ObjectSet"],
-      "side_inputs": ["Size", "Color", "Material", "Shape"],
+      "side_inputs": ["Type", "Loudness", "Position"],
       "output": "Object",
       "terminal": false,
       "template_only": true
@@ -209,7 +162,7 @@
     {
       "name": "filter_count",
       "inputs": ["ObjectSet"],
-      "side_inputs": ["Size", "Color", "Material", "Shape"],
+      "side_inputs": ["Type", "Loudness", "Position"],
       "output": "Integer",
       "terminal": true,
       "template_only": true
@@ -217,7 +170,7 @@
     {
       "name": "filter_exist",
       "inputs": ["ObjectSet"],
-      "side_inputs": ["Size", "Color", "Material", "Shape"],
+      "side_inputs": ["Type", "Loudness", "Position"],
       "output": "Bool",
       "terminal": true,
       "template_only": true
@@ -225,7 +178,7 @@
     {
       "name": "relate_filter",
       "inputs": ["Object"],
-      "side_inputs": ["Relation", "Size", "Color", "Material", "Shape"],
+      "side_inputs": ["Relation", "Type", "Loudness", "Position"],
       "output": "ObjectSet",
       "terminal": false,
       "template_only": true
@@ -233,7 +186,7 @@
     {
       "name": "relate_filter_unique",
       "inputs": ["Object"],
-      "side_inputs": ["Relation", "Size", "Color", "Material", "Shape"],
+      "side_inputs": ["Relation", "Type", "Loudness", "Position"],
       "output": "Object",
       "terminal": false,
       "template_only": true
@@ -241,7 +194,7 @@
     {
       "name": "relate_filter_count",
       "inputs": ["Object"],
-      "side_inputs": ["Relation", "Size", "Color", "Material", "Shape"],
+      "side_inputs": ["Relation", "Type", "Loudness", "Position"],
       "output": "Integer",
       "terminal": false,
       "template_only": true
@@ -249,7 +202,7 @@
     {
       "name": "relate_filter_exist",
       "inputs": ["Object"],
-      "side_inputs": ["Relation", "Size", "Color", "Material", "Shape"],
+      "side_inputs": ["Relation", "Type", "Loudness", "Position"],
       "output": "Bool",
       "terminal": false,
       "template_only": true

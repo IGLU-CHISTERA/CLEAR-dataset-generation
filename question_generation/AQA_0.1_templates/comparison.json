@@ -1,0 +1,117 @@
+[
+  {
+    "text": [
+      "Is <L> <P> <T> as loud as <L2> <P2> <T2>?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<T>",
+          "<L>",
+          "<P>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<T2>",
+          "<L2>",
+          "<P2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "query_loudness"
+      },
+      {
+        "inputs": [
+          3
+        ],
+        "type": "query_loudness"
+      },
+      {
+        "inputs": [
+          4,
+          5
+        ],
+        "type": "equal_loudness"
+      }
+    ],
+    "params": [
+      {
+        "type": "Type",
+        "name": "<T>"
+      },
+      {
+        "type": "Loudness",
+        "name": "<L>"
+      },
+      {
+        "type": "Position",
+        "name": "<P>"
+      },
+      {
+        "type": "Type",
+        "name": "<T2>"
+      },
+      {
+        "type": "Loudness",
+        "name": "<L2>"
+      },
+      {
+        "type": "Position",
+        "name": "<P2>"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<T>",
+          "<T2>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<L>"
+        ],
+        "type": "NULL"
+      },
+      {
+        "params": [
+          "<P>"
+        ],
+        "type": "NULL"
+      },
+      {
+        "params": [
+          "<L2>"
+        ],
+        "type": "NULL"
+      },
+      {
+        "params": [
+          "<P2>"
+        ],
+        "type": "NULL"
+      }
+    ]
+  }
+]
