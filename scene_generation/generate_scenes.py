@@ -59,7 +59,7 @@ class Scene_generator:
             primary_sound['duration'] = int(primary_sound_audiosegment.duration_seconds * 1000)
             primary_sound['rms'] = primary_sound_audiosegment.rms
 
-    def generate_infos_section(self):
+    def generate_info_section(self):
         return {
                 "name": "AQA-V0.1",
                 "license": "Creative Commons Attribution (CC-BY 4.0)",
@@ -130,7 +130,7 @@ class Scene_generator:
             scene_index += 1
 
         return {
-            "infos" : self.generate_infos_section(),
+            "info" : self.generate_info_section(),
             "scenes": scenes
         }
 
