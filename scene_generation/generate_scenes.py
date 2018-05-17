@@ -142,7 +142,7 @@ def main():
     scenes = scene_generator.generate_scenes_definition()
     elapsed = time.time() - startTime
 
-    print("Generated %d scenes in %d secs" % (len(scenes), elapsed))
+    print("Generated %d scenes in %d secs" % (len(scenes['scenes']), elapsed))
 
     with open('../output/testScenes.json', 'w') as outputFile:
         ujson.dump(scenes, outputFile)
