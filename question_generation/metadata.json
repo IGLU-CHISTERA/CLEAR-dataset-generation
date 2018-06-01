@@ -5,17 +5,20 @@
     "ObjectSet": null,
     "Integer": null,
     "Bool": null,
-    "Type": [
-      "instrument", "speech", "ambiant"
+    "Position": [
+      "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "last"
     ],
     "Loudness": [
       "quiet", "normal", "loud"
     ],
+    "Pitch": [
+        "acute", "deep"
+    ],
+    "Instrument": [
+      "brass", "flute", "guitar", "keyboard", "mallet", "reed", "string", "vocal"
+    ],
     "Relation": [
       "before", "after"
-    ],
-    "Position": [
-      "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "last"
     ]
   },
   "functions": [
@@ -33,9 +36,23 @@
       "terminal": false
     },
     {
-      "name": "filter_type",
+      "name": "filter_instrument",
       "inputs": ["ObjectSet"],
-      "side_inputs": ["Type"],
+      "side_inputs": ["Instrument"],
+      "output": "ObjectSet",
+      "terminal": false
+    },
+    {
+      "name": "filter_pitch",
+      "inputs": ["ObjectSet"],
+      "side_inputs": ["Pitch"],
+      "output": "ObjectSet",
+      "terminal": false
+    },
+    {
+      "name": "filter_position",
+      "inputs": ["ObjectSet"],
+      "side_inputs": ["Position"],
       "output": "ObjectSet",
       "terminal": false
     },
@@ -78,15 +95,21 @@
       "terminal": true
     },
     {
-      "name": "query_type",
+      "name": "query_instrument",
       "inputs": ["Object"],
-      "output": "Type",
+      "output": "Instrument",
       "terminal": true
     },
     {
       "name": "query_position",
       "inputs": ["Object"],
       "output": "Position",
+      "terminal": true
+    },
+    {
+      "name": "query_pitch",
+      "inputs": ["Object"],
+      "output": "Pitch",
       "terminal": true
     },
     {
@@ -102,8 +125,20 @@
       "terminal": true
     },
     {
-      "name": "equal_type",
-      "inputs": ["Type", "Type"],
+      "name": "equal_instrument",
+      "inputs": ["Instrument", "Instrument"],
+      "output": "Bool",
+      "terminal": true
+    },
+    {
+      "name": "equal_pitch",
+      "inputs": ["Pitch", "Pitch"],
+      "output": "Bool",
+      "terminal": true
+    },
+    {
+      "name": "equal_position",
+      "inputs": ["Position", "Position"],
       "output": "Bool",
       "terminal": true
     },
@@ -138,7 +173,19 @@
       "terminal": false
     },
     {
-      "name": "same_type",
+      "name": "same_instrument",
+      "inputs": ["Object"],
+      "output": "ObjectSet",
+      "terminal": false
+    },
+    {
+      "name": "same_pitch",
+      "inputs": ["Object"],
+      "output": "ObjectSet",
+      "terminal": false
+    },
+    {
+      "name": "same_position",
       "inputs": ["Object"],
       "output": "ObjectSet",
       "terminal": false
@@ -146,7 +193,7 @@
     {
       "name": "filter",
       "inputs": ["ObjectSet"],
-      "side_inputs": ["Type", "Loudness", "Position"],
+      "side_inputs": ["Instrument", "Pitch", "Loudness", "Position"],
       "output": "ObjectSet",
       "terminal": false,
       "template_only": true
@@ -154,7 +201,7 @@
     {
       "name": "filter_unique",
       "inputs": ["ObjectSet"],
-      "side_inputs": ["Type", "Loudness", "Position"],
+      "side_inputs": ["Instrument", "Pitch", "Loudness", "Position"],
       "output": "Object",
       "terminal": false,
       "template_only": true
@@ -162,7 +209,7 @@
     {
       "name": "filter_count",
       "inputs": ["ObjectSet"],
-      "side_inputs": ["Type", "Loudness", "Position"],
+      "side_inputs": ["Instrument", "Pitch", "Loudness", "Position"],
       "output": "Integer",
       "terminal": true,
       "template_only": true
@@ -170,7 +217,7 @@
     {
       "name": "filter_exist",
       "inputs": ["ObjectSet"],
-      "side_inputs": ["Type", "Loudness", "Position"],
+      "side_inputs": ["Instrument", "Pitch", "Loudness", "Position"],
       "output": "Bool",
       "terminal": true,
       "template_only": true
@@ -178,7 +225,7 @@
     {
       "name": "relate_filter",
       "inputs": ["Object"],
-      "side_inputs": ["Relation", "Type", "Loudness", "Position"],
+      "side_inputs": ["Relation", "Instrument", "Pitch", "Loudness", "Position"],
       "output": "ObjectSet",
       "terminal": false,
       "template_only": true
@@ -186,7 +233,7 @@
     {
       "name": "relate_filter_unique",
       "inputs": ["Object"],
-      "side_inputs": ["Relation", "Type", "Loudness", "Position"],
+      "side_inputs": ["Relation", "Instrument", "Pitch", "Loudness", "Position"],
       "output": "Object",
       "terminal": false,
       "template_only": true
@@ -194,7 +241,7 @@
     {
       "name": "relate_filter_count",
       "inputs": ["Object"],
-      "side_inputs": ["Relation", "Type", "Loudness", "Position"],
+      "side_inputs": ["Relation", "Instrument", "Pitch", "Loudness", "Position"],
       "output": "Integer",
       "terminal": false,
       "template_only": true
@@ -202,7 +249,7 @@
     {
       "name": "relate_filter_exist",
       "inputs": ["Object"],
-      "side_inputs": ["Relation", "Type", "Loudness", "Position"],
+      "side_inputs": ["Relation", "Instrument", "Pitch", "Loudness", "Position"],
       "output": "Bool",
       "terminal": false,
       "template_only": true
