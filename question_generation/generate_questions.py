@@ -291,8 +291,8 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
         v = state['vals'].get(p)
         if v is not None:
           skip = False
-          if p_type == 'Shape' and v != 'thing': skip = True        # FIXME : Hardcoded stuff here
-          if p_type != 'Shape' and v != '': skip = True
+          if p_type == 'instrument' and v != 'thing': skip = True        # FIXME : Hardcoded stuff here
+          if p_type != 'instrument' and v != '': skip = True
           if skip:
             if verbose:
               print('skipping due to NULL constraint')
