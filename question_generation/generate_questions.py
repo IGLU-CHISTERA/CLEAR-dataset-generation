@@ -101,10 +101,7 @@ def precompute_filter_options(scene_struct, metadata):
   # and values are lists of object idxs that match the filter criterion
   attribute_map = {}
 
-  if metadata['dataset'] == 'CLEVR-v1.0':     # FIXME : Hardcoded dataset name
-    attr_keys = ['type', 'loudness', 'position']    # FIXME : The tuple structure assume the attributes. Should be loaded from metadata
-  else:
-    assert False, 'Unrecognized dataset'
+  attr_keys = types_from_metadata(metadata['types'])
 
   # Precompute masks
   masks = []
@@ -115,8 +112,7 @@ def precompute_filter_options(scene_struct, metadata):
     masks.append(mask)
 
   for object_idx, obj in enumerate(scene_struct['objects']):
-    if metadata['dataset'] == 'CLEVR-v1.0':     # FIXME : Hardcoded dataset name
-      keys = [tuple(obj[k] for k in attr_keys)]
+    keys = [tuple(obj[k] for k in attr_keys)]
 
     for mask in masks:
       for key in keys:
@@ -151,10 +147,7 @@ def find_filter_options(object_idxs, scene_struct, metadata):
 def add_empty_filter_options(attribute_map, metadata, num_to_add):
   # Add some filtering criterion that do NOT correspond to objects
 
-  if metadata['dataset'] == 'CLEVR-v1.0':         # FIXME : Hardcoded dataset name
-    attr_keys = ['Type', 'Loudness', 'Position']    # FIXME : Hardcoded attributes
-  else:
-    assert False, 'Unrecognized dataset'
+  attr_keys = types_from_metadata(metadata['types'], capitalized=True)    # FIXME : We capitalize because the key in metadata are capitalized. They probably shouldn't be
   
   attr_vals = [metadata['types'][t] + [None] for t in attr_keys]
   if '_filter_options' in metadata:
@@ -209,7 +202,7 @@ def node_shallow_copy(node):
     new_node['side_inputs'] = node['side_inputs']
   return new_node
 
-
+# TODO : Adapt other_heuristic
 def other_heuristic(text, param_vals):
   """
   Post-processing heuristic to handle the word "other"
@@ -243,6 +236,16 @@ def other_heuristic(text, param_vals):
     if ' another ' in text:
       text = text.replace(' another ', ' a ')
   return text
+
+
+def types_from_metadata(metadata_types, capitalized=False):
+  # FIXME : Those types should probably not be in the metadata in the first place
+  keys = list(sorted(set(metadata_types.keys()) - {'Object', 'ObjectSet', 'Integer', 'Bool', 'Relation'}))
+
+  if not capitalized:
+    keys = [k.lower() for k in keys]
+
+  return keys
 
 
 def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
@@ -385,9 +388,10 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
       random.shuffle(filter_option_keys)
       for k in filter_option_keys:
         new_nodes = []
-        cur_next_vals = {k: v for k, v in state['vals'].items()}
+        cur_next_vals = {l: v for l, v in state['vals'].items()}
         next_input = state['input_map'][next_node['inputs'][0]]
         filter_side_inputs = next_node['side_inputs']
+
         if next_node['type'].startswith('relate'):
           param_name = next_node['side_inputs'][0] # First one should be relate
           filter_side_inputs = next_node['side_inputs'][1:]
@@ -414,8 +418,8 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
             cur_next_vals[param_name] = param_val
             next_input = len(state['nodes']) + len(new_nodes) - 1
           elif param_val is None:
-            if metadata['dataset'] == 'CLEVR-v1.0' and param_type == 'Shape':       # FIXME : Hardcoded dataset name
-              param_val = 'thing'
+            if param_type == 'instrument':       # FIXME : Hardcoded 'main' attribute. Could be specified in metadata
+              param_val = 'thing'               # FIXME : Use another name. sound ?
             else:
               param_val = ''
             cur_next_vals[param_name] = param_val
@@ -536,16 +540,12 @@ def replace_optionals(s):
 
 
 def position_from_index(idx, nb_obj):
+  # TODO : Do not attribute the "last" position. Attribute the correct appelation and substitute it with last during the question generation process.
   if idx + 1 == nb_obj:
     return "last"
-  elif idx == 0:
-    return "first"
-  elif idx == 1:
-    return "second"
-  elif idx == 2:
-    return "third"
   else:
-    return "More than Third"
+    idx_to_position = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh"]
+    return idx_to_position[idx]
 
 
 def global_position_from_index(idx, nb_obj):
@@ -563,19 +563,39 @@ def global_position_from_index(idx, nb_obj):
     return "end"
 
 
+def pitch_to_str(pitch_val):
+  if pitch_val > 500:
+    return 'acute'
+  else:
+    return 'deep'
+
+def get_loudness(idx):
+  if idx == 0:
+    return "quiet"
+  elif idx % 2 == 0:
+    return "normal"
+  else:
+    return "loud"
+
+# FIXME : This should probably be in the scene generation process ?
 def augment_scene(scene):
   nb_obj = len(scene['objects'])
   for i, object in enumerate(scene['objects']):
     object['position'] = position_from_index(i, nb_obj)
     object['global_position'] = global_position_from_index(i, nb_obj)
+    object['pitch_val'] = object['pitch']
+    object['pitch'] = pitch_to_str(object['pitch_val'])
+    object['loudness'] = get_loudness(i)
+
+    # FIXME : This is hackish.. Doing this because im running out of time
+    object['instrument_str'] = object['instrument']
+    object['instrument'] = object['instrument_family']
+
 
 
 def main(args):
   with open(args.metadata_file, 'r') as f:
     metadata = json.load(f)
-    dataset = metadata['dataset']
-    if dataset != 'CLEVR-v1.0':       # FIXME : Hardcoded dataset name
-      raise ValueError('Unrecognized dataset "%s"' % dataset)
   
   functions_by_name = {}
   for f in metadata['functions']:
@@ -613,8 +633,7 @@ def main(args):
       if final_dtype == 'Bool':
         answers = [True, False]
       if final_dtype == 'Integer':
-        if metadata['dataset'] == 'CLEVR-v1.0':     # FIXME : Hardcoded dataset name
-          answers = list(range(0, 11))              # TODO : Max integer anser should be loaded from config
+        answers = list(range(0, 11))              # FIXME : Max integer anser should be loaded from config
       template_answer_counts[key[:2]] = {}
       for a in answers:
         template_answer_counts[key[:2]][a] = 0      # FIXME/INVESTIGATE : What happend when the answers is Null/None ? This will happen with Object and ObjectSet
