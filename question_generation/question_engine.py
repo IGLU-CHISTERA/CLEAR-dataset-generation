@@ -152,8 +152,9 @@ def greater_than_handler(scene_struct, inputs, side_inputs):
 execute_handlers = {                              # FIXME : The handlers are related to the attributes. This should not be hardcoded. Should be read from metadata
   'scene': scene_handler,
   'filter_loudness': make_filter_handler('loudness'),
-  'filter_type': make_filter_handler('type'),
+  'filter_instrument': make_filter_handler('instrument'),
   'filter_position': make_filter_handler('position'),
+  'filter_pitch': make_filter_handler('pitch'),
   'filter_objectcategory': make_filter_handler('objectcategory'),         # FIXKE : Doesn't seem to have an objectcategory attribute in the scene
   'unique': unique_handler,
   'relate': relate_handler,
@@ -161,17 +162,22 @@ execute_handlers = {                              # FIXME : The handlers are rel
   'intersect': intersect_handler,
   'count': count_handler,
   'query_loudness': make_query_handler('loudness'),
-  'query_type': make_query_handler('type'),
+  'query_instrument': make_query_handler('instrument'),
   'query_position': make_query_handler('position'),
+  'query_pitch': make_query_handler('pitch'),
   'exist': exist_handler,
   'equal_loudness': equal_handler,
-  'equal_type': equal_handler,
+  'equal_instrument': equal_handler,
+  'equal_position': equal_handler,
+  'equal_pitch': equal_handler,
   'equal_integer': equal_handler,
   'equal_object': equal_handler,
   'less_than': less_than_handler,
   'greater_than': greater_than_handler,
   'same_loudness': make_same_attr_handler('loudness'),
-  'same_type': make_same_attr_handler('type')
+  'same_instrument': make_same_attr_handler('instrument'),
+  'same_pitch': make_same_attr_handler('pitch'),
+  'same_position': make_same_attr_handler('position')
 }
 
 
@@ -197,7 +203,7 @@ def answer_question(question, metadata, scene_struct, all_outputs=False,
       assert node_type in execute_handlers, msg
       handler = execute_handlers[node_type]
       node_inputs = [node_outputs[idx] for idx in node['inputs']]
-      side_inputs = node.get('side_inputs', [])                     # FIXME : Side_inputs key
+      side_inputs = node.get('side_inputs', [])
       node_output = handler(scene_struct, node_inputs, side_inputs)
       if cache_outputs:
         node['_output'] = node_output
