@@ -126,29 +126,31 @@ def precompute_filter_options(scene_struct, attr_keys):
           attribute_map[masked_key] = set()
         attribute_map[masked_key].add(object_idx)
 
-  scene_struct['_filter_options'] = attribute_map
+  if not '_filter_options' in scene_struct:
+    scene_struct['_filter_options'] = {}
+
+  scene_struct['_filter_options'][tuple(attr_keys)] = attribute_map
 
 
 def find_filter_options(object_idxs, scene_struct, attr):
   # Keys are tuples (size, color, shape, material) (where some may be None)
   # and values are lists of object idxs that match the filter criterion
+  filter_key = tuple(attr)
 
-  if '_filter_options' not in scene_struct:
+  if '_filter_options' not in scene_struct or filter_key not in scene_struct['_filter_options']:
     precompute_filter_options(scene_struct, attr)
 
   attribute_map = {}
   object_idxs = set(object_idxs)
-  for k, vs in scene_struct['_filter_options'].items():
+  for k, vs in scene_struct['_filter_options'][filter_key].items():
     attribute_map[k] = sorted(list(object_idxs & vs))
   return attribute_map
 
 
-def add_empty_filter_options(attribute_map, attr_keys, num_to_add):
+def add_empty_filter_options(attribute_map, metadata, attr_keys, num_to_add):
   # Add some filtering criterion that do NOT correspond to objects
   
   attr_vals = [metadata['attributes'][t]['values'] + [None] for t in attr_keys]
-  if '_filter_options' in metadata:
-    attr_vals = metadata['_filter_options']
 
   target_size = len(attribute_map) + num_to_add
   while len(attribute_map) < target_size:
@@ -160,7 +162,9 @@ def add_empty_filter_options(attribute_map, attr_keys, num_to_add):
 def find_relate_filter_options(object_idx, scene_struct, attr,
     unique=False, include_zero=False, trivial_frac=0.1):
   options = {}
-  if '_filter_options' not in scene_struct:
+  filter_key = tuple(attr)
+
+  if '_filter_options' not in scene_struct or filter_key not in scene_struct['_filter_options']:
     precompute_filter_options(scene_struct, attr)
 
   # TODO/VERIFY : Will probably have to change the definition of "trivial"
@@ -170,7 +174,7 @@ def find_relate_filter_options(object_idx, scene_struct, attr,
   trivial_options = {}
   for relationship in scene_struct['relationships']:
     related = set(scene_struct['relationships'][relationship][object_idx])
-    for filters, filtered in scene_struct['_filter_options'].items():
+    for filters, filtered in scene_struct['_filter_options'][filter_key].items():
       intersection = related & filtered
       trivial = (intersection == filtered)
       if unique and len(intersection) != 1: continue
@@ -403,7 +407,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
           elif next_node['type'] == 'filter_count' or next_node['type'] == 'filter':
             # For filter_count add nulls equal to the number of singletons
             num_to_add = sum(1 for k, v in filter_options.items() if len(v) == 1)
-          add_empty_filter_options(filter_options, attributes_in_node, num_to_add)
+          add_empty_filter_options(filter_options, metadata, attributes_in_node, num_to_add)
 
       filter_option_keys = list(filter_options.keys())
       random.shuffle(filter_option_keys)
