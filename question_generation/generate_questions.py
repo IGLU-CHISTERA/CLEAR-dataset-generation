@@ -379,7 +379,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
     }
     if next_node['type'] in special_nodes:
 
-      attributes_in_node = [param_name_to_attribute[i] for i in next_node['side_inputs']]
+      attributes_in_node = sorted([param_name_to_attribute[i] for i in next_node['side_inputs']])
       # FIXME : Relation should probably be stored elsewhere
       if 'relation' in attributes_in_node:
         attributes_in_node.remove('relation')
@@ -415,7 +415,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
         new_nodes = []
         cur_next_vals = {l: v for l, v in state['vals'].items()}
         next_input = state['input_map'][next_node['inputs'][0]]
-        filter_side_inputs = next_node['side_inputs']
+        filter_side_inputs = sorted(next_node['side_inputs'], key=lambda param: param_name_to_attribute[param])
 
         if next_node['type'].startswith('relate'):
           param_name = next_node['side_inputs'][0] # First one should be relate
