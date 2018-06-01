@@ -1,5 +1,6 @@
 # TODO : Add author mention
 # TODO : Change heading comments
+# FIXME : A lot of info are retrieved from metadata. They don't change for each instantiations. We should only retrieve them once instead of everytime
 
 # Copyright 2017-present, Facebook, Inc.
 # All rights reserved.
@@ -101,7 +102,7 @@ def precompute_filter_options(scene_struct, metadata):
   # and values are lists of object idxs that match the filter criterion
   attribute_map = {}
 
-  attr_keys = types_from_metadata(metadata)
+  attr_keys = attributes_from_metadata(metadata)
 
   # Precompute masks
   masks = []
@@ -148,7 +149,7 @@ def add_empty_filter_options(attribute_map, metadata, num_to_add):
   # Add some filtering criterion that do NOT correspond to objects
 
   # FIXME : Once relation is removed from the types attribute, we can use it directly insted of passing through the cleaning function
-  attr_keys = types_from_metadata(metadata)
+  attr_keys = attributes_from_metadata(metadata)
   
   attr_vals = [metadata['attributes'][t]['values'] + [None] for t in attr_keys]
   if '_filter_options' in metadata:
@@ -239,7 +240,7 @@ def other_heuristic(text, param_vals):
   return text
 
 
-def types_from_metadata(metadata):
+def attributes_from_metadata(metadata):
   # FIXME : the order of the keys shouldn't matter (Or it should be dynamic instead of specifying side_inputs in alphabetic order)
   keys = sorted(list(metadata['attributes'].keys()))
   # FIXME : Relation should probably not be in metadata attributes
