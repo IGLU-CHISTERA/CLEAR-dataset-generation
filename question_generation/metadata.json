@@ -1,35 +1,31 @@
 {
   "dataset": "CLEVR-v1.0",
-  "types": {
-    "Object": null,
-    "ObjectSet": null,
-    "Integer": null,
-    "Bool": null,
-    "Position": {
+  "attributes": {
+    "position": {
       "placeholder" : "<P>",
       "values" : [
         "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "last"
       ]
     },
-    "Loudness": {
+    "loudness": {
       "placeholder" : "<L>",
       "values" : [
         "quiet", "normal", "loud"
       ]
     },
-    "Pitch": {
+    "pitch": {
       "placeholder" : "<H>",
       "values" : [
         "acute", "deep"
       ]
     },
-    "Instrument": {
+    "instrument": {
       "placeholder" : "<I>",
       "values" : [
         "brass", "flute", "guitar", "keyboard", "mallet", "reed", "string", "vocal"
       ]
     },
-    "Relation": {
+    "relation": {
       "placeholder" : "<R>",
       "values" : [
         "before", "after"
@@ -40,232 +36,232 @@
     {
       "name": "scene",
       "inputs": [],
-      "output": "ObjectSet",
+      "output": "object_set",
       "terminal": false
     },
     {
       "name": "filter_loudness",
-      "inputs": ["ObjectSet"],
-      "side_inputs": ["Loudness"],
-      "output": "ObjectSet",
+      "inputs": ["object_set"],
+      "side_inputs": ["loudness"],
+      "output": "object_set",
       "terminal": false
     },
     {
       "name": "filter_instrument",
-      "inputs": ["ObjectSet"],
-      "side_inputs": ["Instrument"],
-      "output": "ObjectSet",
+      "inputs": ["object_set"],
+      "side_inputs": ["instrument"],
+      "output": "object_set",
       "terminal": false
     },
     {
       "name": "filter_pitch",
-      "inputs": ["ObjectSet"],
-      "side_inputs": ["Pitch"],
-      "output": "ObjectSet",
+      "inputs": ["object_set"],
+      "side_inputs": ["pitch"],
+      "output": "object_set",
       "terminal": false
     },
     {
       "name": "filter_position",
-      "inputs": ["ObjectSet"],
-      "side_inputs": ["Position"],
-      "output": "ObjectSet",
+      "inputs": ["object_set"],
+      "side_inputs": ["position"],
+      "output": "object_set",
       "terminal": false
     },
     {
       "name": "unique",
-      "inputs": ["ObjectSet"],
-      "output": "Object",
+      "inputs": ["object_set"],
+      "output": "object",
       "terminal": false,
       "properties": []
     },
     {
       "name": "relate",
-      "inputs": ["Object"],
-      "side_inputs": ["Relation"],
-      "output": "ObjectSet",
+      "inputs": ["object"],
+      "side_inputs": ["relation"],
+      "output": "object_set",
       "terminal": false
     },
     {
       "name": "union",
-      "inputs": ["ObjectSet", "ObjectSet"],
-      "output": "ObjectSet",
+      "inputs": ["object_set", "object_set"],
+      "output": "object_set",
       "terminal": false
     },
     {
       "name": "intersect",
-      "inputs": ["ObjectSet", "ObjectSet"],
-      "output": "ObjectSet",
+      "inputs": ["object_set", "object_set"],
+      "output": "object_set",
       "terminal": false
     },
     {
       "name": "count",
-      "inputs": ["ObjectSet"],
-      "output": "Integer",
+      "inputs": ["object_set"],
+      "output": "integer",
       "terminal": true
     },
     {
       "name": "query_loudness",
-      "inputs": ["Object"],
-      "output": "Loudness",
+      "inputs": ["object"],
+      "output": "loudness",
       "terminal": true
     },
     {
       "name": "query_instrument",
-      "inputs": ["Object"],
-      "output": "Instrument",
+      "inputs": ["object"],
+      "output": "instrument",
       "terminal": true
     },
     {
       "name": "query_position",
-      "inputs": ["Object"],
-      "output": "Position",
+      "inputs": ["object"],
+      "output": "position",
       "terminal": true
     },
     {
       "name": "query_pitch",
-      "inputs": ["Object"],
-      "output": "Pitch",
+      "inputs": ["object"],
+      "output": "pitch",
       "terminal": true
     },
     {
       "name": "exist",
-      "inputs": ["ObjectSet"],
-      "output": "Bool",
+      "inputs": ["object_set"],
+      "output": "bool",
       "terminal": true
     },
     {
       "name": "equal_loudness",
-      "inputs": ["Loudness", "Loudness"],
-      "output": "Bool",
+      "inputs": ["loudness", "loudness"],
+      "output": "bool",
       "terminal": true
     },
     {
       "name": "equal_instrument",
-      "inputs": ["Instrument", "Instrument"],
-      "output": "Bool",
+      "inputs": ["instrument", "instrument"],
+      "output": "bool",
       "terminal": true
     },
     {
       "name": "equal_pitch",
-      "inputs": ["Pitch", "Pitch"],
-      "output": "Bool",
+      "inputs": ["pitch", "pitch"],
+      "output": "bool",
       "terminal": true
     },
     {
       "name": "equal_position",
-      "inputs": ["Position", "Position"],
-      "output": "Bool",
+      "inputs": ["position", "position"],
+      "output": "bool",
       "terminal": true
     },
     {
       "name": "equal_integer",
-      "inputs": ["Integer", "Integer"],
-      "output": "Bool",
+      "inputs": ["integer", "integer"],
+      "output": "bool",
       "terminal": true
     },
     {
       "name": "less_than",
-      "inputs": ["Integer", "Integer"],
-      "output": "Bool",
+      "inputs": ["integer", "integer"],
+      "output": "bool",
       "terminal": true
     },
     {
       "name": "greater_than",
-      "inputs": ["Integer", "Integer"],
-      "output": "Bool",
+      "inputs": ["integer", "integer"],
+      "output": "bool",
       "terminal": true
     },
     {
       "name": "equal_object",
-      "inputs": ["Object", "Object"],
-      "output": "Bool",
+      "inputs": ["object", "object"],
+      "output": "bool",
       "terminal": true
     },
     {
       "name": "same_loudness",
-      "inputs": ["Object"],
-      "output": "ObjectSet",
+      "inputs": ["object"],
+      "output": "object_set",
       "terminal": false
     },
     {
       "name": "same_instrument",
-      "inputs": ["Object"],
-      "output": "ObjectSet",
+      "inputs": ["object"],
+      "output": "object_set",
       "terminal": false
     },
     {
       "name": "same_pitch",
-      "inputs": ["Object"],
-      "output": "ObjectSet",
+      "inputs": ["object"],
+      "output": "object_set",
       "terminal": false
     },
     {
       "name": "same_position",
-      "inputs": ["Object"],
-      "output": "ObjectSet",
+      "inputs": ["object"],
+      "output": "object_set",
       "terminal": false
     },
     {
       "name": "filter",
-      "inputs": ["ObjectSet"],
-      "side_inputs": ["Instrument", "Pitch", "Loudness", "Position"],
-      "output": "ObjectSet",
+      "inputs": ["object_set"],
+      "side_inputs": ["instrument", "pitch", "loudness", "position"],
+      "output": "object_set",
       "terminal": false,
       "template_only": true
     },
     {
       "name": "filter_unique",
-      "inputs": ["ObjectSet"],
-      "side_inputs": ["Instrument", "Pitch", "Loudness", "Position"],
-      "output": "Object",
+      "inputs": ["object_set"],
+      "side_inputs": ["instrument", "pitch", "loudness", "position"],
+      "output": "object",
       "terminal": false,
       "template_only": true
     },
     {
       "name": "filter_count",
-      "inputs": ["ObjectSet"],
-      "side_inputs": ["Instrument", "Pitch", "Loudness", "Position"],
-      "output": "Integer",
+      "inputs": ["object_set"],
+      "side_inputs": ["instrument", "pitch", "loudness", "position"],
+      "output": "integer",
       "terminal": true,
       "template_only": true
     },
     {
       "name": "filter_exist",
-      "inputs": ["ObjectSet"],
-      "side_inputs": ["Instrument", "Pitch", "Loudness", "Position"],
-      "output": "Bool",
+      "inputs": ["object_set"],
+      "side_inputs": ["instrument", "pitch", "loudness", "position"],
+      "output": "bool",
       "terminal": true,
       "template_only": true
     },
     {
       "name": "relate_filter",
-      "inputs": ["Object"],
-      "side_inputs": ["Relation", "Instrument", "Pitch", "Loudness", "Position"],
-      "output": "ObjectSet",
+      "inputs": ["object"],
+      "side_inputs": ["relation", "instrument", "pitch", "loudness", "position"],
+      "output": "object_set",
       "terminal": false,
       "template_only": true
     },
     {
       "name": "relate_filter_unique",
-      "inputs": ["Object"],
-      "side_inputs": ["Relation", "Instrument", "Pitch", "Loudness", "Position"],
-      "output": "Object",
+      "inputs": ["object"],
+      "side_inputs": ["relation", "instrument", "pitch", "loudness", "position"],
+      "output": "object",
       "terminal": false,
       "template_only": true
     },
     {
       "name": "relate_filter_count",
-      "inputs": ["Object"],
-      "side_inputs": ["Relation", "Instrument", "Pitch", "Loudness", "Position"],
-      "output": "Integer",
+      "inputs": ["object"],
+      "side_inputs": ["relation", "instrument", "pitch", "loudness", "position"],
+      "output": "integer",
       "terminal": false,
       "template_only": true
     },
     {
       "name": "relate_filter_exist",
-      "inputs": ["Object"],
-      "side_inputs": ["Relation", "Instrument", "Pitch", "Loudness", "Position"],
-      "output": "Bool",
+      "inputs": ["object"],
+      "side_inputs": ["relation", "instrument", "pitch", "loudness", "position"],
+      "output": "bool",
       "terminal": false,
       "template_only": true
     }

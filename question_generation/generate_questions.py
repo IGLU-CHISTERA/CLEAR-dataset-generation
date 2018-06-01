@@ -101,7 +101,7 @@ def precompute_filter_options(scene_struct, metadata):
   # and values are lists of object idxs that match the filter criterion
   attribute_map = {}
 
-  attr_keys = types_from_metadata(metadata['types'])
+  attr_keys = types_from_metadata(metadata)
 
   # Precompute masks
   masks = []
@@ -147,9 +147,10 @@ def find_filter_options(object_idxs, scene_struct, metadata):
 def add_empty_filter_options(attribute_map, metadata, num_to_add):
   # Add some filtering criterion that do NOT correspond to objects
 
-  attr_keys = types_from_metadata(metadata['types'], capitalized=True)    # FIXME : We capitalize because the key in metadata are capitalized. They probably shouldn't be
+  # FIXME : Once relation is removed from the types attribute, we can use it directly insted of passing through the cleaning function
+  attr_keys = types_from_metadata(metadata)
   
-  attr_vals = [metadata['types'][t]['values'] + [None] for t in attr_keys]
+  attr_vals = [metadata['attributes'][t]['values'] + [None] for t in attr_keys]
   if '_filter_options' in metadata:
     attr_vals = metadata['_filter_options']
 
@@ -238,20 +239,33 @@ def other_heuristic(text, param_vals):
   return text
 
 
-def types_from_metadata(metadata_types, capitalized=False):
-  # FIXME : Those types should probably not be in the metadata in the first place
-  keys = list(sorted(set(metadata_types.keys()) - {'Object', 'ObjectSet', 'Integer', 'Bool', 'Relation'}))
-
-  if not capitalized:
-    keys = [k.lower() for k in keys]
-
+def types_from_metadata(metadata):
+  # FIXME : the order of the keys shouldn't matter (Or it should be dynamic instead of specifying side_inputs in alphabetic order)
+  keys = sorted(list(metadata['attributes'].keys()))
+  # FIXME : Relation should probably not be in metadata attributes
+  keys.remove('relation')
   return keys
+
+
+def placeholders_to_type(template_text,metadata):
+  correspondences = {}
+  # Extracting the placeholders from the text
+  reg = re.compile('<([a-zA-Z])(\d)?>')
+  matches = re.findall(reg,template_text)
+
+  # FIXME : By iterating over each types, we also iterate over relation. Do we want this ?
+  type_correspondences = {metadata['attributes'][t]['placeholder']: t for t in metadata['attributes']}
+
+  for placeholder in matches:
+    correspondences['<%s%s>' % (placeholder[0], placeholder[1])] = type_correspondences['<%s>' % placeholder[0]]
+
+  return correspondences
 
 
 def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
                               synonyms, max_instances=None, verbose=False):
 
-  param_name_to_type = {p['name']: p['type'] for p in template['params']} 
+  param_name_to_type = placeholders_to_type(template['text'][0], metadata)
 
   initial_state = {
     'nodes': [node_shallow_copy(template['nodes'][0])],
@@ -401,7 +415,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
           param_name = next_node['side_inputs'][0] # First one should be relate
           filter_side_inputs = next_node['side_inputs'][1:]
           param_type = param_name_to_type[param_name]
-          assert param_type == 'Relation'
+          assert param_type == 'relation'
           param_val = k[0]
           k = k[1]
           new_nodes.append({
@@ -460,7 +474,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
       # instantiations.
       param_name = next_node['side_inputs'][0]
       param_type = param_name_to_type[param_name]
-      param_vals = metadata['types'][param_type]['values'][:]
+      param_vals = metadata['attributes'][param_type]['values'][:]
       random.shuffle(param_vals)
       for val in param_vals:
         input_map = {k: v for k, v in state['input_map'].items()}
@@ -634,11 +648,14 @@ def main(args):
       template_counts[key[:2]] = 0
       final_node_type = template['nodes'][-1]['type']
       final_dtype = node_type_to_dtype[final_node_type]
-      answers = metadata['types'][final_dtype]['values']
-      if final_dtype == 'Bool':
+
+      if final_dtype == 'bool':
         answers = [True, False]
-      if final_dtype == 'Integer':
+      elif final_dtype == 'integer':
         answers = list(range(0, 11))              # FIXME : Max integer anser should be loaded from config
+      else:
+        answers = metadata['attributes'][final_dtype]['values']
+
       template_answer_counts[key[:2]] = {}
       for a in answers:
         template_answer_counts[key[:2]][a] = 0      # FIXME/INVESTIGATE : What happend when the answers is Null/None ? This will happen with Object and ObjectSet
