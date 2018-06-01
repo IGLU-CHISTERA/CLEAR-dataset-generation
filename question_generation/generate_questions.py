@@ -97,12 +97,10 @@ parser.add_argument('--profile', action='store_true',
 # args = parser.parse_args()
 
 
-def precompute_filter_options(scene_struct, metadata):
+def precompute_filter_options(scene_struct, attr_keys):
   # Keys are tuples (size, color, shape, material) (where some may be None)
   # and values are lists of object idxs that match the filter criterion
   attribute_map = {}
-
-  attr_keys = attributes_from_metadata(metadata)
 
   # Precompute masks
   masks = []
@@ -131,12 +129,12 @@ def precompute_filter_options(scene_struct, metadata):
   scene_struct['_filter_options'] = attribute_map
 
 
-def find_filter_options(object_idxs, scene_struct, metadata):
+def find_filter_options(object_idxs, scene_struct, attr):
   # Keys are tuples (size, color, shape, material) (where some may be None)
   # and values are lists of object idxs that match the filter criterion
 
   if '_filter_options' not in scene_struct:
-    precompute_filter_options(scene_struct, metadata)
+    precompute_filter_options(scene_struct, attr)
 
   attribute_map = {}
   object_idxs = set(object_idxs)
@@ -145,11 +143,8 @@ def find_filter_options(object_idxs, scene_struct, metadata):
   return attribute_map
 
 
-def add_empty_filter_options(attribute_map, metadata, num_to_add):
+def add_empty_filter_options(attribute_map, attr_keys, num_to_add):
   # Add some filtering criterion that do NOT correspond to objects
-
-  # FIXME : Once relation is removed from the types attribute, we can use it directly insted of passing through the cleaning function
-  attr_keys = attributes_from_metadata(metadata)
   
   attr_vals = [metadata['attributes'][t]['values'] + [None] for t in attr_keys]
   if '_filter_options' in metadata:
@@ -162,11 +157,11 @@ def add_empty_filter_options(attribute_map, metadata, num_to_add):
       attribute_map[k] = []
 
 
-def find_relate_filter_options(object_idx, scene_struct, metadata,
+def find_relate_filter_options(object_idx, scene_struct, attr,
     unique=False, include_zero=False, trivial_frac=0.1):
   options = {}
   if '_filter_options' not in scene_struct:
-    precompute_filter_options(scene_struct, metadata)
+    precompute_filter_options(scene_struct, attr)
 
   # TODO/VERIFY : Will probably have to change the definition of "trivial"
   # TODO_ORIG: Right now this is only looking for nontrivial combinations; in some
@@ -248,17 +243,17 @@ def attributes_from_metadata(metadata):
   return keys
 
 
-def placeholders_to_type(template_text,metadata):
+def placeholders_to_attribute(template_text,metadata):
   correspondences = {}
   # Extracting the placeholders from the text
   reg = re.compile('<([a-zA-Z])(\d)?>')
   matches = re.findall(reg,template_text)
 
   # FIXME : By iterating over each types, we also iterate over relation. Do we want this ?
-  type_correspondences = {metadata['attributes'][t]['placeholder']: t for t in metadata['attributes']}
+  attribute_correspondences = {metadata['attributes'][t]['placeholder']: t for t in metadata['attributes']}
 
   for placeholder in matches:
-    correspondences['<%s%s>' % (placeholder[0], placeholder[1])] = type_correspondences['<%s>' % placeholder[0]]
+    correspondences['<%s%s>' % (placeholder[0], placeholder[1])] = attribute_correspondences['<%s>' % placeholder[0]]
 
   return correspondences
 
@@ -266,7 +261,7 @@ def placeholders_to_type(template_text,metadata):
 def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
                               synonyms, max_instances=None, verbose=False):
 
-  param_name_to_type = placeholders_to_type(template['text'][0], metadata)
+  param_name_to_attribute = placeholders_to_attribute(template['text'][0], metadata)
 
   initial_state = {
     'nodes': [node_shallow_copy(template['nodes'][0])],
@@ -302,7 +297,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
           break
       elif constraint['type'] == 'NULL':
         p = constraint['params'][0]
-        p_type = param_name_to_type[p]
+        p_type = param_name_to_attribute[p]
         v = state['vals'].get(p)
         if v is not None:
           skip = False
@@ -379,17 +374,23 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
         'relate_filter_exist',
     }
     if next_node['type'] in special_nodes:
+
+      attributes_in_node = [param_name_to_attribute[i] for i in next_node['side_inputs']]
+      # FIXME : Relation should probably be stored elsewhere
+      if 'relation' in attributes_in_node:
+        attributes_in_node.remove('relation')
+      
       if next_node['type'].startswith('relate_filter'):
         unique = (next_node['type'] == 'relate_filter_unique')
         include_zero = (next_node['type'] == 'relate_filter_count'
                         or next_node['type'] == 'relate_filter_exist')
-        filter_options = find_relate_filter_options(answer, scene_struct, metadata,
+        filter_options = find_relate_filter_options(answer, scene_struct, attributes_in_node,
                             unique=unique, include_zero=include_zero)
       else:
-        filter_options = find_filter_options(answer, scene_struct, metadata)
+        filter_options = find_filter_options(answer, scene_struct, attributes_in_node)
         if next_node['type'] == 'filter':
           # Remove null filter
-          filter_options.pop((None, None, None, None), None)
+          filter_options.pop((None,) * len(attributes_in_node), None)
         if next_node['type'] == 'filter_unique':
           # Get rid of all filter options that don't result in a single object
           filter_options = {k: v for k, v in filter_options.items()
@@ -402,7 +403,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
           elif next_node['type'] == 'filter_count' or next_node['type'] == 'filter':
             # For filter_count add nulls equal to the number of singletons
             num_to_add = sum(1 for k, v in filter_options.items() if len(v) == 1)
-          add_empty_filter_options(filter_options, metadata, num_to_add)
+          add_empty_filter_options(filter_options, attributes_in_node, num_to_add)
 
       filter_option_keys = list(filter_options.keys())
       random.shuffle(filter_option_keys)
@@ -415,7 +416,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
         if next_node['type'].startswith('relate'):
           param_name = next_node['side_inputs'][0] # First one should be relate
           filter_side_inputs = next_node['side_inputs'][1:]
-          param_type = param_name_to_type[param_name]
+          param_type = param_name_to_attribute[param_name]
           assert param_type == 'relation'
           param_val = k[0]
           k = k[1]
@@ -427,8 +428,8 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
           cur_next_vals[param_name] = param_val
           next_input = len(state['nodes']) + len(new_nodes) - 1
         for param_name, param_val in zip(filter_side_inputs, k):
-          param_type = param_name_to_type[param_name]
-          filter_type = 'filter_%s' % param_type.lower()
+          param_type = param_name_to_attribute[param_name]
+          filter_type = 'filter_%s' % param_type
           if param_val is not None:
             new_nodes.append({
               'type': filter_type,
@@ -474,7 +475,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
       # from the DFS as soon as we find the desired number of valid template
       # instantiations.
       param_name = next_node['side_inputs'][0]
-      param_type = param_name_to_type[param_name]
+      param_type = param_name_to_attribute[param_name]
       param_vals = metadata['attributes'][param_type]['values'][:]
       random.shuffle(param_vals)
       for val in param_vals:
