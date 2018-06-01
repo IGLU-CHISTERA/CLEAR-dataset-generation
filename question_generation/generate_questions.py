@@ -268,7 +268,9 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
     q = {'nodes': state['nodes']}
     outputs = qeng.answer_question(q, metadata, scene_struct, all_outputs=True)
     answer = outputs[-1]
-    if answer == '__INVALID__': continue
+    if answer == '__INVALID__':
+      if verbose: print("Skipping due to invalid answer")
+      continue
 
     # Check to make sure constraints are satisfied for the current state
     skip_state = False
@@ -339,13 +341,16 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
         degen = qeng.is_degenerate(q, metadata, scene_struct, answer=answer,
                                    verbose=verbose)
         if degen:
+          if verbose: print("Skipping, question is degenerate")
           continue
 
       answer_counts[answer] += 1
       state['answer'] = answer
       final_states.append(state)
       if max_instances is not None and len(final_states) == max_instances:
+        if verbose: print('Breaking out, we got enough instances')
         break
+      if verbose: print("Added a state to final_states")
       continue
 
     # Otherwise fetch the next node from the template
