@@ -5,21 +5,36 @@
     "ObjectSet": null,
     "Integer": null,
     "Bool": null,
-    "Position": [
-      "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "last"
-    ],
-    "Loudness": [
-      "quiet", "normal", "loud"
-    ],
-    "Pitch": [
+    "Position": {
+      "placeholder" : "<P>",
+      "values" : [
+        "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "last"
+      ]
+    },
+    "Loudness": {
+      "placeholder" : "<L>",
+      "values" : [
+        "quiet", "normal", "loud"
+      ]
+    },
+    "Pitch": {
+      "placeholder" : "<H>",
+      "values" : [
         "acute", "deep"
-    ],
-    "Instrument": [
-      "brass", "flute", "guitar", "keyboard", "mallet", "reed", "string", "vocal"
-    ],
-    "Relation": [
-      "before", "after"
-    ]
+      ]
+    },
+    "Instrument": {
+      "placeholder" : "<I>",
+      "values" : [
+        "brass", "flute", "guitar", "keyboard", "mallet", "reed", "string", "vocal"
+      ]
+    },
+    "Relation": {
+      "placeholder" : "<R>",
+      "values" : [
+        "before", "after"
+      ]
+    }
   },
   "functions": [
     {

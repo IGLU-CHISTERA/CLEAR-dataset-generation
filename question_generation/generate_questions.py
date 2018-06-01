@@ -149,7 +149,7 @@ def add_empty_filter_options(attribute_map, metadata, num_to_add):
 
   attr_keys = types_from_metadata(metadata['types'], capitalized=True)    # FIXME : We capitalize because the key in metadata are capitalized. They probably shouldn't be
   
-  attr_vals = [metadata['types'][t] + [None] for t in attr_keys]
+  attr_vals = [metadata['types'][t]['values'] + [None] for t in attr_keys]
   if '_filter_options' in metadata:
     attr_vals = metadata['_filter_options']
 
@@ -460,7 +460,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
       # instantiations.
       param_name = next_node['side_inputs'][0]
       param_type = param_name_to_type[param_name]
-      param_vals = metadata['types'][param_type][:]
+      param_vals = metadata['types'][param_type]['values'][:]
       random.shuffle(param_vals)
       for val in param_vals:
         input_map = {k: v for k, v in state['input_map'].items()}
@@ -634,7 +634,7 @@ def main(args):
       template_counts[key[:2]] = 0
       final_node_type = template['nodes'][-1]['type']
       final_dtype = node_type_to_dtype[final_node_type]
-      answers = metadata['types'][final_dtype]
+      answers = metadata['types'][final_dtype]['values']
       if final_dtype == 'Bool':
         answers = [True, False]
       if final_dtype == 'Integer':
