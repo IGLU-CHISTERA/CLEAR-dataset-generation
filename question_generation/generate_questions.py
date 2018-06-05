@@ -314,6 +314,20 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
               print(state['vals'])
             skip_state = True
             break
+      elif constraint['type'] == 'NOT_NULL':
+        p = constraint['params'][0]
+        p_type = param_name_to_attribute[p]
+        v = state['vals'].get(p)
+        if v is not None and (v == '' or v =='thing'):
+          skip = True     # FIXME : Ugly
+          if skip:
+            skip_counter(skippingCount, 'CONST_NOT_NULL')
+            if verbose:
+              print('skipping due to NOT NULL constraint')
+              print(constraint)
+              print(state['vals'])
+            skip_state = True
+            break
       elif constraint['type'] == 'OUT_NEQ':
         i, j = constraint['params']
         i = state['input_map'].get(i, None)
@@ -379,22 +393,22 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
     }
     if next_node['type'] in special_nodes:
 
-      attributes_in_node = sorted([param_name_to_attribute[i] for i in next_node['side_inputs']])
+      params_in_node = sorted([param_name_to_attribute[i] for i in next_node['side_inputs']])
       # FIXME : Relation should probably be stored elsewhere
-      if 'relation' in attributes_in_node:
-        attributes_in_node.remove('relation')
+      if 'relation' in params_in_node:
+        params_in_node.remove('relation')
       
       if next_node['type'].startswith('relate_filter'):
         unique = (next_node['type'] == 'relate_filter_unique')
         include_zero = (next_node['type'] == 'relate_filter_count'
                         or next_node['type'] == 'relate_filter_exist')
-        filter_options = find_relate_filter_options(answer, scene_struct, attributes_in_node,
+        filter_options = find_relate_filter_options(answer, scene_struct, params_in_node,
                             unique=unique, include_zero=include_zero)
       else:
-        filter_options = find_filter_options(answer, scene_struct, attributes_in_node)
+        filter_options = find_filter_options(answer, scene_struct, params_in_node)
         if next_node['type'] == 'filter':
           # Remove null filter
-          filter_options.pop((None,) * len(attributes_in_node), None)
+          filter_options.pop((None,) * len(params_in_node), None)
         if next_node['type'] == 'filter_unique':
           # Get rid of all filter options that don't result in a single object
           filter_options = {k: v for k, v in filter_options.items()
@@ -407,7 +421,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
           elif next_node['type'] == 'filter_count' or next_node['type'] == 'filter':
             # For filter_count add nulls equal to the number of singletons
             num_to_add = sum(1 for k, v in filter_options.items() if len(v) == 1)
-          add_empty_filter_options(filter_options, metadata, attributes_in_node, num_to_add)
+          add_empty_filter_options(filter_options, metadata, params_in_node, num_to_add)
 
       filter_option_keys = list(filter_options.keys())
       random.shuffle(filter_option_keys)
