@@ -432,7 +432,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
         filter_side_inputs = sorted(next_node['side_inputs'], key=lambda param: param_name_to_attribute[param])
 
         if next_node['type'].startswith('relate'):
-          param_name = next_node['side_inputs'][0] # First one should be relate
+          param_name = next_node['side_inputs'][0] # First one should be relate   # FIXME : Now that the order of the side inputs doesn't matter, the order of <R> shouldn't either
           filter_side_inputs = next_node['side_inputs'][1:]
           param_type = param_name_to_attribute[param_name]
           assert param_type == 'relation'
