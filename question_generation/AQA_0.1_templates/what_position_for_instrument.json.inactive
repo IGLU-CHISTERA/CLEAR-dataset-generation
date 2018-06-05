@@ -1,7 +1,7 @@
 [
   {
     "text": [
-      "When is <T> playing?"
+      "When is the <P> <L> <H> <I> playing?"
     ],
     "nodes": [
       {
@@ -10,8 +10,9 @@
       },
       {
         "side_inputs": [
-          "<T>",
+          "<I>",
           "<L>",
+          "<H>",
           "<P>"
         ],
         "inputs": [
@@ -28,16 +29,20 @@
     ],
     "params": [
       {
-        "type": "Type",
-        "name": "<T>"
+        "type": "instrument",
+        "name": "<I>"
       },
       {
-        "type": "Loudness",
+        "type": "position",
+        "name": "<P>"
+      },
+      {
+        "type": "loudness",
         "name": "<L>"
       },
       {
-        "type": "Position",
-        "name": "<P>"
+        "type": "pitch",
+        "name": "<H>"
       }
     ],
     "constraints": [
@@ -52,6 +57,18 @@
           "<L>"
         ],
         "type": "NULL"
+      },
+      {
+        "params": [
+          "<H>"
+        ],
+        "type": "NULL"
+      },
+      {
+        "params": [
+          "<I>"
+        ],
+        "type": "NOT_NULL"
       }
     ]
   }

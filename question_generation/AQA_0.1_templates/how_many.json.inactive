@@ -1,0 +1,104 @@
+[
+  {
+    "text": [
+      "How many <L> <I> are playing?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "count"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>"
+        ],
+        "type": "NOT_NULL"
+      }
+    ]
+  },
+  {
+    "text": [
+      "How many <I> or <I2> are playing?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "union"
+      },
+      {
+        "inputs": [
+          4
+        ],
+        "type": "count"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>"
+        ],
+        "type": "NOT_NULL"
+      },
+      {
+        "params": [
+          "<I2>"
+        ],
+        "type": "NOT_NULL"
+      },
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  }
+]

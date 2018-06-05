@@ -1,0 +1,56 @@
+[
+  {
+    "text": [
+      "How many <I2> are playing <R> the <H> <I>?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<H>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<R>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate"
+      },
+      {
+        "side_inputs": [
+          "<I2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter"
+      },
+      {
+        "inputs": [
+          3
+        ],
+        "type": "count"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  }
+]

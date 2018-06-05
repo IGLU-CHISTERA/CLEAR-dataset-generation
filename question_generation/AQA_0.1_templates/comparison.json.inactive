@@ -1,7 +1,7 @@
 [
   {
     "text": [
-      "Is <L> <P> <T> as loud as <L2> <P2> <T2>?"
+      "Is <P> <L> <H> <I> as loud as <P2> <L2> <H2> <I2>?"
     ],
     "nodes": [
       {
@@ -10,9 +10,10 @@
       },
       {
         "side_inputs": [
-          "<T>",
+          "<P>",
           "<L>",
-          "<P>"
+          "<H>",
+          "<I>"
         ],
         "inputs": [
           0
@@ -25,9 +26,10 @@
       },
       {
         "side_inputs": [
-          "<T2>",
+          "<P2>",
           "<L2>",
-          "<P2>"
+          "<H2>",
+          "<I2>"
         ],
         "inputs": [
           2
@@ -56,37 +58,51 @@
     ],
     "params": [
       {
-        "type": "Type",
-        "name": "<T>"
+        "type": "Position",
+        "name": "<P>"
       },
       {
         "type": "Loudness",
         "name": "<L>"
       },
       {
-        "type": "Position",
-        "name": "<P>"
+        "type": "Pitch",
+        "name": "<H>"
       },
       {
-        "type": "Type",
-        "name": "<T2>"
+        "type": "Instrument",
+        "name": "<I>"
+      },
+      {
+        "type": "Position",
+        "name": "<P2>"
       },
       {
         "type": "Loudness",
         "name": "<L2>"
       },
       {
-        "type": "Position",
-        "name": "<P2>"
+        "type": "Pitch",
+        "name": "<H2>"
+      },
+      {
+        "type": "Instrument",
+        "name": "<I2>"
       }
     ],
     "constraints": [
       {
         "params": [
-          "<T>",
-          "<T2>"
+          "<I>",
+          "<I2>"
         ],
         "type": "NEQ"
+      },
+      {
+        "params": [
+          "<P>"
+        ],
+        "type": "NULL"
       },
       {
         "params": [
@@ -96,7 +112,13 @@
       },
       {
         "params": [
-          "<P>"
+          "<H>"
+        ],
+        "type": "NULL"
+      },
+      {
+        "params": [
+          "<P2>"
         ],
         "type": "NULL"
       },
@@ -108,7 +130,7 @@
       },
       {
         "params": [
-          "<P2>"
+          "<H2>"
         ],
         "type": "NULL"
       }
