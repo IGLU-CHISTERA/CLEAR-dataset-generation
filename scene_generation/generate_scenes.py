@@ -69,6 +69,7 @@ class Scene_generator:
             }
 
     def generate_relationships(self, scene_composition):
+        # FIXME : Those relationships are trivial. Could be moved to question engine (Before & after)
         # TODO : Add more relationships
         relationships = {
             'before': [],
@@ -77,13 +78,12 @@ class Scene_generator:
 
         scene_indexes = list(range(0, self.nb_sound_per_scene))
 
-        tmp = []
-        for idx in scene_indexes:
-            tmp.append(idx)
-            after_relation = list(set(scene_indexes) - set(tmp))
-            relationships['after'].append(after_relation)
+        for i in range(0, self.nb_sound_per_scene):
+            if i - 1 >= 0:
+                relationships['before'].append(relationships['before'][i - 1] + [i - 1])
 
-        relationships['before'] = reversed(relationships['after'])
+            scene_indexes.remove(i)
+            relationships['after'].append(list(scene_indexes))
 
         return relationships
 
