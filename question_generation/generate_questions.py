@@ -239,18 +239,10 @@ def other_heuristic(text, param_vals):
   return text
 
 
-def attributes_from_metadata(metadata):
-  # FIXME : the order of the keys shouldn't matter (Or it should be dynamic instead of specifying side_inputs in alphabetic order)
-  keys = sorted(list(metadata['attributes'].keys()))
-  # FIXME : Relation should probably not be in metadata attributes
-  keys.remove('relation')
-  return keys
-
-
 def placeholders_to_attribute(template_text,metadata):
   correspondences = {}
   # Extracting the placeholders from the text
-  reg = re.compile('<([a-zA-Z])(\d)?>')
+  reg = re.compile('<([a-zA-Z]+)(\d)?>')
   matches = re.findall(reg,template_text)
 
   # FIXME : By iterating over each types, we also iterate over relation. Do we want this ?
