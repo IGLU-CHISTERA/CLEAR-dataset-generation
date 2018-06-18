@@ -649,10 +649,14 @@ def main(args):
     if not fn.endswith('.json'): continue
     with open(os.path.join(args.template_dir, fn), 'r') as f:
       base = os.path.splitext(fn)[0]
-      for i, template in enumerate(json.load(f)):
-        num_loaded_templates += 1
-        key = (fn, i)
-        templates[key] = template
+      try:
+        template_json = json.load(f)
+        for i, template in enumerate(template_json):
+          num_loaded_templates += 1
+          key = (fn, i)
+          templates[key] = template
+      except json.decoder.JSONDecodeError:
+        print("Could not load template %s" % fn)    # FIXME : We should probably pause or do something to inform the user. This message will be flooded by the rest of the output. Maybe do a pause before generating ?
   print('Read %d templates from disk' % num_loaded_templates)
 
   # TODO : Handle augmentedScene attributes (Position)
