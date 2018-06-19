@@ -413,6 +413,9 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
           elif next_node['type'] == 'filter_count' or next_node['type'] == 'filter':
             # For filter_count add nulls equal to the number of singletons
             num_to_add = sum(1 for k, v in filter_options.items() if len(v) == 1)
+          else:
+            # FIXME : This should never happen, better refactor the code
+            num_to_add = 0
           add_empty_filter_options(filter_options, metadata, params_in_node, num_to_add)
 
       filter_option_keys = list(filter_options.keys())
@@ -669,7 +672,7 @@ def main(args):
       if final_dtype == 'bool':
         answers = [True, False]
       elif final_dtype == 'integer':
-        answers = list(range(0, 11))              # FIXME : Max integer anser should be loaded from config
+        answers = list(range(0, 10))              # FIXME : Max integer anser should be loaded from config
       else:
         answers = metadata['attributes'][final_dtype]['values']
 
@@ -719,6 +722,8 @@ def main(args):
                         key=lambda x: template_counts[x[0][:2]])
     num_instantiated = 0
     for (fn, idx), template in templates_items:
+      if 'disabled' in template and template['disabled']:
+        continue
       if args.verbose:
         print('trying template ', fn, idx)
       if args.time_dfs and args.verbose:
