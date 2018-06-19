@@ -313,7 +313,6 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
         if v is not None and (v == '' or v =='thing'):
           skip = True     # FIXME : Ugly
           if skip:
-            skip_counter(skippingCount, 'CONST_NOT_NULL')
             if verbose:
               print('skipping due to NOT NULL constraint')
               print(constraint)
