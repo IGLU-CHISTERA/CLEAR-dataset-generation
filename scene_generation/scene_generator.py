@@ -1,6 +1,8 @@
+from pydub import AudioSegment
 import os
 import ujson
 import random
+import time
 from datetime import datetime
 
 
@@ -27,20 +29,23 @@ class Node:
 
 
 class Primary_sounds:
-    def __init__(self, definition_filepath):
-        filepath = os.path.join(os.path.dirname(os.path.realpath(__file__)), definition_filepath)
-        with open(filepath) as primary_sounds_definition:
+    def __init__(self, folder_path, definition_filename='primary_sounds.json'):
+        self.folderpath = os.path.join(os.path.dirname(os.path.realpath(__file__)), folder_path)
+
+        with open(os.path.join(self.folderpath,definition_filename)) as primary_sounds_definition:
             self.definition = ujson.load(primary_sounds_definition)
+
+        self._preprocess_sounds()
 
         self.nb_sounds = len(self.definition)
 
         self.families_count = {}
 
         for sound in self.definition:
-            if sound['instrument_family_str'] not in self.families_count:
-                self.families_count[sound['instrument_family_str']] = 1
+            if sound['instrument_family'] not in self.families_count:
+                self.families_count[sound['instrument_family']] = 1
             else:
-                self.families_count[sound['instrument_family_str']] += 1
+                self.families_count[sound['instrument_family']] += 1
 
         self.families = self.families_count.keys()
         self.nb_families = len(self.families)
@@ -49,11 +54,30 @@ class Primary_sounds:
         self.generated_count_by_families = {fam: 0 for fam in self.families}
         self.gen_index = 0
 
+    def _preprocess_sounds(self):
+        for primary_sound in self.definition:
+            primary_sound_filename = os.path.join(self.folderpath, primary_sound['note_str']) + ".wav"
+            primary_sound_audiosegment = AudioSegment.from_wav(primary_sound_filename)
+
+            # Use str attributes and remove the numerical representation
+            for key in list(primary_sound.keys()):
+                if key.endswith('_str'):
+                    primary_sound[key[:-4]] = primary_sound[key]
+                    del primary_sound[key]
+
+            # Remove sample_rate attribute
+            if 'sample_rate' in primary_sound:
+                del primary_sound['sample_rate']
+
+            # TODO : Add more sound analysis here. The added attributes should be used in the scene generation
+            primary_sound['duration'] = int(primary_sound_audiosegment.duration_seconds * 1000)
+            primary_sound['rms'] = primary_sound_audiosegment.rms
+
     def ids_to_families_count(self, id_list):
         count = {}
 
         for id in id_list:
-            family = self.definition[id]['instrument_family_str']
+            family = self.definition[id]['instrument_family']
             if family in count:
                 count[family] += 1
             else:
@@ -86,20 +110,22 @@ class Primary_sounds:
 
         # Keeping track of the nb of occurence
         self.generated_count_by_index[self.gen_index] += 1
-        self.generated_count_by_families[self.definition[self.gen_index]['instrument_family_str']] += 1
+        self.generated_count_by_families[self.definition[self.gen_index]['instrument_family']] += 1
 
         return self.gen_index
 
 
 class Scene_generator:
-    def __init__(self, primary_sounds_definition_filepath, nb_objects_per_scene, nb_tree_branch=None):
+    def __init__(self, primary_sounds_folderpath, nb_objects_per_scene, nb_tree_branch=None, set_type='train'):
         self.nb_objects_per_scene = nb_objects_per_scene
         if nb_tree_branch:
             self.nb_tree_branch = nb_tree_branch
         else:
             self.nb_tree_branch = self.nb_objects_per_scene
 
-        self.primary_sounds = Primary_sounds(primary_sounds_definition_filepath)
+        self.primary_sounds = Primary_sounds(primary_sounds_folderpath)
+
+        self.set_type = set_type
 
         # Constraints
         # TODO : Take those as parameter or calculate them based on nb_object_per_scene
@@ -163,7 +189,7 @@ class Scene_generator:
                 return False
 
         validated_families = {
-            'valid' : [],
+            'valid': [],
             'invalid': []
         }
         for family, count in families_count.items():
@@ -180,19 +206,43 @@ class Scene_generator:
 
         if nb_missing_families > nb_level_to_go:
             self.stats['nbMissingFamilies'] += 1
+            if current_level not in self.stats['levels']:
+                self.stats['levels'][current_level] = 1
+            else:
+                self.stats['levels'][current_level] += 1
             return False
         else:
             # Calculating the probability that this tree will lead to a valid combination
+            if nb_missing_families * self.constraints['min_objects_per_family'] > nb_level_to_go:
+                self.stats['nbMissingObjectPerFam'] += 1
+                if current_level not in self.stats['levels']:
+                    self.stats['levels'][current_level] = 1
+                else:
+                    self.stats['levels'][current_level] += 1
+                return False
+
+            # TODO : Probabilist approach
+            '''
             prob = 0
             for (family, count) in validated_families['invalid']:
                 nb_other_sounds_same_family = self.primary_sounds.families_count[family] - count
                 nb_missing_sounds = self.constraints['min_objects_per_family'] - count
 
-                prob += nb_other_sounds_same_family/self.primary_sounds.nb_sounds ** nb_missing_sounds
+                prob += (nb_other_sounds_same_family/self.primary_sounds.nb_sounds ** nb_missing_sounds) * (((self.primary_sounds.nb_sounds - nb_missing_sounds)/self.primary_sounds.nb_sounds) ** (nb_level_to_go - nb_missing_sounds))
+
+            print("Prob is %f" %prob)
+            if prob < 0.2:
+                self.stats['nbMissingObjectPerFam'] += 1
+                if current_level not in self.stats['levels']:
+                    self.stats['levels'][current_level] = 1
+                else:
+                    self.stats['levels'][current_level] += 1
+                return False
+            '''
 
         return True
 
-    def generate(self, start_index= 0, nb_to_generate=None, root_node=None):
+    def _generate_scenes_idx(self, start_index= 0, nb_to_generate=None, root_node=None):
         if not root_node:
             # FIXME : The process won't include the root node in the scene composition. Will cause problem when distributing part of the tree in different processes
             root_node = Node(None, -1, -1)      # Root of the tree
@@ -205,7 +255,8 @@ class Scene_generator:
         self.stats = {
             'levels' : {},
             'nbValid': 0,
-            'nbMissingFamilies' : 0
+            'nbMissingFamilies' : 0,
+            'nbMissingObjectPerFam' : 0
         }
 
         continue_work = True
@@ -226,6 +277,11 @@ class Scene_generator:
                     state.append(new_sound_id)
                     # TODO : random Chance of overlapping
                     next_node = current_node.add_child(new_sound_id)
+
+                    if not self.validate_intermediate(state, next_node.level):
+                        next_node = current_node
+                        if len(state) > 0:
+                            state.pop()
                 else:
                     # Go up one level
                     next_node = current_node.parent
@@ -233,15 +289,8 @@ class Scene_generator:
                         # We reached the root node. The tree has been completely instantiated
                         continue_work = False
                         break
-                    else:
+                    elif len(state) > 0:            # FIXME : Unecessary check. If parent is not none then the state is not empty
                         state.pop()
-
-                if not self.validate_intermediate(state, next_node.level):
-                    next_node = current_node
-                    state.pop()
-
-                # TODO : Update the state
-                # TODO : To intermediary validation. If validation fail, we need to mark the branch as unfit (Simply go up ?)
 
             else:
                 # Reached the bottom of the tree
@@ -276,8 +325,7 @@ class Scene_generator:
 
         print("Nb valid : %d" % self.stats['nbValid'])
         print("Stats")
-        print(self.stats['levels'])
-        print(self.stats['nbMissingFamilies'])
+        print(ujson.dumps(self.stats, indent=4))
         cnt = 0
         for i in self.stats['levels'].values():
             cnt += i
@@ -288,17 +336,80 @@ class Scene_generator:
 
         return generated_scenes
 
+    def _generate_info_section(self):
+        return {
+                "name": "AQA-V0.1",
+                "license": "Creative Commons Attribution (CC-BY 4.0)",
+                "version": "0.1",
+                "split": self.set_type,
+                "date": time.strftime("%x")
+            }
+
+    def _generate_relationships(self, scene_composition):
+        # FIXME : Those relationships are trivial. Could be moved to question engine (Before & after)
+        # TODO : Add more relationships
+        relationships = {
+            'before': [
+                []
+            ],
+            'after': []
+        }
+
+        scene_indexes = list(range(0, self.nb_objects_per_scene))
+
+        for i in range(0, self.nb_objects_per_scene):
+            if i - 1 >= 0:
+                relationships['before'].append(relationships['before'][i - 1] + [i - 1])
+
+            scene_indexes.remove(i)
+            relationships['after'].append(list(scene_indexes))
+
+        return relationships
+
+    def generate(self, start_index = 0, nb_to_generate=None, shuffle_scenes=True):
+
+        scenes_sounds_idx = self._generate_scenes_idx(start_index, nb_to_generate, None)
+
+        if shuffle_scenes:
+            random.shuffle(scenes_sounds_idx)
+
+        scenes = []
+
+        scene_index = 0
+        for sounds_idx in scenes_sounds_idx:
+            scene_composition = []
+            for sound_idx in sounds_idx:
+                scene_composition.append(self.primary_sounds.get(sound_idx))
+            scenes.append({
+                "split": self.set_type,
+                "objects": scene_composition,
+                "relationships": self._generate_relationships(scene_composition),
+                "image_index": scene_index,     # TODO : Change this key to "scene_index". Keeping image reference for simplicity
+                "image_filename": "AQA_%s_%06d.png" % (self.set_type, scene_index)
+            })
+            scene_index += 1
+
+        return {
+            "info": self._generate_info_section(),
+            "scenes": scenes
+        }
+
+
 
 if __name__ == '__main__':
     # TODO : Parameters handling
     # TODO : seed handling
     #random.seed(4543525235253235)
 
-    scene_generator = Scene_generator('../primary_sounds/primary_sounds.json', 10, 3)
+    scene_generator = Scene_generator('../primary_sounds', 10, 3)
     before = datetime.now()
     scenes = scene_generator.generate()
-    skt = set([tuple(i) for i in scenes])
-    print("Set len : %d" % len(skt))
+
+    scenes_idx_filepath = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'output', 'scenes', 'AQA_V0.1_train_scenes.json')
+
+    with open(scenes_idx_filepath, 'w') as f:
+        ujson.dump(scenes, f)
+
     timing = datetime.now() - before
 
     print("Took %f" % timing.seconds)
