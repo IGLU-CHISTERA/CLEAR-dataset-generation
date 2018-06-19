@@ -1,4 +1,6 @@
+import pydub
 from pydub import AudioSegment
+from pydub.generators import WhiteNoise as WhiteNoiseGenerator
 import os
 import ujson
 import copy
@@ -31,6 +33,7 @@ sceneFilenamePrefix = 'scene-'
 
 
 # TODO : Add more comments
+# FIXME : Take sample rate as parameter. If primary sounds have a lower sample freq, upscale ?
 class AudioSceneProducer:
     def __init__(self,
                  outputFolder = '../output',
@@ -66,7 +69,7 @@ class AudioSceneProducer:
         self.defaultLoadedSounds = [
             {
                 'name': '-SILENCE-',
-                'audioSegment': AudioSegment.silent(duration=100)      # 100 ms of silence
+                'audioSegment': AudioSegment.silent(duration=100)      # 100 ms of silence      # FIXME : Should specify the sample rate
             }
         ]
 
@@ -145,6 +148,11 @@ class AudioSceneProducer:
                 # Insert a silence padding of 300 ms between the sounds
                 sceneAudioSegment += silenceSegment100ms * 3
 
+            # FIXME : Background noise should probably constant ? The scene duration is constant so no need to regen everytime
+            backgroundNoise = WhiteNoiseGenerator(sample_rate=sceneAudioSegment.frame_rate).to_audio_segment(sceneAudioSegment.duration_seconds*1000)
+
+            sceneAudioSegment = backgroundNoise.overlay(sceneAudioSegment, gain_during_overlay=-60)
+
             # Make sure the everything is in Mono (If stereo, will convert to mono)
             sceneAudioSegment.set_channels(1)
 
@@ -160,9 +168,9 @@ class AudioSceneProducer:
             # Generate the spectrogram
             # See https://matplotlib.org/api/_as_gen/matplotlib.pyplot.specgram.html?highlight=matplotlib%20pyplot%20specgram#matplotlib.pyplot.specgram
             # TODO : Use essentia to generate spectrogram, mfcc, etc ?
-            plt.specgram(x=sceneAudioSegment.get_array_of_samples(), Fs=sceneAudioSegment.frame_rate,
+            Pxx, freqs, bins, im = plt.specgram(x=sceneAudioSegment.get_array_of_samples(), Fs=sceneAudioSegment.frame_rate,
                          window=matplotlib.mlab.window_hanning,
-                         NFFT=256, noverlap=128, mode='psd')
+                         NFFT=1024, noverlap=512, mode='magnitude', scale='dB')
 
             spectrogram.savefig(os.path.join(self.outputFolder, 'images', 'AQA_%s_%06d.png' % (self.setType, sceneId)),dpi=1)
 
@@ -177,7 +185,7 @@ def mainPool():
     outputFolder = 'output'
 
     producer = AudioSceneProducer(outputFolder='../output',
-                                  scenesJsonFilename='testScenes.json',
+                                  scenesJsonFilename='scenes/AQA_V0.1_scenes.json',
                                   primarySoundsJsonFilename='primary_sounds.json',
                                   primarySoundFolderPath='../primary_sounds',
                                   setType='train')
