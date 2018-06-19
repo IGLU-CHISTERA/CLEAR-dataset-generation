@@ -448,11 +448,12 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
             })
             cur_next_vals[param_name] = param_val
             next_input = len(state['nodes']) + len(new_nodes) - 1
-          elif param_val is None:
-            if param_type == 'instrument':       # FIXME : Hardcoded 'main' attribute. Could be specified in metadata
-              param_val = 'thing'               # FIXME : Use another name. sound ?
-            else:
-              param_val = ''
+          else:
+            #if param_type == 'instrument':       # FIXME : Hardcoded 'main' attribute. Could be specified in metadata
+            #  param_val = 'thing'               # FIXME : Use another name. sound ?
+            #else:
+            #  param_val = ''
+            param_val = ''
             cur_next_vals[param_name] = param_val
         input_map = {k: v for k, v in state['input_map'].items()}
         extra_type = None
