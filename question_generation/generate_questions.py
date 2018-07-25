@@ -609,7 +609,7 @@ def position_from_index(idx, nb_obj):
   if idx + 1 == nb_obj:
     return "last"
   else:
-    idx_to_position = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh"]
+    idx_to_position = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "eleventh"]
     return idx_to_position[idx]
 
 
@@ -629,7 +629,8 @@ def global_position_from_index(idx, nb_obj):
 
 
 def pitch_to_str(pitch_val):
-  if pitch_val > 500:
+  # FIXME : Set realistic pitch val
+  if pitch_val > 60:
     return 'acute'
   else:
     return 'deep'
