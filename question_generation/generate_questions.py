@@ -46,7 +46,7 @@ us to efficiently prune the search space and terminate early when we know that
 
 
 
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser(fromfile_prefix_chars='@')
 
 # TODO : Change defaults values for arguments
 # TODO : Change argument text
