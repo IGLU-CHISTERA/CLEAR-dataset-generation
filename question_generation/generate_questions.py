@@ -10,7 +10,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 
 from __future__ import print_function
-import argparse, json, os, itertools, random, shutil, math
+import argparse, ujson, os, random, math
 import time
 import re
 
@@ -629,7 +629,7 @@ def augment_scene(scene):
 
 def main(args):
   with open(args.metadata_file, 'r') as f:
-    metadata = json.load(f)
+    metadata = ujson.load(f)
   
   functions_by_name = {}
   for f in metadata['functions']:
@@ -645,12 +645,12 @@ def main(args):
     with open(os.path.join(args.template_dir, fn), 'r') as f:
       base = os.path.splitext(fn)[0]
       try:
-        template_json = json.load(f)
+        template_json = ujson.load(f)
         for i, template in enumerate(template_json):
           num_loaded_templates += 1
           key = (fn, i)
           templates[key] = template
-      except json.decoder.JSONDecodeError:
+      except ValueError:
         print("Could not load template %s" % fn)    # FIXME : We should probably pause or do something to inform the user. This message will be flooded by the rest of the output. Maybe do a pause before generating ?
   print('Read %d templates from disk' % num_loaded_templates)
 
@@ -685,7 +685,7 @@ def main(args):
   # Read file containing input scenes
   all_scenes = []
   with open(args.input_scene_file, 'r') as f:
-    scene_data = json.load(f)
+    scene_data = ujson.load(f)
     all_scenes = scene_data['scenes']
     scene_info = scene_data['info']
   begin = args.scene_start_idx
@@ -697,7 +697,7 @@ def main(args):
 
   # Read synonyms file
   with open(args.synonyms_json, 'r') as f:
-    synonyms = json.load(f)
+    synonyms = ujson.load(f)
 
   questions = []
   scene_count = 0
@@ -784,10 +784,10 @@ def main(args):
 
   with open(args.output_questions_file, 'w') as f:
     print('Writing output to %s' % args.output_questions_file)
-    json.dump({
+    ujson.dump({
         'info': scene_info,
         'questions': questions,
-      }, f)
+      }, f, escape_forward_slashes=False)
 
 
 if __name__ == '__main__':
