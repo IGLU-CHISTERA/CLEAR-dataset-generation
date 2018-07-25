@@ -254,6 +254,21 @@ def placeholders_to_attribute(template_text,metadata):
   return correspondences
 
 
+def generate_not_null_instrument_constraints(template_text):
+  reg = re.compile('<I\d?>')
+  matches = re.findall(reg, template_text)
+
+  constraints = []
+
+  for matche in matches:
+    constraints.append({
+      "params" : [matche],
+      "type" : "NOT_NULL"
+    })
+
+  return constraints
+
+
 def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
                               synonyms, max_instances=None, verbose=False):
 
