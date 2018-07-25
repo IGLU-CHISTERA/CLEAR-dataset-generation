@@ -31,7 +31,7 @@ import matplotlib.pyplot as plt
 # TODO : Load this from config json instead of hardcoding it in every file
 sceneFilenamePrefix = 'scene-'
 
-
+# FIXME : We should probably clear previously generated audio & images before generating. (We may end up with samples from another run otherwise)
 # TODO : Add more comments
 # FIXME : Take sample rate as parameter. If primary sounds have a lower sample freq, upscale ?
 class AudioSceneProducer:
@@ -156,7 +156,8 @@ class AudioSceneProducer:
             # Make sure the everything is in Mono (If stereo, will convert to mono)
             sceneAudioSegment.set_channels(1)
 
-            sceneAudioSegment.export(os.path.join(self.outputFolder,'audio', 'AQA_%s_%06d.wav' % (self.setType, sceneId)), format='wav')
+            # FIXME : Create the setType folder if doesnt exist
+            sceneAudioSegment.export(os.path.join(self.outputFolder, 'audio', self.setType, 'AQA_%s_%06d.wav' % (self.setType, sceneId)), format='wav')
 
             # Set figure settings to remove all axis
             spectrogram = plt.figure(frameon=False)
@@ -172,7 +173,8 @@ class AudioSceneProducer:
                          window=matplotlib.mlab.window_hanning,
                          NFFT=1024, noverlap=512, mode='magnitude', scale='dB')
 
-            spectrogram.savefig(os.path.join(self.outputFolder, 'images', 'AQA_%s_%06d.png' % (self.setType, sceneId)),dpi=1)
+            # FIXME : Create the setType folder if doesnt exist
+            spectrogram.savefig(os.path.join(self.outputFolder, 'images', self.setType, 'AQA_%s_%06d.png' % (self.setType, sceneId)),dpi=1)
 
             # Close and Clear the figure
             plt.close(spectrogram)
@@ -185,10 +187,10 @@ def mainPool():
     outputFolder = 'output'
 
     producer = AudioSceneProducer(outputFolder='../output',
-                                  scenesJsonFilename='scenes/AQA_V0.1_scenes.json',
+                                  scenesJsonFilename='scenes/AQA_V0.1_val_scenes.json',
                                   primarySoundsJsonFilename='primary_sounds.json',
                                   primarySoundFolderPath='../primary_sounds',
-                                  setType='train')
+                                  setType='val')
 
     idList = list(range(producer.nbOfLoadedScenes))
 
