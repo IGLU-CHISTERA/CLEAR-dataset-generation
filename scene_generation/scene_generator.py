@@ -3,10 +3,61 @@ import os
 import ujson
 import random
 import time
+import argparse
 from datetime import datetime
 
 
+"""
+Arguments definition
+"""
+parser = argparse.ArgumentParser(fromfile_prefix_chars='@')
+
+parser.add_argument('--max_nb_scene', default=None, type=int,
+                    help='Maximum number of scenes that will be generated.' +
+                         'Depending on the scene_length and tree_width, the number of scene generated may be lower.')
+
+parser.add_argument('--scene_length', default=6, type=int,
+                    help='Number of primary sounds in the generated scenes')
+
+parser.add_argument('--tree_width', default=5, type=int,
+                    help='Number of node explored at each level of the generation tree')
+
+parser.add_argument('--constraint_min_nb_families', default=3, type=int,
+                    help='Minimum number of instrument families required for the scene to be valid')
+
+parser.add_argument('--constraint_min_object_per_family', default=2, type=int,
+                    help='Minimum number of object per question family')
+
+parser.add_argument('--constraint_min_nb_families_subject_to_min_object_per_family', default=2, type=int,
+                    help='Minimum number of families that must meet the "min_object_per_family" constraint')
+
+parser.add_argument('--training_set_ratio', default=0.7, type=float,
+                    help='Percentage of generated scenes that are labeled as training.' +
+                         'Validation and test sets will contain the rest of the scenes')
+
+parser.add_argument('--random_nb_generator_seed', default=None, type=int,
+                    help='Set the random number generator seed to reproduce results')
+
+parser.add_argument('--primary_sounds_folder', default='../primary_sounds',
+                    help='Folder containing all the primary sounds and the JSON listing them')
+
+parser.add_argument('--primary_sounds_definition_filename', default='primary_sounds.json',
+                    help='Filename of the JSON file listing the attributes of the primary sounds')
+
+parser.add_argument('--output_folder', default='../output',
+                    help='Folder where the generated scenes will be saved')
+
+parser.add_argument('--output_filename_prefix', default='AQA', type=str,
+                    help='Prefix used for generated scene file')
+
+parser.add_argument('--output_version_nb', default='0.1', type=str,
+                    help='Version number that will be appended to the generated scene file')
+
+
 class Node:
+    """
+    Node object used in tree generation
+    """
     def __init__(self, parent, level, sound_id, overlapping_last=False):
         self.childs = []
         self.level = level
@@ -29,6 +80,10 @@ class Node:
 
 
 class Primary_sounds:
+    """
+    Primary sounds generator.
+    Load the primary sounds from file, preprocess them and give an interface to retrieve sounds
+    """
     def __init__(self, folder_path, definition_filename='primary_sounds.json'):
         self.folderpath = os.path.join(os.path.dirname(os.path.realpath(__file__)), folder_path)
 
@@ -116,23 +171,33 @@ class Primary_sounds:
 
 
 class Scene_generator:
-    def __init__(self, primary_sounds_folderpath, nb_objects_per_scene, nb_tree_branch=None, set_type='train'):
+    """
+    Scene generation logic.
+    Create a tree of depth 'nb_objects_per_scene' and width 'nb_tree_branch'.
+    Each node represent a primary sound. The tree is instantiated Depth first.
+    A scene is composed by taking a end node and going back up until we reach the root node.
+    Validation is done at every node insertion in order to remove the combinations that do not respect the constraints.
+    """
+    def __init__(self, nb_objects_per_scene,
+                 nb_tree_branch,
+                 primary_sounds_folderpath,
+                 primary_sounds_definition_filename,
+                 constraint_min_nb_families,
+                 constraint_min_objects_per_family,
+                 constraint_min_nb_families_subject_to_min_object_per_family):
+
         self.nb_objects_per_scene = nb_objects_per_scene
-        if nb_tree_branch:
-            self.nb_tree_branch = nb_tree_branch
-        else:
-            self.nb_tree_branch = self.nb_objects_per_scene
 
-        self.primary_sounds = Primary_sounds(primary_sounds_folderpath)
+        self.nb_tree_branch = nb_tree_branch
 
-        self.set_type = set_type
+        self.primary_sounds = Primary_sounds(primary_sounds_folderpath, primary_sounds_definition_filename)
 
         # Constraints
-        # TODO : Take those as parameter or calculate them based on nb_object_per_scene
+        # TODO : Calculate constraints based on nb_object_per_scene ?
         self.constraints = {
-            'min_nb_families' : 5,
-            'min_objects_per_family': 2,
-            'min_nb_families_subject_to_min_objects_per_family' : 2
+            'min_nb_families' : constraint_min_nb_families,
+            'min_objects_per_family': constraint_min_objects_per_family,
+            'min_nb_families_subject_to_min_objects_per_family': constraint_min_nb_families_subject_to_min_object_per_family
         }
 
     def validate_final(self, state):
@@ -299,13 +364,13 @@ class Scene_generator:
                     # TODO : dump scene to file instead of creating a list of all scenes possible
                     # TODO : We can then collect all the file at the end of the process
                     # TODO : Do this in another process ? --> 1 process for tree instantiation that feed a mailbox and 1 process that empty the mailbox and write to file
-                    self.stats['nbValid'] += 1
                     scene_index = start_index
 
                     if nb_to_generate and scene_index >= nb_to_generate:
                         # Reached the limit of scene to generate,
                         continue_work = False
                         break
+                    self.stats['nbValid'] += 1
                     start_index += 1
 
                     generated_scenes.append(list(state))
@@ -336,12 +401,12 @@ class Scene_generator:
 
         return generated_scenes
 
-    def _generate_info_section(self):
+    def _generate_info_section(self, set_type):
         return {
                 "name": "AQA-V0.1",
                 "license": "Creative Commons Attribution (CC-BY 4.0)",
                 "version": "0.1",
-                "split": self.set_type,
+                "split": set_type,
                 "date": time.strftime("%x")
             }
 
@@ -366,49 +431,102 @@ class Scene_generator:
 
         return relationships
 
-    def generate(self, start_index = 0, nb_to_generate=None, shuffle_scenes=True):
+    def generate(self, start_index=0, nb_to_generate=None, training_set_ratio=0.7, shuffle_scenes=True):
 
         scenes_sounds_idx = self._generate_scenes_idx(start_index, nb_to_generate, None)
 
         if shuffle_scenes:
             random.shuffle(scenes_sounds_idx)
 
-        scenes = []
+        nb_scene = len(scenes_sounds_idx)
+        nb_training = round(nb_scene*training_set_ratio)
+        valid_and_test_ratio = (1.0 - training_set_ratio) / 2
+        nb_valid = round(nb_scene*valid_and_test_ratio)
+        nb_test = nb_scene - nb_training - nb_valid
 
-        scene_index = 0
+        training_scenes = []
+        valid_scenes = []
+        test_scenes = []
+
+        training_index = 0
+        valid_index = 0
+        test_index = 0
+
+        scene_count = 0
         for sounds_idx in scenes_sounds_idx:
             scene_composition = []
             for sound_idx in sounds_idx:
                 scene_composition.append(self.primary_sounds.get(sound_idx))
-            scenes.append({
-                "split": self.set_type,
+
+            scene = {
                 "objects": scene_composition,
-                "relationships": self._generate_relationships(scene_composition),
-                "image_index": scene_index,     # TODO : Change this key to "scene_index". Keeping image reference for simplicity
-                "image_filename": "AQA_%s_%06d.png" % (self.set_type, scene_index)
-            })
-            scene_index += 1
+                "relationships": self._generate_relationships(scene_composition)
+            }
+
+            if scene_count < nb_training:
+                scene['split'] = 'train'
+                scene['image_index'] = training_index   # TODO : Change this key to "scene_index". Keeping image reference for simplicity
+                scene['image_filename'] = "AQA_%s_%06d.png" % (scene['split'], training_index)
+                training_index += 1
+                training_scenes.append(scene)
+            elif scene_count < nb_training + nb_valid:
+                scene['split'] = 'val'
+                scene['image_index'] = valid_index      # TODO : Change this key to "scene_index". Keeping image reference for simplicity
+                scene['image_filename'] = "AQA_%s_%06d.png" % (scene['split'], valid_index)
+                valid_index += 1
+                valid_scenes.append(scene)
+            else:
+                scene['split'] = 'test'
+                scene['image_index'] = test_index       # TODO : Change this key to "scene_index". Keeping image reference for simplicity
+                scene['image_filename'] = "AQA_%s_%06d.png" % (scene['split'], test_index)
+                test_index += 1
+                test_scenes.append(scene)
+
+            scene_count += 1
 
         return {
-            "info": self._generate_info_section(),
-            "scenes": scenes
+            "train" : {
+                "info": self._generate_info_section('train'),
+                "scenes": training_scenes
+            },
+            "val": {
+                "info": self._generate_info_section('val'),
+                "scenes": valid_scenes
+            },
+            "test": {
+                "info": self._generate_info_section('test'),
+                "scenes": test_scenes
+            }
         }
 
 
-
 if __name__ == '__main__':
-    # TODO : Parameters handling
-    # TODO : seed handling
-    #random.seed(4543525235253235)
+    args = parser.parse_args()
 
-    scene_generator = Scene_generator('../primary_sounds', 10, 3)
+    if args.random_nb_generator_seed is not None:
+        # TODO : Print the seed used (Or save it to file)
+        random.seed(args.random_nb_generator_seed)
+
+    scene_generator = Scene_generator(args.scene_length,
+                                      args.tree_width,
+                                      args.primary_sounds_folder,
+                                      args.primary_sounds_definition_filename,
+                                      args.constraint_min_nb_families,
+                                      args.constraint_min_object_per_family,
+                                      args.constraint_min_nb_families_subject_to_min_object_per_family)
     before = datetime.now()
-    scenes = scene_generator.generate()
+    scenes = scene_generator.generate(nb_to_generate=args.max_nb_scene, training_set_ratio=args.training_set_ratio)
 
-    scenes_idx_filepath = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'output', 'scenes', 'AQA_V0.1_train_scenes.json')
+    for set_type, scene_struct in scenes.items():
+        scenes_filename = '%s_V%s_%s_scenes.json' % (args.output_filename_prefix, args.output_version_nb, set_type)
 
-    with open(scenes_idx_filepath, 'w') as f:
-        ujson.dump(scenes, f)
+        scenes_filepath = os.path.join(os.path.dirname(os.path.realpath(__file__)),
+                                       args.output_folder,
+                                       'scenes',
+                                       scenes_filename)
+
+        with open(scenes_filepath, 'w') as f:
+            ujson.dump(scene_struct, f, escape_forward_slashes=False)
 
     timing = datetime.now() - before
 
