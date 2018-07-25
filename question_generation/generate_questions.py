@@ -97,7 +97,7 @@ parser.add_argument('--profile', action='store_true',
 # args = parser.parse_args()
 
 
-def precompute_filter_options(scene_struct, attr_keys):
+def precompute_filter_options(scene_struct, attr_keys, allow_empty_instrument=False):
   # Keys are tuples (size, color, shape, material) (where some may be None)
   # and values are lists of object idxs that match the filter criterion
   attribute_map = {}
@@ -126,6 +126,14 @@ def precompute_filter_options(scene_struct, attr_keys):
           attribute_map[masked_key] = set()
         attribute_map[masked_key].add(object_idx)
 
+  # FIXME : This is not efficient, we should strip those options at the beginning
+  if not allow_empty_instrument:
+    instument_key_index = attr_keys.index("instrument")     # FIXME : This should probably not be hardcoded. Use config file ?
+    for key in list(attribute_map.keys()):
+      # Remove all the filters which contain empty instruments
+      if key[instument_key_index] is None:
+        del attribute_map[key]
+
   if not '_filter_options' in scene_struct:
     scene_struct['_filter_options'] = {}
 
@@ -149,19 +157,32 @@ def find_filter_options(object_idxs, scene_struct, attr):
 
 def add_empty_filter_options(attribute_map, metadata, attr_keys, num_to_add):
   # Add some filtering criterion that do NOT correspond to objects
-  
+
+  # FIXME : This is somewhat hackish...
+  instrument_index = attr_keys.index("instrument")
   attr_vals = [metadata['attributes'][t]['values'] + [None] for t in attr_keys]
 
+  attr_vals[instrument_index].remove(None)
+
   target_size = len(attribute_map) + num_to_add
+  counter = 0
   while len(attribute_map) < target_size:
-    k = (random.choice(v) for v in attr_vals)
+    k = tuple(random.choice(v) for v in attr_vals)
     if k not in attribute_map:
       attribute_map[k] = []
+    else:
+      # FIXME : This is an ugly patch. we should specify a valid num_to_add instead
+      if counter > 100:
+        print("Reached empty filter treshold.")
+        break
+      counter += 1
 
 
 def find_relate_filter_options(object_idx, scene_struct, attr,
     unique=False, include_zero=False, trivial_frac=0.1):
   options = {}
+
+  attr = [a for a in attr if not a.startswith('relate')]
   filter_key = tuple(attr)
 
   if '_filter_options' not in scene_struct or filter_key not in scene_struct['_filter_options']:
@@ -341,8 +362,6 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
         if i is not None and j is not None and outputs[i] == outputs[j]:
           if verbose:
             print('skipping due to OUT_NEQ constraint')
-            print(outputs[i])
-            print(outputs[j])
           skip_state = True
           break
       else:
@@ -400,9 +419,6 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
     if next_node['type'] in special_nodes:
 
       params_in_node = sorted([param_name_to_attribute[i] for i in next_node['side_inputs']])
-      # FIXME : Relation should probably be stored elsewhere
-      if 'relation' in params_in_node:
-        params_in_node.remove('relation')
       
       if next_node['type'].startswith('relate_filter'):
         unique = (next_node['type'] == 'relate_filter_unique')
@@ -414,11 +430,12 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
         filter_options = find_filter_options(answer, scene_struct, params_in_node)
         if next_node['type'] == 'filter':
           # Remove null filter
+          # FIXME : There doesn't seem to be a null filter anyways. Should there be one ?
           filter_options.pop((None,) * len(params_in_node), None)
+
         if next_node['type'] == 'filter_unique':
           # Get rid of all filter options that don't result in a single object
-          filter_options = {k: v for k, v in filter_options.items()
-                            if len(v) == 1}
+          filter_options = {k: v for k, v in filter_options.items() if len(v) == 1}
         else:
           # Add some filter options that do NOT correspond to the scene
           if next_node['type'] == 'filter_exist':
@@ -442,11 +459,10 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
 
         if next_node['type'].startswith('relate'):
           param_name = next_node['side_inputs'][0] # First one should be relate   # FIXME : Now that the order of the side inputs doesn't matter, the order of <R> shouldn't either
-          filter_side_inputs = next_node['side_inputs'][1:]
+          filter_side_inputs = sorted(next_node['side_inputs'][1:], key=lambda param: param_name_to_attribute[param])
           param_type = param_name_to_attribute[param_name]
-          assert param_type == 'relation'
-          param_val = k[0]
-          k = k[1]
+          param_val = k[0]    # Relation value
+          k = k[1]            # Other attributes filter
           new_nodes.append({
             'type': 'relate',
             'inputs': [next_input],
