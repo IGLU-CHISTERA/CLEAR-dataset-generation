@@ -627,14 +627,6 @@ def global_position_from_index(idx, nb_obj):
   else:
     return "end"
 
-
-def pitch_to_str(pitch_val):
-  # FIXME : Set realistic pitch val
-  if pitch_val > 60:
-    return 'acute'
-  else:
-    return 'deep'
-
 def get_loudness(idx):
   if idx == 0:
     return "quiet"
@@ -647,15 +639,7 @@ def get_loudness(idx):
 def augment_scene(scene):
   nb_obj = len(scene['objects'])
   for i, object in enumerate(scene['objects']):
-    object['position'] = position_from_index(i, nb_obj)
-    object['global_position'] = global_position_from_index(i, nb_obj)
-    object['pitch_val'] = object['pitch']
-    object['pitch'] = pitch_to_str(object['pitch_val'])
     object['loudness'] = get_loudness(i)
-
-    # FIXME : This is hackish.. Doing this because im running out of time
-    object['instrument_str'] = object['instrument']
-    object['instrument'] = object['instrument_family']
 
 
 

@@ -97,10 +97,10 @@ class Primary_sounds:
         self.families_count = {}
 
         for sound in self.definition:
-            if sound['instrument_family'] not in self.families_count:
-                self.families_count[sound['instrument_family']] = 1
+            if sound['instrument'] not in self.families_count:
+                self.families_count[sound['instrument']] = 1
             else:
-                self.families_count[sound['instrument_family']] += 1
+                self.families_count[sound['instrument']] += 1
 
         self.families = self.families_count.keys()
         self.nb_families = len(self.families)
@@ -108,6 +108,13 @@ class Primary_sounds:
         self.generated_count_by_index = {i: 0 for i in range(self.nb_sounds)}
         self.generated_count_by_families = {fam: 0 for fam in self.families}
         self.gen_index = 0
+
+    def _pitch_to_str(self, pitch_value):
+        # FIXME : Set realistic pitch val
+        if pitch_value > 60:
+            return 'acute'
+        else:
+            return 'deep'
 
     def _preprocess_sounds(self):
         for primary_sound in self.definition:
@@ -120,19 +127,30 @@ class Primary_sounds:
                     primary_sound[key[:-4]] = primary_sound[key]
                     del primary_sound[key]
 
-            # Remove sample_rate attribute
-            if 'sample_rate' in primary_sound:
-                del primary_sound['sample_rate']
-
             # TODO : Add more sound analysis here. The added attributes should be used in the scene generation
             primary_sound['duration'] = int(primary_sound_audiosegment.duration_seconds * 1000)
-            primary_sound['rms'] = primary_sound_audiosegment.rms
+            #primary_sound['rms'] = primary_sound_audiosegment.rms
+
+            primary_sound['pitch'] = self._pitch_to_str(primary_sound['pitch'])
+            primary_sound['instrument'] = primary_sound['instrument_family']
+
+            # Remove unused attributes
+            attr_to_remove = ['sample_rate',
+                              'instrument_family',
+                              'instrument_source',
+                              'velocity',
+                              'qualities']
+
+            for attr in attr_to_remove:
+                if attr in primary_sound:
+                    del primary_sound[attr]
+
 
     def ids_to_families_count(self, id_list):
         count = {}
 
         for id in id_list:
-            family = self.definition[id]['instrument_family']
+            family = self.definition[id]['instrument']
             if family in count:
                 count[family] += 1
             else:
@@ -165,7 +183,7 @@ class Primary_sounds:
 
         # Keeping track of the nb of occurence
         self.generated_count_by_index[self.gen_index] += 1
-        self.generated_count_by_families[self.definition[self.gen_index]['instrument_family']] += 1
+        self.generated_count_by_families[self.definition[self.gen_index]['instrument']] += 1
 
         return self.gen_index
 
@@ -191,6 +209,8 @@ class Scene_generator:
         self.nb_tree_branch = nb_tree_branch
 
         self.primary_sounds = Primary_sounds(primary_sounds_folderpath, primary_sounds_definition_filename)
+
+        self.idx_to_position_str = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "eleventh"]
 
         # Constraints
         # TODO : Calculate constraints based on nb_object_per_scene ?
@@ -431,6 +451,17 @@ class Scene_generator:
 
         return relationships
 
+    def _assign_positions_string(self, scene_composition):
+        nb_sounds = len(scene_composition)
+        for i, sound in enumerate(scene_composition):
+            sound['position'] = self.idx_to_position_str[i]
+
+            if i == nb_sounds - 1 and random.random() > 0.5:
+                # Use 'last' as the position str with a probability of 0.5
+                sound['position'] = 'last'
+
+
+
     def generate(self, start_index=0, nb_to_generate=None, training_set_ratio=0.7, shuffle_scenes=True):
 
         scenes_sounds_idx = self._generate_scenes_idx(start_index, nb_to_generate, None)
@@ -457,6 +488,8 @@ class Scene_generator:
             scene_composition = []
             for sound_idx in sounds_idx:
                 scene_composition.append(self.primary_sounds.get(sound_idx))
+
+            self._assign_positions_string(scene_composition)
 
             scene = {
                 "objects": scene_composition,
