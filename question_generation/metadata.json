@@ -25,8 +25,8 @@
         "brass", "flute", "guitar", "keyboard", "mallet", "reed", "string", "vocal"
       ]
     },
-    "relation": {
-      "placeholder" : "<R>",
+    "relate_timing": {
+      "placeholder" : "<RT>",
       "values" : [
         "before", "after"
       ]
