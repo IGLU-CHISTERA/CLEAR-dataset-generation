@@ -58,15 +58,16 @@ class Node:
     """
     Node object used in tree generation
     """
-    def __init__(self, parent, level, sound_id, overlapping_last=False):
+    def __init__(self, parent, level, sound_id, sound_definition, overlapping_last=False):
         self.childs = []
         self.level = level
         self.sound_id = sound_id
+        self.sound_definition = sound_definition
         self.overlapping_last = overlapping_last
         self.parent = parent
 
-    def add_child(self, sound_id):
-        new_child = Node(self, self.level+1, sound_id)
+    def add_child(self, sound_id, sound_definition):
+        new_child = Node(self, self.level+1, sound_id, sound_definition)
         self.childs.append(new_child)
         return new_child
 
@@ -77,6 +78,14 @@ class Node:
             ids.append(child.sound_id)
 
         return ids
+
+    def get_childs_definitions(self):
+        definitions = []
+
+        for child in self.childs:
+            definitions.append(child.sound_definition)
+
+        return definitions
 
 
 class Primary_sounds:
@@ -144,7 +153,6 @@ class Primary_sounds:
             for attr in attr_to_remove:
                 if attr in primary_sound:
                     del primary_sound[attr]
-
 
     def ids_to_families_count(self, id_list):
         count = {}
@@ -330,7 +338,7 @@ class Scene_generator:
     def _generate_scenes_idx(self, start_index= 0, nb_to_generate=None, root_node=None):
         if not root_node:
             # FIXME : The process won't include the root node in the scene composition. Will cause problem when distributing part of the tree in different processes
-            root_node = Node(None, -1, -1)      # Root of the tree
+            root_node = Node(None, -1, -1, {})      # Root of the tree
 
         next_node = root_node
         state = []
@@ -361,7 +369,7 @@ class Scene_generator:
                     new_sound_id = self.primary_sounds.next_id(state, [c.sound_id for c in current_node.childs])
                     state.append(new_sound_id)
                     # TODO : random Chance of overlapping
-                    next_node = current_node.add_child(new_sound_id)
+                    next_node = current_node.add_child(new_sound_id, self.primary_sounds.get(new_sound_id))     #FIXME : This is ugly, should retrieve the definition at the same time that we retrieve the id
 
                     if not self.validate_intermediate(state, next_node.level):
                         next_node = current_node
