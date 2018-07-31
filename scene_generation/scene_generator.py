@@ -115,8 +115,11 @@ class Primary_sounds:
         else:
             return 'deep'
 
-    def _preprocess_sounds(self):
-        for primary_sound in self.definition:
+    def _preprocess_sounds(self, shuffle_primary_sounds=True):
+
+        if shuffle_primary_sounds:
+            random.shuffle(self.definition)
+
         for id, primary_sound in enumerate(self.definition):
             primary_sound_filename = os.path.join(self.folderpath, primary_sound['note_str']) + ".wav"
             primary_sound_audiosegment = AudioSegment.from_wav(primary_sound_filename)
