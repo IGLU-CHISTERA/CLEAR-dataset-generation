@@ -1,4 +1,5 @@
 from pydub import AudioSegment
+import copy
 import os
 import ujson
 import random
@@ -58,25 +59,23 @@ class Node:
     """
     Node object used in tree generation
     """
-    def __init__(self, parent, level, sound_id, overlapping_last=False):
+    def __init__(self, parent, level, sound, overlapping_last=False):
         self.childs = []
         self.level = level
-        self.sound_id = sound_id
+        self.sound = sound
         self.overlapping_last = overlapping_last
         self.parent = parent
 
-    def add_child(self, sound_id):
-        new_child = Node(self, self.level+1, sound_id)
+    def add_child(self, sound):
+        new_child = Node(self, self.level+1, sound)
         self.childs.append(new_child)
         return new_child
 
     def get_childs_ids(self):
-        ids = []
+        return [child.sound['id'] for child in self.childs]
 
-        for child in self.childs:
-            ids.append(child.sound_id)
-
-        return ids
+    def get_childs_definitions(self):
+        return [child.sound for child in self.childs]
 
 
 class Primary_sounds:
@@ -116,10 +115,16 @@ class Primary_sounds:
         else:
             return 'deep'
 
-    def _preprocess_sounds(self):
-        for primary_sound in self.definition:
+    def _preprocess_sounds(self, shuffle_primary_sounds=True):
+
+        if shuffle_primary_sounds:
+            random.shuffle(self.definition)
+
+        for id, primary_sound in enumerate(self.definition):
             primary_sound_filename = os.path.join(self.folderpath, primary_sound['note_str']) + ".wav"
             primary_sound_audiosegment = AudioSegment.from_wav(primary_sound_filename)
+
+            primary_sound['id'] = id
 
             # Use str attributes and remove the numerical representation
             for key in list(primary_sound.keys()):
@@ -145,12 +150,11 @@ class Primary_sounds:
                 if attr in primary_sound:
                     del primary_sound[attr]
 
-
-    def ids_to_families_count(self, id_list):
+    def sounds_to_families_count(self, sound_list):
         count = {}
 
-        for id in id_list:
-            family = self.definition[id]['instrument']
+        for sound in sound_list:
+            family = sound['instrument']
             if family in count:
                 count[family] += 1
             else:
@@ -168,24 +172,26 @@ class Primary_sounds:
     def get(self, index):
         return self.definition[index]
 
-    def next_id(self, state, siblings):
+    def next(self, state, siblings_ids):
         # TODO : Do some checking based on the state to minimize same items (Instead of handling it later on in scenes constraints)
         # TODO : Try to minimize the reuse of the same sound (Even same category sound ?)
         #self.gen_index = (self.gen_index + 1) % self.nb_sounds
         self.gen_index = random.randint(0, self.nb_sounds - 1)
 
-        state_and_siblings = list(set(state + siblings))
+        state_ids = [s['id'] for s in state]
+
+        state_and_siblings = list(set(state_ids + siblings_ids))
 
         # Prevent from using a sound that is already in the state or is another child of the parent node
         while self.gen_index in state_and_siblings:
-            #self.gen_index = (self.gen_index + 1) % self.nb_sounds
             self.gen_index = random.randint(0, self.nb_sounds - 1)
 
+        # TODO : Do something with this information
         # Keeping track of the nb of occurence
         self.generated_count_by_index[self.gen_index] += 1
         self.generated_count_by_families[self.definition[self.gen_index]['instrument']] += 1
 
-        return self.gen_index
+        return copy.deepcopy(self.definition[self.gen_index])
 
 
 class Scene_generator:
@@ -230,7 +236,7 @@ class Scene_generator:
         # TODO :        - SOME CONSTRAINTS ON OVERLAPPING
 
         # Validate that we have enough instrument families
-        families_count, nb_families = self.primary_sounds.ids_to_families_count(state)
+        families_count, nb_families = self.primary_sounds.sounds_to_families_count(state)
         if nb_families < self.constraints['min_nb_families']:
             print("Constraint NB_FAMILY not met")
             return False
@@ -258,8 +264,9 @@ class Scene_generator:
 
         # TODO : Only validate if we have more than XXX level to go ?? No need to validate if we are on the 1/4 of the scene composition
         nb_level_to_go = self.nb_objects_per_scene - current_level - 1
-        families_count, current_nb_families = self.primary_sounds.ids_to_families_count(state)
+        families_count, current_nb_families = self.primary_sounds.sounds_to_families_count(state)
 
+        # CONSTRAINT VALIDATION : min_nb_families
         if current_nb_families < self.constraints['min_nb_families']:
             missing_nb_families = self.constraints['min_nb_families'] - current_nb_families
 
@@ -273,6 +280,7 @@ class Scene_generator:
                 print("Intermediate constraint not met. %d levels to go and %d missing families" % (nb_level_to_go, missing_nb_families))
                 return False
 
+        # CONSTRAINT VALIDATION : min_objects_per_family && min_nb_families_subject_to_min_objects_per_family
         validated_families = {
             'valid': [],
             'invalid': []
@@ -327,10 +335,10 @@ class Scene_generator:
 
         return True
 
-    def _generate_scenes_idx(self, start_index= 0, nb_to_generate=None, root_node=None):
+    def _generate_scenes(self, start_index= 0, nb_to_generate=None, root_node=None):
         if not root_node:
             # FIXME : The process won't include the root node in the scene composition. Will cause problem when distributing part of the tree in different processes
-            root_node = Node(None, -1, -1)      # Root of the tree
+            root_node = Node(None, -1, {})      # Root of the tree
 
         next_node = root_node
         state = []
@@ -358,10 +366,10 @@ class Scene_generator:
 
                 if len(current_node.childs) < self.nb_tree_branch:
                     # Add a new child
-                    new_sound_id = self.primary_sounds.next_id(state, [c.sound_id for c in current_node.childs])
-                    state.append(new_sound_id)
+                    new_sound = self.primary_sounds.next(state, current_node.get_childs_ids())
+                    state.append(new_sound)
                     # TODO : random Chance of overlapping
-                    next_node = current_node.add_child(new_sound_id)
+                    next_node = current_node.add_child(new_sound)
 
                     if not self.validate_intermediate(state, next_node.level):
                         next_node = current_node
@@ -464,12 +472,13 @@ class Scene_generator:
 
     def generate(self, start_index=0, nb_to_generate=None, training_set_ratio=0.7, shuffle_scenes=True):
 
-        scenes_sounds_idx = self._generate_scenes_idx(start_index, nb_to_generate, None)
+        generated_scenes = self._generate_scenes(start_index, nb_to_generate, None)
 
         if shuffle_scenes:
-            random.shuffle(scenes_sounds_idx)
+            random.shuffle(generated_scenes)
 
-        nb_scene = len(scenes_sounds_idx)
+        # Separating train, valid and test sets
+        nb_scene = len(generated_scenes)
         nb_training = round(nb_scene*training_set_ratio)
         valid_and_test_ratio = (1.0 - training_set_ratio) / 2
         nb_valid = round(nb_scene*valid_and_test_ratio)
@@ -484,16 +493,13 @@ class Scene_generator:
         test_index = 0
 
         scene_count = 0
-        for sounds_idx in scenes_sounds_idx:
-            scene_composition = []
-            for sound_idx in sounds_idx:
-                scene_composition.append(self.primary_sounds.get(sound_idx))
+        for scene in generated_scenes:
 
-            self._assign_positions_string(scene_composition)
+            self._assign_positions_string(scene)
 
             scene = {
-                "objects": scene_composition,
-                "relationships": self._generate_relationships(scene_composition)
+                "objects": scene,
+                "relationships": self._generate_relationships(scene)
             }
 
             if scene_count < nb_training:
