@@ -5,6 +5,7 @@ import ujson
 import random
 import time
 import argparse
+from itertools import groupby
 from datetime import datetime
 
 
@@ -32,6 +33,9 @@ parser.add_argument('--constraint_min_object_per_family', default=2, type=int,
 parser.add_argument('--constraint_min_nb_families_subject_to_min_object_per_family', default=2, type=int,
                     help='Minimum number of families that must meet the "min_object_per_family" constraint')
 
+parser.add_argument('--constraint_min_ratio_for_attribute', default=0.2, type=float,
+                    help='Each scene must contain at least X% of all the values for each attributes')
+
 parser.add_argument('--training_set_ratio', default=0.7, type=float,
                     help='Percentage of generated scenes that are labeled as training.' +
                          'Validation and test sets will contain the rest of the scenes')
@@ -44,6 +48,9 @@ parser.add_argument('--primary_sounds_folder', default='../primary_sounds',
 
 parser.add_argument('--primary_sounds_definition_filename', default='primary_sounds.json',
                     help='Filename of the JSON file listing the attributes of the primary sounds')
+
+parser.add_argument('--metadata_file', default='../metadata.json',
+                    help='File containing all the information related to the possible attributes of the objects')
 
 parser.add_argument('--output_folder', default='../output',
                     help='Folder where the generated scenes will be saved')
@@ -84,9 +91,9 @@ class Primary_sounds:
     Load the primary sounds from file, preprocess them and give an interface to retrieve sounds
     """
     def __init__(self, folder_path, definition_filename='primary_sounds.json'):
-        self.folderpath = os.path.join(os.path.dirname(os.path.realpath(__file__)), folder_path)
+        self.folderpath = folder_path
 
-        with open(os.path.join(self.folderpath,definition_filename)) as primary_sounds_definition:
+        with open(os.path.join(self.folderpath, definition_filename)) as primary_sounds_definition:
             self.definition = ujson.load(primary_sounds_definition)
 
         self._preprocess_sounds()
@@ -206,24 +213,32 @@ class Scene_generator:
                  nb_tree_branch,
                  primary_sounds_folderpath,
                  primary_sounds_definition_filename,
+                 metadata_filepath,
                  constraint_min_nb_families,
                  constraint_min_objects_per_family,
-                 constraint_min_nb_families_subject_to_min_object_per_family):
+                 constraint_min_nb_families_subject_to_min_object_per_family,
+                 constraint_min_ratio_for_attribute):
 
         self.nb_objects_per_scene = nb_objects_per_scene
 
         self.nb_tree_branch = nb_tree_branch
 
-        self.primary_sounds = Primary_sounds(primary_sounds_folderpath, primary_sounds_definition_filename)
+        cwd = os.path.dirname(os.path.realpath(__file__))
+
+        with open(os.path.join(cwd, metadata_filepath)) as metadata:
+            self.attributes_values = {key: val['values'] for key, val in ujson.load(metadata)['attributes'].items()}
+
+        self.primary_sounds = Primary_sounds(os.path.join(cwd, primary_sounds_folderpath), primary_sounds_definition_filename)
 
         self.idx_to_position_str = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "eleventh"]
 
         # Constraints
         # TODO : Calculate constraints based on nb_object_per_scene ?
         self.constraints = {
-            'min_nb_families' : constraint_min_nb_families,
+            'min_nb_families': constraint_min_nb_families,
             'min_objects_per_family': constraint_min_objects_per_family,
-            'min_nb_families_subject_to_min_objects_per_family': constraint_min_nb_families_subject_to_min_object_per_family
+            'min_nb_families_subject_to_min_objects_per_family': constraint_min_nb_families_subject_to_min_object_per_family,
+            'min_ratio_for_attribute': constraint_min_ratio_for_attribute
         }
 
     def validate_final(self, state):
@@ -333,6 +348,28 @@ class Scene_generator:
                 return False
             '''
 
+        # CONSTRAINT VALIDATION : attribute_distribution_min
+        if nb_level_to_go <= round(self.constraints['min_ratio_for_attribute']*self.nb_objects_per_scene):
+            constrained_attributes = ['pitch']      # FIXME : This should be a class attribute. Add loudness also
+            for constrained_attribute in constrained_attributes:
+                # Group by the constrained attribute
+                groups = {}
+                for key, group in groupby(state, lambda x: x[constrained_attribute]):
+                    if key not in groups:
+                        groups[key] = []
+                    groups[key] += list(group)
+
+                # Validate distribution
+                distribution = [len(group)/self.nb_objects_per_scene for group in groups.values()]
+
+                # FIXME : Should we really discard if a value is missing ? Still got 30% of the levels to go at this point.
+                if min(distribution) <= self.constraints['min_ratio_for_attribute'] or len(distribution) < len(self.attributes_values[constrained_attribute]):
+                    if current_level not in self.stats['attribute_constraint']:
+                        self.stats['attribute_constraint'][current_level] = 1
+                    else:
+                        self.stats['attribute_constraint'][current_level] += 1
+                    return False
+
         return True
 
     def _generate_scenes(self, start_index= 0, nb_to_generate=None, root_node=None):
@@ -349,16 +386,14 @@ class Scene_generator:
             'levels' : {},
             'nbValid': 0,
             'nbMissingFamilies' : 0,
-            'nbMissingObjectPerFam' : 0
+            'nbMissingObjectPerFam' : 0,
+            'attribute_constraint' : {}
         }
 
         continue_work = True
 
         while continue_work:
             current_node = next_node
-            #print("Node %d" % current_node.sound_id)
-            #print(state)
-            #print("-"*10)
 
             # Depth first instantiation of tree
             if current_node.level < self.nb_objects_per_scene - 1:
@@ -550,9 +585,11 @@ if __name__ == '__main__':
                                       args.tree_width,
                                       args.primary_sounds_folder,
                                       args.primary_sounds_definition_filename,
+                                      args.metadata_file,
                                       args.constraint_min_nb_families,
                                       args.constraint_min_object_per_family,
-                                      args.constraint_min_nb_families_subject_to_min_object_per_family)
+                                      args.constraint_min_nb_families_subject_to_min_object_per_family,
+                                      args.constraint_min_ratio_for_attribute)
     before = datetime.now()
     scenes = scene_generator.generate(nb_to_generate=args.max_nb_scene, training_set_ratio=args.training_set_ratio)
 
