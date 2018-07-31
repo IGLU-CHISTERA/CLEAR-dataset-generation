@@ -33,7 +33,7 @@ parser.add_argument('--constraint_min_object_per_family', default=2, type=int,
 parser.add_argument('--constraint_min_nb_families_subject_to_min_object_per_family', default=2, type=int,
                     help='Minimum number of families that must meet the "min_object_per_family" constraint')
 
-parser.add_argument('--constraint_min_ratio_for_attribute', default=0.2, type=float,
+parser.add_argument('--constraint_min_ratio_for_attribute', default=0.15, type=float,
                     help='Each scene must contain at least X% of all the values for each attributes')
 
 parser.add_argument('--training_set_ratio', default=0.7, type=float,
@@ -241,6 +241,8 @@ class Scene_generator:
             'min_ratio_for_attribute': constraint_min_ratio_for_attribute
         }
 
+        self.constrained_attributes = ['pitch', 'loudness']     # Attributes on which the 'min_ratio_for_attribute' constraint will be applied
+
     def validate_final(self, state):
         # TODO : Validate final state before adding this scene to the repository
         # TODO : Validate all the constraints ? (Maybe not necessary to reverify the intermediate)
@@ -350,8 +352,8 @@ class Scene_generator:
 
         # CONSTRAINT VALIDATION : attribute_distribution_min
         if nb_level_to_go <= round(self.constraints['min_ratio_for_attribute']*self.nb_objects_per_scene):
-            constrained_attributes = ['pitch']      # FIXME : This should be a class attribute. Add loudness also
-            for constrained_attribute in constrained_attributes:
+
+            for constrained_attribute in self.constrained_attributes:
                 # Group by the constrained attribute
                 groups = {}
                 for key, group in groupby(state, lambda x: x[constrained_attribute]):
@@ -362,6 +364,7 @@ class Scene_generator:
                 # Validate distribution
                 distribution = [len(group)/self.nb_objects_per_scene for group in groups.values()]
 
+                # FIXME : Having trouble to make this work for both loudness and pitch (Can take 2 or 3 different values)
                 # FIXME : Should we really discard if a value is missing ? Still got 30% of the levels to go at this point.
                 if min(distribution) <= self.constraints['min_ratio_for_attribute'] or len(distribution) < len(self.attributes_values[constrained_attribute]):
                     if current_level not in self.stats['attribute_constraint']:

@@ -604,15 +604,6 @@ def replace_optionals(s):
   return s
 
 
-def position_from_index(idx, nb_obj):
-  # TODO : Do not attribute the "last" position. Attribute the correct appelation and substitute it with last during the question generation process.
-  if idx + 1 == nb_obj:
-    return "last"
-  else:
-    idx_to_position = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "eleventh"]
-    return idx_to_position[idx]
-
-
 def global_position_from_index(idx, nb_obj):
   """
   Separate the scene in 3 parts (Beginning, middle, end) based on the index of the object
@@ -626,22 +617,6 @@ def global_position_from_index(idx, nb_obj):
     return "middle"
   else:
     return "end"
-
-def get_loudness(idx):
-  if idx == 0:
-    return "quiet"
-  elif idx % 2 == 0:
-    return "normal"
-  else:
-    return "loud"
-
-# FIXME : This should probably be in the scene generation process ?
-def augment_scene(scene):
-  nb_obj = len(scene['objects'])
-  for i, object in enumerate(scene['objects']):
-    object['loudness'] = get_loudness(i)
-
-
 
 def main(args):
   with open(args.metadata_file, 'r') as f:
@@ -718,7 +693,6 @@ def main(args):
   questions = []
   scene_count = 0
   for i, scene in enumerate(all_scenes):
-    augment_scene(scene)
     scene_fn = scene['image_filename']          # FIXME : Scene key related to image. Should refer to "sound_filename" or scene
     scene_struct = scene
     print('starting image %s (%d / %d)'
