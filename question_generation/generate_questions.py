@@ -127,7 +127,7 @@ def precompute_filter_options(scene_struct, attr_keys, allow_empty_instrument=Fa
         attribute_map[masked_key].add(object_idx)
 
   # FIXME : This is not efficient, we should strip those options at the beginning
-  if not allow_empty_instrument:
+  if not allow_empty_instrument and "instrument" in attr_keys:
     instument_key_index = attr_keys.index("instrument")     # FIXME : This should probably not be hardcoded. Use config file ?
     for key in list(attribute_map.keys()):
       # Remove all the filters which contain empty instruments
