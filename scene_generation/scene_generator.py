@@ -372,6 +372,11 @@ class Scene_generator:
 
         return True
 
+    def _get_random_loudness(self):
+        high_bound = len(self.attributes_values['loudness']) - 1
+
+        return self.attributes_values['loudness'][random.randint(0, high_bound)]
+
     def _generate_scenes(self, start_index= 0, nb_to_generate=None, root_node=None):
         if not root_node:
             # FIXME : The process won't include the root node in the scene composition. Will cause problem when distributing part of the tree in different processes
@@ -402,6 +407,10 @@ class Scene_generator:
                 if len(current_node.childs) < self.nb_tree_branch:
                     # Add a new child
                     new_sound = self.primary_sounds.next(state, current_node.get_childs_ids())
+
+                    # Randomly assign a loudness level to the new sound
+                    new_sound['loudness'] = self._get_random_loudness()
+
                     state.append(new_sound)
                     # TODO : random Chance of overlapping
                     next_node = current_node.add_child(new_sound)
