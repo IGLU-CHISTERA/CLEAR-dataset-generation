@@ -655,7 +655,7 @@ def main(args):
     template_answer_counts = {}
     node_type_to_dtype = {n['name']: n['output'] for n in metadata['functions']}
     for key, template in templates.items():
-      template_counts[key[:2]] = 0
+      template_counts[key] = 0
       final_node_type = template['nodes'][-1]['type']
       final_dtype = node_type_to_dtype[final_node_type]
 
@@ -666,9 +666,9 @@ def main(args):
       else:
         answers = metadata['attributes'][final_dtype]['values']
 
-      template_answer_counts[key[:2]] = {}
+      template_answer_counts[key] = {}
       for a in answers:
-        template_answer_counts[key[:2]][a] = 0      # FIXME/INVESTIGATE : What happend when the answers is Null/None ? This will happen with Object and ObjectSet
+        template_answer_counts[key][a] = 0      # FIXME/INVESTIGATE : What happend when the answers is Null/None ? This will happen with Object and ObjectSet
     return template_counts, template_answer_counts
 
   template_counts, template_answer_counts = reset_counts()
@@ -708,7 +708,7 @@ def main(args):
     # templates.
     templates_items = list(templates.items())
     templates_items = sorted(templates_items,
-                        key=lambda x: template_counts[x[0][:2]])
+                        key=lambda x: template_counts[x[0]])
     num_instantiated = 0
     for (fn, idx), template in templates_items:
       if 'disabled' in template and template['disabled']:
