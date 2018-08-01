@@ -84,6 +84,8 @@ parser.add_argument('--instances_per_template', default=1, type=int,
     help="The number of times each template should be instantiated on an image")
 
 # Misc
+parser.add_argument('--random_nb_generator_seed', default=None, type=int,
+    help='Set the random number generator seed to reproduce results')
 parser.add_argument('--reset_counts_every', default=250, type=int,
     help="How often to reset template and answer counts. Higher values will " +
          "result in flatter distributions over templates and answers, but " +
@@ -618,7 +620,12 @@ def global_position_from_index(idx, nb_obj):
   else:
     return "end"
 
+
 def main(args):
+  if args.random_nb_generator_seed is not None:
+    # TODO : Print the seed used (Or save it to file)
+    random.seed(args.random_nb_generator_seed)
+
   with open(args.metadata_file, 'r') as f:
     metadata = ujson.load(f)
   
