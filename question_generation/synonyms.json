@@ -1,5 +1,6 @@
 {
   "thing": ["thing", "sound"],
   "large": ["large", "big"],
-  "small": ["small", "tiny"]
+  "small": ["small", "tiny"],
+  "normal" : [""]
 }
