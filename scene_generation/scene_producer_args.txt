@@ -1,0 +1,13 @@
+--output_folder=../output
+--primary_sounds_folder=../primary_sounds
+--primary_sounds_definition_filename=primary_sounds.json
+--input_scene_file=../output/scenes/AQA_V0.0.2_train_scenes.json
+--set_type=train
+--spectrogram_height=480
+--spectrogram_width=320
+--spectrogram_window_length=1024
+--spectrogram_window_overlap=512
+--nb_process=5
+--output_filename_prefix=AQA
+--output_version_nb=0.0.2
+--with_background_noise
