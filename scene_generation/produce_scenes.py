@@ -1,9 +1,9 @@
 import pydub
 from pydub import AudioSegment
 from pydub.generators import WhiteNoise as WhiteNoiseGenerator
-import os
-import ujson
-import copy
+from pydub.effects import normalize
+from pydub.silence import split_on_silence
+import os, ujson, argparse, copy
 from multiprocessing import Pool
 import matplotlib
 # Matplotlib options to reduce memory usage
@@ -13,8 +13,53 @@ matplotlib.use('agg')
 import matplotlib.pyplot as plt
 
 
+"""
+Arguments definition
+"""
+parser = argparse.ArgumentParser(fromfile_prefix_chars='@')
+
+parser.add_argument('--output_folder', default='../output', type=str,
+                    help='Folder where the audio and images will be saved')
+
+parser.add_argument('--primary_sounds_folder', default='../primary_sounds', type=str,
+                    help='Folder containing all the primary sounds and the JSON listing them')
+
+parser.add_argument('--primary_sounds_definition_filename', default='primary_sounds.json', type=str,
+                    help='Filename of the JSON file listing the attributes of the primary sounds')
+
+parser.add_argument('--input_scene_file', default='../output/scenes/AQA_V0.1_train.json', type=str,
+                    help="JSON file containing ground-truth scene information")
+
+parser.add_argument('--set_type', default='train', type=str,
+                    help="Specify the set type (train/val/test)")
+
+parser.add_argument('--spectrogram_height', default=480, type=int,
+                    help='Height of the generated spectrogram image')
+
+parser.add_argument('--spectrogram_width', default=320, type=int,
+                    help='Width of the generated spectrogram image')
+
+parser.add_argument('--spectrogram_window_length', default=1024, type=int,
+                    help='Number of samples used in the FFT window')
+
+parser.add_argument('--spectrogram_window_overlap', default=512, type=int,
+                    help='Number of samples that are overlapped in the FFT window')
+
+parser.add_argument('--with_background_noise', action='store_true',
+                    help='Use this setting to include a background noise in the scenes')
+
+parser.add_argument('--nb_process', default=4, type=int,
+                    help='Number of process allocated for the production')
+
+parser.add_argument('--output_filename_prefix', default='AQA', type=str,
+                    help='Prefix used for produced files')
+
+parser.add_argument('--output_version_nb', default='0.1', type=str,
+                    help='Version number that will be appended to the produced file')
+
+
 ######################################################################
-# This program will read the scene json file (default ./scenes.json) #
+# This program will read the scene json file                         #
 # It will then generate the corresponding audio file & spectrogram   #
 ######################################################################
 
@@ -26,21 +71,19 @@ import matplotlib.pyplot as plt
 #        We should pad or not between each sound according to a certain probability. Then split the rest between beginning and end
 # TODO/Investigate : Insert random noise instead of silence between primary sounds
 
-# TODO : Add some threading to this. Its too slow !
-
-# TODO : Load this from config json instead of hardcoding it in every file
-sceneFilenamePrefix = 'scene-'
-
 # FIXME : We should probably clear previously generated audio & images before generating. (We may end up with samples from another run otherwise)
 # TODO : Add more comments
 # FIXME : Take sample rate as parameter. If primary sounds have a lower sample freq, upscale ?
 class AudioSceneProducer:
     def __init__(self,
-                 outputFolder = '../output',
-                 scenesJsonFilename='generatedScenes.json',
-                 primarySoundsJsonFilename='primary_sounds.json',
-                 primarySoundFolderPath='../primary_sounds',
-                 setType='train'):
+                 outputFolder,
+                 spectrogramSettings,
+                 withBackgroundNoise,
+                 scenesJsonFilename,
+                 primarySoundsJsonFilename,
+                 primarySoundFolderPath,
+                 setType,
+                 outputPrefix):
 
         # Paths
         cwd = os.path.dirname(os.path.realpath(__file__))
@@ -52,10 +95,13 @@ class AudioSceneProducer:
             self.primarySounds = ujson.load(primarySoundJson)
 
         # Loading scenes definition from 'scenes.json'
-        sceneFilepath = os.path.join(self.outputFolder, scenesJsonFilename)
+        sceneFilepath = os.path.join(cwd, scenesJsonFilename)
         with open(sceneFilepath) as scenesJson:
             self.scenes = ujson.load(scenesJson)['scenes']
 
+        self.spectrogramSettings = spectrogramSettings
+        self.withBackgroundNoise = withBackgroundNoise
+        self.outputPrefix = outputPrefix
         self.setType = setType
 
         self.currentSceneIndex = -1  # We start at -1 since nextScene() will increment idx at the start of the fct
@@ -126,12 +172,6 @@ class AudioSceneProducer:
             exit(0)  # FIXME : Should probably raise an exception here instead
 
     def generateScene(self, sceneId):
-
-        # FIXME : Do not hard code this, should be passed to the class constructor
-        imageSize = {
-            'height': 480,
-            'width': 320
-        }
         if sceneId < self.nbOfLoadedScenes:
 
             scene = self.scenes[sceneId]
@@ -149,19 +189,20 @@ class AudioSceneProducer:
                 sceneAudioSegment += silenceSegment100ms * 3
 
             # FIXME : Background noise should probably constant ? The scene duration is constant so no need to regen everytime
-            backgroundNoise = WhiteNoiseGenerator(sample_rate=sceneAudioSegment.frame_rate).to_audio_segment(sceneAudioSegment.duration_seconds*1000)
+            if self.withBackgroundNoise:
+                backgroundNoise = WhiteNoiseGenerator(sample_rate=sceneAudioSegment.frame_rate).to_audio_segment(sceneAudioSegment.duration_seconds*1000)
 
-            sceneAudioSegment = backgroundNoise.overlay(sceneAudioSegment, gain_during_overlay=-60)
+                sceneAudioSegment = backgroundNoise.overlay(sceneAudioSegment, gain_during_overlay=-60)
 
             # Make sure the everything is in Mono (If stereo, will convert to mono)
             sceneAudioSegment.set_channels(1)
 
             # FIXME : Create the setType folder if doesnt exist
-            sceneAudioSegment.export(os.path.join(self.outputFolder, 'audio', self.setType, 'AQA_%s_%06d.wav' % (self.setType, sceneId)), format='wav')
+            sceneAudioSegment.export(os.path.join(self.outputFolder, 'audio', self.setType, '%s_%s_%06d.wav' % (self.outputPrefix, self.setType, sceneId)), format='wav')
 
             # Set figure settings to remove all axis
             spectrogram = plt.figure(frameon=False)
-            spectrogram.set_size_inches(imageSize['height'], imageSize['width'])
+            spectrogram.set_size_inches(self.spectrogramSettings['height'], self.spectrogramSettings['width'])
             ax = plt.Axes(spectrogram, [0., 0., 1., 1.])
             ax.set_axis_off()
             spectrogram.add_axes(ax)
@@ -171,10 +212,10 @@ class AudioSceneProducer:
             # TODO : Use essentia to generate spectrogram, mfcc, etc ?
             Pxx, freqs, bins, im = plt.specgram(x=sceneAudioSegment.get_array_of_samples(), Fs=sceneAudioSegment.frame_rate,
                          window=matplotlib.mlab.window_hanning,
-                         NFFT=1024, noverlap=512, mode='magnitude', scale='dB')
+                         NFFT=self.spectrogramSettings['window_length'], noverlap=self.spectrogramSettings['window_overlap'], mode='magnitude', scale='dB')
 
             # FIXME : Create the setType folder if doesnt exist
-            spectrogram.savefig(os.path.join(self.outputFolder, 'images', self.setType, 'AQA_%s_%06d.png' % (self.setType, sceneId)),dpi=1)
+            spectrogram.savefig(os.path.join(self.outputFolder, 'images', self.setType, '%s_%s_%06d.png' % (self.outputPrefix, self.setType, sceneId)), dpi=1)
 
             # Close and Clear the figure
             plt.close(spectrogram)
@@ -184,13 +225,21 @@ class AudioSceneProducer:
             print("[ERROR] The scene specified by id '%d' couln't be found" % sceneId)
 
 def mainPool():
-    outputFolder = 'output'
+    args = parser.parse_args()
 
-    producer = AudioSceneProducer(outputFolder='../output',
-                                  scenesJsonFilename='scenes/AQA_V0.1_val_scenes.json',
-                                  primarySoundsJsonFilename='primary_sounds.json',
-                                  primarySoundFolderPath='../primary_sounds',
-                                  setType='val')
+    producer = AudioSceneProducer(outputFolder=args.output_folder,
+                                  scenesJsonFilename=args.input_scene_file,
+                                  primarySoundsJsonFilename=args.primary_sounds_definition_filename,
+                                  primarySoundFolderPath=args.primary_sounds_folder,
+                                  setType=args.set_type,
+                                  outputPrefix=args.output_filename_prefix + "_" + args.output_version_nb,
+                                  withBackgroundNoise=args.with_background_noise,
+                                  spectrogramSettings={
+                                      'height': args.spectrogram_height,
+                                      'width': args.spectrogram_width,
+                                      'window_length': args.spectrogram_window_length,
+                                      'window_overlap': args.spectrogram_window_overlap,
+                                  })
 
     idList = list(range(producer.nbOfLoadedScenes))
 
@@ -200,7 +249,7 @@ def mainPool():
     producer._loadAllPrimarySounds()
 
     # FIXME : All the process should probably not work from the same object attributes
-    nbProcess = 4
+    nbProcess = args.nb_process
 
     pool = Pool(processes=nbProcess)
     pool.map(producer.generateScene, idList)
