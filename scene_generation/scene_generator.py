@@ -391,6 +391,35 @@ class Scene_generator:
 
         return self.attributes_values['loudness'][random.randint(0, high_bound)]
 
+    def _assign_silence_informations(self, scene):
+        sounds_duration = sum(sound['duration'] for sound in scene)
+
+        full_padding_duration = self.scene_duration - sounds_duration
+        padding_duration = full_padding_duration
+        padded = 0
+        scene_reversed = False
+
+        # Reverse the scene order with a probability of 50%
+        # The way we attribute silence will result in longer silence in the beginning and smaller in the end
+        # By reversing the scene we "kinda" distribute the silence duration
+        if random.random() > 0.5:
+            scene.reverse()
+            scene_reversed = True
+
+        # FIXME : No sure this is the best way to generate the silence intervals
+        for sound in scene:
+            sound['silence_after'] = round(padding_duration * random.randrange(5, 100)/200)
+            padded += sound['silence_after']
+            padding_duration -= sound['silence_after']
+
+        if scene_reversed:
+            # Reverse back the scene to the original order
+            scene.reverse()
+
+        # The rest of the silence duration should be added in the beginning of the scene
+        # We calculate the remaining padding this way to make sure that rounding doesn't affect the result
+        return full_padding_duration - padded
+
     def _generate_scenes(self, start_index= 0, nb_to_generate=None, root_node=None):
         if not root_node:
             # FIXME : The process won't include the root node in the scene composition. Will cause problem when distributing part of the tree in different processes
@@ -526,8 +555,6 @@ class Scene_generator:
                 # Use 'last' as the position str with a probability of 0.5
                 sound['position'] = 'last'
 
-
-
     def generate(self, start_index=0, nb_to_generate=None, training_set_ratio=0.7, shuffle_scenes=True):
 
         generated_scenes = self._generate_scenes(start_index, nb_to_generate, None)
@@ -551,13 +578,16 @@ class Scene_generator:
         test_index = 0
 
         scene_count = 0
-        for scene in generated_scenes:
+        for generated_scene in generated_scenes:
 
-            self._assign_positions_string(scene)
+            self._assign_positions_string(generated_scene)
+
+            silence_before = self._assign_silence_informations(generated_scene)
 
             scene = {
-                "objects": scene,
-                "relationships": self._generate_relationships(scene)
+                "silence_before": silence_before,
+                "objects": generated_scene,
+                "relationships": self._generate_relationships(generated_scene)
             }
 
             if scene_count < nb_training:
