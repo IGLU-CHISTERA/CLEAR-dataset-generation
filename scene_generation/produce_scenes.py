@@ -171,7 +171,7 @@ class AudioSceneProducer:
             print('[ERROR] Could not retrieve loaded audio segment \'' + name + '\' from memory.')
             exit(0)  # FIXME : Should probably raise an exception here instead
 
-    def generateScene(self, sceneId):
+    def produceScene(self, sceneId):
         if sceneId < self.nbOfLoadedScenes:
 
             scene = self.scenes[sceneId]
@@ -252,7 +252,7 @@ def mainPool():
     nbProcess = args.nb_process
 
     pool = Pool(processes=nbProcess)
-    pool.map(producer.generateScene, idList)
+    pool.map(producer.produceScene, idList)
 
     print("Job Done !")
 
