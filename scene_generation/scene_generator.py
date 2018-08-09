@@ -459,7 +459,7 @@ class Scene_generator:
                     self.stats['nbValid'] += 1
                     start_index += 1
 
-                    generated_scenes.append(list(state))
+                    generated_scenes.append(copy.deepcopy(state))
 
                 # Going up in the tree
                 next_node = current_node.parent     # FIXME : This will fail in the case we have a depth of 1 because the None check is in the while (Not really a use cas.. we can ignore)
