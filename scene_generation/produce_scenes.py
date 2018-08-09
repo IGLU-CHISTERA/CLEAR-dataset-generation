@@ -177,16 +177,14 @@ class AudioSceneProducer:
             scene = self.scenes[sceneId]
             print('Generating scene ' + str(sceneId))
             sceneAudioSegment = AudioSegment.empty()
-            silenceSegment100ms = self._getLoadedAudioSegmentByName('-SILENCE-')
 
-            # Insert silence paddig of 200 ms at the beginning of the scene
-            sceneAudioSegment += silenceSegment100ms * 2
+            sceneAudioSegment += AudioSegment.silent(duration=scene['silence_before'])
             for sound in scene['objects']:
                 newAudioSegment = self._getLoadedAudioSegmentByName(sound['note'])
                 sceneAudioSegment += newAudioSegment
 
-                # Insert a silence padding of 300 ms between the sounds
-                sceneAudioSegment += silenceSegment100ms * 3
+                # Insert a silence padding after the sound
+                sceneAudioSegment += AudioSegment.silent(duration=sound['silence_after'])
 
             # FIXME : Background noise should probably constant ? The scene duration is constant so no need to regen everytime
             if self.withBackgroundNoise:
