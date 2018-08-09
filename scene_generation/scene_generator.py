@@ -24,6 +24,9 @@ parser.add_argument('--scene_length', default=6, type=int,
 parser.add_argument('--tree_width', default=5, type=int,
                     help='Number of node explored at each level of the generation tree')
 
+parser.add_argument('--silence_padding_per_object', default=200, type=int,
+                    help='Silence length that will be introduced between the objects')
+
 parser.add_argument('--constraint_min_nb_families', default=3, type=int,
                     help='Minimum number of instrument families required for the scene to be valid')
 
@@ -96,6 +99,8 @@ class Primary_sounds:
         with open(os.path.join(self.folderpath, definition_filename)) as primary_sounds_definition:
             self.definition = ujson.load(primary_sounds_definition)
 
+        self.longest_duration = 0
+
         self._preprocess_sounds()
 
         self.nb_sounds = len(self.definition)
@@ -141,7 +146,9 @@ class Primary_sounds:
 
             # TODO : Add more sound analysis here. The added attributes should be used in the scene generation
             primary_sound['duration'] = int(primary_sound_audiosegment.duration_seconds * 1000)
-            #primary_sound['rms'] = primary_sound_audiosegment.rms
+
+            if primary_sound['duration'] > self.longest_duration:
+                self.longest_duration = primary_sound['duration']
 
             primary_sound['pitch'] = self._pitch_to_str(primary_sound['pitch'])
             primary_sound['instrument'] = primary_sound['instrument_family']
@@ -211,6 +218,7 @@ class Scene_generator:
     """
     def __init__(self, nb_objects_per_scene,
                  nb_tree_branch,
+                 silence_padding_per_object,
                  primary_sounds_folderpath,
                  primary_sounds_definition_filename,
                  metadata_filepath,
@@ -229,6 +237,9 @@ class Scene_generator:
             self.attributes_values = {key: val['values'] for key, val in ujson.load(metadata)['attributes'].items()}
 
         self.primary_sounds = Primary_sounds(os.path.join(cwd, primary_sounds_folderpath), primary_sounds_definition_filename)
+
+        self.scene_duration = nb_objects_per_scene * self.primary_sounds.longest_duration + \
+                              silence_padding_per_object * (nb_objects_per_scene + 1)
 
         self.idx_to_position_str = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "eleventh"]
 
@@ -595,6 +606,7 @@ if __name__ == '__main__':
 
     scene_generator = Scene_generator(args.scene_length,
                                       args.tree_width,
+                                      args.silence_padding_per_object,
                                       args.primary_sounds_folder,
                                       args.primary_sounds_definition_filename,
                                       args.metadata_file,
