@@ -656,7 +656,7 @@ if __name__ == '__main__':
                                        scenes_filename)
 
         with open(scenes_filepath, 'w') as f:
-            ujson.dump(scene_struct, f, escape_forward_slashes=False)
+            ujson.dump(scene_struct, f, sort_keys=True, escape_forward_slashes=False)
 
     timing = datetime.now() - before
 

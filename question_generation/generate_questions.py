@@ -784,7 +784,7 @@ def main(args):
     ujson.dump({
         'info': scene_info,
         'questions': questions,
-      }, f, escape_forward_slashes=False)
+      }, f, sort_keys=True, escape_forward_slashes=False)
 
 
 if __name__ == '__main__':
