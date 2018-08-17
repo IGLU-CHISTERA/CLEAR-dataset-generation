@@ -413,12 +413,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
     next_node = template['nodes'][state['next_template_node']]
     next_node = node_shallow_copy(next_node)
 
-    special_nodes = {                                             # FIXME : Some harcoded special node
-        'filter_unique', 'filter_count', 'filter_exist', 'filter',
-        'relate_filter', 'relate_filter_unique', 'relate_filter_count',
-        'relate_filter_exist',
-    }
-    if next_node['type'] in special_nodes:
+    if next_node['type'] in qeng.functions_to_be_expanded:
 
       params_in_node = sorted([param_name_to_attribute[i] for i in next_node['side_inputs']])
       
@@ -631,11 +626,6 @@ def main(args):
 
   with open(args.metadata_file, 'r') as f:
     metadata = ujson.load(f)
-  
-  functions_by_name = {}
-  for f in metadata['functions']:
-    functions_by_name[f['name']] = f
-  metadata['_functions_by_name'] = functions_by_name
 
   # Load templates from disk
   # Key is (filename, file_idx)
@@ -655,6 +645,9 @@ def main(args):
         print("Could not load template %s" % fn)    # FIXME : We should probably pause or do something to inform the user. This message will be flooded by the rest of the output. Maybe do a pause before generating ?
   print('Read %d templates from disk' % num_loaded_templates)
 
+  # Instantiate the question engine attributes handlers
+  qeng.instantiate_attributes_handlers(metadata)
+
   # TODO : Handle augmentedScene attributes (Position)
   def reset_counts():
     # Maps a template (filename, index) to the number of questions we have
@@ -663,11 +656,10 @@ def main(args):
     # Maps a template (filename, index) to a dict mapping the answer to the
     # number of questions so far of that template type with that answer
     template_answer_counts = {}
-    node_type_to_dtype = {n['name']: n['output'] for n in metadata['functions']}
     for key, template in templates.items():
       template_counts[key] = 0
       final_node_type = template['nodes'][-1]['type']
-      final_dtype = node_type_to_dtype[final_node_type]
+      final_dtype = qeng.functions[final_node_type]['output']
 
       if final_dtype == 'bool':
         answers = [True, False]

@@ -144,41 +144,120 @@ def greater_than_handler(scene_struct, inputs, side_inputs):
   return inputs[0] > inputs[1]
 
 
-# TODO : Set appropriate handler for new attributes
-# Register all of the answering handlers here.
-# TODO_ORIG maybe this would be cleaner with a function decorator that takes
-# care of registration? Not sure. Also what if we want to reuse the same engine
-# for different sets of node types?
-execute_handlers = {                              # FIXME : The handlers are related to the attributes. This should not be hardcoded. Should be read from metadata
-  'scene': scene_handler,
-  'filter_loudness': make_filter_handler('loudness'),
-  'filter_instrument': make_filter_handler('instrument'),
-  'filter_position': make_filter_handler('position'),
-  'filter_pitch': make_filter_handler('pitch'),
-  'filter_objectcategory': make_filter_handler('objectcategory'),         # FIXKE : Doesn't seem to have an objectcategory attribute in the scene
-  'unique': unique_handler,
-  'relate': relate_handler,
-  'union': union_handler,
-  'intersect': intersect_handler,
-  'count': count_handler,
-  'query_loudness': make_query_handler('loudness'),
-  'query_instrument': make_query_handler('instrument'),
-  'query_position': make_query_handler('position'),
-  'query_pitch': make_query_handler('pitch'),
-  'exist': exist_handler,
-  'equal_loudness': equal_handler,
-  'equal_instrument': equal_handler,
-  'equal_position': equal_handler,
-  'equal_pitch': equal_handler,
-  'equal_integer': equal_handler,
-  'equal_object': equal_handler,
-  'less_than': less_than_handler,
-  'greater_than': greater_than_handler,
-  'same_loudness': make_same_attr_handler('loudness'),
-  'same_instrument': make_same_attr_handler('instrument'),
-  'same_pitch': make_same_attr_handler('pitch'),
-  'same_position': make_same_attr_handler('position')
+functions = {
+  'scene': {
+    'handler': scene_handler,
+    'output': 'object_set'
+  },
+  'unique': {
+    'handler': unique_handler,
+    'output': 'object'
+  },
+  'relate': {
+    'handler': relate_handler,
+    'output': 'object_set'
+  },
+  'union': {
+    'handler': union_handler,
+    'output': 'object_set'
+  },
+  'intersect': {
+    'handler': intersect_handler,
+    'output': 'object_set'
+  },
+  'count': {
+    'handler': count_handler,
+    'output': 'integer'
+  },
+  'exist': {
+    'handler': exist_handler,
+    'output': 'bool'
+  },
+  'equal_integer': {
+    'handler': equal_handler,
+    'output': 'bool'
+  },
+  'equal_object': {
+    'handler': equal_handler,
+    'output': 'bool'
+  },
+  'less_than': {
+    'handler': less_than_handler,
+    'output': 'bool'
+  },
+  'greater_than': {
+    'handler': greater_than_handler,
+    'output': 'bool'
+  },
+  # The following functions can't be called directly.
+  # They are intermediate functions that are expanded in a combination of other functions
+  'filter': {
+    'handler': None,
+    'output': 'object_set'
+  },
+  'filter_exist': {
+    'handler': None,
+    'output': 'bool'
+  },
+  'filter_count': {
+    'handler': None,
+    'output': 'integer'
+  },
+  'filter_unique': {
+    'handler': None,
+    'output': 'object'
+  },
+  'relate_filter': {
+    'handler': None,
+    'output': 'object_set'
+  },
+  'relate_filter_unique': {
+    'handler': None,
+    'output': 'object'
+  },
+  'relate_filter_count': {
+    'handler': None,
+    'output': 'integer'
+  },
+  'relate_filter_exist': {
+    'handler': None,
+    'output': 'bool'
+  }
 }
+
+functions_to_be_expanded = [name for name, definition in functions.items() if definition['handler'] is None]
+
+
+def instantiate_attributes_handlers(metadata):
+  for attribute_name in metadata['attributes'].keys():
+
+    # Relations are handled separately
+    if attribute_name.startswith('relate'):
+      continue
+
+    # Equal handler
+    functions['equal_' + attribute_name] = {
+      'handler': equal_handler,
+      'output': 'bool'
+    }
+
+    # Filter handler
+    functions['filter_' + attribute_name] = {
+      'handler': make_filter_handler(attribute_name),
+      'output': 'bool'
+    }
+
+    # Query handler
+    functions['query_' + attribute_name] = {
+      'handler': make_query_handler(attribute_name),
+      'output': attribute_name
+    }
+
+    # Same handler
+    functions['same_' + attribute_name] = {
+      'handler': make_same_attr_handler(attribute_name),
+      'output': 'object_set'
+    }
 
 
 def answer_question(question, metadata, scene_struct, all_outputs=False,
@@ -200,8 +279,8 @@ def answer_question(question, metadata, scene_struct, all_outputs=False,
     else:
       node_type = node['type']
       msg = 'Could not find handler for "%s"' % node_type
-      assert node_type in execute_handlers, msg
-      handler = execute_handlers[node_type]
+      assert node_type in functions, msg
+      handler = functions[node_type]['handler']
       node_inputs = [node_outputs[idx] for idx in node['inputs']]
       side_inputs = node.get('side_inputs', [])
       node_output = handler(scene_struct, node_inputs, side_inputs)
