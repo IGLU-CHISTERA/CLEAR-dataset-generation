@@ -35,7 +35,7 @@ def make_filter_handler(attribute):
     output = []
     for idx in inputs[0]:
       atr = scene_struct['objects'][idx][attribute]
-      if value == atr or value in atr:
+      if value == atr or (type(value) == list and value in atr):
         output.append(idx)
     return output
   return filter_handler
