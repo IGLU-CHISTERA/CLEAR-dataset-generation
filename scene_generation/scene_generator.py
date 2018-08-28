@@ -7,6 +7,8 @@ import time
 import argparse
 from itertools import groupby
 from datetime import datetime
+import pyloudnorm
+import utils
 
 
 """
@@ -127,6 +129,12 @@ class Primary_sounds:
         else:
             return 'deep'
 
+    def _get_perceptual_loudness(self, audio_segment):
+        # FIXME : The meter should not be created everytime
+        loudness_meter = pyloudnorm.Meter(audio_segment.frame_rate, block_size=0.35)  # FIXME : Hardcoded block size
+
+        return loudness_meter.integrated_loudness(utils.pydub_audiosegment_to_float_array(audio_segment))
+
     def _preprocess_sounds(self, shuffle_primary_sounds=True):
 
         if shuffle_primary_sounds:
@@ -146,6 +154,8 @@ class Primary_sounds:
 
             # TODO : Add more sound analysis here. The added attributes should be used in the scene generation
             primary_sound['duration'] = int(primary_sound_audiosegment.duration_seconds * 1000)
+
+            primary_sound['perceptual_loudness'] = self._get_perceptual_loudness(primary_sound_audiosegment)
 
             if primary_sound['duration'] > self.longest_duration:
                 self.longest_duration = primary_sound['duration']
