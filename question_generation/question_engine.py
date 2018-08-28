@@ -244,7 +244,7 @@ def instantiate_attributes_handlers(metadata):
     # Filter handler
     functions['filter_' + attribute_name] = {
       'handler': make_filter_handler(attribute_name),
-      'output': 'bool'
+      'output': 'object_set'
     }
 
     # Query handler
