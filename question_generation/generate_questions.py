@@ -82,6 +82,9 @@ parser.add_argument('--templates_per_image', default=10, type=int,
          "on each image")
 parser.add_argument('--instances_per_template', default=1, type=int,
     help="The number of times each template should be instantiated on an image")
+parser.add_argument('--instantiation_retry_threshold', default=10000, type=int,
+    help="Maximum number of retry attempt in order to reach the instances_per_template")
+
 
 # Misc
 parser.add_argument('--random_nb_generator_seed', default=None, type=int,
@@ -293,17 +296,31 @@ def generate_not_null_instrument_constraints(template_text):
 
 
 def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
-                              synonyms, max_instances=None, verbose=False):
+                              synonyms, max_instances=None, reset_threshold=0, verbose=False):
 
   param_name_to_attribute = placeholders_to_attribute(template['text'][0], metadata)
+  states = []
 
-  initial_state = {
-    'nodes': [node_shallow_copy(template['nodes'][0])],
-    'vals': {},
-    'input_map': {0: 0},
-    'next_template_node': 1,
-  }
-  states = [initial_state]
+  def reset_states_if_needed(current_states):
+    if reset_states_if_needed.reset_counter < reset_threshold:
+      if len(current_states) == 0:
+        initial_state = {
+          'nodes': [node_shallow_copy(template['nodes'][0])],
+          'vals': {},
+          'input_map': {0: 0},
+          'next_template_node': 1,
+        }
+        current_states = [initial_state]
+        reset_states_if_needed.reset_counter += 1
+    else:
+      if verbose: print("--> Retried %d times. Could only instantiate %d on %d. Giving up on this template" % (reset_threshold, len(final_states), max_instances))
+      current_states = []
+
+    return current_states
+
+  reset_states_if_needed.reset_counter = -1
+
+  states = reset_states_if_needed(states)
   final_states = []
   while states:
     state = states.pop()
@@ -384,9 +401,11 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
       median_count = max(median_count, 5)
       if cur_answer_count > 1.1 * answer_counts_sorted[-2]:         # TODO : Those skipping probabilities should be in config file
         if verbose: print('skipping due to second count')
+        states = reset_states_if_needed(states)
         continue
       if cur_answer_count > 5.0 * median_count:
         if verbose: print('skipping due to median')
+        states = reset_states_if_needed(states)
         continue
 
       # If the template contains a raw relate node then we need to check for
@@ -405,6 +424,9 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
       if max_instances is not None and len(final_states) == max_instances:
         if verbose: print('Breaking out, we got enough instances')
         break
+      else:
+        states = reset_states_if_needed(states)
+
       if verbose: print("Added a state to final_states")
       continue
 
@@ -732,6 +754,7 @@ def main(args):
                       metadata,
                       template_answer_counts[(fn, idx)],
                       synonyms,
+                      reset_threshold=args.instantiation_retry_threshold,
                       max_instances=args.instances_per_template,
                       verbose=args.verbose)
       if args.time_dfs and args.verbose:
@@ -752,8 +775,6 @@ def main(args):
           'question_index': len(questions),
         })
       if len(ts) > 0:
-        if args.verbose:
-          print('got one!')
         num_instantiated += 1
         template_counts[(fn, idx)] += 1
       elif args.verbose:
