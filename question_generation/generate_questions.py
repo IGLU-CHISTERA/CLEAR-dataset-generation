@@ -470,7 +470,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
 
       # The filter options keys are sorted before being shuffled to control the randomness (ensure reproducibility)
       # This ensure that for the same seed of the random number generator, the same output will be produced
-      filter_option_keys = sorted(filter_options.keys(), key=lambda x: x[0])
+      filter_option_keys = sorted(filter_options.keys(), key=lambda x: x[0] if x[0] is not None else '')
 
       random.shuffle(filter_option_keys)
       for k in filter_option_keys:
