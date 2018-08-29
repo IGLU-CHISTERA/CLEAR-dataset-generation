@@ -648,6 +648,26 @@ def main(args):
   # Instantiate the question engine attributes handlers
   qeng.instantiate_attributes_handlers(metadata)
 
+  # Read file containing input scenes
+  all_scenes = []
+  with open(args.input_scene_file, 'r') as f:
+    scene_data = ujson.load(f)
+    all_scenes = scene_data['scenes']
+    scene_info = scene_data['info']
+  begin = args.scene_start_idx
+  if args.num_scenes > 0:
+    end = args.scene_start_idx + args.num_scenes
+    all_scenes = all_scenes[begin:end]
+  else:
+    all_scenes = all_scenes[begin:]
+
+  max_scene_length = 0
+
+  for scene in all_scenes:
+    scene_length = len(scene['objects'])
+    if scene_length > max_scene_length:
+      max_scene_length = scene_length
+
   # TODO : Handle augmentedScene attributes (Position)
   def reset_counts():
     # Maps a template (filename, index) to the number of questions we have
@@ -664,7 +684,7 @@ def main(args):
       if final_dtype == 'bool':
         answers = [True, False]
       elif final_dtype == 'integer':
-        answers = list(range(0, 10))              # FIXME : Max integer anser should be loaded from config
+        answers = list(range(0, max_scene_length + 1))      # FIXME : This won't hold if the scenes have different length
       else:
         answers = metadata['attributes'][final_dtype]['values']
 
@@ -674,19 +694,6 @@ def main(args):
     return template_counts, template_answer_counts
 
   template_counts, template_answer_counts = reset_counts()
-
-  # Read file containing input scenes
-  all_scenes = []
-  with open(args.input_scene_file, 'r') as f:
-    scene_data = ujson.load(f)
-    all_scenes = scene_data['scenes']
-    scene_info = scene_data['info']
-  begin = args.scene_start_idx
-  if args.num_scenes > 0:
-    end = args.scene_start_idx + args.num_scenes
-    all_scenes = all_scenes[begin:end]
-  else:
-    all_scenes = all_scenes[begin:]
 
   # Read synonyms file
   with open(args.synonyms_json, 'r') as f:
