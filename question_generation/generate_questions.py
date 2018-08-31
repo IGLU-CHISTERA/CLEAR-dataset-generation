@@ -13,6 +13,7 @@ from __future__ import print_function
 import argparse, ujson, os, random, math
 import time
 import re
+from functools import reduce
 
 import question_engine as qeng
 
@@ -102,7 +103,7 @@ parser.add_argument('--profile', action='store_true',
 # args = parser.parse_args()
 
 
-def precompute_filter_options(scene_struct, attr_keys, allow_empty_instrument=False):
+def precompute_filter_options(scene_struct, attr_keys, can_be_null_attributes):
   # Keys are tuples (size, color, shape, material) (where some may be None)
   # and values are lists of object idxs that match the filter criterion
   attribute_map = {}
@@ -131,27 +132,28 @@ def precompute_filter_options(scene_struct, attr_keys, allow_empty_instrument=Fa
           attribute_map[masked_key] = set()
         attribute_map[masked_key].add(object_idx)
 
-  # FIXME : This is not efficient, we should strip those options at the beginning
-  if not allow_empty_instrument and "instrument" in attr_keys:
-    instument_key_index = attr_keys.index("instrument")     # FIXME : This should probably not be hardcoded. Use config file ?
-    for key in list(attribute_map.keys()):
-      # Remove all the filters which contain empty instruments
-      if key[instument_key_index] is None:
-        del attribute_map[key]
+  # Keep only filters with Null values for allowed attributes
+  deleted_keys = set()
+  for key in list(attribute_map.keys()):
+    for i, val in enumerate(key):
+      if val is None and attr_keys[i] not in can_be_null_attributes and key not in deleted_keys:
+          deleted_keys.add(key)
+          del attribute_map[key]
 
   if not '_filter_options' in scene_struct:
+  if '_filter_options' not in scene_struct:
     scene_struct['_filter_options'] = {}
 
   scene_struct['_filter_options'][tuple(attr_keys)] = attribute_map
 
 
-def find_filter_options(object_idxs, scene_struct, attr):
+def find_filter_options(object_idxs, scene_struct, attr, can_be_null_attributes):
   # Keys are tuples (size, color, shape, material) (where some may be None)
   # and values are lists of object idxs that match the filter criterion
   filter_key = tuple(attr)
 
   if '_filter_options' not in scene_struct or filter_key not in scene_struct['_filter_options']:
-    precompute_filter_options(scene_struct, attr)
+    precompute_filter_options(scene_struct, attr, can_be_null_attributes)
 
   attribute_map = {}
   object_idxs = set(object_idxs)
@@ -160,30 +162,33 @@ def find_filter_options(object_idxs, scene_struct, attr):
   return attribute_map
 
 
-def add_empty_filter_options(attribute_map, metadata, attr_keys, num_to_add):
-  # Add some filtering criterion that do NOT correspond to objects
+def add_empty_filter_options(attribute_map, metadata, can_be_null_attributes, attr_keys, num_to_add):
+  '''
+  Add some filtering criterion that do NOT correspond to objects
+  '''
 
-  # FIXME : This is somewhat hackish...
-  instrument_index = attr_keys.index("instrument")
-  attr_vals = [metadata['attributes'][t]['values'] + [None] for t in attr_keys]
+  attr_vals = []
+  for key in attr_keys:
+    vals = metadata['attributes'][key]['values']
+    if key in can_be_null_attributes:
+         vals.append(None)
 
-  attr_vals[instrument_index].remove(None)
+    attr_vals.append(vals)
 
-  target_size = len(attribute_map) + num_to_add
-  counter = 0
+  if len(attr_vals) > 1:
+    max_nb_filter = reduce(lambda x, y: len(x)*len(y), attr_vals)
+  else:
+    max_nb_filter = len(attr_vals[0])   # FIXME : This is not really safe. attr_vals could be empty (Should not be tho..)
+
+  target_size = min(len(attribute_map) + num_to_add, max_nb_filter)
+
   while len(attribute_map) < target_size:
     k = tuple(random.choice(v) for v in attr_vals)
     if k not in attribute_map:
       attribute_map[k] = []
-    else:
-      # FIXME : This is an ugly patch. we should specify a valid num_to_add instead
-      if counter > 100:
-        print("Reached empty filter treshold.")
-        break
-      counter += 1
 
 
-def find_relate_filter_options(object_idx, scene_struct, attr,
+def find_relate_filter_options(object_idx, scene_struct, attr, can_be_null_attributes,
     unique=False, include_zero=False, trivial_frac=0.1):
   options = {}
 
@@ -191,7 +196,7 @@ def find_relate_filter_options(object_idx, scene_struct, attr,
   filter_key = tuple(attr)
 
   if '_filter_options' not in scene_struct or filter_key not in scene_struct['_filter_options']:
-    precompute_filter_options(scene_struct, attr)
+    precompute_filter_options(scene_struct, attr, can_be_null_attributes)
 
   # TODO/VERIFY : Will probably have to change the definition of "trivial"
   # TODO_ORIG: Right now this is only looking for nontrivial combinations; in some
@@ -280,6 +285,16 @@ def placeholders_to_attribute(template_text,metadata):
   return correspondences
 
 
+def translate_can_be_null_attributes(can_be_null_attributes, param_name_to_attribute):
+  '''
+  Translate placeholder strings to attribute names and remove duplicate
+  '''
+  tmp = set()
+  for can_be_null_attribute in can_be_null_attributes:
+    tmp.add(param_name_to_attribute[can_be_null_attribute])
+
+  return list(tmp)
+
 
 def validate_constraints(template, state, outputs, param_name_to_attribute, verbose):
   for constraint in template['constraints']:
@@ -358,6 +373,11 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
                               synonyms, max_instances=None, reset_threshold=0, verbose=False):
 
   param_name_to_attribute = placeholders_to_attribute(template['text'][0], metadata)
+
+  if "_can_be_null_attributes" not in template:
+    template['_can_be_null_attributes'] = translate_can_be_null_attributes(template['can_be_null_attributes'],
+                                                                               param_name_to_attribute)
+  # Initialisation
   states = []
 
   def reset_states_if_needed(current_states):
@@ -377,6 +397,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
 
     return current_states
 
+  # Instantiate a counter to keep track of the number of reset
   reset_states_if_needed.reset_counter = -1
 
   states = reset_states_if_needed(states)
@@ -450,9 +471,9 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
         include_zero = (next_node['type'] == 'relate_filter_count'
                         or next_node['type'] == 'relate_filter_exist')
         filter_options = find_relate_filter_options(answer, scene_struct, params_in_node,
-                            unique=unique, include_zero=include_zero)
+                            template['_can_be_null_attributes'], unique=unique, include_zero=include_zero)
       else:
-        filter_options = find_filter_options(answer, scene_struct, params_in_node)
+        filter_options = find_filter_options(answer, scene_struct, params_in_node, template['_can_be_null_attributes'])
         if next_node['type'] == 'filter':
           # Remove null filter
           # FIXME : There doesn't seem to be a null filter anyways. Should there be one ?
@@ -472,7 +493,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
           else:
             # FIXME : This should never happen, better refactor the code
             num_to_add = 0
-          add_empty_filter_options(filter_options, metadata, params_in_node, num_to_add)
+          add_empty_filter_options(filter_options, metadata, template['_can_be_null_attributes'], params_in_node, num_to_add)
 
       # The filter options keys are sorted before being shuffled to control the randomness (ensure reproducibility)
       # This ensure that for the same seed of the random number generator, the same output will be produced
