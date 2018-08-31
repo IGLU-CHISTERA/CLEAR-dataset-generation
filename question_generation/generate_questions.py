@@ -332,6 +332,28 @@ def validate_constraints(template, state, outputs, param_name_to_attribute, verb
   return True
 
 
+def instantiate_texts_from_solutions(template, synonyms, final_states):
+  # Actually instantiate the template with the solutions we've found
+  text_questions, structured_questions, answers = [], [], []
+  for state in final_states:
+    structured_questions.append(state['nodes'])
+    if 'answer_template' in template:
+      state['answer'] = template['answer_template'].replace("{ANSWER}", state['answer'])
+    answers.append(state['answer'])
+    text = random.choice(template['text'])
+    for name, val in state['vals'].items():
+      if val in synonyms:
+        val = random.choice(synonyms[val])
+      text = text.replace(name, val)
+      text = ' '.join(text.split())
+    text = replace_optionals(text)
+    text = ' '.join(text.split())
+    text = other_heuristic(text, state['vals'])
+    text_questions.append(text)
+
+  return text_questions, structured_questions, answers
+
+
 def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
                               synonyms, max_instances=None, reset_threshold=0, verbose=False):
 
@@ -559,23 +581,9 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
         'next_template_node': state['next_template_node'] + 1,
       })
 
-  # Actually instantiate the template with the solutions we've found
-  text_questions, structured_questions, answers = [], [], []
-  for state in final_states:
-    structured_questions.append(state['nodes'])
-    answers.append(state['answer'])
-    text = random.choice(template['text'])
-    for name, val in state['vals'].items():
-      if val in synonyms:
-        val = random.choice(synonyms[val])
-      text = text.replace(name, val)
-      text = ' '.join(text.split())
-    text = replace_optionals(text)
-    text = ' '.join(text.split())
-    text = other_heuristic(text, state['vals'])
-    text_questions.append(text)
 
-  return text_questions, structured_questions, answers
+  # Actually instantiate the template with the solutions we've found
+  return instantiate_texts_from_solutions(template, synonyms, final_states)
 
 
 # FIXME : The probability should be loaded from config
