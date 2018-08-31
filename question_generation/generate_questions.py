@@ -676,6 +676,12 @@ def main(args):
           num_loaded_templates += 1
           key = (fn, i)
           templates[key] = template
+
+          # Adding optionals parameters if not present. Remove the need to do null check when accessing
+          optionals_keys = ['constraints', 'can_be_null_attributes']
+          for op_key in optionals_keys:
+            if op_key not in template:
+              template[op_key] = []
       except ValueError:
         print("Could not load template %s" % fn)    # FIXME : We should probably pause or do something to inform the user. This message will be flooded by the rest of the output. Maybe do a pause before generating ?
   print('Read %d templates from disk' % num_loaded_templates)
