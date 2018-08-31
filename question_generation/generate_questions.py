@@ -487,8 +487,8 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
           if next_node['type'] == 'filter_exist':
             # For filter_exist we want an equal number that do and don't
             num_to_add = len(filter_options)
-          elif next_node['type'] == 'filter_count' or next_node['type'] == 'filter':
-            # For filter_count add nulls equal to the number of singletons
+          elif next_node['type'] == 'filter_count':
+            # For filter_count add empty filters equal to the number of singletons
             num_to_add = sum(1 for k, v in filter_options.items() if len(v) == 1)
           else:
             # FIXME : This should never happen, better refactor the code
