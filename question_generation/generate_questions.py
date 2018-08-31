@@ -140,7 +140,6 @@ def precompute_filter_options(scene_struct, attr_keys, can_be_null_attributes):
           deleted_keys.add(key)
           del attribute_map[key]
 
-  if not '_filter_options' in scene_struct:
   if '_filter_options' not in scene_struct:
     scene_struct['_filter_options'] = {}
 
