@@ -281,7 +281,55 @@ def placeholders_to_attribute(template_text,metadata):
 
 
 
-  return constraints
+def validate_constraints(template, state, outputs, param_name_to_attribute, verbose):
+  for constraint in template['constraints']:
+    if constraint['type'] == 'NEQ':
+      p1, p2 = constraint['params']
+      v1, v2 = state['vals'].get(p1), state['vals'].get(p2)
+      if v1 is not None and v2 is not None and v1 == v2:
+        if verbose:
+          print('skipping due to NEQ constraint')
+          print(constraint)
+          print(state['vals'])
+        return False
+    elif constraint['type'] == 'NULL':
+      p = constraint['params'][0]
+      p_type = param_name_to_attribute[p]
+      v = state['vals'].get(p)
+      if v is not None:
+        skip = False
+        if p_type == 'instrument' and v != 'thing': skip = True  # FIXME : Hardcoded stuff here
+        if p_type != 'instrument' and v != '': skip = True
+        if skip:
+          if verbose:
+            print('skipping due to NULL constraint')
+            print(constraint)
+            print(state['vals'])
+          return False
+    elif constraint['type'] == 'NOT_NULL':
+      p = constraint['params'][0]
+      p_type = param_name_to_attribute[p]
+      v = state['vals'].get(p)
+      if v is not None and (v == '' or v == 'thing'):
+        skip = True  # FIXME : Ugly
+        if skip:
+          if verbose:
+            print('skipping due to NOT NULL constraint')
+            print(constraint)
+            print(state['vals'])
+          return False
+    elif constraint['type'] == 'OUT_NEQ':
+      i, j = constraint['params']
+      i = state['input_map'].get(i, None)
+      j = state['input_map'].get(j, None)
+      if i is not None and j is not None and outputs[i] == outputs[j]:
+        if verbose:
+          print('skipping due to OUT_NEQ constraint')
+        return False
+    else:
+      assert False, 'Unrecognized constraint type "%s"' % constraint['type']
+
+  return True
 
 
 def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
@@ -322,60 +370,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
       if verbose: print("Skipping due to invalid answer")
       continue
 
-    # Check to make sure constraints are satisfied for the current state
-    skip_state = False
-    for constraint in template['constraints']:
-      if constraint['type'] == 'NEQ':
-        p1, p2 = constraint['params']
-        v1, v2 = state['vals'].get(p1), state['vals'].get(p2)
-        if v1 is not None and v2 is not None and v1 == v2:
-          if verbose:
-            print('skipping due to NEQ constraint')
-            print(constraint)
-            print(state['vals'])
-          skip_state = True
-          break
-      elif constraint['type'] == 'NULL':
-        p = constraint['params'][0]
-        p_type = param_name_to_attribute[p]
-        v = state['vals'].get(p)
-        if v is not None:
-          skip = False
-          if p_type == 'instrument' and v != 'thing': skip = True        # FIXME : Hardcoded stuff here
-          if p_type != 'instrument' and v != '': skip = True
-          if skip:
-            if verbose:
-              print('skipping due to NULL constraint')
-              print(constraint)
-              print(state['vals'])
-            skip_state = True
-            break
-      elif constraint['type'] == 'NOT_NULL':
-        p = constraint['params'][0]
-        p_type = param_name_to_attribute[p]
-        v = state['vals'].get(p)
-        if v is not None and (v == '' or v =='thing'):
-          skip = True     # FIXME : Ugly
-          if skip:
-            if verbose:
-              print('skipping due to NOT NULL constraint')
-              print(constraint)
-              print(state['vals'])
-            skip_state = True
-            break
-      elif constraint['type'] == 'OUT_NEQ':
-        i, j = constraint['params']
-        i = state['input_map'].get(i, None)
-        j = state['input_map'].get(j, None)
-        if i is not None and j is not None and outputs[i] == outputs[j]:
-          if verbose:
-            print('skipping due to OUT_NEQ constraint')
-          skip_state = True
-          break
-      else:
-        assert False, 'Unrecognized constraint type "%s"' % constraint['type']
-
-    if skip_state:
+    if not validate_constraints(template, state, outputs, param_name_to_attribute, verbose):
       continue
 
     # We have already checked to make sure the answer is valid, so if we have
