@@ -643,7 +643,6 @@ def global_position_from_index(idx, nb_obj):
   Separate the scene in 3 parts (Beginning, middle, end) based on the index of the object
   """
 
-  # FIXME : Handle correctly whe nthe number of objects is not a multiple of 3
   part_size = math.floor(nb_obj/3)
   if idx + 1 <= part_size:
     return "beginning"
