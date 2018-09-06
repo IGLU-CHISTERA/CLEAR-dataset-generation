@@ -182,7 +182,7 @@ class Primary_sounds:
                 # Bright and dark properties are mutually exclusive. Intersection will contain 1 object
                 primary_sound['brightness'] = brightness_intersection.pop()
             else:
-                primary_sound['brightness'] = "None"    # FIXME : Is this the way to go ?
+                primary_sound['brightness'] = None    # This attribute will be ignored (unless brightness is in can_be_null)
 
             # Remove unused attributes
             attr_to_remove = ['sample_rate',
