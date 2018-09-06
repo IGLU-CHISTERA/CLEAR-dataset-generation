@@ -700,13 +700,36 @@ def main(args):
   else:
     all_scenes = all_scenes[begin:]
 
+  # Instantiate dict to keep track of the count per instrument
+  instrument_count_empty = {}
+  instrument_indexes_empty = {}
+
+  for instrument in metadata['attributes']['instrument']['values']:
+    instrument_count_empty[instrument] = 0
+    instrument_indexes_empty[instrument] = []
+
+  instrument_count = dict(instrument_count_empty)
+
   max_scene_length = 0
   for scene in all_scenes:
+    # Keep track of the maximum number of objects across all scenes
     scene_length = len(scene['objects'])
     if scene_length > max_scene_length:
       max_scene_length = scene_length
 
-  # TODO : Handle augmentedScene attributes (Position)
+    # TODO : Generalize for all attributes
+    # Keep track of the index for each instrument
+    instrument_indexes = copy.deepcopy(instrument_indexes_empty)
+    for i, obj in enumerate(scene['objects']):
+      instrument_indexes[obj['instrument']].append(i)
+
+    scene['instrument_indexes'] = instrument_indexes
+
+    for instrument, index_list in instrument_indexes.items():
+      count = len(index_list)
+      if count > instrument_count[instrument]:
+        instrument_count[instrument] = count
+
   def reset_counts():
     # Maps a template (filename, index) to the number of questions we have
     # so far using that template
