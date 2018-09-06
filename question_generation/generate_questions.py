@@ -14,6 +14,7 @@ import argparse, ujson, os, random, math
 import time
 import re
 from functools import reduce
+import copy
 
 import question_engine as qeng
 
