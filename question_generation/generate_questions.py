@@ -681,7 +681,7 @@ def main(args):
             if op_key not in template:
               template[op_key] = []
       except ValueError:
-        print("Could not load template %s" % fn)    # FIXME : We should probably pause or do something to inform the user. This message will be flooded by the rest of the output. Maybe do a pause before generating ?
+        print("[ERROR] Could not load template %s" % fn)    # FIXME : We should probably pause or do something to inform the user. This message will be flooded by the rest of the output. Maybe do a pause before generating ?
   print('Read %d templates from disk' % num_loaded_templates)
 
   # Instantiate the question engine attributes handlers
@@ -701,7 +701,6 @@ def main(args):
     all_scenes = all_scenes[begin:]
 
   max_scene_length = 0
-
   for scene in all_scenes:
     scene_length = len(scene['objects'])
     if scene_length > max_scene_length:
@@ -729,7 +728,7 @@ def main(args):
 
       template_answer_counts[key] = {}
       for a in answers:
-        template_answer_counts[key][a] = 0      # FIXME/INVESTIGATE : What happend when the answers is Null/None ? This will happen with Object and ObjectSet
+        template_answer_counts[key][a] = 0
     return template_counts, template_answer_counts
 
   template_counts, template_answer_counts = reset_counts()
@@ -788,8 +787,8 @@ def main(args):
           'program': q,
           'answer': a,
           'template_filename': fn,
-          'question_family_index': idx,
-          'question_index': len(questions),
+          'question_family_index': idx,         # FIXME : This index doesn't represent the question family index
+          'question_index': len(questions),     # FIXME : This is not efficient
         })
       if len(ts) > 0:
         num_instantiated += 1
