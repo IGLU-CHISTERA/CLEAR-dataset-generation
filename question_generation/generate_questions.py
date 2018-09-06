@@ -177,7 +177,7 @@ def add_empty_filter_options(attribute_map, metadata, can_be_null_attributes, at
   if len(attr_vals) > 1:
     max_nb_filter = reduce(lambda x, y: len(x)*len(y), attr_vals)
   else:
-    max_nb_filter = len(attr_vals[0])   # FIXME : This is not really safe. attr_vals could be empty (Should not be tho..)
+    max_nb_filter = len(attr_vals[0])
 
   target_size = min(len(attribute_map) + num_to_add, max_nb_filter)
 
