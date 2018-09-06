@@ -101,6 +101,8 @@ class Primary_sounds:
         with open(os.path.join(self.folderpath, definition_filename)) as primary_sounds_definition:
             self.definition = ujson.load(primary_sounds_definition)
 
+        self.notes = [ 'C', 'Db', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B' ]
+
         self.longest_duration = 0
 
         self._preprocess_sounds()
@@ -128,6 +130,12 @@ class Primary_sounds:
             return 'acute'
         else:
             return 'deep'
+
+    def _midi_to_note(self, midi_value):
+        note = self.notes[midi_value % 12]
+        octave = int(midi_value/12) - 1
+
+        return note + str(octave)
 
     def _get_perceptual_loudness(self, audio_segment):
         # FIXME : The meter should not be created everytime
@@ -157,11 +165,24 @@ class Primary_sounds:
 
             primary_sound['perceptual_loudness'] = self._get_perceptual_loudness(primary_sound_audiosegment)
 
+            primary_sound['human_note'] = self._midi_to_note(primary_sound['pitch'])
+
             if primary_sound['duration'] > self.longest_duration:
                 self.longest_duration = primary_sound['duration']
 
             primary_sound['pitch'] = self._pitch_to_str(primary_sound['pitch'])
             primary_sound['instrument'] = primary_sound['instrument_family']
+
+            # Properties from sound qualities
+            primary_sound['percussion'] = 'percussive' if 'percussive' in primary_sound['qualities'] else 'non-percussive'
+            primary_sound['distortion'] = 'distorted' if 'distortion' in primary_sound['qualities'] else 'non-distorted'
+
+            brightness_intersection = {'bright', 'dark'} & set(primary_sound['qualities'])
+            if len(brightness_intersection) > 0:
+                # Bright and dark properties are mutually exclusive. Intersection will contain 1 object
+                primary_sound['brightness'] = brightness_intersection.pop()
+            else:
+                primary_sound['brightness'] = "None"    # FIXME : Is this the way to go ?
 
             # Remove unused attributes
             attr_to_remove = ['sample_rate',
