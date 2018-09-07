@@ -7,6 +7,7 @@
 
 import json, os, math
 from collections import defaultdict
+import random
 
 """
 Utilities for working with function program representations of questions.
@@ -28,13 +29,17 @@ def scene_handler(scene_struct, inputs, side_inputs):
 
 
 def make_filter_handler(attribute):
+  is_position_attribute = attribute.startswith('position')
   def filter_handler(scene_struct, inputs, side_inputs):
     assert len(inputs) == 1
     assert len(side_inputs) == 1
     value = side_inputs[0]
     output = []
     for idx in inputs[0]:
-      atr = scene_struct['objects'][idx][attribute]
+      if is_position_attribute:
+        atr = get_position(attribute, scene_struct, idx)
+      else:
+        atr = scene_struct['objects'][idx][attribute]
       if value == atr or (type(value) == list and value in atr):
         output.append(idx)
     return output
@@ -56,7 +61,6 @@ def vg_relate_handler(scene_struct, inputs, side_inputs):
     if rel['predicate'] == side_inputs[0] and rel['subject_idx'] == inputs[0]:
       output.add(rel['object_idx'])
   return sorted(list(output))
-
 
 
 def relate_handler(scene_struct, inputs, side_inputs):
@@ -144,6 +148,85 @@ def greater_than_handler(scene_struct, inputs, side_inputs):
   return inputs[0] > inputs[1]
 
 
+def get_absolute_position(scene_struct, idx):
+  if idx == len(scene_struct['objects']) - 1 and random.random() > 0.5:   # FIXME : This probability should be parametrable
+    return "last"
+  else:
+    return idx_to_position_str[idx]
+
+
+def query_absolute_position_handler(scene_struct, inputs, side_inputs):
+  assert len(inputs) == 1
+  assert len(side_inputs) == 0
+  idx = inputs[0]
+
+  position = get_absolute_position(scene_struct, idx)
+
+  return position + " sound"
+
+
+# TODO : Generalize for all attributes
+def get_position_instrument(scene_struct, idx, instrument):
+  instrument_indexes = scene_struct['instrument_indexes'][instrument]
+  relative_position_idx = instrument_indexes.index(idx)
+
+  if relative_position_idx == len(instrument_indexes) - 1 and random.random() > 0.5:  # FIXME : This probability should be parametrable
+    return "last"
+  # FIXME : Should we enable this ? IF ENABLED, We need to add the instrument alone in metadata values
+  elif len(instrument_indexes) == 1 and random.random() > 0.5 and False:  # FIXME : This probability should be parametrable
+    return ""   #FIXME : This will create 2 spaces when used to generate the sentence (precompute_filter_options)
+  else:
+    return idx_to_position_str[relative_position_idx]
+
+
+# TODO : Generalize for all attributes
+def query_position_instrument_handler(scene_struct, inputs, side_inputs):
+  assert len(inputs) == 1
+  assert len(side_inputs) == 0
+  idx = inputs[0]
+  instrument = scene_struct['objects'][idx]['instrument']
+
+  position = get_position_instrument(scene_struct, idx, instrument)
+
+  if position != "":
+    return position + " " + instrument
+  else:
+    return instrument
+
+
+# FIXME : Could be changed to a one liner. Having an external array with [beginning, middle, end] would
+# FIXME : facilitate the metadata enhancement (Right now it seems weird that answers for other position attributes
+# FIXME : are not written in the metadata file but the one for position_global are
+def get_position_global(scene_struct, idx):
+  part_size = math.floor(len(scene_struct['objects']) / 3)
+  if idx + 1 <= part_size:
+    return "beginning"
+  elif idx + 1 <= 2 * part_size:
+    return "middle"
+  else:
+    return "end"
+
+
+def query_position_global_handler(scene_struct, inputs, side_inputs):
+  assert len(inputs) == 1
+  assert len(side_inputs) == 0
+  idx = inputs[0]
+
+  position = get_position_global(scene_struct, idx)
+
+  return position + " of the scene"   # FIXME : Is this really interesting ?
+
+
+def get_position(attribute_name, scene_struct, obj_idx):
+  if attribute_name == 'position':
+    return get_absolute_position(scene_struct, obj_idx)
+  elif attribute_name == 'position_instrument':  # FIXME : will need to be updated when we generalize the relative attribute
+    instrument = scene_struct['objects'][obj_idx]['instrument']
+    return get_position_instrument(scene_struct, obj_idx, instrument)
+  elif attribute_name == 'position_global':
+    return get_position_global(scene_struct, obj_idx)
+
+
 functions = {
   'scene': {
     'handler': scene_handler,
@@ -189,6 +272,18 @@ functions = {
     'handler': greater_than_handler,
     'output': 'bool'
   },
+  'query_position': {
+    'handler': query_absolute_position_handler,
+    'output': "position"
+  },
+  'query_position_instrument': {
+    'handler': query_position_instrument_handler,
+    'output': "position_instrument"
+  },
+  'query_position_global': {
+    'handler': query_position_global_handler,
+    'output': "position_global"
+  },
   # The following functions can't be called directly.
   # They are intermediate functions that are expanded in a combination of other functions
   'filter': {
@@ -227,19 +322,37 @@ functions = {
 
 functions_to_be_expanded = [name for name, definition in functions.items() if definition['handler'] is None]
 
+# FIXME : This won't work if the scene is longer than 11
+idx_to_position_str = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "eleventh"]
+def add_positions_to_metadata(metadata, instrument_count, max_scene_length):
+  # Adding values for position absolute
+  position_absolute_answers = []
+  for i in range(max_scene_length):
+    position_absolute_answers.append(idx_to_position_str[i] + ' sound')
 
-def instantiate_attributes_handlers(metadata):
+  position_absolute_answers.append('last sound')
+
+  metadata['attributes']['position']['values'] = position_absolute_answers
+
+  # Adding values for position_instrument           # FIXME : Generalize this
+  position_instrument_answers = []
+  for instrument, count in instrument_count.items():
+    for i in range(count):
+      position_instrument_answers.append(idx_to_position_str[i] + ' ' + instrument)
+
+      position_instrument_answers.append('last ' + instrument)
+
+  metadata['attributes']['position_instrument']['values'] = position_instrument_answers
+
+
+def instantiate_attributes_handlers(metadata, instrument_count, max_scene_length):
+  add_positions_to_metadata(metadata, instrument_count, max_scene_length)
+
   for attribute_name in metadata['attributes'].keys():
 
-    # Relations are handled separately
+    # Relations are defined separately
     if attribute_name.startswith('relate'):
       continue
-
-    # Equal handler
-    functions['equal_' + attribute_name] = {
-      'handler': equal_handler,
-      'output': 'bool'
-    }
 
     # Filter handler
     functions['filter_' + attribute_name] = {
@@ -247,17 +360,48 @@ def instantiate_attributes_handlers(metadata):
       'output': 'object_set'
     }
 
-    # Query handler
-    functions['query_' + attribute_name] = {
-      'handler': make_query_handler(attribute_name),
-      'output': attribute_name
-    }
+    # Those positions handlers are defined separately (Or not needed)
+    if not attribute_name.startswith('position'):
+      # Equal handler
+      functions['equal_' + attribute_name] = {
+        'handler': equal_handler,
+        'output': 'bool'
+      }
 
-    # Same handler
-    functions['same_' + attribute_name] = {
-      'handler': make_same_attr_handler(attribute_name),
-      'output': 'object_set'
-    }
+      # Same handler
+      functions['same_' + attribute_name] = {
+        'handler': make_same_attr_handler(attribute_name),
+        'output': 'object_set'
+      }
+
+      # Query handler
+      functions['query_' + attribute_name] = {
+        'handler': make_query_handler(attribute_name),
+        'output': attribute_name
+      }
+
+
+def get_filter_key(attr_keys, scene_struct, obj_idx):
+  obj = scene_struct['objects'][obj_idx]
+  position_keys = [k for k in attr_keys if k.startswith('position')]
+
+  attr_to_keys = {}
+  # Retrieve value for position keys
+  for position_key in position_keys:
+    attr_to_keys[position_key] = get_position(position_key, scene_struct, obj_idx)
+
+  # Retrieve values for the other keys
+  attr_keys_without_position = list(set(attr_keys) - set(position_keys))
+  for attr_key in attr_keys_without_position:
+    attr_to_keys[attr_key] = obj[attr_key]
+
+  # Sort the filter_key according to the order of attr_keys
+  keys = list(attr_to_keys.keys())
+  values = list(attr_to_keys.values())
+
+  filter_key = sorted(values, key=lambda x: attr_keys.index(keys[values.index(x)]))
+
+  return [tuple(filter_key)]    # FIXME : Why do we return a list of 1 tuple.. doesn't make sense
 
 
 def answer_question(question, metadata, scene_struct, all_outputs=False,

@@ -118,7 +118,7 @@ def precompute_filter_options(scene_struct, attr_keys, can_be_null_attributes):
     masks.append(mask)
 
   for object_idx, obj in enumerate(scene_struct['objects']):
-    keys = [tuple(obj[k] for k in attr_keys)]
+    keys = qeng.get_filter_key(attr_keys, scene_struct, object_idx)
 
     for mask in masks:
       for key in keys:
@@ -685,9 +685,6 @@ def main(args):
         print("[ERROR] Could not load template %s" % fn)    # FIXME : We should probably pause or do something to inform the user. This message will be flooded by the rest of the output. Maybe do a pause before generating ?
   print('Read %d templates from disk' % num_loaded_templates)
 
-  # Instantiate the question engine attributes handlers
-  qeng.instantiate_attributes_handlers(metadata)
-
   # Read file containing input scenes
   all_scenes = []
   with open(args.input_scene_file, 'r') as f:
@@ -730,6 +727,9 @@ def main(args):
       count = len(index_list)
       if count > instrument_count[instrument]:
         instrument_count[instrument] = count
+
+  # Instantiate the question engine attributes handlers
+  qeng.instantiate_attributes_handlers(metadata, instrument_count, max_scene_length)
 
   def reset_counts():
     # Maps a template (filename, index) to the number of questions we have
