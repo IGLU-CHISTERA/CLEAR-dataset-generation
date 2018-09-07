@@ -494,7 +494,7 @@ def get_filter_key(attr_keys, scene_struct, obj_idx):
 
   filter_key = sorted(values, key=lambda x: attr_keys.index(keys[values.index(x)]))
 
-  return [tuple(filter_key)]    # FIXME : Why do we return a list of 1 tuple.. doesn't make sense
+  return tuple(filter_key)
 
 
 def answer_question(question, metadata, scene_struct, all_outputs=False,

@@ -118,20 +118,19 @@ def precompute_filter_options(scene_struct, attr_keys, can_be_null_attributes):
     masks.append(mask)
 
   for object_idx, obj in enumerate(scene_struct['objects']):
-    keys = qeng.get_filter_key(attr_keys, scene_struct, object_idx)
+    key = qeng.get_filter_key(attr_keys, scene_struct, object_idx)
 
     for mask in masks:
-      for key in keys:
-        masked_key = []
-        for a, b in zip(key, mask):
-          if b == 1:
-            masked_key.append(a)
-          else:
-            masked_key.append(None)
-        masked_key = tuple(masked_key)
-        if masked_key not in attribute_map:
-          attribute_map[masked_key] = set()
-        attribute_map[masked_key].add(object_idx)
+      masked_key = []
+      for a, b in zip(key, mask):
+        if b == 1:
+          masked_key.append(a)
+        else:
+          masked_key.append(None)
+      masked_key = tuple(masked_key)
+      if masked_key not in attribute_map:
+        attribute_map[masked_key] = set()
+      attribute_map[masked_key].add(object_idx)
 
   # Keep only filters with Null values for allowed attributes
   deleted_keys = set()
