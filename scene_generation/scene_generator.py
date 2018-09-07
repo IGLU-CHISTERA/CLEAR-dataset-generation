@@ -611,7 +611,6 @@ class Scene_generator:
         scene_count = 0
         for generated_scene in generated_scenes:
 
-            self._assign_positions_string(generated_scene)
 
             silence_before = self._assign_silence_informations(generated_scene)
 
