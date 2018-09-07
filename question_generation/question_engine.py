@@ -227,6 +227,71 @@ def get_position(attribute_name, scene_struct, obj_idx):
     return get_position_global(scene_struct, obj_idx)
 
 
+def filter_longest_duration_handler(scene_struct, inputs, side_inputs):
+  assert len(inputs) == 1
+  assert len(side_inputs) == 0
+  if len(inputs[0]) == 0:
+    return '__INVALID__'
+
+  longest = {
+    'duration': 0,
+    'duration_count': {},
+    'index': -1
+  }
+  for idx in inputs[0]:
+    sound_duration = scene_struct['objects'][idx]['duration']
+
+    # Keep track of the longest duration
+    if scene_struct['objects'][idx]['duration'] > longest['duration']:
+      longest['duration'] = sound_duration
+
+      longest['index'] = idx
+
+    # Keep track of the number of occurence of each duration
+    if sound_duration not in longest['duration_count']:
+      longest['duration_count'][sound_duration] = 1
+    else:
+      longest['duration_count'][sound_duration] += 1
+
+  if longest['duration_count'][longest['duration']] > 1:
+    # More than one object has the same duration
+    return '__INVALID__'
+
+  return longest['index']
+
+
+def filter_shortest_duration_handler(scene_struct, inputs, side_inputs):
+  assert len(inputs) == 1
+  assert len(side_inputs) == 0
+  if len(inputs[0]) == 0:
+    return '__INVALID__'
+
+  shortest = {
+    'duration': 99999999,
+    'duration_count': {},
+    'index': -1
+  }
+  for idx in inputs[0]:
+    sound_duration = scene_struct['objects'][idx]['duration']
+
+    # Keep track of the shortest duration
+    if scene_struct['objects'][idx]['duration'] < shortest['duration']:
+      shortest['duration'] = sound_duration
+      shortest['index'] = idx
+
+    # Keep track of the number of occurence of each duration
+    if sound_duration not in shortest['duration_count']:
+        shortest['duration_count'][sound_duration] = 1
+    else:
+        shortest['duration_count'][sound_duration] += 1
+
+  if shortest['duration_count'][shortest['duration']] > 1:
+    # More than one object has the same duration
+    return '__INVALID__'
+
+  return shortest['index']
+
+
 functions = {
   'scene': {
     'handler': scene_handler,
@@ -271,6 +336,14 @@ functions = {
   'greater_than': {
     'handler': greater_than_handler,
     'output': 'bool'
+  },
+  'filter_longest_duration': {
+    'handler': filter_longest_duration_handler,
+    'output': 'object'
+  },
+  'filter_shortest_duration': {
+    'handler': filter_shortest_duration_handler,
+    'output': 'object'
   },
   'query_position': {
     'handler': query_absolute_position_handler,
