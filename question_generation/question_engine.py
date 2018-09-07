@@ -292,6 +292,20 @@ def filter_shortest_duration_handler(scene_struct, inputs, side_inputs):
   return shortest['index']
 
 
+def make_count_different_handler(attribute):
+  def count_different_handler(scene_struct, inputs, side_inputs):
+    assert len(inputs) == 1
+    assert len(side_inputs) == 0
+
+    counter = set()
+
+    for idx in inputs[0]:
+      counter.add(scene_struct['objects'][idx][attribute])
+
+    return len(counter)
+  return count_different_handler
+
+
 functions = {
   'scene': {
     'handler': scene_handler,
@@ -451,6 +465,12 @@ def instantiate_attributes_handlers(metadata, instrument_count, max_scene_length
       functions['query_' + attribute_name] = {
         'handler': make_query_handler(attribute_name),
         'output': attribute_name
+      }
+
+      # Count different handler
+      functions['count_different_' + attribute_name] = {
+        'handler': make_count_different_handler(attribute_name),
+        'output': 'integer'
       }
 
 
