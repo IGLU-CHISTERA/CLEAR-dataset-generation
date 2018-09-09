@@ -1,0 +1,809 @@
+[
+  {
+    "disabled": true,
+    "text": [
+      "How many <I> are playing ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "How many <B> sound are playing ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "How many <L> sound are playing ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      }
+    ]
+  },
+  {
+    "note" : "Only 4 different answers for the tested scenes..Not enough",
+    "disabled": true,
+    "text": [
+      "How many <PE> sound are playing ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      }
+    ]
+  },
+  {
+    "note" : "Only produce 0 & 1 answers",
+    "disabled": true,
+    "text": [
+      "How many <HN> note are playing ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      }
+    ]
+  },
+
+
+
+  {
+    "disabled": true,
+    "text": [
+      "How many <I> or <I2> are playing ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter"
+      },
+      {
+        "inputs" : [
+          1,
+          3
+        ],
+        "type": "union"
+      },
+      {
+        "inputs": [
+          4
+        ],
+        "type": "count"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "Produce always the same answers {2,3}",
+    "disabled": true,
+    "text": [
+      "How many <HN> or <HN2> are playing ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter"
+      },
+      {
+        "inputs" : [
+          1,
+          3
+        ],
+        "type": "union"
+      },
+      {
+        "inputs": [
+          4
+        ],
+        "type": "count"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<HN>",
+          "<HN2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+
+
+
+  {
+    "disabled": true,
+    "text": [
+      "How many <L> sound are played by a <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      }
+    ]
+  },
+  {
+    "note": "Limited nb of answers {0,1,2}",
+    "disabled": true,
+    "text": [
+      "How many <B> sound are played by a <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      }
+    ]
+  },
+  {
+    "note" : "Only 4 different answers for the tested scenes..Not enough",
+    "disabled": true,
+    "text": [
+      "How many <PE> sound are played by a <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      }
+    ]
+  },
+
+
+
+  {
+    "disabled": true,
+    "text": [
+      "How many <L> sound are played by a <I> or a <I2> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<I2>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter"
+      },
+      {
+        "inputs" : [
+          1,
+          3
+        ],
+        "type": "union"
+      },
+      {
+        "inputs": [
+          4
+        ],
+        "type": "count"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "How many <PE> sound are played by a <I> or a <I2> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE>",
+          "<I2>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter"
+      },
+      {
+        "inputs" : [
+          1,
+          3
+        ],
+        "type": "union"
+      },
+      {
+        "inputs": [
+          4
+        ],
+        "type": "count"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "Limited nb of answers {0,1,2}",
+    "disabled": true,
+    "text": [
+      "How many <B> sound are played by a <I> or a <I2> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>",
+          "<I2>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter"
+      },
+      {
+        "inputs" : [
+          1,
+          3
+        ],
+        "type": "union"
+      },
+      {
+        "inputs": [
+          4
+        ],
+        "type": "count"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+
+
+
+  {
+    "disabled": true,
+    "text": [
+      "How many other sounds have the same brightness as the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "same_brightness"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "count"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "How many other sounds have the same loudness as the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "same_loudness"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "count"
+      }
+    ]
+  },
+
+
+
+  {
+    "disabled": true,
+    "text": [
+      "How many <I2> have the same brightness as the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "same_brightness"
+      },
+      {
+        "side_inputs": [
+          "<I2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "count"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "How many <I2> have the same loudness as the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "same_loudness"
+      },
+      {
+        "side_inputs": [
+          "<I2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "count"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+
+
+
+  {
+    "note": "Limited number of answer possible since the <PG> filter reduce the number of object to 3",
+    "disabled": true,
+    "text": [
+      "How many <I> are playing in the <PG> of the scene?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      }
+    ]
+  },
+  {
+    "note": "Limited number of answer possible since the <PG> filter reduce the number of object to 3",
+    "disabled": true,
+    "text": [
+      "How many <L> sounds are playing in the <PG> of the scene?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      }
+    ]
+  },
+  {
+    "note": "Limited number of answer possible since the <PG> filter reduce the number of object to 3",
+    "disabled": true,
+    "text": [
+      "How many <I> or <I2> are playing in the <PG> of the scene?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter"
+      },
+      {
+        "inputs" : [
+          1,
+          3
+        ],
+        "type": "union"
+      },
+      {
+        "inputs": [
+          4
+        ],
+        "type": "count"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+
+
+
+  {
+    "note" : "Due to our generation constraints, the number is always 5 or 6. We can still use this function in conjunction with some filters",
+    "disabled": true,
+    "text": [
+      "How many different instruments are playing ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "inputs": [
+          0
+        ],
+        "type": "count_different_instrument"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "How many different instruments are playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "count_different_instrument"
+      }
+    ]
+  }
+]
