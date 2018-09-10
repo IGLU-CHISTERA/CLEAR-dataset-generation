@@ -1,0 +1,1117 @@
+[
+  {
+    "disabled": true,
+    "text": [
+      "Is there a <I2> playing <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_exist"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there a <I2> playing <RT> the <P> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<P>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_exist"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there a <B> sound playing <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_exist"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there a <B> sound playing <RT> the <P> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<P>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_exist"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there a <L> sound playing <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_exist"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there a <L> sound playing <RT> the <P> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<P>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_exist"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there a <PE> sound playing <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<PE>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_exist"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there a <PE> sound playing <RT> the <P> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<P>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<PE>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_exist"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there a <HN> note playing <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<HN>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_exist"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there a <HN> note playing <RT> the <P> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<P>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<HN>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_exist"
+      }
+    ]
+  },
+
+
+  {
+    "disabled": true,
+    "text": [
+      "Is there a <I2> or a <I3> playing <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_exist"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          3
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I3>"
+        ],
+        "inputs": [
+          4
+        ],
+        "type": "relate_filter_exist"
+      },
+      {
+        "inputs": [
+          2,
+          5
+        ],
+        "type": "or"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I2>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there a <I> or a <I2> playing <RT> the <P> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<P>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_exist"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<P>"
+        ],
+        "inputs": [
+          3
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>"
+        ],
+        "inputs": [
+          4
+        ],
+        "type": "relate_filter_exist"
+      },
+      {
+        "inputs": [
+          2,
+          5
+        ],
+        "type": "or"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+
+  {
+    "disabled": true,
+    "text": [
+      "Is there a <HN> or a <HN2> note playing <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<HN>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_exist"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          3
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<HN2>"
+        ],
+        "inputs": [
+          4
+        ],
+        "type": "relate_filter_exist"
+      },
+      {
+        "inputs": [
+          2,
+          5
+        ],
+        "type": "or"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<HN>",
+          "<HN2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there a <HN> or a <HN2> note playing <RT> the <P> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<P>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<HN>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_exist"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<P>"
+        ],
+        "inputs": [
+          3
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<HN2>"
+        ],
+        "inputs": [
+          4
+        ],
+        "type": "relate_filter_exist"
+      },
+      {
+        "inputs": [
+          2,
+          5
+        ],
+        "type": "or"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<HN>",
+          "<HN2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+
+
+
+  {
+    "disabled": true,
+    "text": [
+      "Is there a <L> sound played by a <I2> that is <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L>",
+          "<I2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_exist"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there a <L> sound played by a <I> that is <RT> the <P> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<P>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_exist"
+      }
+    ]
+  },
+  {
+    "note": "Limited nb of answers, template instantiated 10 times on 70 scenes",
+    "disabled": true,
+    "text": [
+      "Is there a <B> sound played by a <I2> that is <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B>",
+          "<I2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_exist"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "Limited nb of answers, template instantiated 13 times on 70 scenes",
+    "disabled": true,
+    "text": [
+      "Is there a <B> sound played by a <I> that is <RT> the <P> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<P>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B>",
+          "<I>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_exist"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there a <PE> sound played by a <I2> that is <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<PE>",
+          "<I2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_exist"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there a <PE> sound played by a <I> that is <RT> the <P> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<P>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<PE>",
+          "<I>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_exist"
+      }
+    ]
+  },
+
+
+
+  {
+    "note": "DOESNT WORK. All relation are classified as trivial. Why ?",
+    "disabled": true,
+    "text": [
+      "Is there other sounds that have the same brightness as the <PI2> <I2> that is <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<PI2>",
+          "<I2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "same_brightness"
+      },
+      {
+        "inputs": [
+          3
+        ],
+        "type": "exist"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "DOESNT WORK. All relation are classified as trivial. Why ?",
+    "disabled": true,
+    "text": [
+      "Is there other sounds that have the same loudness as the <PI2> <I2> that is <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<PI2>",
+          "<I2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "same_loudness"
+      },
+      {
+        "inputs": [
+          3
+        ],
+        "type": "exist"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+
+
+
+  {
+    "note": "DOESNT WORK. All relation are classified as trivial. Why ?",
+    "disabled": true,
+    "text": [
+      "Is there a <I3> that have the same brightness as the <PI2> <I2> that is <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<PI2>",
+          "<I2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "same_brightness"
+      },
+      {
+        "side_inputs": [
+          "<I3>"
+        ],
+        "inputs": [
+          3
+        ],
+        "type": "filter"
+      },
+      {
+        "inputs": [
+          4
+        ],
+        "type": "exist"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I2>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "DOESNT WORK. All relation are classified as trivial. Why ?",
+    "disabled": true,
+    "text": [
+      "Is there a <I3> that have the same loudness as the <PI2> <I2> that is <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<PI2>",
+          "<I2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "same_loudness"
+      },
+      {
+        "side_inputs": [
+          "<I3>"
+        ],
+        "inputs": [
+          3
+        ],
+        "type": "filter"
+      },
+      {
+        "inputs": [
+          4
+        ],
+        "type": "exist"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I2>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  }
+]
