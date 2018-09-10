@@ -126,7 +126,7 @@
         "inputs": [
           0
         ],
-        "type": "filter"
+        "type": "filter_count"
       },
       {
         "inputs": [],
@@ -139,20 +139,14 @@
         "inputs": [
           2
         ],
-        "type": "filter"
+        "type": "filter_count"
       },
       {
         "inputs" : [
           1,
           3
         ],
-        "type": "union"
-      },
-      {
-        "inputs": [
-          4
-        ],
-        "type": "count"
+        "type": "add"
       }
     ],
     "constraints": [
@@ -166,7 +160,7 @@
     ]
   },
   {
-    "note": "Produce always the same answers {2,3}",
+    "note": "Limited nb of answers. {0,1,2,3}",
     "disabled": true,
     "text": [
       "How many <HN> or <HN2> are playing ?"
@@ -183,7 +177,7 @@
         "inputs": [
           0
         ],
-        "type": "filter"
+        "type": "filter_count"
       },
       {
         "inputs": [],
@@ -196,20 +190,14 @@
         "inputs": [
           2
         ],
-        "type": "filter"
+        "type": "filter_count"
       },
       {
         "inputs" : [
           1,
           3
         ],
-        "type": "union"
-      },
-      {
-        "inputs": [
-          4
-        ],
-        "type": "count"
+        "type": "add"
       }
     ],
     "constraints": [
@@ -314,7 +302,7 @@
         "inputs": [
           0
         ],
-        "type": "filter"
+        "type": "filter_count"
       },
       {
         "inputs": [],
@@ -326,22 +314,16 @@
           "<I2>"
         ],
         "inputs": [
-          0
+          2
         ],
-        "type": "filter"
+        "type": "filter_count"
       },
       {
         "inputs" : [
           1,
           3
         ],
-        "type": "union"
-      },
-      {
-        "inputs": [
-          4
-        ],
-        "type": "count"
+        "type": "add"
       }
     ],
     "constraints": [
@@ -372,7 +354,7 @@
         "inputs": [
           0
         ],
-        "type": "filter"
+        "type": "filter_count"
       },
       {
         "inputs": [],
@@ -384,22 +366,16 @@
           "<I2>"
         ],
         "inputs": [
-          0
+          2
         ],
-        "type": "filter"
+        "type": "filter_count"
       },
       {
         "inputs" : [
           1,
           3
         ],
-        "type": "union"
-      },
-      {
-        "inputs": [
-          4
-        ],
-        "type": "count"
+        "type": "add"
       }
     ],
     "constraints": [
@@ -431,7 +407,7 @@
         "inputs": [
           0
         ],
-        "type": "filter"
+        "type": "filter_count"
       },
       {
         "inputs": [],
@@ -443,22 +419,16 @@
           "<I2>"
         ],
         "inputs": [
-          0
+          2
         ],
-        "type": "filter"
+        "type": "filter_count"
       },
       {
         "inputs" : [
           1,
           3
         ],
-        "type": "union"
-      },
-      {
-        "inputs": [
-          4
-        ],
-        "type": "count"
+        "type": "add"
       }
     ],
     "constraints": [
@@ -582,7 +552,7 @@
       },
       {
         "inputs": [
-          2
+          3
         ],
         "type": "count"
       }
@@ -634,7 +604,7 @@
       },
       {
         "inputs": [
-          2
+          3
         ],
         "type": "count"
       }
@@ -699,7 +669,6 @@
     ]
   },
   {
-    "note": "Limited number of answer possible since the <PG> filter reduce the number of object to 3",
     "disabled": true,
     "text": [
       "How many <I> or <I2> are playing in the <PG> of the scene?"
@@ -717,7 +686,7 @@
         "inputs": [
           0
         ],
-        "type": "filter"
+        "type": "filter_count"
       },
       {
         "inputs": [],
@@ -731,20 +700,14 @@
         "inputs": [
           2
         ],
-        "type": "filter"
+        "type": "filter_count"
       },
       {
         "inputs" : [
           1,
           3
         ],
-        "type": "union"
-      },
-      {
-        "inputs": [
-          4
-        ],
-        "type": "count"
+        "type": "add"
       }
     ],
     "constraints": [

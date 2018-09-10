@@ -349,7 +349,7 @@
         "inputs": [
           1
         ],
-        "type": "relate_filter"
+        "type": "relate_filter_count"
       },
       {
         "inputs": [],
@@ -373,20 +373,14 @@
         "inputs": [
           4
         ],
-        "type": "relate_filter"
+        "type": "relate_filter_count"
       },
       {
         "inputs": [
           2,
           5
         ],
-        "type": "union"
-      },
-      {
-        "inputs": [
-          6
-        ],
-        "type": "count"
+        "type": "add"
       }
     ],
     "constraints": [
@@ -440,7 +434,7 @@
         "inputs": [
           1
         ],
-        "type": "relate_filter"
+        "type": "relate_filter_count"
       },
       {
         "inputs": [],
@@ -463,20 +457,14 @@
         "inputs": [
           4
         ],
-        "type": "relate_filter"
+        "type": "relate_filter_count"
       },
       {
         "inputs": [
           2,
           5
         ],
-        "type": "union"
-      },
-      {
-        "inputs": [
-          6
-        ],
-        "type": "count"
+        "type": "add"
       }
     ],
     "constraints": [
@@ -490,7 +478,7 @@
     ]
   },
   {
-    "note": "DOESNT GIVE ANY ANSWERS",
+    "note": "Limited answers. Only {0,1,2}",
     "disabled": true,
     "text": [
       "How many <HN> or <HN2> are playing <RT> the <PI> <I>?"
@@ -518,7 +506,7 @@
         "inputs": [
           1
         ],
-        "type": "relate_filter"
+        "type": "relate_filter_count"
       },
       {
         "inputs": [],
@@ -542,20 +530,14 @@
         "inputs": [
           4
         ],
-        "type": "relate_filter"
+        "type": "relate_filter_count"
       },
       {
         "inputs": [
           2,
           5
         ],
-        "type": "union"
-      },
-      {
-        "inputs": [
-          6
-        ],
-        "type": "count"
+        "type": "add"
       }
     ],
     "constraints": [
@@ -569,7 +551,7 @@
     ]
   },
   {
-    "note": "DOESNT GIVE ANY ANSWERS",
+    "note": "Limited answers. Only {0,1,2}",
     "disabled": true,
     "text": [
       "How many <HN> or <HN2> are playing <RT> the <P> sound ?"
@@ -596,7 +578,7 @@
         "inputs": [
           1
         ],
-        "type": "relate_filter"
+        "type": "relate_filter_count"
       },
       {
         "inputs": [],
@@ -619,20 +601,14 @@
         "inputs": [
           4
         ],
-        "type": "relate_filter"
+        "type": "relate_filter_count"
       },
       {
         "inputs": [
           2,
           5
         ],
-        "type": "union"
-      },
-      {
-        "inputs": [
-          6
-        ],
-        "type": "count"
+        "type": "add"
       }
     ],
     "constraints": [
