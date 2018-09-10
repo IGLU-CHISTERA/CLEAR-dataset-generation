@@ -87,6 +87,20 @@ def count_handler(scene_struct, inputs, side_inputs):
   return len(inputs[0])
 
 
+def add_handler(scene_struct, inputs, side_inputs):
+  assert len(inputs) == 2
+  assert len(side_inputs) == 0
+
+  return inputs[0] + inputs[1]
+
+
+def or_handler(scene_struct, inputs, side_inputs):
+  assert len(inputs) == 2
+  assert len(side_inputs) == 0
+
+  return inputs[0] or inputs[1]
+
+
 def make_same_attr_handler(attribute):
   def same_attr_handler(scene_struct, inputs, side_inputs):
     cache_key = '_same_%s' % attribute
@@ -323,12 +337,20 @@ functions = {
     'handler': union_handler,
     'output': 'object_set'
   },
+  'or': {
+    'handler': or_handler,
+    'output': "bool"
+  },
   'intersect': {
     'handler': intersect_handler,
     'output': 'object_set'
   },
   'count': {
     'handler': count_handler,
+    'output': 'integer'
+  },
+  'add': {
+    'handler': add_handler,
     'output': 'integer'
   },
   'exist': {
