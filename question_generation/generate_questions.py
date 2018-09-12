@@ -16,6 +16,8 @@ import re
 from functools import reduce
 import copy
 
+from collections import OrderedDict
+
 import question_engine as qeng
 
 """
@@ -107,7 +109,7 @@ parser.add_argument('--profile', action='store_true',
 def precompute_filter_options(scene_struct, attr_keys, can_be_null_attributes):
   # Keys are tuples (size, color, shape, material) (where some may be None)
   # and values are lists of object idxs that match the filter criterion
-  attribute_map = {}
+  attribute_map = OrderedDict()
 
   # Precompute masks
   masks = []
