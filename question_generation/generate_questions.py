@@ -156,7 +156,7 @@ def find_filter_options(object_idxs, scene_struct, attr, can_be_null_attributes)
   if '_filter_options' not in scene_struct or filter_key not in scene_struct['_filter_options']:
     precompute_filter_options(scene_struct, attr, can_be_null_attributes)
 
-  attribute_map = {}
+  attribute_map = OrderedDict()
   object_idxs = set(object_idxs)
   for k, vs in scene_struct['_filter_options'][filter_key].items():
     attribute_map[k] = sorted(list(object_idxs & vs))
