@@ -176,10 +176,12 @@ def add_empty_filter_options(attribute_map, metadata, can_be_null_attributes, at
 
     attr_vals.append(vals)
 
+  attr_vals_len = list(map(lambda x: len(x), attr_vals))
+
   if len(attr_vals) > 1:
-    max_nb_filter = reduce(lambda x, y: len(x)*len(y), attr_vals)
+    max_nb_filter = reduce(lambda x, y: x * y, attr_vals_len)
   else:
-    max_nb_filter = len(attr_vals[0])
+    max_nb_filter = attr_vals_len[0]
 
   target_size = min(len(attribute_map) + num_to_add, max_nb_filter)
 
