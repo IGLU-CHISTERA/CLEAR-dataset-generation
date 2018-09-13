@@ -193,7 +193,7 @@ def add_empty_filter_options(attribute_map, metadata, can_be_null_attributes, at
 
 def find_relate_filter_options(object_idx, scene_struct, attr, can_be_null_attributes,
     unique=False, include_zero=False, trivial_frac=0.1):
-  options = {}
+  options = OrderedDict()
 
   attr = [a for a in attr if not a.startswith('relate')]
   filter_key = tuple(attr)
