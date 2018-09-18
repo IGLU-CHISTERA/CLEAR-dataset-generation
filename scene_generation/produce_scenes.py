@@ -86,16 +86,15 @@ class AudioSceneProducer:
                  outputPrefix):
 
         # Paths
-        cwd = os.path.dirname(os.path.realpath(__file__))
-        self.outputFolder = os.path.join(cwd, outputFolder)
-        self.primarySoundFolderPath = os.path.join(cwd, primarySoundFolderPath)
+        self.outputFolder = outputFolder
+        self.primarySoundFolderPath = primarySoundFolderPath
 
         # Loading primary sounds definition from 'primarySounds.json'
         with open(os.path.join(self.primarySoundFolderPath, primarySoundsJsonFilename)) as primarySoundJson:
             self.primarySounds = ujson.load(primarySoundJson)
 
         # Loading scenes definition from 'scenes.json'
-        sceneFilepath = os.path.join(cwd, scenesJsonFilename)
+        sceneFilepath = scenesJsonFilename
         with open(sceneFilepath) as scenesJson:
             self.scenes = ujson.load(scenesJson)['scenes']
 

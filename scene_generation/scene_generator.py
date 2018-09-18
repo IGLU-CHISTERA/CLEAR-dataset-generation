@@ -1,6 +1,11 @@
+import sys, os
+# Add parent folder in the path
+current_file_dir = os.path.dirname(os.path.realpath(__file__))
+parent_dir = os.path.dirname(current_file_dir)
+sys.path.insert(0, parent_dir)
+
 from pydub import AudioSegment
 import copy
-import os
 import ujson
 import random
 import time
@@ -8,7 +13,8 @@ import argparse
 from itertools import groupby
 from datetime import datetime
 import pyloudnorm
-import utils
+
+from utils import misc
 
 
 """
@@ -141,7 +147,7 @@ class Primary_sounds:
         # FIXME : The meter should not be created everytime
         loudness_meter = pyloudnorm.Meter(audio_segment.frame_rate, block_size=0.35)  # FIXME : Hardcoded block size
 
-        return loudness_meter.integrated_loudness(utils.pydub_audiosegment_to_float_array(audio_segment))
+        return loudness_meter.integrated_loudness(misc.pydub_audiosegment_to_float_array(audio_segment))
 
     def _preprocess_sounds(self, shuffle_primary_sounds=True):
 
@@ -262,12 +268,10 @@ class Scene_generator:
 
         self.nb_tree_branch = nb_tree_branch
 
-        cwd = os.path.dirname(os.path.realpath(__file__))
-
-        with open(os.path.join(cwd, metadata_filepath)) as metadata:
+        with open(metadata_filepath) as metadata:
             self.attributes_values = {key: val['values'] for key, val in ujson.load(metadata)['attributes'].items()}
 
-        self.primary_sounds = Primary_sounds(os.path.join(cwd, primary_sounds_folderpath), primary_sounds_definition_filename)
+        self.primary_sounds = Primary_sounds(primary_sounds_folderpath, primary_sounds_definition_filename)
 
         self.scene_duration = nb_objects_per_scene * self.primary_sounds.longest_duration + \
                               silence_padding_per_object * (nb_objects_per_scene + 1)
@@ -680,8 +684,7 @@ if __name__ == '__main__':
     for set_type, scene_struct in scenes.items():
         scenes_filename = '%s_V%s_%s_scenes.json' % (args.output_filename_prefix, args.output_version_nb, set_type)
 
-        scenes_filepath = os.path.join(os.path.dirname(os.path.realpath(__file__)),
-                                       args.output_folder,
+        scenes_filepath = os.path.join(args.output_folder,
                                        'scenes',
                                        scenes_filename)
 
