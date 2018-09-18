@@ -69,6 +69,9 @@ parser.add_argument('--template_dir', default='CLEVR_1.0_templates',
 parser.add_argument('--output_questions_file',
     default='../output/CLEVR_questions.json',
     help="The output file to write containing generated questions")
+parser.add_argument('--write_to_file_every',
+    default=5000, type=int,
+    help="The number of questions that will be written to each files.")
 
 # Control which and how many images to process
 parser.add_argument('--scene_start_idx', default=0, type=int,
@@ -605,7 +608,6 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
         'next_template_node': state['next_template_node'] + 1,
       })
 
-
   # Actually instantiate the template with the solutions we've found
   return instantiate_texts_from_solutions(template, synonyms, final_states)
 
@@ -656,6 +658,46 @@ def global_position_from_index(idx, nb_obj):
     return "end"
 
 
+def question_program_cleanup(questions):
+  # Change "side_inputs" to "value_inputs" in all functions of all functional         # FIXME : Fix this at the same time
+  # programs. My original name for these was "side_inputs" but I decided to
+  # change the name to "value_inputs" for the public CLEVR release. I should
+  # probably go through all question generation code and templates and rename,
+  # but that could be tricky and take a while, so instead I'll just do it here.
+  # To further complicate things, originally functions without value inputs did
+  # not have a "side_inputs" field at all, and I'm pretty sure this fact is used
+  # in some of the code above; however in the public CLEVR release all functions
+  # have a "value_inputs" field, and it's an empty list for functions that take
+  # no value inputs. Again this should probably be refactored, but the quick and
+  # dirty solution is to keep the code above as-is, but here make "value_inputs"
+  # an empty list for those functions that do not have "side_inputs". Gross.
+  for q in questions:
+    for f in q['program']:
+      if 'side_inputs' in f:
+        f['value_inputs'] = f['side_inputs']
+        del f['side_inputs']
+      else:
+        f['value_inputs'] = []
+
+  for q in questions:
+    del q['program']  # FIXME : Remove this. We don't include program to improve readability while testing
+
+
+def write_questions_part_to_file(tmp_folder_path, filename, scene_info, questions, index):
+  question_program_cleanup(questions)
+
+  tmp_filename = filename.replace(".json", "_%.5d.json" % index)
+  tmp_filepath = os.path.join(tmp_folder_path, tmp_filename)
+
+  print("Writing to file %s" % tmp_filepath)
+
+  with open(tmp_filepath, 'w') as f:
+    # FIXME : Remove indent parameter. Take more space. Only useful for readability while testing
+    ujson.dump({
+        'info': scene_info,
+        'questions': questions,
+      }, f, indent=2, sort_keys=True, escape_forward_slashes=False)
+
 def main(args):
   if args.random_nb_generator_seed is not None:
     # TODO : Print the seed used (Or save it to file)
@@ -700,6 +742,8 @@ def main(args):
     all_scenes = all_scenes[begin:end]
   else:
     all_scenes = all_scenes[begin:]
+
+  print('Read %d scenes from disk' % len(all_scenes))
 
   # Instantiate dict to keep track of the count per instrument
   instrument_count_empty = {}
@@ -764,7 +808,19 @@ def main(args):
   with open(args.synonyms_json, 'r') as f:
     synonyms = ujson.load(f)
 
+  # Create tmp folder to store questions (separated in small files)
+  question_filename = args.output_questions_file.split("/")[-1]
+  tmp_folder_path = args.output_questions_file.replace(".json", "_TMP")
+
+  if not os.path.isdir(tmp_folder_path):
+    os.mkdir(tmp_folder_path)
+  else:
+    print("Directory %s already exist. Please change the output filename")
+    exit(0)   # FIXME : Maybe we should have a prompt ? This might be dangerous while running experiments automatically. We might get stuck there and waste a lot of time
+
   questions = []
+  question_index = 0
+  file_written = 0
   scene_count = 0
   for i, scene in enumerate(all_scenes):
     scene_fn = scene['image_filename']          # FIXME : Scene key related to image. Should refer to "sound_filename" or scene
@@ -815,42 +871,27 @@ def main(args):
           'answer': a,
           'template_filename': fn,
           'question_family_index': idx,         # FIXME : This index doesn't represent the question family index
-          'question_index': len(questions),     # FIXME : This is not efficient
+          'question_index': question_index,     # FIXME : This is not efficient
         })
+        question_index += 1
       if len(ts) > 0:
         num_instantiated += 1
         template_counts[(fn, idx)] += 1
       elif args.verbose:
         print('did not get any =(')
+
       if num_instantiated >= args.templates_per_image:
+        # We have instantiated enough template for this image
         break
 
-  # Change "side_inputs" to "value_inputs" in all functions of all functional         # FIXME : Fix this at the same time
-  # programs. My original name for these was "side_inputs" but I decided to
-  # change the name to "value_inputs" for the public CLEVR release. I should
-  # probably go through all question generation code and templates and rename,
-  # but that could be tricky and take a while, so instead I'll just do it here.
-  # To further complicate things, originally functions without value inputs did
-  # not have a "side_inputs" field at all, and I'm pretty sure this fact is used
-  # in some of the code above; however in the public CLEVR release all functions
-  # have a "value_inputs" field, and it's an empty list for functions that take
-  # no value inputs. Again this should probably be refactored, but the quick and
-  # dirty solution is to keep the code above as-is, but here make "value_inputs"
-  # an empty list for those functions that do not have "side_inputs". Gross.
-  for q in questions:
-    for f in q['program']:
-      if 'side_inputs' in f:
-        f['value_inputs'] = f['side_inputs']
-        del f['side_inputs']
-      else:
-        f['value_inputs'] = []
+    if question_index != 0 and question_index % args.write_to_file_every == 0:
+      write_questions_part_to_file(tmp_folder_path, question_filename, scene_info, questions, file_written)
+      file_written += 1
+      questions = []
 
-  with open(args.output_questions_file, 'w') as f:
-    print('Writing output to %s' % args.output_questions_file)
-    ujson.dump({
-        'info': scene_info,
-        'questions': questions,
-      }, f, sort_keys=True, escape_forward_slashes=False)
+  if len(questions) > 0:
+    # Write the rest of the questions
+    write_questions_part_to_file(tmp_folder_path, question_filename, scene_info, questions, file_written)
 
 
 if __name__ == '__main__':
