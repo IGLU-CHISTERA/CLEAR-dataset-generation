@@ -1,0 +1,11 @@
+--input_scene_file=output/scenes/AQA_V0.1.2_val_scenes.json
+--output_questions_file=output/questions/AQA_V0.1.2_val_questions.json
+--template_dir=question_generation/AQA_templates_PASSING
+--random_nb_generator_seed=1
+--templates_per_image=20
+--instances_per_template=1
+--instantiation_retry_threshold=100
+--reset_counts_every=200
+--write_to_file_every=2500
+--metadata_file=metadata.json
+--synonyms_json=question_generation/synonyms.json
