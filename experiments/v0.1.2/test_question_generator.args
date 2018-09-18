@@ -9,5 +9,3 @@
 --write_to_file_every=2500
 --metadata_file=metadata.json
 --synonyms_json=question_generation/synonyms.json
-
-
