@@ -678,20 +678,28 @@ if __name__ == '__main__':
                                       args.constraint_min_object_per_family,
                                       args.constraint_min_nb_families_subject_to_min_object_per_family,
                                       args.constraint_min_ratio_for_attribute)
-    before = datetime.now()
+
     scenes = scene_generator.generate(nb_to_generate=args.max_nb_scene, training_set_ratio=args.training_set_ratio)
 
-    for set_type, scene_struct in scenes.items():
-        scenes_filename = '%s_V%s_%s_scenes.json' % (args.output_filename_prefix, args.output_version_nb, set_type)
+    experiment_output_folder = os.path.join(args.output_folder, args.output_version_nb)
+    scenes_output_folder = os.path.join(experiment_output_folder, 'scenes')
 
-        scenes_filepath = os.path.join(args.output_folder,
-                                       'scenes',
-                                       scenes_filename)
+    if not os.path.isdir(experiment_output_folder):
+      os.mkdir(experiment_output_folder)
+
+    if not os.path.isdir(scenes_output_folder):
+      os.mkdir(scenes_output_folder)
+    else:
+      print("This experiment have already been run. Please bump the version number or delete the previous output.")
+      exit(1)
+
+    # Write to file
+    for set_type, scene_struct in scenes.items():
+        scenes_filename = '%s_%s_scenes.json' % (args.output_filename_prefix, set_type)
+
+        scenes_filepath = os.path.join(scenes_output_folder, scenes_filename)
 
         with open(scenes_filepath, 'w') as f:
             ujson.dump(scene_struct, f, sort_keys=True, escape_forward_slashes=False)
 
-    timing = datetime.now() - before
-
-    print("Took %f" % timing.seconds)
     print('done')
