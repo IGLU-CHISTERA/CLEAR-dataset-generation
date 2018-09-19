@@ -3,14 +3,17 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 ROOTDIR="${DIR}/.."
 OLDDIR=$PWD
 
-experiment_name=$1
-experiment_dir="${DIR}/${experiment_name}"
-log_dir="${experiment_dir}/log"
+EXPERIMENT_NAME=$1
+EXPERIMENT_DIR="${DIR}/${EXPERIMENT_NAME}"
+LOG_DIR="${EXPERIMENT_DIR}/log"
+
+OUTPUT_DIR=./output
+VERSION_NB=0.1.2
 
 # TODO : This script must be run in the virtual environment. Figure a way to make sure we are in the environment ?
 
-if [ ! -d "${log_dir}" ]; then
-  mkdir "${log_dir}"
+if [ ! -d "${LOG_DIR}" ]; then
+  mkdir "${LOG_DIR}"
 fi
 
 # Will stop the script on first error
@@ -28,20 +31,20 @@ echo "--------------------------------------------------------------------------
 
 ## Generate the scenes
 echo "Generating scenes..."
-python ./scene_generation/scene_generator.py @${experiment_dir}/scene_generator.args > "${log_dir}/scene_generation.log"
+python ./scene_generation/scene_generator.py @${EXPERIMENT_DIR}/scene_generator.args > "${LOG_DIR}/scene_generation.log"
 echo -e "Scene generation Done\n"
 
 ## Question Generation
 echo 'Starting Training Question Generation...'
-python ./question_generation/generate_questions.py @${experiment_dir}/train_question_generator.args > "${log_dir}/train_question_generation.log" &
+python ./question_generation/generate_questions.py @${EXPERIMENT_DIR}/train_question_generator.args > "${LOG_DIR}/train_question_generation.log" &
 TRAINING_QUESTION_GENERATION_PID=$!
 
 echo 'Starting Validation Question Generation...'
-python ./question_generation/generate_questions.py @${experiment_dir}/val_question_generator.args > "${log_dir}/val_question_generation.log" &
+python ./question_generation/generate_questions.py @${EXPERIMENT_DIR}/val_question_generator.args > "${LOG_DIR}/val_question_generation.log" &
 VAL_QUESTION_GENERATION_PID=$!
 
 echo 'Starting Test Question Generation...'
-python ./question_generation/generate_questions.py @${experiment_dir}/test_question_generator.args > "${log_dir}/test_question_generation.log" &
+python ./question_generation/generate_questions.py @${EXPERIMENT_DIR}/test_question_generator.args > "${LOG_DIR}/test_question_generation.log" &
 TEST_QUESTION_GENERATION_PID=$!
 
 # Wait for process to finish
@@ -52,25 +55,25 @@ echo -e "Question generation done\n"
 # Consolidate results
 echo "Consolidating questions json..."
 # Training questions
-python ./utils/consolidate_questions.py --output_folder ./output --output_version_nb 0.1.2 --set_type train --remove_tmp > "${log_dir}/train_question_consolidation.log"
+python ./utils/consolidate_questions.py --set_type train --output_folder ${OUTPUT_DIR} --output_version_nb ${VERSION_NB} --remove_tmp > "${LOG_DIR}/train_question_consolidation.log"
 
 # Validation questions
-python ./utils/consolidate_questions.py --output_folder ./output --output_version_nb 0.1.2 --set_type val --remove_tmp > "${log_dir}/val_question_consolidation.log"
+python ./utils/consolidate_questions.py --set_type val  --output_folder ${OUTPUT_DIR} --output_version_nb ${VERSION_NB} --remove_tmp > "${LOG_DIR}/val_question_consolidation.log"
 
 # Test questions
-python ./utils/consolidate_questions.py --output_folder ./output --output_version_nb 0.1.2 --set_type test --remove_tmp > "${log_dir}/test_question_consolidation.log"
+python ./utils/consolidate_questions.py --set_type test --output_folder ${OUTPUT_DIR} --output_version_nb ${VERSION_NB} --remove_tmp > "${LOG_DIR}/test_question_consolidation.log"
 
 echo -e "Question consolidation Done\n"
 
 # Scene production
 echo "Starting scene production..."
-python ./scene_generation/produce_scenes.py @${experiment_dir}/train_scene_producer.args > "${log_dir}/train_scene_production.log" &
+python ./scene_generation/produce_scenes.py @${EXPERIMENT_DIR}/train_scene_producer.args > "${LOG_DIR}/train_scene_production.log" &
 TRAIN_SCENE_PRODUCTION_PID=$!
 
-python ./scene_generation/produce_scenes.py @${experiment_dir}/val_scene_producer.args > "${log_dir}/val_scene_production.log" &
+python ./scene_generation/produce_scenes.py @${EXPERIMENT_DIR}/val_scene_producer.args > "${LOG_DIR}/val_scene_production.log" &
 VAL_SCENE_PRODUCTION_PID=$!
 
-python ./scene_generation/produce_scenes.py @${experiment_dir}/test_scene_producer.args > "${log_dir}/test_scene_production.log" &
+python ./scene_generation/produce_scenes.py @${EXPERIMENT_DIR}/test_scene_producer.args > "${LOG_DIR}/test_scene_production.log" &
 TEST_SCENE_PRODUCTION_PID=$!
 
 wait $TRAIN_SCENE_PRODUCTION_PID $VAL_SCENE_PRODUCTION_PID $TEST_SCENE_PRODUCTION_PID
