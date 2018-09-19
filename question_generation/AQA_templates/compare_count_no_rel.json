@@ -1,0 +1,7873 @@
+[
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <I> than <I2> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <I> than <I2> playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <I> than <I2> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <I> than <I2> playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <I> and <I2> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <I> and <I2> playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 65 on 70",
+    "disabled": true,
+    "text": [
+      "Is there more <L> sound than <L2> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<L>",
+          "<L2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 62 on 70",
+    "disabled": true,
+    "text": [
+      "Is there more <L> sound than <L2> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<L>",
+          "<L2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 66 on 70",
+    "disabled": true,
+    "text": [
+      "Is there less <L> sound than <L2> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<L>",
+          "<L2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 59 on 70",
+    "disabled": true,
+    "text": [
+      "Is there less <L> sound than <L2> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<L>",
+          "<L2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 66 on 70",
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <L> sound and <L2> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<L>",
+          "<L2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 64 on 70",
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <L> sound and <L2> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<L>",
+          "<L2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+
+
+  {
+    "note": "limited nb of answer. 39 on 70",
+    "disabled": true,
+    "text": [
+      "Is there more <B> sound than <B2> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<B>",
+          "<B2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 64 on 70. INVESTIGATE",
+    "disabled": true,
+    "text": [
+      "Is there more <B> sound than <B2> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<B>",
+          "<B2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 38 on 70",
+    "disabled": true,
+    "text": [
+      "Is there less <B> sound than <B2> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<B>",
+          "<B2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 64 on 70. INVESTIGATE",
+    "disabled": true,
+    "text": [
+      "Is there less <B> sound than <B2> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<B>",
+          "<B2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 20 on 70",
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <B> sound and <B2> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<B>",
+          "<B2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 64 on 70. INVESTIGATE",
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <B> sound and <B2> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<B>",
+          "<B2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <PE> sound than <PE2> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<PE>",
+          "<PE2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <PE> sound than <PE2> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<PE>",
+          "<PE2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <PE> sound than <PE2> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<PE>",
+          "<PE2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <PE> sound than <PE2> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<PE>",
+          "<PE2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of anser. 4 on 70. INVESTIGATE",
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <PE> sound and <PE2> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<PE>",
+          "<PE2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <PE> sound and <PE2> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<PE>",
+          "<PE2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+
+
+  {
+    "note": "limited nb of answer. 12 on 70. INVESTIGATE",
+    "disabled": true,
+    "text": [
+      "Is there more <I> sound than <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 56 on 70",
+    "disabled": true,
+    "text": [
+      "Is there more <I> sound than <L> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 45 on 70",
+    "disabled": true,
+    "text": [
+      "Is there less <I> sound than <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <I> sound than <L> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 45 on 70",
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <I> sound and <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <I> sound and <L> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ]
+  },
+
+
+  {
+    "note": "limited nb of answer. 68 on 70.",
+    "disabled": true,
+    "text": [
+      "Is there more <I> sound than <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <I> sound than <B> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <I> sound than <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <I> sound than <B> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 65 on 70",
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <I> sound and <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <I> sound and <B> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ]
+  },
+
+
+
+  {
+    "note": "limited nb of answer. 68 on 70.",
+    "disabled": true,
+    "text": [
+      "Is there more <I> sound than <PE> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 59 on 70",
+    "disabled": true,
+    "text": [
+      "Is there more <I> sound than <PE> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <I> sound than <PE> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <I> sound than <PE> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of anser. 61 on 70",
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <I> sound and <PE> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <I> sound and <PE> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ]
+  },
+
+
+
+  {
+    "note": "limited nb of answer. 4 on 70. INVESTIGATE",
+    "disabled": true,
+    "text": [
+      "Is there more <B> sound than <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 55 on 70",
+    "disabled": true,
+    "text": [
+      "Is there more <B> sound than <L> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 8 on 70. INVESTIGATE",
+    "disabled": true,
+    "text": [
+      "Is there less <B> sound than <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 60 on 70",
+    "disabled": true,
+    "text": [
+      "Is there less <B> sound than <L> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 8 on 70. INVESTIGATE",
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <B> sound and <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 56 on 70",
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <B> sound and <L> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ]
+  },
+
+
+
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <PE> sound than <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <PE> sound than <L> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <PE> sound than <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <PE> sound than <L> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 4 on 70. INVESTIGATE",
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <PE> sound and <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <PE> sound and <L> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ]
+  },
+
+
+
+  {
+    "note": "limited nb of answer. 69 on 70",
+    "disabled": true,
+    "text": [
+      "Is there more <PE> sound than <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ]
+  },
+  {
+    "note": "Limited nb of answer. 63 on 70",
+    "disabled": true,
+    "text": [
+      "Is there more <PE> sound than <B> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 30 on 70. INVESTIGATE",
+    "disabled": true,
+    "text": [
+      "Is there less <PE> sound than <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 61 on 70",
+    "disabled": true,
+    "text": [
+      "Is there less <PE> sound than <B> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 65 on 70.",
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <PE> sound and <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 63 on 70",
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <PE> sound and <B> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ]
+  },
+
+
+
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <L2> <I> sound than <L> <I> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L2>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<L>",
+          "<L2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <L2> <I> sound than <L> <I> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L2>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<L>",
+          "<L2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <L2> <I> sound than <L> <I> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L2>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<L>",
+          "<L2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <L2> <I> sound than <L> <I> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L2>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<L>",
+          "<L2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <L2> <I> sound and <L> <I> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L2>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<L>",
+          "<L2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <L2> <I> sound and <L> <I> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L2>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<L>",
+          "<L2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+
+
+
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <B2> <I> sound than <B> <I> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B2>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>",
+          "<I>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<B>",
+          "<B2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <B2> <I> sound than <B> <I> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B2>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B>",
+          "<I>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<B>",
+          "<B2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <B2> <I> sound than <B> <I> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B2>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>",
+          "<I>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<B>",
+          "<B2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <B2> <I> sound than <B> <I> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B2>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B>",
+          "<I>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<B>",
+          "<B2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <B2> <I> sound and <B> <I> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B2>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>",
+          "<I>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<B>",
+          "<B2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <B2> <I> sound and <B> <I> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B2>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B>",
+          "<I>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<B>",
+          "<B2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+
+
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <PE2> <I> sound than <PE> <I> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE2>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE>",
+          "<I>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<PE>",
+          "<PE2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <PE2> <I> sound than <PE> <I> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE2>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE>",
+          "<I>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<PE>",
+          "<PE2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <PE2> <I> sound than <PE> <I> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE2>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE>",
+          "<I>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<PE>",
+          "<PE2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <PE2> <I> sound than <PE> <I> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE2>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE>",
+          "<I>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<PE>",
+          "<PE2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <PE2> <I> sound and <PE> <I> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE2>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE>",
+          "<I>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<PE>",
+          "<PE2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <PE2> <I> sound and <PE> <I> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE2>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE>",
+          "<I>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<PE>",
+          "<PE2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+
+
+
+  {
+    "note": "limited nb of answer. 57 on 70",
+    "disabled": true,
+    "text": [
+      "Is there more <L2> <B> sound than <L> <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L2>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<L>",
+          "<L2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 65 on 70",
+    "disabled": true,
+    "text": [
+      "Is there more <L2> <B> sound than <L> <B> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L2>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L>",
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<L>",
+          "<L2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 57 on 70",
+    "disabled": true,
+    "text": [
+      "Is there less <L2> <B> sound than <L> <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L2>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<L>",
+          "<L2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 65 on 70",
+    "disabled": true,
+    "text": [
+      "Is there less <L2> <B> sound than <L> <B> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L2>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L>",
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<L>",
+          "<L2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+    {
+    "note": "limited nb of answer. 53 on 70",
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <L2> <B> sound and <L> <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L2>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<L>",
+          "<L2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 65 on 70",
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <L2> <B> sound and <L> <B> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L2>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L>",
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<L>",
+          "<L2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+
+
+
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <L2> <PE> sound than <L> <PE> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L2>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<PE>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<L>",
+          "<L2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <L2> <PE> sound than <L> <PE> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L2>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L>",
+          "<PE>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<L>",
+          "<L2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <L2> <PE> sound than <L> <PE> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L2>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<PE>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<L>",
+          "<L2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <L2> <PE> sound than <L> <PE> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L2>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L>",
+          "<PE>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<L>",
+          "<L2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 4 on 70. INVESTIGATE",
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <L2> <PE> sound and <L> <PE> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L2>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<PE>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<L>",
+          "<L2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <L2> <PE> sound and <L> <PE> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L2>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L>",
+          "<PE>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<L>",
+          "<L2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+
+
+
+  {
+    "note": "limited nb of answer. 48 on 70",
+    "disabled": true,
+    "text": [
+      "Is there more <PE2> <B> sound than <PE> <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE2>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE>",
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<PE>",
+          "<PE2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 64 on 70",
+    "disabled": true,
+    "text": [
+      "Is there more <PE2> <B> sound than <PE> <B> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE2>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE>",
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<PE>",
+          "<PE2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 48 on 70",
+    "disabled": true,
+    "text": [
+      "Is there less <PE2> <B> sound than <PE> <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE2>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE>",
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<PE>",
+          "<PE2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 64 on 70",
+    "disabled": true,
+    "text": [
+      "Is there less <PE2> <B> sound than <PE> <B> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE2>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE>",
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<PE>",
+          "<PE2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 42 on 70",
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <PE2> <B> sound and <PE> <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE2>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE>",
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<PE>",
+          "<PE2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 64 on 70",
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <PE2> <B> sound and <PE> <B> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE2>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE>",
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<PE>",
+          "<PE2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+
+
+
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <PE2> <L> sound than <PE> <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE2>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<PE>",
+          "<PE2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <PE2> <L> sound than <PE> <L> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE2>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<PE>",
+          "<PE2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <PE2> <L> sound than <PE> <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE2>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<PE>",
+          "<PE2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <PE2> <L> sound than <PE> <L> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE2>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<PE>",
+          "<PE2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 41 on 70",
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <PE2> <L> sound and <PE> <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE2>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PE>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<PE>",
+          "<PE2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <PE2> <L> sound and <PE> <L> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE2>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<PE>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<PE>",
+          "<PE2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+
+
+
+   {
+    "note": "limited nb of answer. 57 on 70",
+    "disabled": true,
+    "text": [
+      "Is there more <B2> <L> sound than <B> <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B2>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<B>",
+          "<B2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 65 on 70",
+    "disabled": true,
+    "text": [
+      "Is there more <B2> <L> sound than <B> <L> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B2>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<B>",
+          "<B2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 57 on 70",
+    "disabled": true,
+    "text": [
+      "Is there less <B2> <L> sound than <B> <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B2>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<B>",
+          "<B2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 65 on 70",
+    "disabled": true,
+    "text": [
+      "Is there less <B2> <L> sound than <B> <L> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B2>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<B>",
+          "<B2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 49 on 70",
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <B2> <L> sound and <B> <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B2>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<B>",
+          "<B2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 65 on 70",
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <B2> <L> sound and <B> <L> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B2>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<B>",
+          "<B2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+
+
+
+  {
+    "note": "limited nb of answer. 49 on 70",
+    "disabled": true,
+    "text": [
+      "Is there more <B2> <PE> sound than <B> <PE> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B2>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>",
+          "<PE>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<B>",
+          "<B2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 64 on 70",
+    "disabled": true,
+    "text": [
+      "Is there more <B2> <PE> sound than <B> <PE> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B2>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B>",
+          "<PE>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<B>",
+          "<B2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 50 on 70",
+    "disabled": true,
+    "text": [
+      "Is there less <B2> <PE> sound than <B> <PE> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B2>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>",
+          "<PE>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<B>",
+          "<B2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 64 on 70",
+    "disabled": true,
+    "text": [
+      "Is there less <B2> <PE> sound than <B> <PE> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B2>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B>",
+          "<PE>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<B>",
+          "<B2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+   {
+    "note": "limited nb of answer. 47 on 70",
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <B2> <PE> sound and <B> <PE> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B2>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>",
+          "<PE>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<B>",
+          "<B2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 64 on 70",
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <B2> <PE> sound and <B> <PE> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B2>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B>",
+          "<PE>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<B>",
+          "<B2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+
+
+
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <PE> <I2> sound than <PE> <I> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I2>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>",
+          "<PE>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <PE> <I2> sound than <PE> <I> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I2>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I>",
+          "<PE>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <PE> <I2> sound than <PE> <I> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I2>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>",
+          "<PE>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <PE> <I2> sound than <PE> <I> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I2>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I>",
+          "<PE>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <PE> <I2> sound and <PE> <I> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I2>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>",
+          "<PE>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <PE> <I2> sound and <PE> <I> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I2>",
+          "<PE>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I>",
+          "<PE>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+
+
+
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <B> <I2> sound than <B> <I> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I2>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>",
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <B> <I2> sound than <B> <I> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I2>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I>",
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <B> <I2> sound than <B> <I> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I2>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>",
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <B> <I2> sound than <B> <I> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I2>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I>",
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <B> <I2> sound and <B> <I> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I2>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>",
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <B> <I2> sound and <B> <I> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I2>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I>",
+          "<B>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+
+
+
+   {
+    "disabled": true,
+    "text": [
+      "Is there more <L> <I2> sound than <L> <I> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I2>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <L> <I2> sound than <L> <I> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I2>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <L> <I2> sound than <L> <I> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I2>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <L> <I2> sound than <L> <I> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I2>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <L> <I2> sound and <L> <I> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I2>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <L> <I2> sound and <L> <I> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I2>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<I>",
+          "<L>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+
+
+
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <I3> or <I2> sounds than <I> sounds ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I3>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "add"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          5
+        ],
+        "type": "filter_count"
+      },
+
+      {
+        "inputs": [
+          4,
+          6
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I2>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <I3> or <I2> sounds than <I> sounds playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I3>",
+          "<PG>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I2>",
+          "<PG>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "add"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>",
+          "<PG>"
+        ],
+        "inputs": [
+          5
+        ],
+        "type": "filter_count"
+      },
+
+      {
+        "inputs": [
+          4,
+          6
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I2>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <I3> or <I2> sounds than <I> sounds ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I3>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I2>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "add"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          5
+        ],
+        "type": "filter_count"
+      },
+
+      {
+        "inputs": [
+          4,
+          6
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I2>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <I3> or <I2> sounds and <I> sounds playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I3>",
+          "<PG>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I2>",
+          "<PG>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "add"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>",
+          "<PG>"
+        ],
+        "inputs": [
+          5
+        ],
+        "type": "filter_count"
+      },
+
+      {
+        "inputs": [
+          4,
+          6
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I2>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <I3> or <I2> sounds and <I> sounds playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I3>",
+          "<PG>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I2>",
+          "<PG>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "add"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>",
+          "<PG>"
+        ],
+        "inputs": [
+          5
+        ],
+        "type": "filter_count"
+      },
+
+      {
+        "inputs": [
+          4,
+          6
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I2>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+
+
+
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <I4> or <I3> sounds than <I2> or <I> sounds ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I4>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I3>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "add"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I2>"
+        ],
+        "inputs": [
+          5
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          7
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          6,
+          8
+        ],
+        "type": "add"
+      },
+      {
+        "inputs": [
+          4,
+          9
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I>",
+          "<I4>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I2>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I2>",
+          "<I4>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I3>",
+          "<I4>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there more <I4> or <I3> sounds than <I2> or <I> sounds playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I4>",
+          "<PG>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I3>",
+          "<PG>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "add"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I2>",
+          "<PG>"
+        ],
+        "inputs": [
+          5
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>",
+          "<PG>"
+        ],
+        "inputs": [
+          7
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          6,
+          8
+        ],
+        "type": "add"
+      },
+      {
+        "inputs": [
+          4,
+          9
+        ],
+        "type": "greater_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I>",
+          "<I4>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I2>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I2>",
+          "<I4>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I3>",
+          "<I4>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <I4> or <I3> sounds than <I2> or <I> sounds ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I4>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I3>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "add"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I2>"
+        ],
+        "inputs": [
+          5
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          7
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          6,
+          8
+        ],
+        "type": "add"
+      },
+      {
+        "inputs": [
+          4,
+          9
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I>",
+          "<I4>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I2>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I2>",
+          "<I4>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I3>",
+          "<I4>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there less <I4> or <I3> sounds than <I2> or <I> sounds playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I4>",
+          "<PG>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I3>",
+          "<PG>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "add"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I2>",
+          "<PG>"
+        ],
+        "inputs": [
+          5
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>",
+          "<PG>"
+        ],
+        "inputs": [
+          7
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          6,
+          8
+        ],
+        "type": "add"
+      },
+      {
+        "inputs": [
+          4,
+          9
+        ],
+        "type": "less_than"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I>",
+          "<I4>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I2>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I2>",
+          "<I4>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I3>",
+          "<I4>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <I4> or <I3> sounds and <I2> or <I> sounds ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I4>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I3>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "add"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I2>"
+        ],
+        "inputs": [
+          5
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          7
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          6,
+          8
+        ],
+        "type": "add"
+      },
+      {
+        "inputs": [
+          4,
+          9
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I>",
+          "<I4>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I2>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I2>",
+          "<I4>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I3>",
+          "<I4>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "Is there an equal number of <I4> or <I3> sounds and <I2> or <I> sounds playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I4>",
+          "<PG>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I3>",
+          "<PG>"
+        ],
+        "inputs": [
+          2
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          1,
+          3
+        ],
+        "type": "add"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I2>",
+          "<PG>"
+        ],
+        "inputs": [
+          5
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>",
+          "<PG>"
+        ],
+        "inputs": [
+          7
+        ],
+        "type": "filter_count"
+      },
+      {
+        "inputs": [
+          6,
+          8
+        ],
+        "type": "add"
+      },
+      {
+        "inputs": [
+          4,
+          9
+        ],
+        "type": "equal_integer"
+      }
+    ],
+    "constraints": [
+      {
+        "params": [
+          "<I>",
+          "<I2>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I>",
+          "<I4>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I2>",
+          "<I3>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I2>",
+          "<I4>"
+        ],
+        "type": "NEQ"
+      },
+      {
+        "params": [
+          "<I3>",
+          "<I4>"
+        ],
+        "type": "NEQ"
+      }
+    ]
+  }
+
+
+
+]

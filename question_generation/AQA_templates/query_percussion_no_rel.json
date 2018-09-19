@@ -1,0 +1,525 @@
+[
+  {
+    "disabled": true,
+    "text": [
+      "What type of sound is played by the <P> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<P>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "query_percussion"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "What type of sound is played by the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "query_percussion"
+      }
+    ]
+  },
+  {
+    "note": "Limited nb of answer. 4 on 70. INVESTIGATE",
+    "disabled": true,
+    "text": [
+      "What type of sound is the longest sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "inputs": [
+          0
+        ],
+        "type": "filter_longest_duration"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "query_percussion"
+      }
+    ]
+  },
+  {
+    "note": "Limited nb of answer. 4 on 70. INVESTIGATE",
+    "disabled": true,
+    "text": [
+      "What type of sound is the longest sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "filter_longest_duration"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_percussion"
+      }
+    ]
+  },
+  {
+    "note": "Limited nb of answer. 48 on 70.",
+    "disabled": true,
+    "text": [
+      "What type of sound is the shortest sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "inputs": [
+          0
+        ],
+        "type": "filter_shortest_duration"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "query_percussion"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "What type of sound is the shortest sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "filter_shortest_duration"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_percussion"
+      }
+    ]
+  },
+  {
+    "note": "Limited nb of answer. 10 on 70. INVESTIGATE",
+    "disabled": true,
+    "text": [
+      "What type of sound is the <L> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<PG>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "query_percussion"
+      }
+    ]
+  },
+  {
+    "note": "Limited nb of answer. 31 on 70. INVESTIGATE",
+    "disabled": true,
+    "text": [
+      "What type of sound is the <B> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>",
+          "<PG>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "query_percussion"
+      }
+    ]
+  },
+  {
+    "note": "Limited nb of answer. 69 on 70.",
+    "disabled": true,
+    "text": [
+      "What type of sound is the <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "query_percussion"
+      }
+    ]
+  },
+  {
+    "note": "Limited nb of answer. 69 on 70. Verify if this give the same result than the other <HN> template (The one before this one)",
+    "disabled": true,
+    "text": [
+      "What type of sound is the <HN> note playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "query_percussion"
+      }
+    ]
+  },
+  {
+    "note": "Limited nb of answer. 31 on 70.",
+    "disabled": true,
+    "text": [
+      "What type of sound is the <L> <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "query_percussion"
+      }
+    ]
+  },
+  {
+    "note": "Limited nb of answer. 33 on 70.",
+    "disabled": true,
+    "text": [
+      "What type of sound is the <L> <B> sound playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "query_percussion"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "What type of sound is the <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "query_percussion"
+      }
+    ]
+  },
+  {
+    "disabled": true,
+    "text": [
+      "What type of sound is the <L> <HN> note in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L>",
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "query_percussion"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 40 on 70",
+    "disabled": true,
+    "text": [
+      "What type of sound is the <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>",
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "query_percussion"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 38 on 70",
+    "disabled": true,
+    "text": [
+      "What type of sound is the <B> <HN> note playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<B>",
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "query_percussion"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 38 on 70",
+    "disabled": true,
+    "text": [
+      "What type of sound is the <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<B>",
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "query_percussion"
+      }
+    ]
+  },
+  {
+    "note": "limited nb of answer. 38 on 70",
+    "disabled": true,
+    "text": [
+      "What type of sound is the <L> <B> <HN> note playing in the <PG> of the scene ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PG>",
+          "<L>",
+          "<B>",
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "query_percussion"
+      }
+    ]
+  }
+]
