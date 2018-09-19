@@ -17,7 +17,8 @@ fi
 set -e
 
 cd $ROOTDIR
-
+echo "-----------------------------------------------------------------------------------------------------------"
+echo "    AQA Dataset Generation"
 echo "-----------------------------------------------------------------------------------------------------------"
 echo "[NOTE] This script should be run inside the virtual environment associated with Aqa-Dataset-Gen project"
 echo "[NOTE] The output of each process can be found in the log folder of the experiment"
@@ -51,16 +52,13 @@ echo -e "Question generation done\n"
 # Consolidate results
 echo "Consolidating questions json..."
 # Training questions
-OUTPUT_FILEPATH=$( grep 'output_questions_file' ${experiment_dir}/train_question_generator.args | awk -F '=' '{print $2}')
-python ./utils/consolidate_questions.py --remove_tmp --json_file_path ${OUTPUT_FILEPATH} > "${log_dir}/train_question_consolidation.log"
+python ./utils/consolidate_questions.py --output_folder ./output --output_version_nb 0.1.2 --set_type train --remove_tmp > "${log_dir}/train_question_consolidation.log"
 
 # Validation questions
-OUTPUT_FILEPATH=$( grep 'output_questions_file' ${experiment_dir}/val_question_generator.args | awk -F '=' '{print $2}')
-python ./utils/consolidate_questions.py --remove_tmp --json_file_path ${OUTPUT_FILEPATH} > "${log_dir}/val_question_consolidation.log"
+python ./utils/consolidate_questions.py --output_folder ./output --output_version_nb 0.1.2 --set_type val --remove_tmp > "${log_dir}/val_question_consolidation.log"
 
 # Test questions
-OUTPUT_FILEPATH=$( grep 'output_questions_file' ${experiment_dir}/test_question_generator.args | awk -F '=' '{print $2}')
-python ./utils/consolidate_questions.py --remove_tmp --json_file_path ${OUTPUT_FILEPATH} > "${log_dir}/test_question_consolidation.log"
+python ./utils/consolidate_questions.py --output_folder ./output --output_version_nb 0.1.2 --set_type test --remove_tmp > "${log_dir}/test_question_consolidation.log"
 
 echo -e "Question consolidation Done\n"
 
@@ -74,5 +72,7 @@ VAL_SCENE_PRODUCTION_PID=$!
 
 python ./scene_generation/produce_scenes.py @${experiment_dir}/test_scene_producer.args > "${log_dir}/test_scene_production.log" &
 TEST_SCENE_PRODUCTION_PID=$!
+
+wait $TRAIN_SCENE_PRODUCTION_PID $VAL_SCENE_PRODUCTION_PID $TEST_SCENE_PRODUCTION_PID
 
 echo -e "Scene production done\n"
