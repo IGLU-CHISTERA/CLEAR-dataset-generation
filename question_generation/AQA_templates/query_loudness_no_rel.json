@@ -165,7 +165,7 @@
         "inputs": [
           1
         ],
-        "type": "query_brightness"
+        "type": "query_loudness"
       }
     ]
   },
@@ -195,7 +195,7 @@
         "inputs": [
           1
         ],
-        "type": "query_brightness"
+        "type": "query_loudness"
       }
     ]
   },
