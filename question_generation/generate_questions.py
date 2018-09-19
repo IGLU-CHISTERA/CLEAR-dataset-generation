@@ -362,13 +362,17 @@ def validate_constraints(template, state, outputs, param_name_to_attribute, verb
   return True
 
 
+bool_to_yes_no = ['no', 'yes']
 def instantiate_texts_from_solutions(template, synonyms, final_states):
   # Actually instantiate the template with the solutions we've found
   text_questions, structured_questions, answers = [], [], []
   for state in final_states:
     structured_questions.append(state['nodes'])
-    if 'answer_template' in template:
-      state['answer'] = template['answer_template'].replace("{ANSWER}", state['answer'])
+
+    # Translating True/False values to yes/no   # FIXME : Should we translate them from the beginning instead ?
+    if type(state['answer']) is bool:
+      state['answer'] = bool_to_yes_no[state['answer']]
+
     answers.append(state['answer'])
     text = random.choice(template['text'])
     for name, val in state['vals'].items():
