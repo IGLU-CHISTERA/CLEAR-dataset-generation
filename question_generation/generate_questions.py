@@ -52,6 +52,15 @@ us to efficiently prune the search space and terminate early when we know that
 
 parser = argparse.ArgumentParser(fromfile_prefix_chars='@')
 
+parser.add_argument('--output_folder', default='./output',
+    help="Folder where to store the generated questions")
+parser.add_argument('--output_filename_prefix', default='AQA',
+    help="Prefix for the output file")
+parser.add_argument('--output_version_nb', default='0.0.1',
+    help="Identifier of the dataset version.")
+parser.add_argument('--set_type', default='train', type=str,
+                    help="Specify the set type (train/val/test)")
+
 # TODO : Change defaults values for arguments
 # TODO : Change argument text
 # Inputs
@@ -698,10 +707,35 @@ def write_questions_part_to_file(tmp_folder_path, filename, scene_info, question
         'questions': questions,
       }, f, indent=2, sort_keys=True, escape_forward_slashes=False)
 
+
 def main(args):
   if args.random_nb_generator_seed is not None:
     # TODO : Print the seed used (Or save it to file)
     random.seed(args.random_nb_generator_seed)
+
+  experiment_output_folder = os.path.join(args.output_folder, args.output_version_nb)
+  questions_output_folder = os.path.join(experiment_output_folder, 'questions')
+  tmp_output_folder = os.path.join(questions_output_folder, 'TMP_%s' % args.set_type)
+  questions_filename = '%s_%s_questions.json' % (args.output_filename_prefix, args.set_type)
+  questions_output_filepath = os.path.join(questions_output_folder, questions_filename)
+  scene_filepath = os.path.join(experiment_output_folder, 'scenes', '%s_%s_scenes.json' % (args.output_filename_prefix, args.set_type))
+
+  if not os.path.isdir(experiment_output_folder):
+    os.mkdir(experiment_output_folder)
+
+  if not os.path.isdir(questions_output_folder):
+    os.mkdir(questions_output_folder)
+
+  if os.path.isfile(questions_output_filepath):
+    print("This experiment have already been run. Please bump the version number or delete the previous output.")
+    exit(1)
+
+  # Create tmp folder to store questions (separated in small files)
+  if not os.path.isdir(tmp_output_folder):
+    os.mkdir(tmp_output_folder)
+  else:
+    print("Directory %s already exist. Please change the output filename")
+    exit(1)  # FIXME : Maybe we should have a prompt ? This might be dangerous while running experiments automatically. We might get stuck there and waste a lot of time
 
   with open(args.metadata_file, 'r') as f:
     metadata = ujson.load(f)
@@ -732,7 +766,7 @@ def main(args):
 
   # Read file containing input scenes
   all_scenes = []
-  with open(args.input_scene_file, 'r') as f:
+  with open(scene_filepath, 'r') as f:
     scene_data = ujson.load(f)
     all_scenes = scene_data['scenes']
     scene_info = scene_data['info']
@@ -808,16 +842,6 @@ def main(args):
   with open(args.synonyms_json, 'r') as f:
     synonyms = ujson.load(f)
 
-  # Create tmp folder to store questions (separated in small files)
-  question_filename = args.output_questions_file.split("/")[-1]
-  tmp_folder_path = args.output_questions_file.replace(".json", "_TMP")
-
-  if not os.path.isdir(tmp_folder_path):
-    os.mkdir(tmp_folder_path)
-  else:
-    print("Directory %s already exist. Please change the output filename")
-    exit(0)   # FIXME : Maybe we should have a prompt ? This might be dangerous while running experiments automatically. We might get stuck there and waste a lot of time
-
   questions = []
   question_index = 0
   file_written = 0
@@ -885,13 +909,13 @@ def main(args):
         break
 
     if question_index != 0 and question_index % args.write_to_file_every == 0:
-      write_questions_part_to_file(tmp_folder_path, question_filename, scene_info, questions, file_written)
+      write_questions_part_to_file(tmp_output_folder, questions_filename, scene_info, questions, file_written)
       file_written += 1
       questions = []
 
   if len(questions) > 0:
     # Write the rest of the questions
-    write_questions_part_to_file(tmp_folder_path, question_filename, scene_info, questions, file_written)
+    write_questions_part_to_file(tmp_output_folder, questions_filename, scene_info, questions, file_written)
 
 
 if __name__ == '__main__':
