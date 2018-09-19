@@ -77,9 +77,9 @@ parser.add_argument('--output_version_nb', default='0.1', type=str,
 class AudioSceneProducer:
     def __init__(self,
                  outputFolder,
+                 version_nb,
                  spectrogramSettings,
                  withBackgroundNoise,
-                 scenesJsonFilename,
                  primarySoundsJsonFilename,
                  primarySoundFolderPath,
                  setType,
@@ -88,27 +88,54 @@ class AudioSceneProducer:
         # Paths
         self.outputFolder = outputFolder
         self.primarySoundFolderPath = primarySoundFolderPath
+        self.version_nb = version_nb
+
+        self.outputPrefix = outputPrefix
+        self.setType = setType
 
         # Loading primary sounds definition from 'primarySounds.json'
         with open(os.path.join(self.primarySoundFolderPath, primarySoundsJsonFilename)) as primarySoundJson:
             self.primarySounds = ujson.load(primarySoundJson)
 
-        # Loading scenes definition from 'scenes.json'
-        sceneFilepath = scenesJsonFilename
+        # Loading scenes definition
+        sceneFilename = '%s_%s_scenes.json' % (self.outputPrefix, self.setType)
+        sceneFilepath = os.path.join(self.outputFolder, self.version_nb, 'scenes', sceneFilename)
         with open(sceneFilepath) as scenesJson:
             self.scenes = ujson.load(scenesJson)['scenes']
 
         self.spectrogramSettings = spectrogramSettings
         self.withBackgroundNoise = withBackgroundNoise
-        self.outputPrefix = outputPrefix
-        self.setType = setType
+
+
+        experiment_output_folder = os.path.join(self.outputFolder, self.version_nb)
+        self.images_output_folder = os.path.join(experiment_output_folder, 'images')
+        self.audio_output_folder = os.path.join(experiment_output_folder, 'audio')
+
+        if not os.path.isdir(experiment_output_folder):
+            os.mkdir(experiment_output_folder)
+
+        if not os.path.isdir(self.images_output_folder):
+            os.mkdir(self.images_output_folder)
+
+        if not os.path.isdir(self.audio_output_folder):
+            os.mkdir(self.audio_output_folder)
+
+        self.images_output_folder = os.path.join(self.images_output_folder, self.setType)
+        self.audio_output_folder = os.path.join(self.audio_output_folder, self.setType)
+
+        if os.path.isdir(self.images_output_folder) or os.path.isdir(self.audio_output_folder):
+            print("This experiment have already been run. Please bump the version number or delete the previous output.")
+            exit(1)
+        else:
+            os.mkdir(self.audio_output_folder)
+            os.mkdir(self.images_output_folder)
 
         self.currentSceneIndex = -1  # We start at -1 since nextScene() will increment idx at the start of the fct
         self.nbOfLoadedScenes = len(self.scenes)
 
         if self.nbOfLoadedScenes == 0:
             print("[ERROR] Must have at least 1 scene in '"+sceneFilepath+"'")
-            exit(0)     # FIXME : Should probably raise an exception here instead
+            exit(1)     # FIXME : Should probably raise an exception here instead
 
         # TODO : Add other default sounds such as random noise and other continuous sounds
         self.defaultLoadedSounds = [
@@ -195,7 +222,7 @@ class AudioSceneProducer:
             sceneAudioSegment.set_channels(1)
 
             # FIXME : Create the setType folder if doesnt exist
-            sceneAudioSegment.export(os.path.join(self.outputFolder, 'audio', self.setType, '%s_%s_%06d.wav' % (self.outputPrefix, self.setType, sceneId)), format='wav')
+            sceneAudioSegment.export(os.path.join(self.audio_output_folder, '%s_%s_%06d.wav' % (self.outputPrefix, self.setType, sceneId)), format='wav')
 
             # Set figure settings to remove all axis
             spectrogram = plt.figure(frameon=False)
@@ -212,7 +239,7 @@ class AudioSceneProducer:
                          NFFT=self.spectrogramSettings['window_length'], noverlap=self.spectrogramSettings['window_overlap'], mode='magnitude', scale='dB')
 
             # FIXME : Create the setType folder if doesnt exist
-            spectrogram.savefig(os.path.join(self.outputFolder, 'images', self.setType, '%s_%s_%06d.png' % (self.outputPrefix, self.setType, sceneId)), dpi=1)
+            spectrogram.savefig(os.path.join(self.images_output_folder, '%s_%s_%06d.png' % (self.outputPrefix, self.setType, sceneId)), dpi=1)
 
             # Close and Clear the figure
             plt.close(spectrogram)
@@ -225,11 +252,11 @@ def mainPool():
     args = parser.parse_args()
 
     producer = AudioSceneProducer(outputFolder=args.output_folder,
-                                  scenesJsonFilename=args.input_scene_file,
+                                  version_nb= args.output_version_nb,
                                   primarySoundsJsonFilename=args.primary_sounds_definition_filename,
                                   primarySoundFolderPath=args.primary_sounds_folder,
                                   setType=args.set_type,
-                                  outputPrefix=args.output_filename_prefix + "_" + args.output_version_nb,
+                                  outputPrefix=args.output_filename_prefix,
                                   withBackgroundNoise=args.with_background_noise,
                                   spectrogramSettings={
                                       'height': args.spectrogram_height,
