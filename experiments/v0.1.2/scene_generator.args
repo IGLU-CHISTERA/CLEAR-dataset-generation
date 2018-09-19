@@ -1,4 +1,4 @@
---max_nb_scene=100000
+--max_nb_scene=10000
 --output_version_nb=0.1.2
 --random_nb_generator_seed=1
 --scene_length=10
