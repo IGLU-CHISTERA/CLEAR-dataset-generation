@@ -129,7 +129,7 @@ def make_query_handler(attribute):
     obj = scene_struct['objects'][idx]
     assert attribute in obj
     val = obj[attribute]
-    if type(val) == list and len(val) != 1:
+    if val is None or (type(val) == list and len(val) != 1):
       return '__INVALID__'
     elif type(val) == list and len(val) == 1:
       return val[0]
