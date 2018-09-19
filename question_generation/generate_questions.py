@@ -430,9 +430,11 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
     answer = outputs[-1]
     if answer == '__INVALID__':
       if verbose: print("Skipping due to invalid answer")
+      states = reset_states_if_needed(states)
       continue
 
     if not validate_constraints(template, state, outputs, param_name_to_attribute, verbose):
+      states = reset_states_if_needed(states)
       continue
 
     # We have already checked to make sure the answer is valid, so if we have
