@@ -3,3 +3,5 @@ __pycache__/
 *.swp
 *.pyc
 .idea/
+output
+output/
