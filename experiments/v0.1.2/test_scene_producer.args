@@ -1,4 +1,3 @@
---input_scene_file=output/scenes/AQA_V0.1.2_test_scenes.json
 --set_type=test
 --output_version_nb=0.1.2
 --output_folder=output

@@ -27,9 +27,6 @@ parser.add_argument('--primary_sounds_folder', default='../primary_sounds', type
 parser.add_argument('--primary_sounds_definition_filename', default='primary_sounds.json', type=str,
                     help='Filename of the JSON file listing the attributes of the primary sounds')
 
-parser.add_argument('--input_scene_file', default='../output/scenes/AQA_V0.1_train.json', type=str,
-                    help="JSON file containing ground-truth scene information")
-
 parser.add_argument('--set_type', default='train', type=str,
                     help="Specify the set type (train/val/test)")
 

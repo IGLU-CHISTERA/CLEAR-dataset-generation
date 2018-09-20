@@ -64,9 +64,6 @@ parser.add_argument('--set_type', default='train', type=str,
 # TODO : Change defaults values for arguments
 # TODO : Change argument text
 # Inputs
-parser.add_argument('--input_scene_file', default='../output/CLEVR_scenes.json',
-    help="JSON file containing ground-truth scene information for all images " +
-         "from render_images.py")
 parser.add_argument('--metadata_file', default='metadata.json',
     help="JSON file containing metadata about functions")
 parser.add_argument('--synonyms_json', default='synonyms.json',
@@ -75,9 +72,6 @@ parser.add_argument('--template_dir', default='CLEVR_1.0_templates',
     help="Directory containing JSON templates for questions")
 
 # Output
-parser.add_argument('--output_questions_file',
-    default='../output/CLEVR_questions.json',
-    help="The output file to write containing generated questions")
 parser.add_argument('--write_to_file_every',
     default=5000, type=int,
     help="The number of questions that will be written to each files.")
