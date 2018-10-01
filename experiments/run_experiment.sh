@@ -2,21 +2,29 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 ROOTDIR="${DIR}/.."
 OLDDIR=$PWD
+CURRENT_DATE_TIME=$(date +'%d-%m-%Y_%Hh%M')
 
 EXPERIMENT_NAME=$1
 if [ "${EXPERIMENT_NAME: -1}" = "/" ]; then
     EXPERIMENT_NAME="${EXPERIMENT_NAME:: -1}"
 fi
 EXPERIMENT_DIR="${DIR}/${EXPERIMENT_NAME}"
-LOG_DIR="${EXPERIMENT_DIR}/log"
 
-OUTPUT_DIR=$(grep output_folder ${EXPERIMENT_DIR}/scene_generator.args | awk -F '=' '{print $2}')
+ROOT_LOG_DIR="${EXPERIMENT_DIR}/log"
 
-# TODO : This script must be run in the virtual environment. Figure a way to make sure we are in the environment ?
+if [ ! -d "${ROOT_LOG_DIR}" ]; then
+  mkdir "${ROOT_LOG_DIR}"
+fi
 
+LOG_DIR="${ROOT_LOG_DIR}/${CURRENT_DATE_TIME}"
 if [ ! -d "${LOG_DIR}" ]; then
   mkdir "${LOG_DIR}"
 fi
+
+# Output dir must be specified in scene_generator.args (May be omitted from other args file, we will use the extracted one)
+OUTPUT_DIR=$(grep output_folder ${EXPERIMENT_DIR}/scene_generator.args | awk -F '=' '{print $2}')
+
+# TODO : This script must be run in the virtual environment. Figure a way to make sure we are in the environment ?
 
 # Will stop the script on first error
 set -e
