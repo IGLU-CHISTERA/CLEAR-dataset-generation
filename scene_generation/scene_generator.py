@@ -1,4 +1,5 @@
 import sys, os
+# FIXME : This is the equivalent to add the parent folder in the pythonpath. What is the best approach ?
 # Add parent folder in the path
 current_file_dir = os.path.dirname(os.path.realpath(__file__))
 parent_dir = os.path.dirname(current_file_dir)
@@ -130,12 +131,6 @@ class Primary_sounds:
         self.generated_count_by_families = {fam: 0 for fam in self.families}
         self.gen_index = 0
 
-    def _pitch_to_str(self, pitch_value):
-        # FIXME : Set realistic pitch val
-        if pitch_value > 60:
-            return 'acute'
-        else:
-            return 'deep'
 
     def _midi_to_note(self, midi_value):
         note = self.notes[midi_value % 12]
@@ -176,7 +171,6 @@ class Primary_sounds:
             if primary_sound['duration'] > self.longest_duration:
                 self.longest_duration = primary_sound['duration']
 
-            primary_sound['pitch'] = self._pitch_to_str(primary_sound['pitch'])
             primary_sound['instrument'] = primary_sound['instrument_family']
 
             # Properties from sound qualities
@@ -276,8 +270,6 @@ class Scene_generator:
         self.scene_duration = nb_objects_per_scene * self.primary_sounds.longest_duration + \
                               silence_padding_per_object * (nb_objects_per_scene + 1)
 
-        self.idx_to_position_str = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "eleventh"]
-
         # Constraints
         # TODO : Calculate constraints based on nb_object_per_scene ?
         self.constraints = {
@@ -287,7 +279,7 @@ class Scene_generator:
             'min_ratio_for_attribute': constraint_min_ratio_for_attribute
         }
 
-        self.constrained_attributes = ['pitch', 'loudness']     # Attributes on which the 'min_ratio_for_attribute' constraint will be applied
+        self.constrained_attributes = ['brightness', 'loudness']     # Attributes on which the 'min_ratio_for_attribute' constraint will be applied
 
     def validate_final(self, state):
         # TODO : Validate final state before adding this scene to the repository
@@ -580,15 +572,6 @@ class Scene_generator:
             relationships['after'].append(list(scene_indexes))
 
         return relationships
-
-    def _assign_positions_string(self, scene_composition):
-        nb_sounds = len(scene_composition)
-        for i, sound in enumerate(scene_composition):
-            sound['position'] = self.idx_to_position_str[i]
-
-            if i == nb_sounds - 1 and random.random() > 0.5:
-                # Use 'last' as the position str with a probability of 0.5
-                sound['position'] = 'last'
 
     def generate(self, start_index=0, nb_to_generate=None, training_set_ratio=0.7, shuffle_scenes=True):
 
