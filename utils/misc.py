@@ -22,3 +22,10 @@ def pydub_audiosegment_to_float_array(audio_segment):
 
     # Rescale and format the data buffer
     return scale * np.frombuffer(raw_data, fmt).astype(np.float32)
+
+
+def midi_pitch_to_musical_note(self, midi_value):
+    note = self.notes[midi_value % 12]
+    octave = int(midi_value/12) - 1
+
+    return note + str(octave)

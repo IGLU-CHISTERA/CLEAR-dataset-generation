@@ -131,12 +131,8 @@ class Primary_sounds:
         self.generated_count_by_families = {fam: 0 for fam in self.families}
         self.gen_index = 0
 
-
     def _midi_to_note(self, midi_value):
-        note = self.notes[midi_value % 12]
-        octave = int(midi_value/12) - 1
-
-        return note + str(octave)
+        return self.notes[midi_value % 12]
 
     def _get_perceptual_loudness(self, audio_segment):
         # FIXME : The meter should not be created everytime
