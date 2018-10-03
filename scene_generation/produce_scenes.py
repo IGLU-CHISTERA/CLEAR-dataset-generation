@@ -158,35 +158,6 @@ class AudioSceneProducer:
 
         print("Done loading primary sounds")
 
-
-    def _clearLoadedSounds(self):
-        # TODO : Destroy all AudioSegments except SILENCE
-
-        # Restoring default loadedSounds list
-        self.loadedSounds = copy.deepcopy(self.defaultLoadedSounds)
-
-    def _loadAllCurrentSceneSounds(self):
-        scene = self.scenes[self.currentSceneIndex]
-
-        if len(scene['composition']) == 0:
-            print("[ERROR] Invalid scene. Must contain at least 1 sound")
-            exit(0)     # FIXME : Should probably raise an exception here instead
-
-        # TODO : [IDEA] Add playback attribute in composition (length?)
-        for sceneSound in scene['composition']:
-            if not self._isLoadedByName(sceneSound['name']):
-                soundInfos = self.primarySounds[sceneSound['name']]
-                # Creating the audio segment (Suppose WAV format)
-                soundFilepath = os.path.join(self.primarySoundFolderPath, soundInfos['category'], soundInfos['filename'])
-                soundAudioSegment = AudioSegment.from_wav(soundFilepath)
-                self.loadedSounds.append({
-                    'name': sceneSound['name'],
-                    'audioSegment': soundAudioSegment
-                })
-
-    def _isLoadedByName(self, soundName):
-        return len(list(filter(lambda sound: sound['name'] == soundName, self.loadedSounds))) == 1
-
     def _getLoadedAudioSegmentByName(self, name):
         filterResult = list(filter(lambda sound: sound['name'] == name, self.loadedSounds))
         if len(filterResult) == 1:
@@ -199,7 +170,7 @@ class AudioSceneProducer:
         if sceneId < self.nbOfLoadedScenes:
 
             scene = self.scenes[sceneId]
-            print('Generating scene ' + str(sceneId))
+            print('Producing scene ' + str(sceneId))
             sceneAudioSegment = AudioSegment.empty()
 
             sceneAudioSegment += AudioSegment.silent(duration=scene['silence_before'])
@@ -277,6 +248,7 @@ def mainPool():
     pool.map(producer.produceScene, idList)
 
     print("Job Done !")
+
 
 if __name__ == '__main__':
     mainPool()
