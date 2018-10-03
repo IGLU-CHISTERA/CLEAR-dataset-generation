@@ -1,4 +1,5 @@
 import pydub
+import sys
 from pydub import AudioSegment
 from pydub.generators import WhiteNoise as WhiteNoiseGenerator
 from pydub.effects import normalize
@@ -121,7 +122,7 @@ class AudioSceneProducer:
         self.audio_output_folder = os.path.join(self.audio_output_folder, self.setType)
 
         if os.path.isdir(self.images_output_folder) or os.path.isdir(self.audio_output_folder):
-            print("This experiment have already been run. Please bump the version number or delete the previous output.")
+            print("This experiment have already been run. Please bump the version number or delete the previous output.", file=sys.stderr)
             exit(1)
         else:
             os.mkdir(self.audio_output_folder)
