@@ -149,10 +149,10 @@ class AudioSceneProducer:
     def _loadAllPrimarySounds(self):
         for sound in self.primarySounds:
             # Creating the audio segment (Suppose WAV format)
-            soundFilepath = os.path.join(self.primarySoundFolderPath, sound['note_str'] + '.wav')
+            soundFilepath = os.path.join(self.primarySoundFolderPath, sound['filename'])
             soundAudioSegment = AudioSegment.from_wav(soundFilepath)
             self.loadedSounds.append({
-                'name': sound['note_str'],
+                'name': sound['filename'],
                 'audioSegment': soundAudioSegment
             })
 
@@ -175,7 +175,8 @@ class AudioSceneProducer:
 
             sceneAudioSegment += AudioSegment.silent(duration=scene['silence_before'])
             for sound in scene['objects']:
-                newAudioSegment = self._getLoadedAudioSegmentByName(sound['note'])
+                newAudioSegment = self._getLoadedAudioSegmentByName(sound['filename'])
+
                 sceneAudioSegment += newAudioSegment
 
                 # Insert a silence padding after the sound

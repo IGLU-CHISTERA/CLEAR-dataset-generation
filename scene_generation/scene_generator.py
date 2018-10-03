@@ -146,6 +146,31 @@ class Primary_sounds:
             random.shuffle(self.definition)
 
         for id, primary_sound in enumerate(self.definition):
+            primary_sound_filename = os.path.join(self.folderpath, primary_sound['filename'])
+            primary_sound_audiosegment = AudioSegment.from_wav(primary_sound_filename)
+
+            primary_sound['id'] = id
+
+            # TODO : Add more sound analysis here. The added attributes should be used in the scene generation
+            primary_sound['duration'] = int(primary_sound_audiosegment.duration_seconds * 1000)
+
+            # TODO : Attribute human readable string to the numeric value
+            primary_sound['perceptual_loudness'] = self._get_perceptual_loudness(primary_sound_audiosegment)
+
+            if primary_sound['duration'] > self.longest_duration:
+                self.longest_duration = primary_sound['duration']
+
+            # FIXME : Should calculate these values instead of hardcoding them
+            primary_sound['percussion'] = 'percussive' if id % 2 else 'non-percussive'
+            primary_sound['distortion'] = 'distorted' if id % 3 else 'non-distorted'
+            primary_sound['brightness'] = 'bright' if id % 4 else 'dark'
+
+    def _preprocess_sounds_old(self, shuffle_primary_sounds=True):
+
+        if shuffle_primary_sounds:
+            random.shuffle(self.definition)
+
+        for id, primary_sound in enumerate(self.definition):
             primary_sound_filename = os.path.join(self.folderpath, primary_sound['note_str']) + ".wav"
             primary_sound_audiosegment = AudioSegment.from_wav(primary_sound_filename)
 
@@ -460,6 +485,8 @@ class Scene_generator:
             'nbMissingObjectPerFam' : 0,
             'attribute_constraint' : {}
         }
+
+        print("Starting Scenes Generation")
 
         continue_work = True
 
