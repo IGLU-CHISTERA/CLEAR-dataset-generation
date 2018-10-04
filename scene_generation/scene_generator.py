@@ -674,6 +674,19 @@ if __name__ == '__main__':
         # TODO : Print the seed used (Or save it to file)
         random.seed(args.random_nb_generator_seed)
 
+    experiment_output_folder = os.path.join(args.output_folder, args.output_version_nb)
+    scenes_output_folder = os.path.join(experiment_output_folder, 'scenes')
+
+    if not os.path.isdir(experiment_output_folder):
+      os.mkdir(experiment_output_folder)
+
+    if not os.path.isdir(scenes_output_folder):
+      os.mkdir(scenes_output_folder)
+    else:
+      print("This experiment have already been run. Please bump the version number or delete the previous output.",
+            file=sys.stderr)
+      exit(1)
+
     scene_generator = Scene_generator(args.scene_length,
                                       args.tree_width,
                                       args.silence_padding_per_object,
@@ -686,18 +699,6 @@ if __name__ == '__main__':
                                       args.constraint_min_ratio_for_attribute)
 
     scenes = scene_generator.generate(nb_to_generate=args.max_nb_scene, training_set_ratio=args.training_set_ratio)
-
-    experiment_output_folder = os.path.join(args.output_folder, args.output_version_nb)
-    scenes_output_folder = os.path.join(experiment_output_folder, 'scenes')
-
-    if not os.path.isdir(experiment_output_folder):
-      os.mkdir(experiment_output_folder)
-
-    if not os.path.isdir(scenes_output_folder):
-      os.mkdir(scenes_output_folder)
-    else:
-      print("This experiment have already been run. Please bump the version number or delete the previous output.")
-      exit(1)
 
     # Write to file
     for set_type, scene_struct in scenes.items():
