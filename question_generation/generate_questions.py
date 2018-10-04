@@ -868,7 +868,7 @@ def main(args):
       if 'disabled' in template and template['disabled']:
         continue
       if args.verbose:
-        print('trying template ', fn, idx)
+        print('    trying template ', fn, idx)
       if args.time_dfs and args.verbose:
         tic = time.time()
       ts, qs, ans = instantiate_templates_dfs(
@@ -893,7 +893,7 @@ def main(args):
           'question': t,
           'program': q,
           'answer': a,
-          'template_filename': fn,
+          'template_filename': '%s-%d' % (fn, idx),
           'question_family_index': idx,         # FIXME : This index doesn't represent the question family index
           'question_index': question_index,     # FIXME : This is not efficient
         })
