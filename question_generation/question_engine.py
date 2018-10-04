@@ -22,6 +22,7 @@ in a JSON metadata file.
 # from each of the node's inputs; the handler should return the computed output
 # value from this node.
 
+use_last_position_value = False
 
 def scene_handler(scene_struct, inputs, side_inputs):
   # Just return all objects in the scene
@@ -163,7 +164,7 @@ def greater_than_handler(scene_struct, inputs, side_inputs):
 
 
 def get_absolute_position(scene_struct, idx):
-  if idx == len(scene_struct['objects']) - 1 and random.random() > 0.5:   # FIXME : This probability should be parametrable
+  if idx == len(scene_struct['objects']) - 1 and random.random() > 0.5 and use_last_position_value:   # FIXME : This probability should be parametrable
     return "last"
   else:
     return idx_to_position_str[idx]
@@ -184,7 +185,7 @@ def get_position_instrument(scene_struct, idx, instrument):
   instrument_indexes = scene_struct['instrument_indexes'][instrument]
   relative_position_idx = instrument_indexes.index(idx)
 
-  if relative_position_idx == len(instrument_indexes) - 1 and random.random() > 0.5:  # FIXME : This probability should be parametrable
+  if relative_position_idx == len(instrument_indexes) - 1 and random.random() > 0.5 and use_last_position_value:  # FIXME : This probability should be parametrable
     return "last"
   # FIXME : Should we enable this ? IF ENABLED, We need to add the instrument alone in metadata values
   elif len(instrument_indexes) == 1 and random.random() > 0.5 and False:  # FIXME : This probability should be parametrable
@@ -439,7 +440,8 @@ def add_positions_to_metadata(metadata, instrument_count, max_scene_length):
   for i in range(max_scene_length):
     position_absolute_answers.append(idx_to_position_str[i] + ' sound')
 
-  position_absolute_answers.append('last sound')
+  if use_last_position_value:
+    position_absolute_answers.append('last sound')
 
   metadata['attributes']['position']['values'] = position_absolute_answers
 
@@ -449,7 +451,8 @@ def add_positions_to_metadata(metadata, instrument_count, max_scene_length):
     for i in range(count):
       position_instrument_answers.append(idx_to_position_str[i] + ' ' + instrument)
 
-      position_instrument_answers.append('last ' + instrument)
+      if use_last_position_value:
+        position_instrument_answers.append('last ' + instrument)
 
   metadata['attributes']['position_instrument']['values'] = position_instrument_answers
 
