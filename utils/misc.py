@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def pydub_audiosegment_to_float_array(audio_segment):
+def pydub_audiosegment_to_float_array(audio_segment, n_bytes):
     """Convert an integer buffer to floating point values.
     This is primarily useful when loading integer-valued wav data
     into numpy arrays.
@@ -15,10 +15,10 @@ def pydub_audiosegment_to_float_array(audio_segment):
     raw_data = audio_segment.get_array_of_samples()
 
     # Invert the scale of the data
-    scale = 1. / float(1 << ((8 * 2) - 1))
+    scale = 1. / float(1 << ((8 * n_bytes) - 1))
 
     # Construct the format string
-    fmt = '<i{:d}'.format(2)
+    fmt = '<i{:d}'.format(n_bytes)
 
     # Rescale and format the data buffer
     return scale * np.frombuffer(raw_data, fmt).astype(np.float32)
