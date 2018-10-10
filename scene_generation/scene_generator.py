@@ -25,7 +25,7 @@ parser.add_argument('--scene_length', default=6, type=int,
 parser.add_argument('--tree_width', default=5, type=int,
                     help='Number of node explored at each level of the generation tree')
 
-parser.add_argument('--silence_padding_per_object', default=200, type=int,
+parser.add_argument('--silence_padding_per_object', default=100, type=int,
                     help='Silence length that will be introduced between the objects')
 
 parser.add_argument('--constraint_min_nb_families', default=3, type=int,
