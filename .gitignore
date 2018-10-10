@@ -5,3 +5,6 @@ __pycache__/
 .idea/
 output
 output/
+/*primary_sounds*/
+*.txt
+*.stash
