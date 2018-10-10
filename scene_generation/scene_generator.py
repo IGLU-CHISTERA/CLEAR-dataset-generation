@@ -95,7 +95,7 @@ class Primary_sounds:
     Primary sounds generator.
     Load the primary sounds from file, preprocess them and give an interface to retrieve sounds
     """
-    def __init__(self, folder_path, definition_filename='primary_sounds.json'):
+    def __init__(self, folder_path, definition_filename, nb_objects_per_scene):
         self.folderpath = folder_path
 
         with open(os.path.join(self.folderpath, definition_filename)) as primary_sounds_definition:
@@ -105,9 +105,10 @@ class Primary_sounds:
 
         self.longest_duration = 0
 
-        self._preprocess_sounds()
 
         self.nb_sounds = len(self.definition)
+
+        self._preprocess_sounds(nb_objects_per_scene)
 
         self.families_count = {}
 
@@ -127,7 +128,7 @@ class Primary_sounds:
     def _midi_to_note(self, midi_value):
         return self.notes[midi_value % 12]
 
-    def _preprocess_sounds(self, shuffle_primary_sounds=True):
+    def _preprocess_sounds(self, nb_objects_per_scene, shuffle_primary_sounds=True):
 
         if shuffle_primary_sounds:
             random.shuffle(self.definition)
@@ -152,7 +153,7 @@ class Primary_sounds:
             primary_sound['distortion'] = 'distorted' if id % 3 else 'non-distorted'
             primary_sound['brightness'] = 'bright' if id % 4 else 'dark'
 
-    def _preprocess_sounds_old(self, shuffle_primary_sounds=True):
+    def _preprocess_sounds_old(self, nb_objects_per_scene, shuffle_primary_sounds=True):
 
         if shuffle_primary_sounds:
             random.shuffle(self.definition)
@@ -274,7 +275,7 @@ class Scene_generator:
         with open(metadata_filepath) as metadata:
             self.attributes_values = {key: val['values'] for key, val in ujson.load(metadata)['attributes'].items()}
 
-        self.primary_sounds = Primary_sounds(primary_sounds_folderpath, primary_sounds_definition_filename)
+        self.primary_sounds = Primary_sounds(primary_sounds_folderpath, primary_sounds_definition_filename, nb_objects_per_scene)
 
         self.scene_duration = nb_objects_per_scene * self.primary_sounds.longest_duration + \
                               silence_padding_per_object * (nb_objects_per_scene + 1)
