@@ -18,13 +18,7 @@
     "human_note": {
       "placeholder" : "<HN>",
       "values" : [
-        "E", "F", "F#", "G", "Ab", "A", "Bb", "B", "C", "Db", "D", "Eb"
-      ]
-    },
-    "distortion": {
-      "placeholder": "<D>",
-      "values" : [
-        "distorted", "non-distorted"
+        "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"
       ]
     },
     "brightness": {
@@ -39,22 +33,10 @@
         "quiet", "loud"
       ]
     },
-    "pitch": {
-      "placeholder" : "<H>",
-      "values" : [
-        "acute", "deep"
-      ]
-    },
-    "percussion" : {
-      "placeholder": "<PE>",
-      "values": [
-        "non-percussive", "percussive"
-      ]
-    },
     "instrument": {
       "placeholder" : "<I>",
       "values" : [
-        "brass", "flute", "guitar", "keyboard", "mallet", "reed", "string", "vocal"
+        "cello", "clarinet", "flute", "trumpet", "violin"
       ]
     },
     "relate_timing": {
