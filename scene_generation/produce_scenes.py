@@ -91,25 +91,26 @@ class AudioSceneProducer:
         self.outputPrefix = outputPrefix
         self.setType = setType
 
+        experiment_output_folder = os.path.join(self.outputFolder, self.version_nb)
+
         # Loading primary sounds definition from 'primarySounds.json'
         with open(os.path.join(self.primarySoundFolderPath, primarySoundsJsonFilename)) as primarySoundJson:
             self.primarySounds = ujson.load(primarySoundJson)
 
         # Loading scenes definition
         sceneFilename = '%s_%s_scenes.json' % (self.outputPrefix, self.setType)
-        sceneFilepath = os.path.join(self.outputFolder, self.version_nb, 'scenes', sceneFilename)
+        sceneFilepath = os.path.join(experiment_output_folder, 'scenes', sceneFilename)
         with open(sceneFilepath) as scenesJson:
             self.scenes = ujson.load(scenesJson)['scenes']
 
         self.spectrogramSettings = spectrogramSettings
         self.withBackgroundNoise = withBackgroundNoise
 
-
-        experiment_output_folder = os.path.join(self.outputFolder, self.version_nb)
         self.images_output_folder = os.path.join(experiment_output_folder, 'images')
         self.audio_output_folder = os.path.join(experiment_output_folder, 'audio')
 
         if not os.path.isdir(experiment_output_folder):
+            # This is impossible, if the experiment folder doesn't exist we won't be able to retrieve the scenes
             os.mkdir(experiment_output_folder)
 
         if not os.path.isdir(self.images_output_folder):
@@ -122,7 +123,8 @@ class AudioSceneProducer:
         self.audio_output_folder = os.path.join(self.audio_output_folder, self.setType)
 
         if os.path.isdir(self.images_output_folder) or os.path.isdir(self.audio_output_folder):
-            print("This experiment have already been run. Please bump the version number or delete the previous output.", file=sys.stderr)
+            print("This experiment have already been run. Please bump the version number or delete the following folders :\n" +
+                  "'%s'\nand\n'%s'" % (self.images_output_folder, self.audio_output_folder), file=sys.stderr)
             exit(1)
         else:
             os.mkdir(self.audio_output_folder)
@@ -132,19 +134,11 @@ class AudioSceneProducer:
         self.nbOfLoadedScenes = len(self.scenes)
 
         if self.nbOfLoadedScenes == 0:
-            print("[ERROR] Must have at least 1 scene in '"+sceneFilepath+"'")
-            exit(1)     # FIXME : Should probably raise an exception here instead
+            print("[ERROR] Must have at least 1 scene in '"+sceneFilepath+"'", file=sys.stderr)
+            exit(1)
 
-        # TODO : Add other default sounds such as random noise and other continuous sounds
-        self.defaultLoadedSounds = [
-            {
-                'name': '-SILENCE-',
-                'audioSegment': AudioSegment.silent(duration=100)      # 100 ms of silence      # FIXME : Should specify the sample rate
-            }
-        ]
-
-        # Creating a copy of the default sound list
-        self.loadedSounds = copy.deepcopy(self.defaultLoadedSounds)
+        # Initialize the list that contain the loaded sounds
+        self.loadedSounds = []
 
     def _loadAllPrimarySounds(self):
         for sound in self.primarySounds:
@@ -249,7 +243,6 @@ def mainPool():
     pool.map(producer.produceScene, idList)
 
     print("Job Done !")
-
 
 if __name__ == '__main__':
     mainPool()
