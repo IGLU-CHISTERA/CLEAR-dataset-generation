@@ -1,10 +1,7 @@
-import pydub
 import sys
 from pydub import AudioSegment
 from pydub.generators import WhiteNoise as WhiteNoiseGenerator
-from pydub.effects import normalize
-from pydub.silence import split_on_silence
-import os, ujson, argparse, copy
+import os, ujson, argparse
 from multiprocessing import Pool
 import matplotlib
 # Matplotlib options to reduce memory usage
