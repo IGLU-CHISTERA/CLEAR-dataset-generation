@@ -582,9 +582,9 @@ class Scene_generator:
 
     def _generate_info_section(self, set_type):
         return {
-                "name": "AQA-V0.1",
+                "name": "AQA-V0.1",         # FIXME : Should use the arguments instead of hardcoding
                 "license": "Creative Commons Attribution (CC-BY 4.0)",
-                "version": "0.1",
+                "version": "0.1",           # FIXME : Should use the arguments instead of hardcoding
                 "split": set_type,
                 "date": time.strftime("%x")
             }
