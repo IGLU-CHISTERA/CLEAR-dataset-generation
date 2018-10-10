@@ -214,7 +214,7 @@ def query_position_instrument_handler(scene_struct, inputs, side_inputs):
 # FIXME : are not written in the metadata file but the one for position_global are
 def get_position_global(scene_struct, idx):
   part_size = math.floor(len(scene_struct['objects']) / 3)
-  if idx + 1 <= part_size:
+  if idx + 1 < part_size:
     return "beginning"
   elif idx + 1 <= 2 * part_size:
     return "middle"
