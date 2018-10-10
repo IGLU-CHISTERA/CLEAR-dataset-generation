@@ -65,13 +65,13 @@ echo -e "Question generation done\n"
 # Consolidate results
 echo "Consolidating questions json..."
 # Training questions
-python ./utils/consolidate_questions.py --set_type train --output_folder ${OUTPUT_DIR} --output_version_nb ${EXPERIMENT_NAME} --remove_tmp > "${LOG_DIR}/train_question_consolidation.log"
+python ./utils/consolidate_questions.py --set_type train --output_folder ${OUTPUT_DIR} --output_version_nb ${EXPERIMENT_NAME} --tmp_folder_prefix TMP_ --remove_tmp > "${LOG_DIR}/train_question_consolidation.log"
 
 # Validation questions
-python ./utils/consolidate_questions.py --set_type val  --output_folder ${OUTPUT_DIR} --output_version_nb ${EXPERIMENT_NAME} --remove_tmp > "${LOG_DIR}/val_question_consolidation.log"
+python ./utils/consolidate_questions.py --set_type val  --output_folder ${OUTPUT_DIR} --output_version_nb ${EXPERIMENT_NAME} --tmp_folder_prefix TMP_ --remove_tmp > "${LOG_DIR}/val_question_consolidation.log"
 
 # Test questions
-python ./utils/consolidate_questions.py --set_type test --output_folder ${OUTPUT_DIR} --output_version_nb ${EXPERIMENT_NAME} --remove_tmp > "${LOG_DIR}/test_question_consolidation.log"
+python ./utils/consolidate_questions.py --set_type test --output_folder ${OUTPUT_DIR} --output_version_nb ${EXPERIMENT_NAME} --tmp_folder_prefix TMP_ --remove_tmp > "${LOG_DIR}/test_question_consolidation.log"
 
 echo -e "Question consolidation Done\n"
 
