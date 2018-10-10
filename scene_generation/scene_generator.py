@@ -8,7 +8,7 @@ from itertools import groupby
 from datetime import datetime
 import pyloudnorm
 
-from utils import misc
+from utils.perceptual_loudness import get_perceptual_loudness
 
 
 """
@@ -127,12 +127,6 @@ class Primary_sounds:
     def _midi_to_note(self, midi_value):
         return self.notes[midi_value % 12]
 
-    def _get_perceptual_loudness(self, audio_segment):
-        # FIXME : The meter should not be created everytime
-        loudness_meter = pyloudnorm.Meter(audio_segment.frame_rate, block_size=0.35)  # FIXME : Hardcoded block size
-
-        return loudness_meter.integrated_loudness(misc.pydub_audiosegment_to_float_array(audio_segment))
-
     def _preprocess_sounds(self, shuffle_primary_sounds=True):
 
         if shuffle_primary_sounds:
@@ -148,7 +142,7 @@ class Primary_sounds:
             primary_sound['duration'] = int(primary_sound_audiosegment.duration_seconds * 1000)
 
             # TODO : Attribute human readable string to the numeric value
-            primary_sound['perceptual_loudness'] = self._get_perceptual_loudness(primary_sound_audiosegment)
+            primary_sound['perceptual_loudness'] = get_perceptual_loudness(primary_sound_audiosegment)
 
             if primary_sound['duration'] > self.longest_duration:
                 self.longest_duration = primary_sound['duration']
@@ -178,7 +172,8 @@ class Primary_sounds:
             # TODO : Add more sound analysis here. The added attributes should be used in the scene generation
             primary_sound['duration'] = int(primary_sound_audiosegment.duration_seconds * 1000)
 
-            primary_sound['perceptual_loudness'] = self._get_perceptual_loudness(primary_sound_audiosegment)
+            # TODO : Attribute human readable string to the numeric value
+            primary_sound['perceptual_loudness'] = get_perceptual_loudness(primary_sound_audiosegment)
 
             primary_sound['human_note'] = self._midi_to_note(primary_sound['pitch'])
 
