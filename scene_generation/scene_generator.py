@@ -102,8 +102,7 @@ class Primary_sounds:
 
         self.notes = [ 'C', 'Db', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B' ]
 
-        self.longest_duration = 0
-
+        self.longest_durations = []
 
         self.nb_sounds = len(self.definition)
 
@@ -144,13 +143,18 @@ class Primary_sounds:
             # TODO : Attribute human readable string to the numeric value
             primary_sound['perceptual_loudness'] = get_perceptual_loudness(primary_sound_audiosegment)
 
-            if primary_sound['duration'] > self.longest_duration:
-                self.longest_duration = primary_sound['duration']
+            self.longest_durations.append(primary_sound['duration'])
 
             # FIXME : Should calculate these values instead of hardcoding them
             primary_sound['percussion'] = 'percussive' if id % 2 else 'non-percussive'
             primary_sound['distortion'] = 'distorted' if id % 3 else 'non-distorted'
             primary_sound['brightness'] = 'bright' if id % 4 else 'dark'
+
+        # Remove the 20% longest sounds.
+        # Use the sum of the duration of the next 'nb_objects_per_scene' as the scene total duration
+        twenty_percent_index = int(self.nb_sounds * 0.20)
+        sorted_durations = sorted(self.longest_durations, reverse=True)
+        self.longest_durations = sorted_durations[twenty_percent_index:twenty_percent_index+nb_objects_per_scene]
 
     def _preprocess_sounds_old(self, nb_objects_per_scene, shuffle_primary_sounds=True):
 
@@ -177,8 +181,7 @@ class Primary_sounds:
 
             primary_sound['human_note'] = self._midi_to_note(primary_sound['pitch'])
 
-            if primary_sound['duration'] > self.longest_duration:
-                self.longest_duration = primary_sound['duration']
+            self.longest_durations.append(primary_sound['duration'])
 
             primary_sound['instrument'] = primary_sound['instrument_family']
 
@@ -203,6 +206,8 @@ class Primary_sounds:
             for attr in attr_to_remove:
                 if attr in primary_sound:
                     del primary_sound[attr]
+
+        self.longest_durations = sorted(self.longest_durations, reverse=True)[:nb_objects_per_scene]
 
     def sounds_to_families_count(self, sound_list):
         count = {}
@@ -276,8 +281,11 @@ class Scene_generator:
 
         self.primary_sounds = Primary_sounds(primary_sounds_folderpath, primary_sounds_definition_filename, nb_objects_per_scene)
 
-        self.scene_duration = nb_objects_per_scene * self.primary_sounds.longest_duration + \
-                              silence_padding_per_object * (nb_objects_per_scene + 1)
+        # Since the sounds can't repeat themselves in the same scene,
+        # The longest scene is the sum of the X longest primary sounds.
+        # Where X is the number of objects in the scene
+        # Plus the silence
+        self.scene_duration = sum(self.primary_sounds.longest_durations) + silence_padding_per_object * (nb_objects_per_scene + 1)
 
         # Constraints
         # TODO : Calculate constraints based on nb_object_per_scene ?
@@ -298,6 +306,11 @@ class Scene_generator:
         # TODO :        - X uniquely filterable objects for {set} of attributes
         # TODO :        - X objects per instrument families. For at least X instument families
         # TODO :        - SOME CONSTRAINTS ON OVERLAPPING
+
+        total_sound_duration = sum([s['duration'] for s in state])
+
+        if total_sound_duration >= self.scene_duration:
+          return False
 
         # Validate that we have enough instrument families
         families_count, nb_families = self.primary_sounds.sounds_to_families_count(state)
