@@ -1,10 +1,3 @@
-import sys, os
-# FIXME : This is the equivalent to add the parent folder in the pythonpath. What is the best approach ?
-# Add parent folder in the path
-current_file_dir = os.path.dirname(os.path.realpath(__file__))
-parent_dir = os.path.dirname(current_file_dir)
-sys.path.insert(0, parent_dir)
-
 from pydub import AudioSegment
 import copy
 import ujson
