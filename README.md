@@ -1,3 +1,14 @@
+# Environment setup
+We suggest using a virtual environment to run this code
+To make this directory discoverable by your python executable, create a Aqa-Dataset-Gen.pth file in the site-package directory of your virtual environment
+It should contain the path to this folder. Ex :
+```
+~/dev/Aqa-Dataset-Gen
+```
+
+
+
+
 # CLEVR Dataset Generation
 
 This is the code used to generate the [CLEVR dataset](http://cs.stanford.edu/people/jcjohns/clevr/) as described in the paper:
