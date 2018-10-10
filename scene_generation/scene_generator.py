@@ -444,26 +444,39 @@ class Scene_generator:
         sounds_duration = sum(sound['duration'] for sound in scene)
 
         full_padding_duration = self.scene_duration - sounds_duration
-        padding_duration = full_padding_duration
+
+        nb_sound = len(scene)
+
+        # Initialize equal silences
+        silence_intervals = [full_padding_duration/nb_sound] * nb_sound
+
+        # Randomly modify the silence intervals
+        for i in range(nb_sound):
+          # Randomly choose a sound
+          random_index = random.randint(0, nb_sound-1)
+          if silence_intervals[random_index] > 0:
+            # Take between 10% and 70% of the silence portion of one sound and add it to another sound
+            silence_portion = int(silence_intervals[random_index] * random.randint(10, 70)/100)
+            silence_intervals[i] += silence_portion
+            silence_intervals[random_index] -= silence_portion
+
         padded = 0
         scene_reversed = False
 
+        # FIXME : Doing this made sense with the old approach. Now it doesn't really change anything..
         # Reverse the scene order with a probability of 50%
-        # The way we attribute silence will result in longer silence in the beginning and smaller in the end
-        # By reversing the scene we "kinda" distribute the silence duration
+        # This add more randomness to the silence attribution
         if random.random() > 0.5:
-            scene.reverse()
-            scene_reversed = True
+          scene.reverse()
+          scene_reversed = True
 
-        # FIXME : No sure this is the best way to generate the silence intervals
-        for sound in scene:
-            sound['silence_after'] = round(padding_duration * random.randrange(5, 100)/200)
-            padded += sound['silence_after']
-            padding_duration -= sound['silence_after']
+        for i, sound in enumerate(scene):
+          sound['silence_after'] = silence_intervals[i]
+          padded += sound['silence_after']
 
         if scene_reversed:
-            # Reverse back the scene to the original order
-            scene.reverse()
+          # Reverse back the scene to the original order
+          scene.reverse()
 
         # The rest of the silence duration should be added in the beginning of the scene
         # We calculate the remaining padding this way to make sure that rounding doesn't affect the result
