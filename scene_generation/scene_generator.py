@@ -684,10 +684,6 @@ class Scene_generator:
 if __name__ == '__main__':
     args = parser.parse_args()
 
-    if args.random_nb_generator_seed is not None:
-        # TODO : Print the seed used (Or save it to file)
-        random.seed(args.random_nb_generator_seed)
-
     experiment_output_folder = os.path.join(args.output_folder, args.output_version_nb)
     scenes_output_folder = os.path.join(experiment_output_folder, 'scenes')
 
@@ -700,6 +696,19 @@ if __name__ == '__main__':
       print("This experiment have already been run. Please bump the version number or delete the previous output.",
             file=sys.stderr)
       exit(1)
+
+      # Setting & Saving the random seed
+      if args.random_nb_generator_seed is not None:
+        random.seed(args.random_nb_generator_seed)
+
+        random_seed_save_filepath = os.path.join(scenes_output_folder,
+                                                 'scene_generator_random_seed.json')
+
+        with open(random_seed_save_filepath, 'w') as f:
+          ujson.dump({
+            'seed': args.random_nb_generator_seed,
+            'version_nb': args.output_version_nb
+          }, f, indent=2)
 
     scene_generator = Scene_generator(args.scene_length,
                                       args.tree_width,
