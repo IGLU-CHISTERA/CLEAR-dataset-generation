@@ -1,4 +1,5 @@
 import sys
+import random
 from pydub import AudioSegment
 from pydub.generators import WhiteNoise as WhiteNoiseGenerator
 import os, ujson, argparse
@@ -42,6 +43,9 @@ parser.add_argument('--spectrogram_window_overlap', default=512, type=int,
 
 parser.add_argument('--with_background_noise', action='store_true',
                     help='Use this setting to include a background noise in the scenes')
+
+parser.add_argument('--random_nb_generator_seed', default=None, type=int,
+                    help='Set the random number generator seed to reproduce results')
 
 parser.add_argument('--nb_process', default=4, type=int,
                     help='Number of process allocated for the production')
@@ -225,6 +229,18 @@ def mainPool():
                                       'window_length': args.spectrogram_window_length,
                                       'window_overlap': args.spectrogram_window_overlap,
                                   })
+
+    # Setting & Saving the random seed
+    if args.random_nb_generator_seed is not None:
+      random.seed(args.random_nb_generator_seed)
+
+      random_seed_save_filepath = os.path.join(args.output_folder,args.output_version_nb, 'producer_random_seed.json')
+
+      with open(random_seed_save_filepath, 'w') as f:
+          ujson.dump({
+            'seed': args.random_nb_generator_seed,
+            'version_nb': args.output_version_nb
+          }, f, indent=2)
 
     idList = list(range(producer.nbOfLoadedScenes))
 
