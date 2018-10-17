@@ -737,6 +737,18 @@ def main(args):
     print("Directory %s already exist. Please change the output filename")
     exit(1)  # FIXME : Maybe we should have a prompt ? This might be dangerous while running experiments automatically. We might get stuck there and waste a lot of time
 
+  # Setting & Saving the random seed
+  if args.random_nb_generator_seed is not None:
+    random.seed(args.random_nb_generator_seed)
+
+    random_seed_save_filepath = os.path.join(questions_output_folder, 'question_generator_random_seed.json')
+
+    with open(random_seed_save_filepath, 'w') as f:
+      ujson.dump({
+        'seed': args.random_nb_generator_seed,
+        'version_nb': args.output_version_nb
+      }, f, indent=2)
+
   with open(args.metadata_file, 'r') as f:
     metadata = ujson.load(f)
 
