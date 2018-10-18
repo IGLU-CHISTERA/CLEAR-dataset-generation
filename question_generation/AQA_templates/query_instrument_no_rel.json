@@ -31,7 +31,7 @@
     "note": "Limited nb of answers. 3 on 70. Always same answer : reed",
     "disabled": true,
     "text": [
-      "What is the name of the instrument that play the longest note ?"
+      "What instrument play the longest note ?"
     ],
     "nodes": [
       {
@@ -48,7 +48,7 @@
         "inputs": [
           1
         ],
-        "type": "query_instrument"
+        "type": "query_position_instrument"
       }
     ]
   },
@@ -56,7 +56,7 @@
     "note": "Limited nb of answers. 49 on 70",
     "disabled": true,
     "text": [
-      "What is the name of the instrument that play the shortest note ?"
+      "What instrument play the shortest note ?"
     ],
     "nodes": [
       {
@@ -73,7 +73,7 @@
         "inputs": [
           1
         ],
-        "type": "query_instrument"
+        "type": "query_position_instrument"
       }
     ]
   },
@@ -81,7 +81,7 @@
     "note": "Limited nb of answers. Instantiated 52 on 70",
     "disabled": true,
     "text": [
-      "What is the name of the instrument that play the longest note in the <PG> of the scene ?"
+      "What instrument play the longest note in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -107,14 +107,14 @@
         "inputs": [
           2
         ],
-        "type": "query_instrument"
+        "type": "query_position_instrument"
       }
     ]
   },
   {
     "disabled": true,
     "text": [
-      "What is the name of the instrument that play the shortest note in the <PG> of the scene ?"
+      "What instrument play the shortest note in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -140,7 +140,7 @@
         "inputs": [
           2
         ],
-        "type": "query_instrument"
+        "type": "query_position_instrument"
       }
     ]
   },
@@ -167,7 +167,7 @@
         "inputs": [
           1
         ],
-        "type": "query_instrument"
+        "type": "query_position_instrument"
       }
     ]
   },
@@ -195,7 +195,7 @@
         "inputs": [
           1
         ],
-        "type": "query_instrument"
+        "type": "query_position_instrument"
       }
     ]
   },
@@ -223,7 +223,7 @@
         "inputs": [
           1
         ],
-        "type": "query_instrument"
+        "type": "query_position_instrument"
       }
     ]
   },
@@ -252,7 +252,7 @@
         "inputs": [
           1
         ],
-        "type": "query_instrument"
+        "type": "query_position_instrument"
       }
     ]
   },
@@ -280,7 +280,7 @@
         "inputs": [
           1
         ],
-        "type": "query_instrument"
+        "type": "query_position_instrument"
       }
     ]
   },
@@ -309,7 +309,7 @@
         "inputs": [
           1
         ],
-        "type": "query_instrument"
+        "type": "query_position_instrument"
       }
     ]
   },
@@ -338,7 +338,7 @@
         "inputs": [
           1
         ],
-        "type": "query_instrument"
+        "type": "query_position_instrument"
       }
     ]
   },
@@ -368,7 +368,7 @@
         "inputs": [
           1
         ],
-        "type": "query_instrument"
+        "type": "query_position_instrument"
       }
     ]
   },
@@ -397,7 +397,7 @@
         "inputs": [
           1
         ],
-        "type": "query_instrument"
+        "type": "query_position_instrument"
       }
     ]
   },
@@ -426,7 +426,7 @@
         "inputs": [
           1
         ],
-        "type": "query_instrument"
+        "type": "query_position_instrument"
       }
     ]
   },
@@ -456,7 +456,7 @@
         "inputs": [
           1
         ],
-        "type": "query_instrument"
+        "type": "query_position_instrument"
       }
     ]
   },
@@ -497,7 +497,7 @@
         "inputs": [
           3
         ],
-        "type": "query_instrument"
+        "type": "query_position_instrument"
       }
     ]
   }
