@@ -216,36 +216,7 @@
           "<L>",
           "<PG>"
         ],
-        "inputs":[
-          0
-        ],
-        "type": "filter_unique"
-      },
-      {
         "inputs": [
-          1
-        ],
-        "type": "query_human_note"
-      }
-    ]
-  },
-  {
-    "note": "limited nb of answer. 45 on 70",
-    "disabled": true,
-    "text": [
-      "What is the note of the <PE> sound in the <PG> of the scene ?"
-    ],
-    "nodes": [
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<PE>",
-          "<PG>"
-        ],
-        "inputs":[
           0
         ],
         "type": "filter_unique"
@@ -274,7 +245,7 @@
           "<B>",
           "<PG>"
         ],
-        "inputs":[
+        "inputs": [
           0
         ],
         "type": "filter_unique"
@@ -304,68 +275,7 @@
           "<B>",
           "<PG>"
         ],
-        "inputs":[
-          0
-        ],
-        "type": "filter_unique"
-      },
-      {
         "inputs": [
-          1
-        ],
-        "type": "query_human_note"
-      }
-    ]
-  },
-  {
-    "note": "limited nb of answer. 66 on 70",
-    "disabled": true,
-    "text": [
-      "What is the note of the <L> <PE> sound in the <PG> of the scene ?"
-    ],
-    "nodes": [
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<L>",
-          "<PE>",
-          "<PG>"
-        ],
-        "inputs":[
-          0
-        ],
-        "type": "filter_unique"
-      },
-      {
-        "inputs": [
-          1
-        ],
-        "type": "query_human_note"
-      }
-    ]
-  },
-  {
-    "note": "limited nb of answer. 63 on 70",
-    "disabled": true,
-    "text": [
-      "What is the note of the <L> <B> and <PE> sound in the <PG> of the scene ?"
-    ],
-    "nodes": [
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<B>",
-          "<L>",
-          "<PE>",
-          "<PG>"
-        ],
-        "inputs":[
           0
         ],
         "type": "filter_unique"

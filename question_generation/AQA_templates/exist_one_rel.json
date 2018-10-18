@@ -191,69 +191,6 @@
   {
     "disabled": true,
     "text": [
-      "Is there a <PE> sound playing <RT> the <PI> <I> ?"
-    ],
-    "nodes": [
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<PI>",
-          "<I>"
-        ],
-        "inputs": [
-          0
-        ],
-        "type": "filter_unique"
-      },
-      {
-        "side_inputs": [
-          "<RT>",
-          "<PE>"
-        ],
-        "inputs": [
-          1
-        ],
-        "type": "relate_filter_exist"
-      }
-    ]
-  },
-  {
-    "disabled": true,
-    "text": [
-      "Is there a <PE> sound playing <RT> the <P> sound ?"
-    ],
-    "nodes": [
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<P>"
-        ],
-        "inputs": [
-          0
-        ],
-        "type": "filter_unique"
-      },
-      {
-        "side_inputs": [
-          "<RT>",
-          "<PE>"
-        ],
-        "inputs": [
-          1
-        ],
-        "type": "relate_filter_exist"
-      }
-    ]
-  },
-  {
-    "disabled": true,
-    "text": [
       "Is there a <HN> note playing <RT> the <PI> <I> ?"
     ],
     "nodes": [
@@ -314,8 +251,6 @@
       }
     ]
   },
-
-
   {
     "disabled": true,
     "text": [
@@ -472,7 +407,6 @@
       }
     ]
   },
-
   {
     "disabled": true,
     "text": [
@@ -615,9 +549,6 @@
       }
     ]
   },
-
-
-
   {
     "disabled": true,
     "text": [
@@ -769,83 +700,6 @@
     ]
   },
   {
-    "disabled": true,
-    "text": [
-      "Is there a <PE> sound played by a <I2> that is <RT> the <PI> <I> ?"
-    ],
-    "nodes": [
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<PI>",
-          "<I>"
-        ],
-        "inputs": [
-          0
-        ],
-        "type": "filter_unique"
-      },
-      {
-        "side_inputs": [
-          "<RT>",
-          "<PE>",
-          "<I2>"
-        ],
-        "inputs": [
-          1
-        ],
-        "type": "relate_filter_exist"
-      }
-    ],
-    "constraints": [
-      {
-        "params": [
-          "<I>",
-          "<I2>"
-        ],
-        "type": "NEQ"
-      }
-    ]
-  },
-  {
-    "disabled": true,
-    "text": [
-      "Is there a <PE> sound played by a <I> that is <RT> the <P> sound ?"
-    ],
-    "nodes": [
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<P>"
-        ],
-        "inputs": [
-          0
-        ],
-        "type": "filter_unique"
-      },
-      {
-        "side_inputs": [
-          "<RT>",
-          "<PE>",
-          "<I>"
-        ],
-        "inputs": [
-          1
-        ],
-        "type": "relate_filter_exist"
-      }
-    ]
-  },
-
-
-
-  {
     "note": "DOESNT WORK. All relation are classified as trivial. Why ?",
     "disabled": true,
     "text": [
@@ -955,9 +809,6 @@
       }
     ]
   },
-
-
-
   {
     "note": "DOESNT WORK. All relation are classified as trivial. Why ?",
     "disabled": true,

@@ -191,70 +191,7 @@
     ]
   },
   {
-    "disabled": true,
-    "text": [
-      "How many <PE> sound are playing <RT> the <PI> <I> ?"
-    ],
-    "nodes": [
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<PI>",
-          "<I>"
-        ],
-        "inputs": [
-          0
-        ],
-        "type": "filter_unique"
-      },
-      {
-        "side_inputs": [
-          "<RT>",
-          "<PE>"
-        ],
-        "inputs": [
-          1
-        ],
-        "type": "relate_filter_count"
-      }
-    ]
-  },
-  {
-    "disabled": true,
-    "text": [
-      "How many <PE> sound are playing <RT> the <P> sound ?"
-    ],
-    "nodes": [
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<P>"
-        ],
-        "inputs": [
-          0
-        ],
-        "type": "filter_unique"
-      },
-      {
-        "side_inputs": [
-          "<RT>",
-          "<PE>"
-        ],
-        "inputs": [
-          1
-        ],
-        "type": "relate_filter_count"
-      }
-    ]
-  },
-  {
-    "note" : "Only produce 0 & 1 answers",
+    "note": "Only produce 0 & 1 answers",
     "disabled": true,
     "text": [
       "How many <HN> note are playing <RT> the <PI> <I> ?"
@@ -287,7 +224,7 @@
     ]
   },
   {
-    "note" : "Only produce 0 & 1 answers",
+    "note": "Only produce 0 & 1 answers",
     "disabled": true,
     "text": [
       "How many <HN> note are playing <RT> the <P> sound ?"
@@ -318,9 +255,6 @@
       }
     ]
   },
-
-
-
   {
     "disabled": true,
     "text": [
@@ -621,9 +555,6 @@
       }
     ]
   },
-
-
-
   {
     "note": "Limited nb of answers {0,1,2}",
     "disabled": true,
@@ -777,83 +708,6 @@
     ]
   },
   {
-    "disabled": true,
-    "text": [
-      "How many <PE> sound are played by a <I2> that is <RT> the <PI> <I> ?"
-    ],
-    "nodes": [
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<PI>",
-          "<I>"
-        ],
-        "inputs": [
-          0
-        ],
-        "type": "filter_unique"
-      },
-      {
-        "side_inputs": [
-          "<RT>",
-          "<PE>",
-          "<I2>"
-        ],
-        "inputs": [
-          1
-        ],
-        "type": "relate_filter_count"
-      }
-    ],
-    "constraints": [
-      {
-        "params": [
-          "<I>",
-          "<I2>"
-        ],
-        "type": "NEQ"
-      }
-    ]
-  },
-  {
-    "disabled": true,
-    "text": [
-      "How many <PE> sound are played by a <I> that is <RT> the <P> sound ?"
-    ],
-    "nodes": [
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<P>"
-        ],
-        "inputs": [
-          0
-        ],
-        "type": "filter_unique"
-      },
-      {
-        "side_inputs": [
-          "<RT>",
-          "<PE>",
-          "<I>"
-        ],
-        "inputs": [
-          1
-        ],
-        "type": "relate_filter_count"
-      }
-    ]
-  },
-
-
-
-  {
     "note": "DOESNT WORK. All relation are classified as trivial. Why ?",
     "disabled": true,
     "text": [
@@ -963,9 +817,6 @@
       }
     ]
   },
-
-
-
   {
     "note": "DOESNT WORK. All relation are classified as trivial. Why ?",
     "disabled": true,
@@ -1122,9 +973,6 @@
       }
     ]
   },
-
-
-
   {
     "disabled": true,
     "text": [

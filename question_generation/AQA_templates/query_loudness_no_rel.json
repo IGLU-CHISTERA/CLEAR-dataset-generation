@@ -83,35 +83,6 @@
     ]
   },
   {
-    "note": "limited nb of answer. 42 on 70. Probably difficult to uniquely filter object only on percussion attribute",
-    "disabled": true,
-    "text": [
-      "What is the loudness of the <PE> sound that is playing in the <PG> of the scene ?"
-    ],
-    "nodes": [
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<PE>",
-          "<PG>"
-        ],
-        "inputs": [
-          0
-        ],
-        "type": "filter_unique"
-      },
-      {
-        "inputs": [
-          1
-        ],
-        "type": "query_loudness"
-      }
-    ]
-  },
-  {
     "note": "limited nb of answer. 48 on 70. Probably difficult to uniquely filter object only on brightness attribute",
     "disabled": true,
     "text": [

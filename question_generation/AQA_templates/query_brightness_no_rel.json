@@ -115,65 +115,6 @@
     ]
   },
   {
-    "note": "DOESN'T GIVE ANY ANSWER",
-    "disabled": true,
-    "text": [
-      "What is the brightness of the <PE> sound that is playing in the <PG> of the scene ?"
-    ],
-    "nodes": [
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<PE>",
-          "<PG>"
-        ],
-        "inputs": [
-          0
-        ],
-        "type": "filter_unique"
-      },
-      {
-        "inputs": [
-          1
-        ],
-        "type": "query_brightness"
-      }
-    ]
-  },
-  {
-    "note": "Limited nb of answer. 24 on 70.",
-    "disabled": true,
-    "text": [
-      "What is the brightness of the <L> <PE> sound that is playing in the <PG> of the scene ?"
-    ],
-    "nodes": [
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<L>",
-          "<PE>",
-          "<PG>"
-        ],
-        "inputs": [
-          0
-        ],
-        "type": "filter_unique"
-      },
-      {
-        "inputs": [
-          1
-        ],
-        "type": "query_brightness"
-      }
-    ]
-  },
-  {
     "note": "Limited nb of answer. 51 on 70. Probably due to the fact that a lot of sounds are neither bright or dark",
     "disabled": true,
     "text": [

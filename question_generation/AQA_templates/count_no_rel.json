@@ -63,29 +63,7 @@
     ]
   },
   {
-    "note" : "Only 4 different answers for the tested scenes..Not enough",
-    "disabled": true,
-    "text": [
-      "How many <PE> sound are playing ?"
-    ],
-    "nodes": [
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<PE>"
-        ],
-        "inputs": [
-          0
-        ],
-        "type": "filter_count"
-      }
-    ]
-  },
-  {
-    "note" : "Only produce 0 & 1 answers",
+    "note": "Only produce 0 & 1 answers",
     "disabled": true,
     "text": [
       "How many <HN> note are playing ?"
@@ -106,9 +84,6 @@
       }
     ]
   },
-
-
-
   {
     "disabled": true,
     "text": [
@@ -142,7 +117,7 @@
         "type": "filter_count"
       },
       {
-        "inputs" : [
+        "inputs": [
           1,
           3
         ],
@@ -193,7 +168,7 @@
         "type": "filter_count"
       },
       {
-        "inputs" : [
+        "inputs": [
           1,
           3
         ],
@@ -210,9 +185,6 @@
       }
     ]
   },
-
-
-
   {
     "disabled": true,
     "text": [
@@ -259,32 +231,6 @@
     ]
   },
   {
-    "note" : "Only 4 different answers for the tested scenes..Not enough",
-    "disabled": true,
-    "text": [
-      "How many <PE> sound are played by a <I> ?"
-    ],
-    "nodes": [
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<PE>",
-          "<I>"
-        ],
-        "inputs": [
-          0
-        ],
-        "type": "filter_count"
-      }
-    ]
-  },
-
-
-
-  {
     "disabled": true,
     "text": [
       "How many <L> sound are played by a <I> or a <I2> ?"
@@ -319,59 +265,7 @@
         "type": "filter_count"
       },
       {
-        "inputs" : [
-          1,
-          3
-        ],
-        "type": "add"
-      }
-    ],
-    "constraints": [
-      {
-        "params": [
-          "<I>",
-          "<I2>"
-        ],
-        "type": "NEQ"
-      }
-    ]
-  },
-  {
-    "disabled": true,
-    "text": [
-      "How many <PE> sound are played by a <I> or a <I2> ?"
-    ],
-    "nodes": [
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<PE>",
-          "<I>"
-        ],
         "inputs": [
-          0
-        ],
-        "type": "filter_count"
-      },
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<PE>",
-          "<I2>"
-        ],
-        "inputs": [
-          2
-        ],
-        "type": "filter_count"
-      },
-      {
-        "inputs" : [
           1,
           3
         ],
@@ -424,7 +318,7 @@
         "type": "filter_count"
       },
       {
-        "inputs" : [
+        "inputs": [
           1,
           3
         ],
@@ -441,9 +335,6 @@
       }
     ]
   },
-
-
-
   {
     "disabled": true,
     "text": [
@@ -512,9 +403,6 @@
       }
     ]
   },
-
-
-
   {
     "disabled": true,
     "text": [
@@ -619,9 +507,6 @@
       }
     ]
   },
-
-
-
   {
     "note": "Limited number of answer possible since the <PG> filter reduce the number of object to 3",
     "disabled": true,
@@ -703,7 +588,7 @@
         "type": "filter_count"
       },
       {
-        "inputs" : [
+        "inputs": [
           1,
           3
         ],
@@ -720,11 +605,8 @@
       }
     ]
   },
-
-
-
   {
-    "note" : "Due to our generation constraints, the number is always 5 or 6. We can still use this function in conjunction with some filters",
+    "note": "Due to our generation constraints, the number is always 5 or 6. We can still use this function in conjunction with some filters",
     "disabled": true,
     "text": [
       "How many different instruments are playing ?"

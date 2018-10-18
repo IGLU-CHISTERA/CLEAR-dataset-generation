@@ -1,5 +1,5 @@
 [
-   {
+  {
     "disabled": true,
     "text": [
       "In what part of the scene is the <PI> <I> playing ?"
@@ -136,34 +136,6 @@
     "note": "limited nb of answer. 4 on 70. INVESTIGATE",
     "disabled": true,
     "text": [
-      "In what part of the scene is the <PE> sound playing ?"
-    ],
-    "nodes": [
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<PE>"
-        ],
-        "inputs": [
-          0
-        ],
-        "type": "filter_unique"
-      },
-      {
-        "inputs": [
-          1
-        ],
-        "type": "query_position_global"
-      }
-    ]
-  },
-  {
-    "note": "limited nb of answer. 4 on 70. INVESTIGATE",
-    "disabled": true,
-    "text": [
       "In what part of the scene is the <B> sound playing ?"
     ],
     "nodes": [
@@ -218,35 +190,6 @@
     ]
   },
   {
-    "note": "limited nb of answer. 18 on 70.",
-    "disabled": true,
-    "text": [
-      "In what part of the scene is the <L> <PE> sound playing ?"
-    ],
-    "nodes": [
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<L>",
-          "<PE>"
-        ],
-        "inputs": [
-          0
-        ],
-        "type": "filter_unique"
-      },
-      {
-        "inputs": [
-          1
-        ],
-        "type": "query_position_global"
-      }
-    ]
-  },
-  {
     "disabled": true,
     "text": [
       "In what part of the scene is the <L> <HN> note playing ?"
@@ -260,35 +203,6 @@
         "side_inputs": [
           "<L>",
           "<HN>"
-        ],
-        "inputs": [
-          0
-        ],
-        "type": "filter_unique"
-      },
-      {
-        "inputs": [
-          1
-        ],
-        "type": "query_position_global"
-      }
-    ]
-  },
-  {
-    "note": "limited nb of answer. 28 on 70",
-    "disabled": true,
-    "text": [
-      "In what part of the scene is the <B> <PE> sound playing ?"
-    ],
-    "nodes": [
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<B>",
-          "<PE>"
         ],
         "inputs": [
           0
@@ -333,64 +247,6 @@
     ]
   },
   {
-    "disabled": true,
-    "text": [
-      "In what part of the scene is the <PE> <HN> note playing ?"
-    ],
-    "nodes": [
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<PE>",
-          "<HN>"
-        ],
-        "inputs": [
-          0
-        ],
-        "type": "filter_unique"
-      },
-      {
-        "inputs": [
-          1
-        ],
-        "type": "query_position_global"
-      }
-    ]
-  },
-  {
-    "note": "limited nb of answer. 35 on 70.",
-    "disabled": true,
-    "text": [
-      "In what part of the scene is the <L> <B> <PE> sound playing ?"
-    ],
-    "nodes": [
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<B>",
-          "<L>",
-          "<PE>"
-        ],
-        "inputs": [
-          0
-        ],
-        "type": "filter_unique"
-      },
-      {
-        "inputs": [
-          1
-        ],
-        "type": "query_position_global"
-      }
-    ]
-  },
-  {
     "note": "limited nb of answer. 58 on 70.",
     "disabled": true,
     "text": [
@@ -419,96 +275,5 @@
         "type": "query_position_global"
       }
     ]
-  },
-  {
-    "disabled": true,
-    "text": [
-      "In what part of the scene is the <L> <PE> <HN> note playing ?"
-    ],
-    "nodes": [
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<PE>",
-          "<L>",
-          "<HN>"
-        ],
-        "inputs": [
-          0
-        ],
-        "type": "filter_unique"
-      },
-      {
-        "inputs": [
-          1
-        ],
-        "type": "query_position_global"
-      }
-    ]
-  },
-  {
-    "note": "limited nb of answer. 59 on 70.",
-    "disabled": true,
-    "text": [
-      "In what part of the scene is the <B> <PE> <HN> note playing ?"
-    ],
-    "nodes": [
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<PE>",
-          "<B>",
-          "<HN>"
-        ],
-        "inputs": [
-          0
-        ],
-        "type": "filter_unique"
-      },
-      {
-        "inputs": [
-          1
-        ],
-        "type": "query_position_global"
-      }
-    ]
-  },
-  {
-    "note": "limited nb of answer. 60 on 70.",
-    "disabled": true,
-    "text": [
-      "In what part of the scene is the <L> <B> <PE> <HN> note playing ?"
-    ],
-    "nodes": [
-      {
-        "inputs": [],
-        "type": "scene"
-      },
-      {
-        "side_inputs": [
-          "<L>",
-          "<PE>",
-          "<B>",
-          "<HN>"
-        ],
-        "inputs": [
-          0
-        ],
-        "type": "filter_unique"
-      },
-      {
-        "inputs": [
-          1
-        ],
-        "type": "query_position_global"
-      }
-    ]
   }
-
 ]
