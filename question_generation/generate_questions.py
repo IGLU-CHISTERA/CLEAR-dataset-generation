@@ -125,6 +125,8 @@ def precompute_filter_options(scene_struct, attr_keys, can_be_null_attributes):
       mask.append((i // (2 ** j)) % 2)
     masks.append(mask)
 
+  random.shuffle(mask)
+
   for object_idx, obj in enumerate(scene_struct['objects']):
     key = qeng.get_filter_key(attr_keys, scene_struct, object_idx)
 
