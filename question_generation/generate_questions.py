@@ -773,7 +773,7 @@ def main(args):
   # Load templates from disk
   # Key is (filename, file_idx)
   num_loaded_templates = 0
-  templates = {}
+  templates = OrderedDict()
   for fn in os.listdir(args.template_dir):
     if not fn.endswith('.json'): continue
     with open(os.path.join(args.template_dir, fn), 'r') as f:
