@@ -95,6 +95,7 @@ class Primary_sounds:
     Load the primary sounds from file, preprocess them and give an interface to retrieve sounds
     """
     def __init__(self, folder_path, definition_filename, nb_objects_per_scene):
+        print("Loading Elementary sounds")
         self.folderpath = folder_path
 
         with open(os.path.join(self.folderpath, definition_filename)) as primary_sounds_definition:
@@ -617,6 +618,8 @@ class Scene_generator:
         return relationships
 
     def generate(self, start_index=0, nb_to_generate=None, training_set_ratio=0.7, shuffle_scenes=True):
+
+        print("Starting scenes generation")
 
         generated_scenes = self._generate_scenes(start_index, nb_to_generate, None)
 
