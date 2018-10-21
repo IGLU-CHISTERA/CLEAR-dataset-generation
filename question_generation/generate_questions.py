@@ -200,7 +200,7 @@ def add_empty_filter_options(attribute_map, metadata, can_be_null_attributes, at
 
 
 def find_relate_filter_options(object_idx, scene_struct, attr, can_be_null_attributes,
-    unique=False, include_zero=False, trivial_frac=0.1):
+                               unique=False, include_zero=False, trivial_frac=0.1):
   options = OrderedDict()
 
   attr = [a for a in attr if not a.startswith('relate')]
@@ -209,11 +209,17 @@ def find_relate_filter_options(object_idx, scene_struct, attr, can_be_null_attri
   if '_filter_options' not in scene_struct or filter_key not in scene_struct['_filter_options']:
     precompute_filter_options(scene_struct, attr, can_be_null_attributes)
 
+  nb_filters = len(scene_struct['_filter_options'][filter_key].keys()) * len(scene_struct['relationships'])
+  nb_trivial = int(round(nb_filters * trivial_frac / (1 - trivial_frac)))
+
   # TODO/VERIFY : Will probably have to change the definition of "trivial"
   # TODO_ORIG: Right now this is only looking for nontrivial combinations; in some
   # cases I may want to add trivial combinations, either where the intersection
   # is empty or where the intersection is equal to the filtering output.
-  trivial_options = {}
+  trivial_options_keys = []
+  non_trivial_options_keys = []
+  all_options = {}
+  
   for relationship in scene_struct['relationships']:
     related = set(scene_struct['relationships'][relationship][object_idx])
     for filters, filtered in scene_struct['_filter_options'][filter_key].items():
@@ -221,17 +227,23 @@ def find_relate_filter_options(object_idx, scene_struct, attr, can_be_null_attri
       trivial = (intersection == filtered)
       if unique and len(intersection) != 1: continue
       if not include_zero and len(intersection) == 0: continue
-      if trivial:
-        trivial_options[(relationship, filters)] = sorted(list(intersection))
-      else:
-        options[(relationship, filters)] = sorted(list(intersection))
 
-  N, f = len(options), trivial_frac
-  num_trivial = int(round(N * f / (1 - f)))
-  trivial_options = list(trivial_options.items())
-  random.shuffle(trivial_options)
-  for k, v in trivial_options[:num_trivial]:
-    options[k] = v
+      key = (relationship, filters)
+      if trivial:
+        trivial_options_keys.append(key)
+      else:
+        non_trivial_options_keys.append(key)
+      all_options[key] = sorted(list(intersection))
+
+  random.shuffle(trivial_options_keys)
+  options_to_keep = non_trivial_options_keys + trivial_options_keys[:nb_trivial]
+
+  # FIXME : Looping a second time is really ineficient.. We do it to make sure that we keep the same order in the dict to ensure reproducibility
+  for relationship in scene_struct['relationships']:
+    for filters, filtered in scene_struct['_filter_options'][filter_key].items():
+      key = (relationship, filters)
+      if key in options_to_keep:
+        options[key] = all_options[key]
 
   return options
 
