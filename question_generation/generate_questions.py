@@ -509,8 +509,12 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
           filter_options.pop((None,) * len(params_in_node), None)
 
         if next_node['type'] == 'filter_unique':
+          single_filter_options = OrderedDict()
           # Get rid of all filter options that don't result in a single object
-          filter_options = {k: v for k, v in filter_options.items() if len(v) == 1}
+          for k, v in filter_options.items():
+            if len(v) == 1:
+              single_filter_options[k] = v
+          filter_options = single_filter_options
         else:
           # Add some filter options that do NOT correspond to the scene
           if next_node['type'] == 'filter_exist':
