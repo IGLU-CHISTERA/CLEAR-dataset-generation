@@ -797,7 +797,7 @@ def main(args):
   # Read file containing input scenes
   all_scenes = []
   with open(scene_filepath, 'r') as f:
-    scene_data = ujson.load(f)
+    scene_data = json.load(f, object_pairs_hook=OrderedDict)    # FIXME : Quantify the impact on performance
     all_scenes = scene_data['scenes']
     scene_info = scene_data['info']
   begin = args.scene_start_idx
