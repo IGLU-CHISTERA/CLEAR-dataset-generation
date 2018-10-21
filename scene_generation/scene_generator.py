@@ -592,21 +592,27 @@ class Scene_generator:
     def _generate_relationships(self, scene_composition):
         # FIXME : Those relationships are trivial. Could be moved to question engine (Before & after)
         # TODO : Add more relationships
-        relationships = {
-            'before': [
-                []
-            ],
-            'after': []
-        }
+        relationships = [
+            {
+                'type': 'before',
+                'indexes': [
+                    []
+                ]
+            },
+            {
+                'type': 'after',
+                'indexes': []
+            }
+        ]
 
         scene_indexes = list(range(0, self.nb_objects_per_scene))
 
         for i in range(0, self.nb_objects_per_scene):
             if i - 1 >= 0:
-                relationships['before'].append(relationships['before'][i - 1] + [i - 1])
+                relationships[0]['indexes'].append(relationships[0]['indexes'][i - 1] + [i - 1])
 
             scene_indexes.remove(i)
-            relationships['after'].append(list(scene_indexes))
+            relationships[1]['indexes'].append(list(scene_indexes))
 
         return relationships
 

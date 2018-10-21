@@ -68,7 +68,8 @@ def relate_handler(scene_struct, inputs, side_inputs):
   assert len(inputs) == 1
   assert len(side_inputs) == 1
   relation = side_inputs[0]
-  return scene_struct['relationships'][relation][inputs[0]]
+  relation_index = scene_struct['_relationships_indexes'][relation]
+  return scene_struct['relationships'][relation_index]['indexes'][inputs[0]]
     
 
 def union_handler(scene_struct, inputs, side_inputs):

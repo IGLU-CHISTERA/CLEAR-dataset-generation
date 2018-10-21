@@ -221,14 +221,15 @@ def find_relate_filter_options(object_idx, scene_struct, attr, can_be_null_attri
   all_options = {}
   
   for relationship in scene_struct['relationships']:
-    related = set(scene_struct['relationships'][relationship][object_idx])
+    relationship_index = scene_struct['_relationships_indexes'][relationship['type']]
+    related = set(scene_struct['relationships'][relationship_index]['indexes'][object_idx])
     for filters, filtered in scene_struct['_filter_options'][filter_key].items():
       intersection = related & filtered
       trivial = (intersection == filtered)
       if unique and len(intersection) != 1: continue
       if not include_zero and len(intersection) == 0: continue
 
-      key = (relationship, filters)
+      key = (relationship['type'], filters)
       if trivial:
         trivial_options_keys.append(key)
       else:
@@ -241,7 +242,7 @@ def find_relate_filter_options(object_idx, scene_struct, attr, can_be_null_attri
   # FIXME : Looping a second time is really ineficient.. We do it to make sure that we keep the same order in the dict to ensure reproducibility
   for relationship in scene_struct['relationships']:
     for filters, filtered in scene_struct['_filter_options'][filter_key].items():
-      key = (relationship, filters)
+      key = (relationship['type'], filters)
       if key in options_to_keep:
         options[key] = all_options[key]
 
@@ -797,7 +798,7 @@ def main(args):
   # Read file containing input scenes
   all_scenes = []
   with open(scene_filepath, 'r') as f:
-    scene_data = json.load(f, object_pairs_hook=OrderedDict)    # FIXME : Quantify the impact on performance
+    scene_data = ujson.load(f)    # FIXME : Quantify the impact on performance
     all_scenes = scene_data['scenes']
     scene_info = scene_data['info']
   begin = args.scene_start_idx
@@ -838,6 +839,11 @@ def main(args):
       count = len(index_list)
       if count > instrument_count[instrument]:
         instrument_count[instrument] = count
+
+    # Keep reference from type to index of relationships
+    scene['_relationships_indexes'] = {}
+    for i, relation_data in enumerate(scene['relationships']):
+      scene['_relationships_indexes'][relation_data['type']] = i
 
   # Instantiate the question engine attributes handlers
   qeng.instantiate_attributes_handlers(metadata, instrument_count, max_scene_length)
