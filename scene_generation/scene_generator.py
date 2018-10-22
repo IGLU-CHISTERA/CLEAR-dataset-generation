@@ -268,6 +268,7 @@ class Scene_generator:
                  primary_sounds_folderpath,
                  primary_sounds_definition_filename,
                  metadata_filepath,
+                 version_nb,
                  constraint_min_nb_families,
                  constraint_min_objects_per_family,
                  constraint_min_nb_families_subject_to_min_object_per_family,
@@ -276,6 +277,8 @@ class Scene_generator:
         self.nb_objects_per_scene = nb_objects_per_scene
 
         self.nb_tree_branch = nb_tree_branch
+
+        self.version_nb = version_nb
 
         with open(metadata_filepath) as metadata:
             self.attributes_values = {key: val['values'] for key, val in ujson.load(metadata)['attributes'].items()}
@@ -583,9 +586,9 @@ class Scene_generator:
 
     def _generate_info_section(self, set_type):
         return {
-                "name": "AQA-V0.1",         # FIXME : Should use the arguments instead of hardcoding
+                "name": "CLEAR",
                 "license": "Creative Commons Attribution (CC-BY 4.0)",
-                "version": "0.1",           # FIXME : Should use the arguments instead of hardcoding
+                "version": self.version_nb,
                 "split": set_type,
                 "date": time.strftime("%x")
             }
@@ -724,6 +727,7 @@ if __name__ == '__main__':
                                       args.primary_sounds_folder,
                                       args.primary_sounds_definition_filename,
                                       args.metadata_file,
+                                      args.output_version_nb,
                                       args.constraint_min_nb_families,
                                       args.constraint_min_object_per_family,
                                       args.constraint_min_nb_families_subject_to_min_object_per_family,
