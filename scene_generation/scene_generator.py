@@ -186,59 +186,6 @@ class Primary_sounds:
         sorted_durations = sorted(self.longest_durations, reverse=True)
         self.longest_durations = sorted_durations[twenty_percent_index:twenty_percent_index+nb_objects_per_scene]
 
-    def _preprocess_sounds_old(self, nb_objects_per_scene, shuffle_primary_sounds=True):
-
-        if shuffle_primary_sounds:
-            random.shuffle(self.definition)
-
-        for id, primary_sound in enumerate(self.definition):
-            primary_sound_filename = os.path.join(self.folderpath, primary_sound['note_str']) + ".wav"
-            primary_sound_audiosegment = AudioSegment.from_wav(primary_sound_filename)
-
-            primary_sound['id'] = id
-
-            # Use str attributes and remove the numerical representation
-            for key in list(primary_sound.keys()):
-                if key.endswith('_str'):
-                    primary_sound[key[:-4]] = primary_sound[key]
-                    del primary_sound[key]
-
-            # TODO : Add more sound analysis here. The added attributes should be used in the scene generation
-            primary_sound['duration'] = int(primary_sound_audiosegment.duration_seconds * 1000)
-
-            # TODO : Attribute human readable string to the numeric value
-            primary_sound['perceptual_loudness'] = get_perceptual_loudness(primary_sound_audiosegment)
-
-            primary_sound['human_note'] = self._midi_to_note(primary_sound['pitch'])
-
-            self.longest_durations.append(primary_sound['duration'])
-
-            primary_sound['instrument'] = primary_sound['instrument_family']
-
-            # Properties from sound qualities
-            primary_sound['percussion'] = 'percussive' if 'percussive' in primary_sound['qualities'] else 'non-percussive'
-            primary_sound['distortion'] = 'distorted' if 'distortion' in primary_sound['qualities'] else 'non-distorted'
-
-            brightness_intersection = {'bright', 'dark'} & set(primary_sound['qualities'])
-            if len(brightness_intersection) > 0:
-                # Bright and dark properties are mutually exclusive. Intersection will contain 1 object
-                primary_sound['brightness'] = brightness_intersection.pop()
-            else:
-                primary_sound['brightness'] = None    # This attribute will be ignored (unless brightness is in can_be_null)
-
-            # Remove unused attributes
-            attr_to_remove = ['sample_rate',
-                              'instrument_family',
-                              'instrument_source',
-                              'velocity',
-                              'qualities']
-
-            for attr in attr_to_remove:
-                if attr in primary_sound:
-                    del primary_sound[attr]
-
-        self.longest_durations = sorted(self.longest_durations, reverse=True)[:nb_objects_per_scene]
-
     def sounds_to_families_count(self, sound_list):
         count = {}
 
