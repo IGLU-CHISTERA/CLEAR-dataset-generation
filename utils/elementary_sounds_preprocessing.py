@@ -105,7 +105,7 @@ def main():
 
   # Loudness correction
   amplification_factor = -10.0
-  loudness_low_bound = -30.0
+  loudness_low_bound = -30.5
   loudness_high_bound = -24.0
 
   elementary_sounds_def = load_elementary_sounds_definition(elementary_sounds_folder_path,
