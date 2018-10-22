@@ -223,6 +223,9 @@ def find_relate_filter_options(object_idx, scene_struct, attr, can_be_null_attri
   for relationship in scene_struct['relationships']:
     relationship_index = scene_struct['_relationships_indexes'][relationship['type']]
     related = set(scene_struct['relationships'][relationship_index]['indexes'][object_idx])
+    if len(related) == 0:
+      # If no relation, the object is the first (No before relations) or the last (No after relations)
+      continue
     for filters, filtered in scene_struct['_filter_options'][filter_key].items():
       intersection = related & filtered
       trivial = (intersection == filtered)
