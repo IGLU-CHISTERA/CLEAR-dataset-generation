@@ -952,8 +952,10 @@ def main(args):
       file_written += 1
       questions = []
 
-  if len(questions) > 0:
+  if len(questions) > 0 or file_written == 0:
     # Write the rest of the questions
+    # If no file were written and we have 0 questions, 
+    # we still want an output file with no questions (Otherwise it will break the pipeline)
     write_questions_part_to_file(tmp_output_folder, questions_filename, scene_info, questions, file_written)
 
 
