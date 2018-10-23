@@ -1,0 +1,7630 @@
+[
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> playing <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> playing <RT> the <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> playing <RT> the <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> playing <RT> the <L> <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> playing <RT> the <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> playing <RT> the <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> playing <RT> the <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> playing <RT> the <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> playing <RT> the <I> that play a <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> playing <RT> the <I> that play a <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> playing <RT> the <I> that play a <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> playing <RT> the <I> that play a <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  
+  
+  
+  
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> sound playing <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> sound playing <RT> the <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> sound playing <RT> the <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> sound playing <RT> the <L> <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> sound playing <RT> the <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> sound playing <RT> the <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> sound playing <RT> the <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> sound playing <RT> the <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> sound playing <RT> the <I> that play a <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> sound playing <RT> the <I> that play a <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> sound playing <RT> the <I> that play a <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> sound playing <RT> the <I> that play a <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  
+  
+  
+  
+  
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> sound playing <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> sound playing <RT> the <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> sound playing <RT> the <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> sound playing <RT> the <L> <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> sound playing <RT> the <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> sound playing <RT> the <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> sound playing <RT> the <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> sound playing <RT> the <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> sound playing <RT> the <I> that play a <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> sound playing <RT> the <I> that play a <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> sound playing <RT> the <I> that play a <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> sound playing <RT> the <I> that play a <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  
+  
+  
+  
+  
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> sound playing <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> sound playing <RT> the <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> sound playing <RT> the <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> sound playing <RT> the <L> <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> sound playing <RT> the <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> sound playing <RT> the <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> sound playing <RT> the <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> sound playing <RT> the <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> sound playing <RT> the <I> that play a <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> sound playing <RT> the <I> that play a <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> sound playing <RT> the <I> that play a <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> sound playing <RT> the <I> that play a <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  
+  
+  
+  
+  
+  
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <I2> sound playing <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <I2> sound playing <RT> the <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <I2> sound playing <RT> the <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <I2> sound playing <RT> the <L> <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <I2> sound playing <RT> the <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <I2> sound playing <RT> the <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <I2> sound playing <RT> the <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <I2> sound playing <RT> the <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <I2> sound playing <RT> the <I> that play a <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <I2> sound playing <RT> the <I> that play a <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <I2> sound playing <RT> the <I> that play a <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <I2> sound playing <RT> the <I> that play a <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  
+  
+  
+  
+  
+  
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> <I2> sound playing <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> <I2> sound playing <RT> the <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> <I2> sound playing <RT> the <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> <I2> sound playing <RT> the <L> <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> <I2> sound playing <RT> the <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> <I2> sound playing <RT> the <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> <I2> sound playing <RT> the <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> <I2> sound playing <RT> the <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> <I2> sound playing <RT> the <I> that play a <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> <I2> sound playing <RT> the <I> that play a <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> <I2> sound playing <RT> the <I> that play a <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> <I2> sound playing <RT> the <I> that play a <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  
+  
+  
+  
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <I2> sound playing <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <I2> sound playing <RT> the <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <I2> sound playing <RT> the <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <I2> sound playing <RT> the <L> <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <I2> sound playing <RT> the <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <I2> sound playing <RT> the <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <I2> sound playing <RT> the <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <I2> sound playing <RT> the <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <I2> sound playing <RT> the <I> that play a <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <I2> sound playing <RT> the <I> that play a <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <I2> sound playing <RT> the <I> that play a <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <I2> sound playing <RT> the <I> that play a <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<B2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  
+  
+  
+  
+  
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <HN2> note playing <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <HN2> note playing <RT> the <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <HN2> note playing <RT> the <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <HN2> note playing <RT> the <L> <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <HN2> note playing <RT> the <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <HN2> note playing <RT> the <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <HN2> note playing <RT> the <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <HN2> note playing <RT> the <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <HN2> note playing <RT> the <I> that play a <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <HN2> note playing <RT> the <I> that play a <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <HN2> note playing <RT> the <I> that play a <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <HN2> note playing <RT> the <I> that play a <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  
+  
+  
+  
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <HN2> note playing <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <HN2> note playing <RT> the <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <HN2> note playing <RT> the <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <HN2> note playing <RT> the <L> <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <HN2> note playing <RT> the <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <HN2> note playing <RT> the <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <HN2> note playing <RT> the <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <HN2> note playing <RT> the <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <HN2> note playing <RT> the <I> that play a <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <HN2> note playing <RT> the <I> that play a <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <HN2> note playing <RT> the <I> that play a <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <HN2> note playing <RT> the <I> that play a <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  
+  
+  
+  
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> <HN2> note playing <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> <HN2> note playing <RT> the <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> <HN2> note playing <RT> the <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> <HN2> note playing <RT> the <L> <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> <HN2> note playing <RT> the <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> <HN2> note playing <RT> the <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> <HN2> note playing <RT> the <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> <HN2> note playing <RT> the <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> <HN2> note playing <RT> the <I> that play a <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> <HN2> note playing <RT> the <I> that play a <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> <HN2> note playing <RT> the <I> that play a <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <B2> <HN2> note playing <RT> the <I> that play a <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  
+  
+  
+  
+  
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <HN2> note playing <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <HN2> note playing <RT> the <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <HN2> note playing <RT> the <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <HN2> note playing <RT> the <L> <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <HN2> note playing <RT> the <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <HN2> note playing <RT> the <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <HN2> note playing <RT> the <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <HN2> note playing <RT> the <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <HN2> note playing <RT> the <I> that play a <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <HN2> note playing <RT> the <I> that play a <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <HN2> note playing <RT> the <I> that play a <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <HN2> note playing <RT> the <I> that play a <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  
+  
+  
+  
+  
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <HN2> note playing <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <HN2> note playing <RT> the <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <HN2> note playing <RT> the <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <HN2> note playing <RT> the <L> <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <HN2> note playing <RT> the <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <HN2> note playing <RT> the <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <HN2> note playing <RT> the <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <HN2> note playing <RT> the <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <HN2> note playing <RT> the <I> that play a <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <HN2> note playing <RT> the <I> that play a <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <HN2> note playing <RT> the <I> that play a <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <L2> <B2> <HN2> note playing <RT> the <I> that play a <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<B2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  
+  
+  
+  
+  
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <HN2> note playing <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <HN2> note playing <RT> the <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <HN2> note playing <RT> the <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <HN2> note playing <RT> the <L> <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <HN2> note playing <RT> the <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <HN2> note playing <RT> the <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <HN2> note playing <RT> the <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <HN2> note playing <RT> the <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <HN2> note playing <RT> the <I> that play a <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <HN2> note playing <RT> the <I> that play a <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <HN2> note playing <RT> the <I> that play a <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <HN2> note playing <RT> the <I> that play a <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  
+  
+  
+  
+  
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <B2> <HN2> note playing <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <B2> <HN2> note playing <RT> the <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <B2> <HN2> note playing <RT> the <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <B2> <HN2> note playing <RT> the <L> <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <B2> <HN2> note playing <RT> the <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <B2> <HN2> note playing <RT> the <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <B2> <HN2> note playing <RT> the <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <B2> <HN2> note playing <RT> the <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <B2> <HN2> note playing <RT> the <I> that play a <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <B2> <HN2> note playing <RT> the <I> that play a <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <B2> <HN2> note playing <RT> the <I> that play a <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <B2> <HN2> note playing <RT> the <I> that play a <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  
+  
+  
+  
+  
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <L2> <HN2> note playing <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <L2> <HN2> note playing <RT> the <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <L2> <HN2> note playing <RT> the <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <L2> <HN2> note playing <RT> the <L> <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <L2> <HN2> note playing <RT> the <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <L2> <HN2> note playing <RT> the <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <L2> <HN2> note playing <RT> the <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <L2> <HN2> note playing <RT> the <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <L2> <HN2> note playing <RT> the <I> that play a <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <L2> <HN2> note playing <RT> the <I> that play a <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <L2> <HN2> note playing <RT> the <I> that play a <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <L2> <HN2> note playing <RT> the <I> that play a <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  
+  
+  
+  
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <L2> <B2> <HN2> note playing <RT> the <PI> <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<PI>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <L2> <B2> <HN2> note playing <RT> the <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <L2> <B2> <HN2> note playing <RT> the <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <L2> <B2> <HN2> note playing <RT> the <L> <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <L2> <B2> <HN2> note playing <RT> the <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <L2> <B2> <HN2> note playing <RT> the <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <L2> <B2> <HN2> note playing <RT> the <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <L2> <B2> <HN2> note playing <RT> the <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <L2> <B2> <HN2> note playing <RT> the <I> that play a <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <L2> <B2> <HN2> note playing <RT> the <I> that play a <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <L2> <B2> <HN2> note playing <RT> the <I> that play a <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "What is the position of the <I2> that play a <L2> <B2> <HN2> note playing <RT> the <I> that play a <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>",
+          "<B>",
+          "<L>",
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "side_inputs": [
+          "<RT>",
+          "<I2>",
+          "<L2>",
+          "<B2>",
+          "<HN2>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "relate_filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position"
+      }
+    ]
+  }
+]
