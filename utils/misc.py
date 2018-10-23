@@ -40,8 +40,4 @@ def float_array_to_pydub_audiosegment(float_array, frame_rate, n_bytes):
                         channels=1)
 
 
-def midi_pitch_to_musical_note(self, midi_value):
-    note = self.notes[midi_value % 12]
-    octave = int(midi_value/12) - 1
 
-    return note + str(octave)
