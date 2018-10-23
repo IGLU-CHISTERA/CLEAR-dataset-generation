@@ -15,6 +15,7 @@ import time
 import re
 from functools import reduce
 import copy
+from utils.misc import init_random_seed
 
 from collections import OrderedDict
 
@@ -761,15 +762,9 @@ def main(args):
 
   # Setting & Saving the random seed
   if args.random_nb_generator_seed is not None:
-    random.seed(args.random_nb_generator_seed)
-
     random_seed_save_filepath = os.path.join(questions_output_folder, 'question_generator_random_seed.json')
 
-    with open(random_seed_save_filepath, 'w') as f:
-      ujson.dump({
-        'seed': args.random_nb_generator_seed,
-        'version_nb': args.output_version_nb
-      }, f, indent=2)
+    init_random_seed(args.random_nb_generator_seed, args.output_version_nb, random_seed_save_filepath)
 
   with open(args.metadata_file, 'r') as f:
     metadata = ujson.load(f)
