@@ -901,8 +901,9 @@ def main(args):
     for (fn, idx), template in templates_items:
       if 'disabled' in template and template['disabled']:
         continue
-      if args.verbose:
-        print('    trying template ', fn, idx)
+
+      print('    trying template ', fn, idx, flush=True)
+      
       if args.time_dfs and args.verbose:
         tic = time.time()
       ts, qs, ans = instantiate_templates_dfs(

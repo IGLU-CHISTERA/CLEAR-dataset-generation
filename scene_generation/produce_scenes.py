@@ -187,7 +187,8 @@ class AudioSceneProducer:
         if sceneId < self.nbOfLoadedScenes:
 
             scene = self.scenes[sceneId]
-            print('Producing scene ' + str(sceneId))
+            if sceneId % 100 == 0:
+              print('Producing scene ' + str(sceneId), flush=True)
 
             sceneAudioSegment = self.assembleAudioScene(scene)
 
