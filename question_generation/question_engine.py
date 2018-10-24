@@ -166,9 +166,7 @@ def query_absolute_position_handler(scene_struct, inputs, side_inputs):
   assert len(side_inputs) == 0
   idx = inputs[0]
 
-  position = get_absolute_position(scene_struct, idx)
-
-  return position + " sound"
+  return get_absolute_position(scene_struct, idx)
 
 
 # TODO : Generalize for all attributes
@@ -192,12 +190,7 @@ def query_position_instrument_handler(scene_struct, inputs, side_inputs):
   idx = inputs[0]
   instrument = scene_struct['objects'][idx]['instrument']
 
-  position = get_position_instrument(scene_struct, idx, instrument)
-
-  if position != "":
-    return position + " " + instrument
-  else:
-    return instrument
+  return get_position_instrument(scene_struct, idx, instrument)
 
 
 # FIXME : Could be changed to a one liner. Having an external array with [beginning, middle, end] would
