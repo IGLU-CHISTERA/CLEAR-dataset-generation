@@ -468,6 +468,11 @@ class Scene_generator:
             # FIXME : The process won't include the root node in the scene composition. Will cause problem when distributing part of the tree in different processes
             root_node = Node(None, -1, {})      # Root of the tree
 
+        nb_to_keep = nb_to_generate
+        nb_possibilities = self.nb_tree_branch**self.nb_objects_per_scene
+        # We generate 5 time the number of required scenes to maximize randomness (We will only keep the required number)
+        nb_to_generate = min(nb_to_keep * 5, nb_possibilities)
+
         next_node = root_node
         state = []
         generated_scenes = []
@@ -548,6 +553,8 @@ class Scene_generator:
                         # Update the state
                         state.pop()
 
+        random.shuffle(generated_scenes)
+
         print("Nb valid : %d" % self.stats['nbValid'])
         print("Stats")
         print(ujson.dumps(self.stats, indent=4))
@@ -559,7 +566,7 @@ class Scene_generator:
 
         print("Total skipped : %d" %cnt)
 
-        return generated_scenes
+        return generated_scenes[:nb_to_keep]
 
     def _generate_info_section(self, set_type):
         return {
@@ -599,9 +606,11 @@ class Scene_generator:
 
     def generate(self, start_index=0, nb_to_generate=None, training_set_ratio=0.7, shuffle_scenes=True):
 
-        print("Starting scenes generation")
+        print("Starting Scenes Generation")
 
         generated_scenes = self._generate_scenes(start_index, nb_to_generate, None)
+
+        print("Generated %d scenes" % len(generated_scenes))
 
         if shuffle_scenes:
             random.shuffle(generated_scenes)
