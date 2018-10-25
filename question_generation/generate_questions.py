@@ -151,6 +151,22 @@ def precompute_filter_options(scene_struct, attr_keys, can_be_null_attributes):
           deleted_keys.add(key)
           del attribute_map[key]
 
+  # FIXME : Generalize this
+  # FIXME : Make sure this will hold when there is more positional attributes
+  # Removing position attribute if there is only one occurrence of the instrument
+  if "position_instrument" in attr_keys:
+    keys_by_instrument = OrderedDict()
+    for instrument, key in groupby(attribute_map.keys(), lambda x: x[0]):
+      if instrument not in keys_by_instrument:
+        keys_by_instrument[instrument] = []
+      keys_by_instrument[instrument] += list(key)
+
+    for instrument, keys in keys_by_instrument.items():
+      if len(keys) == 1:
+        # Only have 1 object, we remove the position attribute
+        attribute_map[(instrument, None)] = attribute_map[keys[0]]
+        del attribute_map[keys[0]]
+
   if '_filter_options' not in scene_struct:
     scene_struct['_filter_options'] = {}
 
