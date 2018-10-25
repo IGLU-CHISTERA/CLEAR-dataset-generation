@@ -32,7 +32,7 @@ def float_array_to_pydub_audiosegment(float_array, frame_rate, n_bytes):
     # Revert the scale of the data
     scale = float(1 << ((8 * n_bytes) - 1))
 
-    array_of_samples = array('i', [int(scale * e) for e in float_array])
+    array_of_samples = array('i', np.multiply(scale, float_array).astype(np.int32))
 
     return AudioSegment(array_of_samples.tostring(),
                         frame_rate=frame_rate,
