@@ -5,9 +5,11 @@ import os
 import copy
 import matplotlib
 import argparse
-# Matplotlib options to reduce memory usage
-matplotlib.interactive(False)
-matplotlib.use('agg')
+
+if __name__ == '__main__':
+  # Matplotlib options to reduce memory usage
+  matplotlib.interactive(False)
+  matplotlib.use('agg')
 
 import matplotlib.pyplot as plt
 
@@ -39,6 +41,8 @@ def load_questions(questions_path):
 
   with open(test_questions_path) as f:
     test_questions = ujson.load(f)['questions']
+
+  print("Loaded test")
 
   return training_questions, validation_questions, test_questions
 
