@@ -906,9 +906,10 @@ def main(args):
     scene_count += 1
 
     # Order templates by the number of questions we have so far for those
-    # templates. This is a simple heuristic to give a flat distribution over
-    # templates.
+    # templates. This is a simple heuristic to give a flat distribution over templates.
+    # We shuffle the templates before sorting to ensure variability when the counts are equals
     templates_items = list(templates.items())
+    random.shuffle(templates_items)
     templates_items = sorted(templates_items,
                         key=lambda x: template_counts[x[0]])
     num_instantiated = 0
