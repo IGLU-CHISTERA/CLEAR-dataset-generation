@@ -747,11 +747,9 @@ def write_questions_part_to_file(tmp_folder_path, filename, scene_info, question
       }, f, indent=2, sort_keys=True, escape_forward_slashes=False)
 
 
-def main(args):
-  if args.random_nb_generator_seed is not None:
-    # TODO : Print the seed used (Or save it to file)
-    random.seed(args.random_nb_generator_seed)
 
+
+def main(args):
   experiment_output_folder = os.path.join(args.output_folder, args.output_version_nb)
   questions_output_folder = os.path.join(experiment_output_folder, 'questions')
   tmp_output_folder = os.path.join(questions_output_folder, 'TMP_%s' % args.set_type)
