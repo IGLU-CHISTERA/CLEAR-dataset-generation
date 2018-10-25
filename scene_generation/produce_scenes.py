@@ -4,7 +4,7 @@ from pydub import AudioSegment
 from pydub.generators import WhiteNoise as WhiteNoiseGenerator
 from utils.effects import do_reverb_transform
 from utils.misc import pydub_audiosegment_to_float_array, float_array_to_pydub_audiosegment
-from utils.misc import init_random_seed
+from utils.misc import generate_random_noise, init_random_seed
 import os, ujson, argparse
 from multiprocessing import Pool
 import matplotlib
@@ -227,13 +227,11 @@ class AudioSceneProducer:
 
       if self.withBackgroundNoise:
         gain = random.randrange(self.backgroundNoiseGainSetting['min'], self.backgroundNoiseGainSetting['max'])
-        print("Applying gain = %d on background noise" % gain)
         sceneAudioSegment = AudioSceneProducer.overlayBackgroundNoise(sceneAudioSegment, gain)
 
       if self.withReverb:
         roomScale = random.randrange(self.reverbSettings['roomScale']['min'], self.reverbSettings['roomScale']['max'])
         delay = random.randrange(self.reverbSettings['delay']['min'], self.reverbSettings['delay']['max'])
-        print("Applying reverb with roomscale = %d and delay = %d" % (roomScale, delay))
         sceneAudioSegment = AudioSceneProducer.applyReverberation(sceneAudioSegment, roomScale, delay)
 
       # Make sure the everything is in Mono (If stereo, will convert to mono)
@@ -251,10 +249,12 @@ class AudioSceneProducer:
 
     @staticmethod
     def overlayBackgroundNoise(sceneAudioSegment, noiseGain):
-      backgroundNoise = WhiteNoiseGenerator(sample_rate=sceneAudioSegment.frame_rate).\
-                        to_audio_segment(sceneAudioSegment.duration_seconds * 1000)
+      backgroundNoise = generate_random_noise(sceneAudioSegment.duration_seconds * 1000,
+                                              noiseGain,
+                                              sceneAudioSegment.frame_width,
+                                              sceneAudioSegment.frame_rate)
 
-      sceneAudioSegment = backgroundNoise.overlay(sceneAudioSegment, gain_during_overlay=noiseGain)
+      sceneAudioSegment = backgroundNoise.overlay(sceneAudioSegment)
 
       return sceneAudioSegment
 
