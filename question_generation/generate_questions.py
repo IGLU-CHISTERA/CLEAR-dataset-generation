@@ -201,7 +201,7 @@ def add_empty_filter_options(attribute_map, metadata, can_be_null_attributes, at
 
 
 def find_relate_filter_options(object_idx, scene_struct, attr, can_be_null_attributes,
-                               unique=False, include_zero=False, trivial_frac=0.1):
+                               unique=False, include_zero=False, not_unique=False, trivial_frac=0.1):
   options = OrderedDict()
 
   attr = [a for a in attr if not a.startswith('relate')]
@@ -230,8 +230,12 @@ def find_relate_filter_options(object_idx, scene_struct, attr, can_be_null_attri
     for filters, filtered in scene_struct['_filter_options'][filter_key].items():
       intersection = related & filtered
       trivial = (intersection == filtered)
-      if unique and len(intersection) != 1: continue
-      if not include_zero and len(intersection) == 0: continue
+      if unique and len(intersection) != 1:
+        continue
+      if not_unique and len(intersection) <= 1:
+        continue
+      if not include_zero and len(intersection) == 0:
+        continue
 
       key = (relationship['type'], filters)
       if trivial:
@@ -502,10 +506,12 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
       
       if next_node['type'].startswith('relate_filter'):
         unique = (next_node['type'] == 'relate_filter_unique')
+        not_unique = (next_node['type'] == 'relate_filter_not_unique')
         include_zero = (next_node['type'] == 'relate_filter_count'
                         or next_node['type'] == 'relate_filter_exist')
         filter_options = find_relate_filter_options(answer, scene_struct, params_in_node,
-                            template['_can_be_null_attributes'], unique=unique, include_zero=include_zero)
+                            template['_can_be_null_attributes'], unique=unique, include_zero=include_zero, not_unique=not_unique)
+
       else:
         filter_options = find_filter_options(answer, scene_struct, params_in_node, template['_can_be_null_attributes'])
         if next_node['type'] == 'filter':
@@ -520,6 +526,13 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
             if len(v) == 1:
               single_filter_options[k] = v
           filter_options = single_filter_options
+        elif next_node['type'] == 'filter_not_unique':
+          multiple_filter_options = OrderedDict()
+          # Get rid of all filter options that don't result in more than one object
+          for k, v in filter_options.items():
+            if len(v) > 1:
+              multiple_filter_options[k] = v
+          filter_options = multiple_filter_options
         else:
           # Add some filter options that do NOT correspond to the scene
           if next_node['type'] == 'filter_exist':
@@ -577,12 +590,15 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
             cur_next_vals[param_name] = param_val
         input_map = {k: v for k, v in state['input_map'].items()}
         extra_type = None
-        if next_node['type'].endswith('unique'):
+        if next_node['type'].endswith('not_unique'):
+          extra_type = 'not_unique'
+        elif next_node['type'].endswith('unique'):
           extra_type = 'unique'
-        if next_node['type'].endswith('count'):
+        elif next_node['type'].endswith('count'):
           extra_type = 'count'
-        if next_node['type'].endswith('exist'):
+        elif next_node['type'].endswith('exist'):
           extra_type = 'exist'
+
         if extra_type is not None:
           new_nodes.append({
             'type': extra_type,

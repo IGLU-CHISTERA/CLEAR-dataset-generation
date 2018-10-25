@@ -54,6 +54,13 @@ def unique_handler(scene_struct, inputs, side_inputs):
   return inputs[0][0]
 
 
+def not_unique_handler(scene_struct, inputs, side_inputs):
+  assert len(inputs) == 1
+  if len(inputs[0]) == 1:
+    return '__INVALID__'
+  return inputs[0]
+
+
 def relate_handler(scene_struct, inputs, side_inputs):
   assert len(inputs) == 1
   assert len(side_inputs) == 1
@@ -314,6 +321,10 @@ functions = {
     'handler': unique_handler,
     'output': 'object'
   },
+  'not_unique': {
+    'handler': not_unique_handler,
+    'output': 'object'
+  },
   'relate': {
     'handler': relate_handler,
     'output': 'object_set'
@@ -396,11 +407,19 @@ functions = {
     'handler': None,
     'output': 'object'
   },
+  'filter_not_unique': {
+    'handler': None,
+    'output': 'object'
+  },
   'relate_filter': {
     'handler': None,
     'output': 'object_set'
   },
   'relate_filter_unique': {
+    'handler': None,
+    'output': 'object'
+  },
+  'relate_filter_not_unique': {
     'handler': None,
     'output': 'object'
   },
