@@ -246,6 +246,7 @@ class Scene_generator:
                  primary_sounds_definition_filename,
                  metadata_filepath,
                  version_nb,
+                 additional_scenes_multiplier,          # FIXME : Ugly name.. i'm tired..
                  constraint_min_nb_families,
                  constraint_min_objects_per_family,
                  constraint_min_nb_families_subject_to_min_object_per_family,
@@ -256,6 +257,8 @@ class Scene_generator:
         self.nb_tree_branch = nb_tree_branch
 
         self.version_nb = version_nb
+
+        self.additional_scenes_multiplier = additional_scenes_multiplier
 
         with open(metadata_filepath) as metadata:
             self.attributes_values = {key: val['values'] for key, val in ujson.load(metadata)['attributes'].items()}
@@ -468,6 +471,8 @@ class Scene_generator:
         # We generate 5 time the number of required scenes to maximize randomness (We will only keep the required number)
         nb_to_generate = min(nb_to_keep * 5, nb_possibilities)
 
+        force_back_up_threshold = int(nb_to_generate / (self.nb_tree_branch - 1) * 0.9)
+
         next_node = root_node
         state = []
         generated_scenes = []
@@ -532,6 +537,12 @@ class Scene_generator:
                     start_index += 1
 
                     generated_scenes.append(copy.deepcopy(state))
+
+                    if len(generated_scenes) % force_back_up_threshold == 0:
+                        next_node = root_node
+                        state = []
+                        print("Got back to the top")
+                        continue
 
                 # Going up in the tree
                 next_node = current_node.parent     # FIXME : This will fail in the case we have a depth of 1 because the None check is in the while (Not really a use cas.. we can ignore)
@@ -701,6 +712,7 @@ if __name__ == '__main__':
                                       args.primary_sounds_definition_filename,
                                       args.metadata_file,
                                       args.output_version_nb,
+                                      5,        # FIXME : Take as parameter
                                       args.constraint_min_nb_families,
                                       args.constraint_min_object_per_family,
                                       args.constraint_min_nb_families_subject_to_min_object_per_family,
