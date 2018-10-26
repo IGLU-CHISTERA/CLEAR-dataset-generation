@@ -65,6 +65,9 @@ parser.add_argument('--random_nb_generator_seed', default=None, type=int,
 parser.add_argument('--nb_process', default=4, type=int,
                     help='Number of process allocated for the production')
 
+parser.add_argument('--produce_audio_files', action='store_true',
+                    help='If set, will produce the audio file')
+
 parser.add_argument('--output_filename_prefix', default='AQA', type=str,
                     help='Prefix used for produced files')
 
@@ -97,6 +100,7 @@ class AudioSceneProducer:
                  backgroundNoiseGainSetting,
                  withReverb,
                  reverbSettings,
+                 produce_audio_files,
                  primarySoundsJsonFilename,
                  primarySoundFolderPath,
                  setType,
@@ -109,6 +113,8 @@ class AudioSceneProducer:
 
         self.outputPrefix = outputPrefix
         self.setType = setType
+
+        self.produce_audio_files = produce_audio_files
 
         experiment_output_folder = os.path.join(self.outputFolder, self.version_nb)
 
@@ -192,10 +198,11 @@ class AudioSceneProducer:
 
             sceneAudioSegment = self.assembleAudioScene(scene)
 
-            # FIXME : Create the setType folder if doesnt exist
-            sceneAudioSegment.export(
-              os.path.join(self.audio_output_folder, '%s_%s_%06d.wav' % (self.outputPrefix, self.setType, sceneId)),
-              format='wav')
+            if self.produce_audio_files:
+              # FIXME : Create the setType folder if doesnt exist
+              sceneAudioSegment.export(
+                os.path.join(self.audio_output_folder, '%s_%s_%06d.wav' % (self.outputPrefix, self.setType, sceneId)),
+                format='wav')
 
             spectrogram = AudioSceneProducer.createSpectrogram(sceneAudioSegment,
                                                                self.spectrogramSettings['height'],
@@ -313,6 +320,7 @@ def mainPool():
                                   primarySoundFolderPath=args.primary_sounds_folder,
                                   setType=args.set_type,
                                   outputPrefix=args.output_filename_prefix,
+                                  produce_audio_files=args.produce_audio_files,
                                   withBackgroundNoise=args.with_background_noise,
                                   backgroundNoiseGainSetting=backgroundNoiseGainSetting,
                                   withReverb=args.with_reverb,
