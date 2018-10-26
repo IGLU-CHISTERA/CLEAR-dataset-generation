@@ -416,11 +416,6 @@ class Scene_generator:
 
         return True
 
-    def _get_random_loudness(self):
-        high_bound = len(self.attributes_values['loudness']) - 1
-
-        return self.attributes_values['loudness'][random.randint(0, high_bound)]
-
     def _assign_silence_informations(self, scene):
         sounds_duration = sum(sound['duration'] for sound in scene)
 
@@ -501,8 +496,6 @@ class Scene_generator:
                     # Add a new child
                     new_sound = self.primary_sounds.next(state, current_node.get_childs_ids())
 
-                    # Randomly assign a loudness level to the new sound
-                    new_sound['loudness'] = self._get_random_loudness()
 
                     state.append(new_sound)
                     # TODO : random Chance of overlapping
