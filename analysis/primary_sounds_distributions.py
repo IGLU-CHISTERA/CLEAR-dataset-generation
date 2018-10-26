@@ -45,7 +45,10 @@ if __name__ == "__main__":
     # plotting
     fig, axs = plt.subplots(len(subsets), 1, figsize=(24,14))
     for subset_idx, subset in enumerate(subsets):
-        axs[subset_idx].hist(primary_sounds_ids[subset], bins=np.arange(0.5, 56.5))
+        axs[subset_idx].hist(primary_sounds_ids[subset], bins=np.arange(0.5, 56.5), density=True, label=['pos '+str(p) for p in range(1,11)])
         axs[subset_idx].set_title('distribution of primary sounds: '+subset)
+        axs[subset_idx].set_xticks(range(1,56))
+        axs[subset_idx].set_xlabel('primary object id')
+        axs[subset_idx].legend()
     plt.savefig('primary_sounds_distribution_'+args.output_version_nb+'.pdf')
     
