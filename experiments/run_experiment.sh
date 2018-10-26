@@ -31,7 +31,7 @@ set -e
 
 cd ${ROOTDIR}
 echo "-----------------------------------------------------------------------------------------------------------"
-echo "    AQA Dataset Generation  --- Experiment : ${EXPERIMENT_NAME}"
+echo "    AQA Dataset Generation  --- Experiment : ${EXPERIMENT_NAME}  ---  `date +"%d/%m/%Y %H:%M"`"
 echo "-----------------------------------------------------------------------------------------------------------"
 echo "[NOTE] This script should be run inside the virtual environment associated with Aqa-Dataset-Gen project"
 echo "[NOTE] The output of each process can be found in the log folder of the experiment"
