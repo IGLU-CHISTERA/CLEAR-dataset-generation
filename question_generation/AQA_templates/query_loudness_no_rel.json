@@ -1,6 +1,230 @@
 [
   {
-    "disabled": true,
+    "disabled": false,
+    "text": [
+      "Among the <I> sounds, what is the loudness of the one playing a <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_loudness"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <I> sounds, what is the loudness of the one playing the <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_loudness"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <B> sounds, what is the loudness of the one played by a <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_loudness"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <B> sounds, what is the loudness of the one that is a <HN> note?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_loudness"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <HN> notes in the scene, what is the loudness of the one that is a <B> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_loudness"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <HN> notes in the scene, what is the loudness of the one that is played by a <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_loudness"
+      }
+    ]
+  },
+
+
+
+
+
+
+
+
+  {
+    "disabled": false,
     "text": [
       "What is the loudness of the <P> sound ?"
     ],
@@ -27,7 +251,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the loudness of the <PI> <I> sound ?"
     ],
@@ -55,7 +279,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the loudness of the <I> sound that is playing in the <PG> of the scene ?"
     ],
@@ -84,7 +308,7 @@
   },
   {
     "note": "limited nb of answer. 48 on 70. Probably difficult to uniquely filter object only on brightness attribute",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the loudness of the <B> sound that is playing in the <PG> of the scene ?"
     ],
@@ -113,7 +337,7 @@
   },
   {
     "note": "Limited nb of answer. 51 on 70. Probably due to the fact that a lot of sounds are neither bright or dark",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "There is a <HN> note played in the <PG> of the scene; What is the loudness of this sound ?"
     ],
@@ -142,7 +366,7 @@
   },
   {
     "note": "Limited nb of answer. 51 on 70. Probably due to the fact that a lot of sounds are neither bright or dark",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "There is a <L> <HN> note played in the <PG> of the scene; What is the loudness of this sound ?"
     ],
@@ -172,7 +396,7 @@
   },
   {
     "note": "Limited nb of answer. 4 on 70. INVESTIGATE THIS",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the loudness of the longest sound in the scene ?"
     ],
@@ -197,7 +421,7 @@
   },
   {
     "note": "Limited nb of answer. 59 on 70.",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the loudness of the longest sound playing in the <PG> of th scene ?"
     ],
@@ -231,7 +455,7 @@
   },
   {
     "note": "Limited nb of answer. 39 on 70.",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the loudness of the shortest sound in the scene ?"
     ],
@@ -256,7 +480,7 @@
   },
   {
     "note": "Limited nb of answer. 59 on 70.",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the loudness of the shortest sound playing in the <PG> of th scene ?"
     ],

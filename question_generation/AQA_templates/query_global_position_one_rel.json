@@ -2,7 +2,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> that is <RT> the <PI> <I> sound is playing ?"
+      "In what part of the scene is the <I2> that is <RT> the <PI> <I> sound ?"
     ],
     "nodes": [
       {
@@ -40,7 +40,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> that is <RT> the <B> sound is playing ?"
+      "In what part of the scene is the <I2> that is <RT> the <B> sound ?"
     ],
     "nodes": [
       {
@@ -77,7 +77,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> that is <RT> the <L> sound is playing ?"
+      "In what part of the scene is the <I2> that is <RT> the <L> sound ?"
     ],
     "nodes": [
       {
@@ -114,7 +114,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> that is <RT> the <L> <B> sound is playing ?"
+      "In what part of the scene is the <I2> that is <RT> the <L> <B> sound ?"
     ],
     "nodes": [
       {
@@ -152,7 +152,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> that is <RT> the <HN> note is playing ?"
+      "In what part of the scene is the <I2> that is <RT> the <HN> note ?"
     ],
     "nodes": [
       {
@@ -189,7 +189,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> that is <RT> the <B> <HN> note is playing ?"
+      "In what part of the scene is the <I2> that is <RT> the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -227,7 +227,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> that is <RT> the <L> <HN> note is playing ?"
+      "In what part of the scene is the <I2> that is <RT> the <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -265,7 +265,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> that is <RT> the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <I2> that is <RT> the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -304,7 +304,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> that is <RT> the <I> that play the <HN> note is playing ?"
+      "In what part of the scene is the <I2> that is <RT> the <I> that play the <HN> note ?"
     ],
     "nodes": [
       {
@@ -342,7 +342,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> that is <RT> the <I> that play the <B> <HN> note is playing ?"
+      "In what part of the scene is the <I2> that is <RT> the <I> that play the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -381,7 +381,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> that is <RT> the <I> that play the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <I2> that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -418,14 +418,10 @@
       }
     ]
   },
-
-
-
-
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L> <I2> that is <RT> the <PI> <I> sound is playing ?"
+      "In what part of the scene is the <L> <I2> that is <RT> the <PI> <I> sound ?"
     ],
     "nodes": [
       {
@@ -464,7 +460,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L> <I2> that is <RT> the <B> sound is playing ?"
+      "In what part of the scene is the <L> <I2> that is <RT> the <B> sound ?"
     ],
     "nodes": [
       {
@@ -502,7 +498,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <I2> that is <RT> the <L> sound is playing ?"
+      "In what part of the scene is the <L2> <I2> that is <RT> the <L> sound ?"
     ],
     "nodes": [
       {
@@ -540,7 +536,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <I2> that is <RT> the <L> <B> sound is playing ?"
+      "In what part of the scene is the <L2> <I2> that is <RT> the <L> <B> sound ?"
     ],
     "nodes": [
       {
@@ -579,7 +575,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L> <I2> that is <RT> the <HN> note is playing ?"
+      "In what part of the scene is the <L> <I2> that is <RT> the <HN> note ?"
     ],
     "nodes": [
       {
@@ -617,7 +613,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L> <I2> that is <RT> the <B> <HN> note is playing ?"
+      "In what part of the scene is the <L> <I2> that is <RT> the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -656,7 +652,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <I2> that is <RT> the <L> <HN> note is playing ?"
+      "In what part of the scene is the <L2> <I2> that is <RT> the <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -695,7 +691,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <I2> that is <RT> the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <L2> <I2> that is <RT> the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -735,7 +731,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L> <I2> that is <RT> the <I> that play the <HN> note is playing ?"
+      "In what part of the scene is the <L> <I2> that is <RT> the <I> that play the <HN> note ?"
     ],
     "nodes": [
       {
@@ -774,7 +770,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L> <I2> that is <RT> the <I> that play the <B> <HN> note is playing ?"
+      "In what part of the scene is the <L> <I2> that is <RT> the <I> that play the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -814,7 +810,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <I2> that is <RT> the <I> that play the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <L2> <I2> that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -852,14 +848,10 @@
       }
     ]
   },
-  
-  
-  
-  
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <B2> <I2> that is <RT> the <PI> <I> sound is playing ?"
+      "In what part of the scene is the <B2> <I2> that is <RT> the <PI> <I> sound ?"
     ],
     "nodes": [
       {
@@ -898,7 +890,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <B2> <I2> that is <RT> the <B> sound is playing ?"
+      "In what part of the scene is the <B2> <I2> that is <RT> the <B> sound ?"
     ],
     "nodes": [
       {
@@ -936,7 +928,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <B2> <I2> that is <RT> the <L> sound is playing ?"
+      "In what part of the scene is the <B2> <I2> that is <RT> the <L> sound ?"
     ],
     "nodes": [
       {
@@ -974,7 +966,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <B2> <I2> that is <RT> the <L> <B> sound is playing ?"
+      "In what part of the scene is the <B2> <I2> that is <RT> the <L> <B> sound ?"
     ],
     "nodes": [
       {
@@ -1013,7 +1005,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <B2> <I2> that is <RT> the <HN> note is playing ?"
+      "In what part of the scene is the <B2> <I2> that is <RT> the <HN> note ?"
     ],
     "nodes": [
       {
@@ -1051,7 +1043,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <B2> <I2> that is <RT> the <B> <HN> note is playing ?"
+      "In what part of the scene is the <B2> <I2> that is <RT> the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -1090,7 +1082,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <B2> <I2> that is <RT> the <L> <HN> note is playing ?"
+      "In what part of the scene is the <B2> <I2> that is <RT> the <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -1129,7 +1121,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <B2> <I2> that is <RT> the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <B2> <I2> that is <RT> the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -1169,7 +1161,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <B2> <I2> that is <RT> the <I> that play the <HN> note is playing ?"
+      "In what part of the scene is the <B2> <I2> that is <RT> the <I> that play the <HN> note ?"
     ],
     "nodes": [
       {
@@ -1208,7 +1200,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <B2> <I2> that is <RT> the <I> that play the <B> <HN> note is playing ?"
+      "In what part of the scene is the <B2> <I2> that is <RT> the <I> that play the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -1248,7 +1240,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <B2> <I2> that is <RT> the <I> that play the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <B2> <I2> that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -1286,14 +1278,10 @@
       }
     ]
   },
-  
-  
-  
-  
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <PI> <I> sound is playing ?"
+      "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <PI> <I> sound ?"
     ],
     "nodes": [
       {
@@ -1333,7 +1321,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <B> sound is playing ?"
+      "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <B> sound ?"
     ],
     "nodes": [
       {
@@ -1372,7 +1360,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <L> sound is playing ?"
+      "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <L> sound ?"
     ],
     "nodes": [
       {
@@ -1411,7 +1399,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <L> <B> sound is playing ?"
+      "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <L> <B> sound ?"
     ],
     "nodes": [
       {
@@ -1451,7 +1439,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <HN> note is playing ?"
+      "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <HN> note ?"
     ],
     "nodes": [
       {
@@ -1490,7 +1478,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <B> <HN> note is playing ?"
+      "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -1530,7 +1518,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <L> <HN> note is playing ?"
+      "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -1570,7 +1558,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -1611,7 +1599,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <I> that play the <HN> note is playing ?"
+      "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <I> that play the <HN> note ?"
     ],
     "nodes": [
       {
@@ -1651,7 +1639,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <I> that play the <B> <HN> note is playing ?"
+      "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <I> that play the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -1692,7 +1680,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <I> that play the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -1732,14 +1720,10 @@
       }
     ]
   },
-
-
-
-
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <B> sound that is <RT> the <PI> <I> sound is playing ?"
+      "In what part of the scene is the <B> sound that is <RT> the <PI> <I> sound ?"
     ],
     "nodes": [
       {
@@ -1777,7 +1761,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <B2> sound that is <RT> the <B> sound is playing ?"
+      "In what part of the scene is the <B2> sound that is <RT> the <B> sound ?"
     ],
     "nodes": [
       {
@@ -1814,7 +1798,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <B> sound that is <RT> the <L> sound is playing ?"
+      "In what part of the scene is the <B> sound that is <RT> the <L> sound ?"
     ],
     "nodes": [
       {
@@ -1851,7 +1835,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <B2> sound that is <RT> the <L> <B> sound is playing ?"
+      "In what part of the scene is the <B2> sound that is <RT> the <L> <B> sound ?"
     ],
     "nodes": [
       {
@@ -1889,7 +1873,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <B> sound that is <RT> the <HN> note is playing ?"
+      "In what part of the scene is the <B> sound that is <RT> the <HN> note ?"
     ],
     "nodes": [
       {
@@ -1926,7 +1910,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <B2> sound that is <RT> the <B> <HN> note is playing ?"
+      "In what part of the scene is the <B2> sound that is <RT> the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -1964,7 +1948,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <B> sound that is <RT> the <L> <HN> note is playing ?"
+      "In what part of the scene is the <B> sound that is <RT> the <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -2002,7 +1986,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <B2> sound that is <RT> the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <B2> sound that is <RT> the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -2041,7 +2025,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <B> sound that is <RT> the <I> that play the <HN> note is playing ?"
+      "In what part of the scene is the <B> sound that is <RT> the <I> that play the <HN> note ?"
     ],
     "nodes": [
       {
@@ -2079,7 +2063,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <B2> sound that is <RT> the <I> that play the <B> <HN> note is playing ?"
+      "In what part of the scene is the <B2> sound that is <RT> the <I> that play the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -2118,7 +2102,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <B2> sound that is <RT> the <I> that play the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <B2> sound that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -2155,14 +2139,10 @@
       }
     ]
   },
-
-
-
-
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L> <B> sound that is <RT> the <PI> <I> sound is playing ?"
+      "In what part of the scene is the <L> <B> sound that is <RT> the <PI> <I> sound ?"
     ],
     "nodes": [
       {
@@ -2201,7 +2181,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L> <B2> sound that is <RT> the <B> sound is playing ?"
+      "In what part of the scene is the <L> <B2> sound that is <RT> the <B> sound ?"
     ],
     "nodes": [
       {
@@ -2239,7 +2219,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B> sound that is <RT> the <L> sound is playing ?"
+      "In what part of the scene is the <L2> <B> sound that is <RT> the <L> sound ?"
     ],
     "nodes": [
       {
@@ -2277,7 +2257,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> sound that is <RT> the <L> <B> sound is playing ?"
+      "In what part of the scene is the <L2> <B2> sound that is <RT> the <L> <B> sound ?"
     ],
     "nodes": [
       {
@@ -2316,7 +2296,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L> <B> sound that is <RT> the <HN> note is playing ?"
+      "In what part of the scene is the <L> <B> sound that is <RT> the <HN> note ?"
     ],
     "nodes": [
       {
@@ -2354,7 +2334,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L> <B2> sound that is <RT> the <B> <HN> note is playing ?"
+      "In what part of the scene is the <L> <B2> sound that is <RT> the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -2393,7 +2373,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B> sound that is <RT> the <L> <HN> note is playing ?"
+      "In what part of the scene is the <L2> <B> sound that is <RT> the <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -2432,7 +2412,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> sound that is <RT> the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <L2> <B2> sound that is <RT> the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -2472,7 +2452,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L> <B> sound that is <RT> the <I> that play the <HN> note is playing ?"
+      "In what part of the scene is the <L> <B> sound that is <RT> the <I> that play the <HN> note ?"
     ],
     "nodes": [
       {
@@ -2511,7 +2491,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L> <B2> sound that is <RT> the <I> that play the <B> <HN> note is playing ?"
+      "In what part of the scene is the <L> <B2> sound that is <RT> the <I> that play the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -2551,7 +2531,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> sound that is <RT> the <I> that play the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <L2> <B2> sound that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -2589,11 +2569,10 @@
       }
     ]
   },
-
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L> <B> sound that is <RT> the <PI> <I> sound is playing ?"
+      "In what part of the scene is the <L> <B> sound that is <RT> the <PI> <I> sound ?"
     ],
     "nodes": [
       {
@@ -2632,7 +2611,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L> <B2> sound that is <RT> the <B> sound is playing ?"
+      "In what part of the scene is the <L> <B2> sound that is <RT> the <B> sound ?"
     ],
     "nodes": [
       {
@@ -2670,7 +2649,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B> sound that is <RT> the <L> sound is playing ?"
+      "In what part of the scene is the <L2> <B> sound that is <RT> the <L> sound ?"
     ],
     "nodes": [
       {
@@ -2708,7 +2687,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> sound that is <RT> the <L> <B> sound is playing ?"
+      "In what part of the scene is the <L2> <B2> sound that is <RT> the <L> <B> sound ?"
     ],
     "nodes": [
       {
@@ -2747,7 +2726,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L> <B> sound that is <RT> the <HN> note is playing ?"
+      "In what part of the scene is the <L> <B> sound that is <RT> the <HN> note ?"
     ],
     "nodes": [
       {
@@ -2785,7 +2764,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L> <B2> sound that is <RT> the <B> <HN> note is playing ?"
+      "In what part of the scene is the <L> <B2> sound that is <RT> the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -2824,7 +2803,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B> sound that is <RT> the <L> <HN> note is playing ?"
+      "In what part of the scene is the <L2> <B> sound that is <RT> the <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -2863,7 +2842,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> sound that is <RT> the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <L2> <B2> sound that is <RT> the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -2903,7 +2882,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L> <B> sound that is <RT> the <I> that play the <HN> note is playing ?"
+      "In what part of the scene is the <L> <B> sound that is <RT> the <I> that play the <HN> note ?"
     ],
     "nodes": [
       {
@@ -2942,7 +2921,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L> <B2> sound that is <RT> the <I> that play the <B> <HN> note is playing ?"
+      "In what part of the scene is the <L> <B2> sound that is <RT> the <I> that play the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -2982,7 +2961,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> sound that is <RT> the <I> that play the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <L2> <B2> sound that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -3020,14 +2999,10 @@
       }
     ]
   },
-
-
-
-
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <HN> note that is <RT> the <PI> <I> sound is playing ?"
+      "In what part of the scene is the <HN> note that is <RT> the <PI> <I> sound ?"
     ],
     "nodes": [
       {
@@ -3065,7 +3040,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <HN> note that is <RT> the <B> sound is playing ?"
+      "In what part of the scene is the <HN> note that is <RT> the <B> sound ?"
     ],
     "nodes": [
       {
@@ -3102,7 +3077,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <HN> note that is <RT> the <L> sound is playing ?"
+      "In what part of the scene is the <HN> note that is <RT> the <L> sound ?"
     ],
     "nodes": [
       {
@@ -3139,7 +3114,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <HN> note that is <RT> the <L> <B> sound is playing ?"
+      "In what part of the scene is the <HN> note that is <RT> the <L> <B> sound ?"
     ],
     "nodes": [
       {
@@ -3177,7 +3152,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <HN2> note that is <RT> the <HN> note is playing ?"
+      "In what part of the scene is the <HN2> note that is <RT> the <HN> note ?"
     ],
     "nodes": [
       {
@@ -3214,7 +3189,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <HN2> note that is <RT> the <B> <HN> note is playing ?"
+      "In what part of the scene is the <HN2> note that is <RT> the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -3252,7 +3227,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <HN2> note that is <RT> the <L> <HN> note is playing ?"
+      "In what part of the scene is the <HN2> note that is <RT> the <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -3290,7 +3265,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <HN2> note that is <RT> the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <HN2> note that is <RT> the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -3329,7 +3304,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <HN2> note that is <RT> the <I> that play the <HN> note is playing ?"
+      "In what part of the scene is the <HN2> note that is <RT> the <I> that play the <HN> note ?"
     ],
     "nodes": [
       {
@@ -3367,7 +3342,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <HN2> note that is <RT> the <I> that play the <B> <HN> note is playing ?"
+      "In what part of the scene is the <HN2> note that is <RT> the <I> that play the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -3406,7 +3381,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <HN2> note that is <RT> the <I> that play the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <HN2> note that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -3443,14 +3418,10 @@
       }
     ]
   },
-  
-  
-  
-  
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <HN> note that is <RT> the <PI> <I> sound is playing ?"
+      "In what part of the scene is the <L2> <HN> note that is <RT> the <PI> <I> sound ?"
     ],
     "nodes": [
       {
@@ -3489,7 +3460,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <HN> note that is <RT> the <B> sound is playing ?"
+      "In what part of the scene is the <L2> <HN> note that is <RT> the <B> sound ?"
     ],
     "nodes": [
       {
@@ -3527,7 +3498,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <HN> note that is <RT> the <L> sound is playing ?"
+      "In what part of the scene is the <L2> <HN> note that is <RT> the <L> sound ?"
     ],
     "nodes": [
       {
@@ -3565,7 +3536,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <HN> note that is <RT> the <L> <B> sound is playing ?"
+      "In what part of the scene is the <L2> <HN> note that is <RT> the <L> <B> sound ?"
     ],
     "nodes": [
       {
@@ -3604,7 +3575,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <HN2> note that is <RT> the <HN> note is playing ?"
+      "In what part of the scene is the <L2> <HN2> note that is <RT> the <HN> note ?"
     ],
     "nodes": [
       {
@@ -3642,7 +3613,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <HN2> note that is <RT> the <B> <HN> note is playing ?"
+      "In what part of the scene is the <L2> <HN2> note that is <RT> the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -3681,7 +3652,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <HN2> note that is <RT> the <L> <HN> note is playing ?"
+      "In what part of the scene is the <L2> <HN2> note that is <RT> the <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -3720,7 +3691,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <HN2> note that is <RT> the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <L2> <HN2> note that is <RT> the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -3760,7 +3731,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <HN2> note that is <RT> the <I> that play the <HN> note is playing ?"
+      "In what part of the scene is the <L2> <HN2> note that is <RT> the <I> that play the <HN> note ?"
     ],
     "nodes": [
       {
@@ -3799,7 +3770,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <HN2> note that is <RT> the <I> that play the <B> <HN> note is playing ?"
+      "In what part of the scene is the <L2> <HN2> note that is <RT> the <I> that play the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -3839,7 +3810,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <HN2> note that is <RT> the <I> that play the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <L2> <HN2> note that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -3877,14 +3848,10 @@
       }
     ]
   },
-  
-  
-  
-  
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> <HN> note that is <RT> the <PI> <I> sound is playing ?"
+      "In what part of the scene is the <L2> <B2> <HN> note that is <RT> the <PI> <I> sound ?"
     ],
     "nodes": [
       {
@@ -3924,7 +3891,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> <HN> note that is <RT> the <B> sound is playing ?"
+      "In what part of the scene is the <L2> <B2> <HN> note that is <RT> the <B> sound ?"
     ],
     "nodes": [
       {
@@ -3963,7 +3930,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> <HN> note that is <RT> the <L> sound is playing ?"
+      "In what part of the scene is the <L2> <B2> <HN> note that is <RT> the <L> sound ?"
     ],
     "nodes": [
       {
@@ -4002,7 +3969,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> <HN> note that is <RT> the <L> <B> sound is playing ?"
+      "In what part of the scene is the <L2> <B2> <HN> note that is <RT> the <L> <B> sound ?"
     ],
     "nodes": [
       {
@@ -4042,7 +4009,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> <HN2> note that is <RT> the <HN> note is playing ?"
+      "In what part of the scene is the <L2> <B2> <HN2> note that is <RT> the <HN> note ?"
     ],
     "nodes": [
       {
@@ -4081,7 +4048,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> <HN2> note that is <RT> the <B> <HN> note is playing ?"
+      "In what part of the scene is the <L2> <B2> <HN2> note that is <RT> the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -4121,7 +4088,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> <HN2> note that is <RT> the <L> <HN> note is playing ?"
+      "In what part of the scene is the <L2> <B2> <HN2> note that is <RT> the <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -4161,7 +4128,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> <HN2> note that is <RT> the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <L2> <B2> <HN2> note that is <RT> the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -4202,7 +4169,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> <HN2> note that is <RT> the <I> that play the <HN> note is playing ?"
+      "In what part of the scene is the <L2> <B2> <HN2> note that is <RT> the <I> that play the <HN> note ?"
     ],
     "nodes": [
       {
@@ -4242,7 +4209,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> <HN2> note that is <RT> the <I> that play the <B> <HN> note is playing ?"
+      "In what part of the scene is the <L2> <B2> <HN2> note that is <RT> the <I> that play the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -4283,7 +4250,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <L2> <B2> <HN2> note that is <RT> the <I> that play the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <L2> <B2> <HN2> note that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -4322,15 +4289,10 @@
       }
     ]
   },
-
-
-
-  
-  
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <HN> note that is <RT> the <PI> <I> sound is playing ?"
+      "In what part of the scene is the <I2> playing a <HN> note that is <RT> the <PI> <I> sound ?"
     ],
     "nodes": [
       {
@@ -4369,7 +4331,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <HN> note that is <RT> the <B> sound is playing ?"
+      "In what part of the scene is the <I2> playing a <HN> note that is <RT> the <B> sound ?"
     ],
     "nodes": [
       {
@@ -4407,7 +4369,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <HN> note that is <RT> the <L> sound is playing ?"
+      "In what part of the scene is the <I2> playing a <HN> note that is <RT> the <L> sound ?"
     ],
     "nodes": [
       {
@@ -4445,7 +4407,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <HN> note that is <RT> the <L> <B> sound is playing ?"
+      "In what part of the scene is the <I2> playing a <HN> note that is <RT> the <L> <B> sound ?"
     ],
     "nodes": [
       {
@@ -4484,7 +4446,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <HN2> note that is <RT> the <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <HN2> note that is <RT> the <HN> note ?"
     ],
     "nodes": [
       {
@@ -4522,7 +4484,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <HN2> note that is <RT> the <B> <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <HN2> note that is <RT> the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -4561,7 +4523,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <HN2> note that is <RT> the <L> <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <HN2> note that is <RT> the <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -4600,7 +4562,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <HN2> note that is <RT> the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <HN2> note that is <RT> the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -4640,7 +4602,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <HN2> note that is <RT> the <I> that play the <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <HN2> note that is <RT> the <I> that play the <HN> note ?"
     ],
     "nodes": [
       {
@@ -4679,7 +4641,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <HN2> note that is <RT> the <I> that play the <B> <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <HN2> note that is <RT> the <I> that play the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -4719,7 +4681,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <HN2> note that is <RT> the <I> that play the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <HN2> note that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -4757,14 +4719,10 @@
       }
     ]
   },
-  
-  
-  
-  
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <L2> <HN> note that is <RT> the <PI> <I> sound is playing ?"
+      "In what part of the scene is the <I2> playing a <L2> <HN> note that is <RT> the <PI> <I> sound ?"
     ],
     "nodes": [
       {
@@ -4804,7 +4762,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <L2> <HN> note that is <RT> the <B> sound is playing ?"
+      "In what part of the scene is the <I2> playing a <L2> <HN> note that is <RT> the <B> sound ?"
     ],
     "nodes": [
       {
@@ -4843,7 +4801,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <L2> <HN> note that is <RT> the <L> sound is playing ?"
+      "In what part of the scene is the <I2> playing a <L2> <HN> note that is <RT> the <L> sound ?"
     ],
     "nodes": [
       {
@@ -4882,7 +4840,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <L2> <HN> note that is <RT> the <L> <B> sound is playing ?"
+      "In what part of the scene is the <I2> playing a <L2> <HN> note that is <RT> the <L> <B> sound ?"
     ],
     "nodes": [
       {
@@ -4922,7 +4880,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <L2> <HN2> note that is <RT> the <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <L2> <HN2> note that is <RT> the <HN> note ?"
     ],
     "nodes": [
       {
@@ -4961,7 +4919,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <L2> <HN2> note that is <RT> the <B> <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <L2> <HN2> note that is <RT> the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -5001,7 +4959,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <L2> <HN2> note that is <RT> the <L> <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <L2> <HN2> note that is <RT> the <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -5041,7 +4999,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <L2> <HN2> note that is <RT> the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <L2> <HN2> note that is <RT> the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -5082,7 +5040,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <L2> <HN2> note that is <RT> the <I> that play the <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <L2> <HN2> note that is <RT> the <I> that play the <HN> note ?"
     ],
     "nodes": [
       {
@@ -5122,7 +5080,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <L2> <HN2> note that is <RT> the <I> that play the <B> <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <L2> <HN2> note that is <RT> the <I> that play the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -5163,7 +5121,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <L2> <HN2> note that is <RT> the <I> that play the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <L2> <HN2> note that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -5202,14 +5160,10 @@
       }
     ]
   },
-  
-  
-  
-  
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <B2> <HN> note that is <RT> the <PI> <I> sound is playing ?"
+      "In what part of the scene is the <I2> playing a <B2> <HN> note that is <RT> the <PI> <I> sound ?"
     ],
     "nodes": [
       {
@@ -5249,7 +5203,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <B2> <HN> note that is <RT> the <B> sound is playing ?"
+      "In what part of the scene is the <I2> playing a <B2> <HN> note that is <RT> the <B> sound ?"
     ],
     "nodes": [
       {
@@ -5288,7 +5242,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <B2> <HN> note that is <RT> the <L> sound is playing ?"
+      "In what part of the scene is the <I2> playing a <B2> <HN> note that is <RT> the <L> sound ?"
     ],
     "nodes": [
       {
@@ -5327,7 +5281,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <B2> <HN> note that is <RT> the <L> <B> sound is playing ?"
+      "In what part of the scene is the <I2> playing a <B2> <HN> note that is <RT> the <L> <B> sound ?"
     ],
     "nodes": [
       {
@@ -5367,7 +5321,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <B2> <HN2> note that is <RT> the <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <B2> <HN2> note that is <RT> the <HN> note ?"
     ],
     "nodes": [
       {
@@ -5406,7 +5360,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <B2> <HN2> note that is <RT> the <B> <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <B2> <HN2> note that is <RT> the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -5446,7 +5400,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <B2> <HN2> note that is <RT> the <L> <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <B2> <HN2> note that is <RT> the <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -5486,7 +5440,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <B2> <HN2> note that is <RT> the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <B2> <HN2> note that is <RT> the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -5527,7 +5481,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <B2> <HN2> note that is <RT> the <I> that play the <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <B2> <HN2> note that is <RT> the <I> that play the <HN> note ?"
     ],
     "nodes": [
       {
@@ -5567,7 +5521,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <B2> <HN2> note that is <RT> the <I> that play the <B> <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <B2> <HN2> note that is <RT> the <I> that play the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -5608,7 +5562,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <B2> <HN2> note that is <RT> the <I> that play the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <B2> <HN2> note that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -5647,15 +5601,10 @@
       }
     ]
   },
-  
-  
-  
-  
-  
-   {
+  {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <L2> <B2> <HN> note that is <RT> the <PI> <I> sound is playing ?"
+      "In what part of the scene is the <I2> playing a <L2> <B2> <HN> note that is <RT> the <PI> <I> sound ?"
     ],
     "nodes": [
       {
@@ -5696,7 +5645,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <L2> <B2> <HN> note that is <RT> the <B> sound is playing ?"
+      "In what part of the scene is the <I2> playing a <L2> <B2> <HN> note that is <RT> the <B> sound ?"
     ],
     "nodes": [
       {
@@ -5736,7 +5685,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <L2> <B2> <HN> note that is <RT> the <L> sound is playing ?"
+      "In what part of the scene is the <I2> playing a <L2> <B2> <HN> note that is <RT> the <L> sound ?"
     ],
     "nodes": [
       {
@@ -5776,7 +5725,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <L2> <B2> <HN> note that is <RT> the <L> <B> sound is playing ?"
+      "In what part of the scene is the <I2> playing a <L2> <B2> <HN> note that is <RT> the <L> <B> sound ?"
     ],
     "nodes": [
       {
@@ -5817,7 +5766,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <L2> <B2> <HN2> note that is <RT> the <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <L2> <B2> <HN2> note that is <RT> the <HN> note ?"
     ],
     "nodes": [
       {
@@ -5857,7 +5806,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <L2> <B2> <HN2> note that is <RT> the <B> <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <L2> <B2> <HN2> note that is <RT> the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -5898,7 +5847,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <L2> <B2> <HN2> note that is <RT> the <L> <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <L2> <B2> <HN2> note that is <RT> the <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -5939,7 +5888,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <L2> <B2> <HN2> note that is <RT> the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <L2> <B2> <HN2> note that is <RT> the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -5981,7 +5930,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <L2> <B2> <HN2> note that is <RT> the <I> that play the <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <L2> <B2> <HN2> note that is <RT> the <I> that play the <HN> note ?"
     ],
     "nodes": [
       {
@@ -6022,7 +5971,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <L2> <B2> <HN2> note that is <RT> the <I> that play the <B> <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <L2> <B2> <HN2> note that is <RT> the <I> that play the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -6064,7 +6013,7 @@
   {
     "disabled": false,
     "text": [
-      "In what part of the scene is the <I2> playing a <L2> <B2> <HN2> note that is <RT> the <I> that play the <L> <B> <HN> note is playing ?"
+      "In what part of the scene is the <I2> playing a <L2> <B2> <HN2> note that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -6104,5 +6053,4 @@
       }
     ]
   }
-
 ]

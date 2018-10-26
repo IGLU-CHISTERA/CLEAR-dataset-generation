@@ -1,6 +1,241 @@
 [
   {
-    "disabled": true,
+    "disabled": false,
+    "text": [
+      "Among the <B> sounds, what is the instrument that play the <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_instrument"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <B> sounds, what is the instrument that play the <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_instrument"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <L> sounds, what is the instrument that play the <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_instrument"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <L> sounds, what is the instrument that play the <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_instrument"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <HN> notes in the scenes, what is the instrument that play the <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_instrument"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <HN> notes in the scenes, what is the instrument that play the <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_instrument"
+      }
+    ]
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "disabled": false,
     "text": [
       "What is the name of the instrument that play the <P> sound ?",
       "By what instrument is the <P> sound played by ?"
@@ -29,9 +264,9 @@
   },
   {
     "note": "Limited nb of answers. 3 on 70. Always same answer : reed",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "What instrument play the longest note ?"
+      "What instrument plays the longest note ?"
     ],
     "nodes": [
       {
@@ -48,15 +283,15 @@
         "inputs": [
           1
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "note": "Limited nb of answers. 49 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "What instrument play the shortest note ?"
+      "What instrument plays the shortest note ?"
     ],
     "nodes": [
       {
@@ -73,15 +308,15 @@
         "inputs": [
           1
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "note": "Limited nb of answers. Instantiated 52 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "What instrument play the longest note in the <PG> of the scene ?"
+      "What instrument plays the longest note in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -107,14 +342,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "What instrument play the shortest note in the <PG> of the scene ?"
+      "What instrument plays the shortest note in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -140,14 +375,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "What instrument play a <HN> note ?"
+      "What instrument plays a <HN> note ?"
     ],
     "nodes": [
       {
@@ -167,14 +402,14 @@
         "inputs": [
           1
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "What instrument play a <HN> note in the <PG> of the scene ?"
+      "What instrument plays a <HN> note in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -195,15 +430,15 @@
         "inputs": [
           1
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "note": "NO ANSWERS. no unique filter when filtering only with loudness",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "What instrument play the <L> sound ?"
+      "What instrument plays the <L> sound ?"
     ],
     "nodes": [
       {
@@ -223,15 +458,15 @@
         "inputs": [
           1
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "note": "Limited nb of answers. Instantiated 41 on 70. Not enough unique possibilities with only the loudness attribute",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "What instrument play the <L> sound in the <PG> of the scene ?"
+      "What instrument plays the <L> sound in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -252,15 +487,15 @@
         "inputs": [
           1
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "note": "Limited nb of answers. Instantiated 26 on 70.",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "What instrument play a <B> sound ?"
+      "What instrument plays a <B> sound ?"
     ],
     "nodes": [
       {
@@ -280,15 +515,15 @@
         "inputs": [
           1
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "note": "Limited nb of answers. Instantiated 62 on 70.",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "What instrument play a <B> sound in the <PG> of the scene ?"
+      "What instrument plays a <B> sound in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -309,15 +544,15 @@
         "inputs": [
           1
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "note": "Limited nb of answers. Instantiated 46 on 70.",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "What instrument play a <L> <B> sound ?"
+      "What instrument plays a <L> <B> sound ?"
     ],
     "nodes": [
       {
@@ -338,15 +573,15 @@
         "inputs": [
           1
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "note": "Limited nb of answers. Instantiated 63 on 70.",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "What instrument play a <L> <B> sound in the <PG> of the scene ?"
+      "What instrument plays a <L> <B> sound in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -368,14 +603,14 @@
         "inputs": [
           1
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "What instrument play a <L> <HN> note in the <PG> of the scene ?"
+      "What instrument plays a <L> <HN> note in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -397,15 +632,15 @@
         "inputs": [
           1
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "note": "Limited nb of answers. Instantiated 69 on 70.",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "What instrument play a <B> <HN> note ?"
+      "What instrument plays a <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -426,15 +661,15 @@
         "inputs": [
           1
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "note": "Limited nb of answers. Instantiated 68 on 70.",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "What instrument play a <B> <HN> note in the <PG> ?"
+      "What instrument plays a <B> <HN> note in the <PG> ?"
     ],
     "nodes": [
       {
@@ -456,13 +691,13 @@
         "inputs": [
           1
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "note": "Limited nb of answer. THE QUESTION IMPLY THAT THERE IS ONLY ONE OTHER INSTRUMENT WITH THE SAME BRIGHTNESS. IT IS NOT TRUE",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the other instrument that play a sound with the same brightness as the <PI> <I> ?"
     ],
@@ -497,7 +732,7 @@
         "inputs": [
           3
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   }

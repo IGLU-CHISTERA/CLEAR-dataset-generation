@@ -419,17 +419,9 @@
       }
     ]
   },
-
-
-
-
-
-
-
-
   {
     "note": "Limited nb of answer. 4 on 70. INVESTIGATE",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the note of the longest sound in the scene ?"
     ],
@@ -454,7 +446,7 @@
   },
   {
     "note": "Limited nb of answer. 66 on 70.",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the note of the longest sound in the <PG> of the scene ?"
     ],
@@ -488,7 +480,7 @@
   },
   {
     "note": "Limited nb of answer. 61 on 70.",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the note of the shortest sound in the scene ?"
     ],
@@ -513,7 +505,7 @@
   },
   {
     "note": "Limited nb of answer. 61 on 70.",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the note of the shortest sound in the <PG> of the scene ?"
     ],
@@ -547,7 +539,7 @@
   },
   {
     "note": "limited nb of answer. 39 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the note of the <L> sound in the <PG> of the scene ?"
     ],
@@ -576,7 +568,7 @@
   },
   {
     "note": "limited nb of answer. 62 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the note of the <B> sound in the <PG> of the scene ?"
     ],
@@ -605,7 +597,7 @@
   },
   {
     "note": "limited nb of answer. 64 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the note of the <L> <B> sound in the <PG> of the scene ?"
     ],
@@ -633,10 +625,6 @@
       }
     ]
   },
-  
-  
-  
-  
   {
     "disabled": false,
     "text": [
@@ -1057,10 +1045,6 @@
       }
     ]
   },
-  
-  
-  
-  
   {
     "disabled": false,
     "text": [
@@ -1481,9 +1465,6 @@
       }
     ]
   },
-  
-  
-  
   {
     "disabled": false,
     "text": [
@@ -1915,10 +1896,6 @@
       }
     ]
   },
-  
-  
-  
-  
   {
     "disabled": false,
     "text": [
@@ -2361,10 +2338,6 @@
       }
     ]
   },
-
-
-
-
   {
     "disabled": false,
     "text": [

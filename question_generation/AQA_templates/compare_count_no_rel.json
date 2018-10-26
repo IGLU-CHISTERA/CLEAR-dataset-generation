@@ -1,8 +1,8 @@
 [
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <I> than <I2> ?"
+      "Are there more <I> than <I2> ?"
     ],
     "nodes": [
       {
@@ -50,9 +50,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <I> than <I2> playing in the <PG> of the scene ?"
+      "Are there more <I> than <I2> playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -102,9 +102,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <I> than <I2> ?"
+      "Are there fewer <I> than <I2> ?"
     ],
     "nodes": [
       {
@@ -152,9 +152,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <I> than <I2> playing in the <PG> of the scene ?"
+      "Are there fewer <I> than <I2> playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -204,7 +204,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there an equal number of <I> and <I2> ?"
     ],
@@ -254,7 +254,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there an equal number of <I> and <I2> playing in the <PG> of the scene ?"
     ],
@@ -307,9 +307,9 @@
   },
   {
     "note": "limited nb of answer. 65 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <L> sound than <L2> sound ?"
+      "Are there more <L> sounds than <L2> sounds ?"
     ],
     "nodes": [
       {
@@ -358,9 +358,9 @@
   },
   {
     "note": "limited nb of answer. 62 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <L> sound than <L2> sound playing in the <PG> of the scene ?"
+      "Are there more <L> sounds than <L2> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -411,9 +411,9 @@
   },
   {
     "note": "limited nb of answer. 66 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <L> sound than <L2> sound ?"
+      "Are there fewer <L> sounds than <L2> sounds ?"
     ],
     "nodes": [
       {
@@ -462,9 +462,9 @@
   },
   {
     "note": "limited nb of answer. 59 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <L> sound than <L2> sound playing in the <PG> of the scene ?"
+      "Are there fewer <L> sounds than <L2> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -515,9 +515,9 @@
   },
   {
     "note": "limited nb of answer. 66 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there an equal number of <L> sound and <L2> sound ?"
+      "Is there an equal number of <L> sounds and <L2> sounds ?"
     ],
     "nodes": [
       {
@@ -566,9 +566,9 @@
   },
   {
     "note": "limited nb of answer. 64 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there an equal number of <L> sound and <L2> sound playing in the <PG> of the scene ?"
+      "Is there an equal number of <L> sounds and <L2> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -619,9 +619,9 @@
   },
   {
     "note": "limited nb of answer. 39 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <B> sound than <B2> sound ?"
+      "Are there more <B> sounds than <B2> sounds ?"
     ],
     "nodes": [
       {
@@ -670,9 +670,9 @@
   },
   {
     "note": "limited nb of answer. 64 on 70. INVESTIGATE",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <B> sound than <B2> sound playing in the <PG> of the scene ?"
+      "Are there more <B> sounds than <B2> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -723,9 +723,9 @@
   },
   {
     "note": "limited nb of answer. 38 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <B> sound than <B2> sound ?"
+      "Are there fewer <B> sounds than <B2> sounds ?"
     ],
     "nodes": [
       {
@@ -774,9 +774,9 @@
   },
   {
     "note": "limited nb of answer. 64 on 70. INVESTIGATE",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <B> sound than <B2> sound playing in the <PG> of the scene ?"
+      "Are there fewer <B> sounds than <B2> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -827,9 +827,9 @@
   },
   {
     "note": "limited nb of answer. 20 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there an equal number of <B> sound and <B2> sound ?"
+      "Is there an equal number of <B> sounds and <B2> sounds ?"
     ],
     "nodes": [
       {
@@ -878,9 +878,9 @@
   },
   {
     "note": "limited nb of answer. 64 on 70. INVESTIGATE",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there an equal number of <B> sound and <B2> sound playing in the <PG> of the scene ?"
+      "Is there an equal number of <B> sounds and <B2> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -931,9 +931,9 @@
   },
   {
     "note": "limited nb of answer. 12 on 70. INVESTIGATE",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <I> sound than <L> sound ?"
+      "Are there more <I> sounds than <L> sounds ?"
     ],
     "nodes": [
       {
@@ -973,9 +973,9 @@
   },
   {
     "note": "limited nb of answer. 56 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <I> sound than <L> sound playing in the <PG> of the scene ?"
+      "Are there more <I> sounds than <L> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -1017,9 +1017,9 @@
   },
   {
     "note": "limited nb of answer. 45 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <I> sound than <L> sound ?"
+      "Are there fewer <I> sounds than <L> sounds ?"
     ],
     "nodes": [
       {
@@ -1058,9 +1058,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <I> sound than <L> sound playing in the <PG> of the scene ?"
+      "Are there fewer <I> sounds than <L> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -1102,9 +1102,9 @@
   },
   {
     "note": "limited nb of answer. 45 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there an equal number of <I> sound and <L> sound ?"
+      "Is there an equal number of <I> sounds and <L> sounds ?"
     ],
     "nodes": [
       {
@@ -1143,9 +1143,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there an equal number of <I> sound and <L> sound playing in the <PG> of the scene ?"
+      "Is there an equal number of <I> sounds and <L> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -1187,9 +1187,9 @@
   },
   {
     "note": "limited nb of answer. 68 on 70.",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <I> sound than <B> sound ?"
+      "Are there more <I> sounds than <B> sounds ?"
     ],
     "nodes": [
       {
@@ -1228,9 +1228,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <I> sound than <B> sound playing in the <PG> of the scene ?"
+      "Are there more <I> sounds than <B> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -1271,9 +1271,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <I> sound than <B> sound ?"
+      "Are there fewer <I> sounds than <B> sounds ?"
     ],
     "nodes": [
       {
@@ -1312,9 +1312,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <I> sound than <B> sound playing in the <PG> of the scene ?"
+      "Are there fewer <I> sounds than <B> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -1356,9 +1356,9 @@
   },
   {
     "note": "limited nb of answer. 65 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there an equal number of <I> sound and <B> sound ?"
+      "Is there an equal number of <I> sounds and <B> sounds ?"
     ],
     "nodes": [
       {
@@ -1397,9 +1397,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there an equal number of <I> sound and <B> sound playing in the <PG> of the scene ?"
+      "Is there an equal number of <I> sounds and <B> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -1441,9 +1441,9 @@
   },
   {
     "note": "limited nb of answer. 4 on 70. INVESTIGATE",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <B> sound than <L> sound ?"
+      "Are there more <B> sounds than <L> sounds ?"
     ],
     "nodes": [
       {
@@ -1483,9 +1483,9 @@
   },
   {
     "note": "limited nb of answer. 55 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <B> sound than <L> sound playing in the <PG> of the scene ?"
+      "Are there more <B> sounds than <L> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -1527,9 +1527,9 @@
   },
   {
     "note": "limited nb of answer. 8 on 70. INVESTIGATE",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <B> sound than <L> sound ?"
+      "Are there fewer <B> sounds than <L> sounds ?"
     ],
     "nodes": [
       {
@@ -1569,9 +1569,9 @@
   },
   {
     "note": "limited nb of answer. 60 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <B> sound than <L> sound playing in the <PG> of the scene ?"
+      "Are there fewer <B> sounds than <L> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -1613,9 +1613,9 @@
   },
   {
     "note": "limited nb of answer. 8 on 70. INVESTIGATE",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there an equal number of <B> sound and <L> sound ?"
+      "Is there an equal number of <B> sounds and <L> sounds ?"
     ],
     "nodes": [
       {
@@ -1655,9 +1655,9 @@
   },
   {
     "note": "limited nb of answer. 56 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there an equal number of <B> sound and <L> sound playing in the <PG> of the scene ?"
+      "Is there an equal number of <B> sounds and <L> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -1698,9 +1698,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <L2> <I> sound than <L> <I> sound ?"
+      "Are there more <L2> <I> sounds than <L> <I> sounds ?"
     ],
     "nodes": [
       {
@@ -1750,9 +1750,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <L2> <I> sound than <L> <I> sound playing in the <PG> of the scene ?"
+      "Are there more <L2> <I> sounds than <L> <I> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -1804,9 +1804,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <L2> <I> sound than <L> <I> sound ?"
+      "Are there fewer <L2> <I> sounds than <L> <I> sounds ?"
     ],
     "nodes": [
       {
@@ -1856,9 +1856,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <L2> <I> sound than <L> <I> sound playing in the <PG> of the scene ?"
+      "Are there fewer <L2> <I> sounds than <L> <I> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -1910,9 +1910,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there an equal number of <L2> <I> sound and <L> <I> sound ?"
+      "Is there an equal number of <L2> <I> sounds and <L> <I> sounds ?"
     ],
     "nodes": [
       {
@@ -1962,9 +1962,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there an equal number of <L2> <I> sound and <L> <I> sound playing in the <PG> of the scene ?"
+      "Is there an equal number of <L2> <I> sounds and <L> <I> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -2016,9 +2016,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <B2> <I> sound than <B> <I> sound ?"
+      "Are there more <B2> <I> sounds than <B> <I> sounds ?"
     ],
     "nodes": [
       {
@@ -2068,9 +2068,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <B2> <I> sound than <B> <I> sound playing in the <PG> of the scene ?"
+      "Are there more <B2> <I> sounds than <B> <I> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -2122,9 +2122,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <B2> <I> sound than <B> <I> sound ?"
+      "Are there fewer <B2> <I> sounds than <B> <I> sounds ?"
     ],
     "nodes": [
       {
@@ -2174,9 +2174,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <B2> <I> sound than <B> <I> sound playing in the <PG> of the scene ?"
+      "Are there fewer <B2> <I> sounds than <B> <I> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -2228,9 +2228,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there an equal number of <B2> <I> sound and <B> <I> sound ?"
+      "Is there an equal number of <B2> <I> sounds and <B> <I> sounds ?"
     ],
     "nodes": [
       {
@@ -2280,9 +2280,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there an equal number of <B2> <I> sound and <B> <I> sound playing in the <PG> of the scene ?"
+      "Is there an equal number of <B2> <I> sounds and <B> <I> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -2335,9 +2335,9 @@
   },
   {
     "note": "limited nb of answer. 57 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <L2> <B> sound than <L> <B> sound ?"
+      "Are there more <L2> <B> sounds than <L> <B> sounds ?"
     ],
     "nodes": [
       {
@@ -2388,9 +2388,9 @@
   },
   {
     "note": "limited nb of answer. 65 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <L2> <B> sound than <L> <B> sound playing in the <PG> of the scene ?"
+      "Are there more <L2> <B> sounds than <L> <B> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -2443,9 +2443,9 @@
   },
   {
     "note": "limited nb of answer. 57 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <L2> <B> sound than <L> <B> sound ?"
+      "Are there fewer <L2> <B> sounds than <L> <B> sounds ?"
     ],
     "nodes": [
       {
@@ -2496,9 +2496,9 @@
   },
   {
     "note": "limited nb of answer. 65 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <L2> <B> sound than <L> <B> sound playing in the <PG> of the scene ?"
+      "Are there fewer <L2> <B> sounds than <L> <B> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -2551,9 +2551,9 @@
   },
   {
     "note": "limited nb of answer. 53 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there an equal number of <L2> <B> sound and <L> <B> sound ?"
+      "Is there an equal number of <L2> <B> sounds and <L> <B> sounds ?"
     ],
     "nodes": [
       {
@@ -2604,9 +2604,9 @@
   },
   {
     "note": "limited nb of answer. 65 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there an equal number of <L2> <B> sound and <L> <B> sound playing in the <PG> of the scene ?"
+      "Is there an equal number of <L2> <B> sounds and <L> <B> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -2659,9 +2659,9 @@
   },
   {
     "note": "limited nb of answer. 57 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <B2> <L> sound than <B> <L> sound ?"
+      "Are there more <B2> <L> sounds than <B> <L> sounds ?"
     ],
     "nodes": [
       {
@@ -2712,9 +2712,9 @@
   },
   {
     "note": "limited nb of answer. 65 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <B2> <L> sound than <B> <L> sound playing in the <PG> of the scene ?"
+      "Are there more <B2> <L> sounds than <B> <L> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -2767,9 +2767,9 @@
   },
   {
     "note": "limited nb of answer. 57 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <B2> <L> sound than <B> <L> sound ?"
+      "Are there fewer <B2> <L> sounds than <B> <L> sounds ?"
     ],
     "nodes": [
       {
@@ -2820,9 +2820,9 @@
   },
   {
     "note": "limited nb of answer. 65 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <B2> <L> sound than <B> <L> sound playing in the <PG> of the scene ?"
+      "Are there fewer <B2> <L> sounds than <B> <L> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -2875,9 +2875,9 @@
   },
   {
     "note": "limited nb of answer. 49 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there an equal number of <B2> <L> sound and <B> <L> sound ?"
+      "Is there an equal number of <B2> <L> sounds and <B> <L> sounds ?"
     ],
     "nodes": [
       {
@@ -2928,9 +2928,9 @@
   },
   {
     "note": "limited nb of answer. 65 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there an equal number of <B2> <L> sound and <B> <L> sound playing in the <PG> of the scene ?"
+      "Is there an equal number of <B2> <L> sounds and <B> <L> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -2982,9 +2982,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <B> <I2> sound than <B> <I> sound ?"
+      "Are there more <B> <I2> sounds than <B> <I> sounds ?"
     ],
     "nodes": [
       {
@@ -3034,9 +3034,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <B> <I2> sound than <B> <I> sound playing in the <PG> of the scene ?"
+      "Are there more <B> <I2> sounds than <B> <I> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -3088,9 +3088,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <B> <I2> sound than <B> <I> sound ?"
+      "Are there fewer <B> <I2> sounds than <B> <I> sounds ?"
     ],
     "nodes": [
       {
@@ -3140,9 +3140,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <B> <I2> sound than <B> <I> sound playing in the <PG> of the scene ?"
+      "Are there fewer <B> <I2> sounds than <B> <I> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -3194,9 +3194,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there an equal number of <B> <I2> sound and <B> <I> sound ?"
+      "Is there an equal number of <B> <I2> sounds and <B> <I> sounds ?"
     ],
     "nodes": [
       {
@@ -3246,9 +3246,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there an equal number of <B> <I2> sound and <B> <I> sound playing in the <PG> of the scene ?"
+      "Is there an equal number of <B> <I2> sounds and <B> <I> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -3300,9 +3300,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <L> <I2> sound than <L> <I> sound ?"
+      "Are there more <L> <I2> sounds than <L> <I> sounds ?"
     ],
     "nodes": [
       {
@@ -3352,9 +3352,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <L> <I2> sound than <L> <I> sound playing in the <PG> of the scene ?"
+      "Are there more <L> <I2> sounds than <L> <I> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -3406,9 +3406,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <L> <I2> sound than <L> <I> sound ?"
+      "Are there fewer <L> <I2> sounds than <L> <I> sounds ?"
     ],
     "nodes": [
       {
@@ -3458,9 +3458,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <L> <I2> sound than <L> <I> sound playing in the <PG> of the scene ?"
+      "Are there fewer <L> <I2> sounds than <L> <I> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -3512,9 +3512,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there an equal number of <L> <I2> sound and <L> <I> sound ?"
+      "Is there an equal number of <L> <I2> sounds and <L> <I> sounds ?"
     ],
     "nodes": [
       {
@@ -3564,9 +3564,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there an equal number of <L> <I2> sound and <L> <I> sound playing in the <PG> of the scene ?"
+      "Is there an equal number of <L> <I2> sounds and <L> <I> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -3618,9 +3618,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <I3> or <I2> sounds than <I> sounds ?"
+      "Are there more <I3> or <I2> sounds than <I> sounds ?"
     ],
     "nodes": [
       {
@@ -3702,9 +3702,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <I3> or <I2> sounds than <I> sounds playing in the <PG> of the scene ?"
+      "Are there more <I3> or <I2> sounds than <I> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -3789,9 +3789,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <I3> or <I2> sounds than <I> sounds ?"
+      "Are there fewer <I3> or <I2> sounds than <I> sounds ?"
     ],
     "nodes": [
       {
@@ -3873,7 +3873,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there an equal number of <I3> or <I2> sounds and <I> sounds playing in the <PG> of the scene ?"
     ],
@@ -3960,7 +3960,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there an equal number of <I3> or <I2> sounds and <I> sounds playing in the <PG> of the scene ?"
     ],
@@ -4047,9 +4047,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <I4> or <I3> sounds than <I2> or <I> sounds ?"
+      "Are there more <I4> or <I3> sounds than <I2> or <I> sounds ?"
     ],
     "nodes": [
       {
@@ -4172,9 +4172,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there more <I4> or <I3> sounds than <I2> or <I> sounds playing in the <PG> of the scene ?"
+      "Are there more <I4> or <I3> sounds than <I2> or <I> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -4301,9 +4301,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <I4> or <I3> sounds than <I2> or <I> sounds ?"
+      "Are there fewer <I4> or <I3> sounds than <I2> or <I> sounds ?"
     ],
     "nodes": [
       {
@@ -4426,9 +4426,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there less <I4> or <I3> sounds than <I2> or <I> sounds playing in the <PG> of the scene ?"
+      "Are there fewer <I4> or <I3> sounds than <I2> or <I> sounds playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -4555,7 +4555,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there an equal number of <I4> or <I3> sounds and <I2> or <I> sounds ?"
     ],
@@ -4680,7 +4680,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there an equal number of <I4> or <I3> sounds and <I2> or <I> sounds playing in the <PG> of the scene ?"
     ],

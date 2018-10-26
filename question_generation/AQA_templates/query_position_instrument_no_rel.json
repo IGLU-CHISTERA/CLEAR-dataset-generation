@@ -1,0 +1,324 @@
+[
+  {
+    "disabled": false,
+    "text": [
+      "Among the <I>, which one plays the longest note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "filter_longest_duration"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position_instrument"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <I>, which one plays the shortest note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "type": "filter_shortest_duration"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position_instrument"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <I>, which one plays the <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position_instrument"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <I> sounds, which one is <L> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position_instrument"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <I> sounds, which one is <B> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position_instrument"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <I> sounds, which one is <L> and <B> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position_instrument"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <I>, which one plays the <L> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<HN>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position_instrument"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <I>, which one plays the <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<B>",
+          "<HN>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position_instrument"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <I>, which one plays the <L> <B> <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<L>",
+          "<B>",
+          "<HN>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_position_instrument"
+      }
+    ]
+  }
+]
