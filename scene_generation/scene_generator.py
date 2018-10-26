@@ -246,6 +246,7 @@ class Scene_generator:
                  primary_sounds_definition_filename,
                  metadata_filepath,
                  version_nb,
+                 additional_scenes_multiplier,          # FIXME : Ugly name.. i'm tired..
                  constraint_min_nb_families,
                  constraint_min_objects_per_family,
                  constraint_min_nb_families_subject_to_min_object_per_family,
@@ -256,6 +257,8 @@ class Scene_generator:
         self.nb_tree_branch = nb_tree_branch
 
         self.version_nb = version_nb
+
+        self.additional_scenes_multiplier = additional_scenes_multiplier
 
         with open(metadata_filepath) as metadata:
             self.attributes_values = {key: val['values'] for key, val in ujson.load(metadata)['attributes'].items()}
@@ -416,11 +419,6 @@ class Scene_generator:
 
         return True
 
-    def _get_random_loudness(self):
-        high_bound = len(self.attributes_values['loudness']) - 1
-
-        return self.attributes_values['loudness'][random.randint(0, high_bound)]
-
     def _assign_silence_informations(self, scene):
         sounds_duration = sum(sound['duration'] for sound in scene)
 
@@ -468,6 +466,13 @@ class Scene_generator:
             # FIXME : The process won't include the root node in the scene composition. Will cause problem when distributing part of the tree in different processes
             root_node = Node(None, -1, {})      # Root of the tree
 
+        nb_to_keep = nb_to_generate
+        nb_possibilities = self.nb_tree_branch**self.nb_objects_per_scene
+        # We generate 5 time the number of required scenes to maximize randomness (We will only keep the required number)
+        nb_to_generate = min(nb_to_keep * 5, nb_possibilities)
+
+        force_back_up_threshold = int(nb_to_generate / (self.nb_tree_branch - 1) * 0.9)
+
         next_node = root_node
         state = []
         generated_scenes = []
@@ -496,8 +501,6 @@ class Scene_generator:
                     # Add a new child
                     new_sound = self.primary_sounds.next(state, current_node.get_childs_ids())
 
-                    # Randomly assign a loudness level to the new sound
-                    new_sound['loudness'] = self._get_random_loudness()
 
                     state.append(new_sound)
                     # TODO : random Chance of overlapping
@@ -535,6 +538,12 @@ class Scene_generator:
 
                     generated_scenes.append(copy.deepcopy(state))
 
+                    if len(generated_scenes) % force_back_up_threshold == 0:
+                        next_node = root_node
+                        state = []
+                        print("Got back to the top")
+                        continue
+
                 # Going up in the tree
                 next_node = current_node.parent     # FIXME : This will fail in the case we have a depth of 1 because the None check is in the while (Not really a use cas.. we can ignore)
                 state.pop()
@@ -548,6 +557,8 @@ class Scene_generator:
                         # Update the state
                         state.pop()
 
+        random.shuffle(generated_scenes)
+
         print("Nb valid : %d" % self.stats['nbValid'])
         print("Stats")
         print(ujson.dumps(self.stats, indent=4))
@@ -559,7 +570,7 @@ class Scene_generator:
 
         print("Total skipped : %d" %cnt)
 
-        return generated_scenes
+        return generated_scenes[:nb_to_keep]
 
     def _generate_info_section(self, set_type):
         return {
@@ -599,9 +610,11 @@ class Scene_generator:
 
     def generate(self, start_index=0, nb_to_generate=None, training_set_ratio=0.7, shuffle_scenes=True):
 
-        print("Starting scenes generation")
+        print("Starting Scenes Generation")
 
         generated_scenes = self._generate_scenes(start_index, nb_to_generate, None)
+
+        print("Generated %d scenes" % len(generated_scenes))
 
         if shuffle_scenes:
             random.shuffle(generated_scenes)
@@ -699,6 +712,7 @@ if __name__ == '__main__':
                                       args.primary_sounds_definition_filename,
                                       args.metadata_file,
                                       args.output_version_nb,
+                                      5,        # FIXME : Take as parameter
                                       args.constraint_min_nb_families,
                                       args.constraint_min_object_per_family,
                                       args.constraint_min_nb_families_subject_to_min_object_per_family,

@@ -1,0 +1,53 @@
+{
+  "dataset": "AQA-v1.0",
+  "attributes": {
+    "position": {
+      "placeholder" : "<P>",
+      "values" : [
+        "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth"
+      ]
+    },
+    "position_instrument": {
+      "placeholder" : "<PI>",
+      "values" : [
+        "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth"
+      ]
+    },
+    "position_global": {
+      "placeholder" : "<PG>",
+      "values" : [
+        "beginning of the scene", "middle of the scene", "end of the scene"
+      ]
+    },
+    "human_note": {
+      "placeholder" : "<HN>",
+      "values" : [
+        "A", "A_Sharp", "B", "C", "C_Sharp", "D", "D_Sharp", "E", "F", "F_Sharp", "G", "G_Sharp"
+      ]
+    },
+    "brightness": {
+      "placeholder": "<B>",
+      "values": [
+        "bright", "dark"
+      ]
+    },
+    "loudness": {
+      "placeholder" : "<L>",
+      "values" : [
+        "quiet", "loud"
+      ]
+    },
+    "instrument": {
+      "placeholder" : "<I>",
+      "values" : [
+        "cello", "clarinet", "flute", "trumpet", "violin"
+      ]
+    },
+    "relate_timing": {
+      "placeholder" : "<RT>",
+      "values" : [
+        "before", "after"
+      ]
+    }
+  }
+}

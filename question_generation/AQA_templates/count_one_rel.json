@@ -1,6 +1,6 @@
 [
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "How many <I2> are playing <RT> the <PI> <I> ?"
     ],
@@ -32,7 +32,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "How many <I2> are playing <RT> the <P> sound ?"
     ],
@@ -64,7 +64,7 @@
   },
   {
     "note": "Limited number of answers {0,1,2}. Why ?",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "How many <B> sound are playing <RT> the <PI> <I> ?"
     ],
@@ -97,7 +97,7 @@
   },
   {
     "note": "Limited number of answers {0,1,2}. Why ?",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "How many <B> sound are playing <RT> the <P> sound ?"
     ],
@@ -128,7 +128,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "How many <L> sound are playing <RT> the <PI> <I> ?"
     ],
@@ -160,7 +160,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "How many <L> sound are playing <RT> the <P> sound ?"
     ],
@@ -192,7 +192,7 @@
   },
   {
     "note": "Only produce 0 & 1 answers",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "How many <HN> note are playing <RT> the <PI> <I> ?"
     ],
@@ -225,7 +225,7 @@
   },
   {
     "note": "Only produce 0 & 1 answers",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "How many <HN> note are playing <RT> the <P> sound ?"
     ],
@@ -256,7 +256,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "How many <I2> or <I3> are playing <RT> the <PI> <I> ?"
     ],
@@ -342,7 +342,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "How many <I2> or <I3> are playing <RT> the <P> sound ?"
     ],
@@ -413,9 +413,9 @@
   },
   {
     "note": "Limited answers. Only {0,1,2}",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "How many <HN> or <HN2> are playing <RT> the <PI> <I>?"
+      "How many <HN> or <HN2> are playing <RT> the <PI> <I> ?"
     ],
     "nodes": [
       {
@@ -486,7 +486,7 @@
   },
   {
     "note": "Limited answers. Only {0,1,2}",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "How many <HN> or <HN2> are playing <RT> the <P> sound ?"
     ],
@@ -557,7 +557,7 @@
   },
   {
     "note": "Limited nb of answers {0,1,2}",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "How many <L> sound are played by a <I2> that is <RT> the <PI> <I> ?"
     ],
@@ -600,7 +600,7 @@
   },
   {
     "note": "Limited nb of answers {0,1,2}",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "How many <L> sound are played by a <I> that is <RT> the <P> sound ?"
     ],
@@ -633,9 +633,9 @@
   },
   {
     "note": "Limited nb of answers {0,1}",
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "How many <B> sound are played by a <I2> that is <RT> the <PI> <I>?"
+      "How many <B> sound are played by a <I2> that is <RT> the <PI> <I> ?"
     ],
     "nodes": [
       {
@@ -676,7 +676,7 @@
   },
   {
     "note": "Limited nb of answers {0,1}",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "How many <B> sound are played by a <I> that is <RT> the <P> sound ?"
     ],
@@ -709,7 +709,7 @@
   },
   {
     "note": "DOESNT WORK. All relation are classified as trivial. Why ?",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "How many other sounds have the same brightness as the <PI2> <I2> that is <RT> the <PI> <I> ?"
     ],
@@ -764,7 +764,7 @@
   },
   {
     "note": "DOESNT WORK. All relation are classified as trivial. Why ?",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "How many other sounds have the same loudness as the <PI2> <I2> that is <RT> the <PI> <I> ?"
     ],
@@ -819,7 +819,7 @@
   },
   {
     "note": "DOESNT WORK. All relation are classified as trivial. Why ?",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "How many <I3> have the same brightness as the <PI2> <I2> that is <RT> the <PI> <I> ?"
     ],
@@ -897,7 +897,7 @@
   },
   {
     "note": "DOESNT WORK. All relation are classified as trivial. Why ?",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "How many <I3> have the same loudness as the <PI2> <I2> that is <RT> the <PI> <I> ?"
     ],
@@ -974,7 +974,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "How many different instruments are playing <RT> the <PI> <I> ?"
     ],
@@ -1011,7 +1011,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "How many different instruments are playing <RT> the <P> sound ?"
     ],

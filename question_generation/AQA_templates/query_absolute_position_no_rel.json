@@ -1,6 +1,6 @@
 [
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the position of the <PI> <I> ?"
     ],
@@ -29,7 +29,7 @@
   },
   {
     "note": "Limited nb of answer. 4 on 70. INVESTIGATE",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the position of the longest sound ?"
     ],
@@ -54,7 +54,7 @@
   },
   {
     "note": "Limited nb of answer. 65 on 70.",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the position of the longest sound playing in the <PG> of the scene ?"
     ],
@@ -88,7 +88,7 @@
   },
   {
     "note": "Limited nb of answer. 49 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the position of the shortest sound ?"
     ],
@@ -112,7 +112,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the position of the shortest sound playing in the <PG> of the scene ?"
     ],
@@ -145,7 +145,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the position of the instrument that play a <HN> note ?"
     ],
@@ -172,7 +172,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the position of the instrument that play a <HN> note in the <PG> of the scene ?"
     ],
@@ -201,7 +201,7 @@
   },
   {
     "note": "limited nb of answer. 41 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the position of the <L> sound that is playing in the <PG> of the scene ?"
     ],
@@ -230,7 +230,7 @@
   },
   {
     "note": "limited nb of answer. 63 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the position of the <B> sound that is playing in the <PG> of the scene ?"
     ],
@@ -259,7 +259,7 @@
   },
   {
     "note": "limited nb of answer. 52 on 70.",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the position of the <L> <B> sound ?"
     ],
@@ -288,7 +288,7 @@
   },
   {
     "note": "limited nb of answer. 65 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the position of the <L> <B> sound that is playing in the <PG> of the scene ?"
     ],
@@ -317,7 +317,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the position of the <L> <HN> note ?"
     ],
@@ -345,7 +345,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the position of the <L> <HN> note that is playing in the <PG> of the scene ?"
     ],
@@ -374,7 +374,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the position of the <B> <HN> note ?"
     ],
@@ -403,7 +403,7 @@
   },
   {
     "note": "limited nb of answer. 69 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the position of the <B> <HN> note that is playing in the <PG> of the scene ?"
     ],
@@ -432,7 +432,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the position of the <L> <B> <HN> note ?"
     ],
@@ -462,7 +462,7 @@
   },
   {
     "note": "limited nb of answer. 69 on 70",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the position of the <L> <B> <HN> note that is playing in the <PG> of the scene ?"
     ],

@@ -24,6 +24,9 @@ in a JSON metadata file.
 
 use_last_position_value = False
 
+# FIXME : This won't work if the scene is longer than 11
+idx_to_position_str = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "eleventh"]
+
 def scene_handler(scene_struct, inputs, side_inputs):
   # Just return all objects in the scene
   return list(range(len(scene_struct['objects'])))
@@ -435,34 +438,7 @@ functions = {
 
 functions_to_be_expanded = [name for name, definition in functions.items() if definition['handler'] is None]
 
-# FIXME : This won't work if the scene is longer than 11
-idx_to_position_str = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "eleventh"]
-def add_positions_to_metadata(metadata, instrument_count, max_scene_length):
-  # Adding values for position absolute
-  position_absolute_answers = []
-  for i in range(max_scene_length):
-    position_absolute_answers.append(idx_to_position_str[i] + ' sound')
-
-  if use_last_position_value:
-    position_absolute_answers.append('last sound')
-
-  metadata['attributes']['position']['values'] = position_absolute_answers
-
-  # Adding values for position_instrument           # FIXME : Generalize this
-  position_instrument_answers = []
-  for instrument, count in instrument_count.items():
-    for i in range(count):
-      position_instrument_answers.append(idx_to_position_str[i] + ' ' + instrument)
-
-      if use_last_position_value:
-        position_instrument_answers.append('last ' + instrument)
-
-  metadata['attributes']['position_instrument']['values'] = position_instrument_answers
-
-
 def instantiate_attributes_handlers(metadata, instrument_count, max_scene_length):
-  add_positions_to_metadata(metadata, instrument_count, max_scene_length)
-
   for attribute_name in metadata['attributes'].keys():
 
     # Relations are defined separately

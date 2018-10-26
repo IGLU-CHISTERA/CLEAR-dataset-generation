@@ -3,11 +3,15 @@
   "attributes": {
     "position": {
       "placeholder" : "<P>",
-      "values" : []
+      "values" : [
+        "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth"
+      ]
     },
     "position_instrument": {
       "placeholder" : "<PI>",
-      "values" : []
+      "values" : [
+        "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth"
+      ]
     },
     "position_global": {
       "placeholder" : "<PG>",

@@ -1,0 +1,450 @@
+[
+  {
+    "octave": 4,
+    "human_note": "C",
+    "rating": 9.0,
+    "instrument": "flute",
+    "source_microphone": "akg",
+    "filename": "flute_C_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "C#",
+    "rating": 9.0,
+    "instrument": "flute",
+    "source_microphone": "akg",
+    "filename": "flute_C#_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "D",
+    "rating": 9.0,
+    "instrument": "flute",
+    "source_microphone": "akg",
+    "filename": "flute_D_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "D#",
+    "rating": 9.0,
+    "instrument": "flute",
+    "source_microphone": "akg",
+    "filename": "flute_D#_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "E",
+    "rating": 9.0,
+    "instrument": "flute",
+    "source_microphone": "akg",
+    "filename": "flute_E_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "F",
+    "rating": 9.0,
+    "instrument": "flute",
+    "source_microphone": "akg",
+    "filename": "flute_F_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "F#",
+    "rating": 9.0,
+    "instrument": "flute",
+    "source_microphone": "akg",
+    "filename": "flute_F#_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "G",
+    "rating": 9.0,
+    "instrument": "flute",
+    "source_microphone": "akg",
+    "filename": "flute_G_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "G#",
+    "rating": 9.0,
+    "instrument": "flute",
+    "source_microphone": "akg",
+    "filename": "flute_G#_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "A",
+    "rating": 9.0,
+    "instrument": "flute",
+    "source_microphone": "akg",
+    "filename": "flute_A_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "A#",
+    "rating": 9.0,
+    "instrument": "flute",
+    "source_microphone": "akg",
+    "filename": "flute_A#_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "B",
+    "rating": 9.0,
+    "instrument": "flute",
+    "source_microphone": "akg",
+    "filename": "flute_B_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "C",
+    "rating": null,
+    "instrument": "clarinet",
+    "source_microphone": "akg",
+    "filename": "clarinet_C_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "C#",
+    "rating": null,
+    "instrument": "clarinet",
+    "source_microphone": "akg",
+    "filename": "clarinet_C#_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "D",
+    "rating": 8.0,
+    "instrument": "clarinet",
+    "source_microphone": "akg",
+    "filename": "clarinet_D_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "D#",
+    "rating": null,
+    "instrument": "clarinet",
+    "source_microphone": "akg",
+    "filename": "clarinet_D#_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "E",
+    "rating": null,
+    "instrument": "clarinet",
+    "source_microphone": "akg",
+    "filename": "clarinet_E_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "F",
+    "rating": 7.5,
+    "instrument": "clarinet",
+    "source_microphone": "akg",
+    "filename": "clarinet_F_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "F#",
+    "rating": null,
+    "instrument": "clarinet",
+    "source_microphone": "akg",
+    "filename": "clarinet_F#_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "G",
+    "rating": null,
+    "instrument": "clarinet",
+    "source_microphone": "akg",
+    "filename": "clarinet_G_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "G#",
+    "rating": 7.0,
+    "instrument": "clarinet",
+    "source_microphone": "akg",
+    "filename": "clarinet_G#_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "A",
+    "rating": null,
+    "instrument": "clarinet",
+    "source_microphone": "akg",
+    "filename": "clarinet_A_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "A#",
+    "rating": 6.5,
+    "instrument": "clarinet",
+    "source_microphone": "akg",
+    "filename": "clarinet_A#_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "B",
+    "rating": null,
+    "instrument": "clarinet",
+    "source_microphone": "akg",
+    "filename": "clarinet_B_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "B",
+    "rating": 6.5,
+    "instrument": "trumpet",
+    "source_microphone": "akg",
+    "filename": "trumpet_B_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "A#",
+    "rating": 6.0,
+    "instrument": "trumpet",
+    "source_microphone": "akg",
+    "filename": "trumpet_A#_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "A",
+    "rating": 7.5,
+    "instrument": "trumpet",
+    "source_microphone": "akg",
+    "filename": "trumpet_A_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "G#",
+    "rating": 8.0,
+    "instrument": "trumpet",
+    "source_microphone": "akg",
+    "filename": "trumpet_G#_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "G",
+    "rating": null,
+    "instrument": "trumpet",
+    "source_microphone": "akg",
+    "filename": "trumpet_G_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "F#",
+    "rating": 6.5,
+    "instrument": "trumpet",
+    "source_microphone": "akg",
+    "filename": "trumpet_F#_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "F",
+    "rating": 7.5,
+    "instrument": "trumpet",
+    "source_microphone": "akg",
+    "filename": "trumpet_F_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "E",
+    "rating": 8.0,
+    "instrument": "trumpet",
+    "source_microphone": "akg",
+    "filename": "trumpet_E_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "D#",
+    "rating": null,
+    "instrument": "trumpet",
+    "source_microphone": "akg",
+    "filename": "trumpet_D#_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "D",
+    "rating": 5.0,
+    "instrument": "trumpet",
+    "source_microphone": "akg",
+    "filename": "trumpet_D_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "C#",
+    "rating": 8.0,
+    "instrument": "trumpet",
+    "source_microphone": "akg",
+    "filename": "trumpet_C#_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "C",
+    "rating": 7.0,
+    "instrument": "trumpet",
+    "source_microphone": "akg",
+    "filename": "trumpet_C_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "C#",
+    "rating": 10.0,
+    "instrument": "violin",
+    "source_microphone": "akg",
+    "filename": "violin_C#_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "D",
+    "rating": 6.0,
+    "instrument": "violin",
+    "source_microphone": "akg",
+    "filename": "violin_D_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "D#",
+    "rating": 10.0,
+    "instrument": "violin",
+    "source_microphone": "akg",
+    "filename": "violin_D#_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "E",
+    "rating": 10.0,
+    "instrument": "violin",
+    "source_microphone": "akg",
+    "filename": "violin_E_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "F",
+    "rating": 10.0,
+    "instrument": "violin",
+    "source_microphone": "akg",
+    "filename": "violin_F_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "A",
+    "rating": null,
+    "instrument": "violin",
+    "source_microphone": "akg",
+    "filename": "violin_A_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "A#",
+    "rating": 10.0,
+    "instrument": "violin",
+    "source_microphone": "akg",
+    "filename": "violin_A#_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "B",
+    "rating": 8.0,
+    "instrument": "violin",
+    "source_microphone": "akg",
+    "filename": "violin_B_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "C",
+    "rating": 10.0,
+    "instrument": "violin",
+    "source_microphone": "akg",
+    "filename": "violin_C_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "F#",
+    "rating": 9.0,
+    "instrument": "violin",
+    "source_microphone": "akg",
+    "filename": "violin_F#_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "G",
+    "rating": 9.0,
+    "instrument": "violin",
+    "source_microphone": "akg",
+    "filename": "violin_G_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "G#",
+    "rating": null,
+    "instrument": "violin",
+    "source_microphone": "akg",
+    "filename": "violin_G#_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "C",
+    "rating": 9.0,
+    "instrument": "cello",
+    "source_microphone": "akg",
+    "filename": "cello_C_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "C#",
+    "rating": null,
+    "instrument": "cello",
+    "source_microphone": "akg",
+    "filename": "cello_C#_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "D",
+    "rating": null,
+    "instrument": "cello",
+    "source_microphone": "akg",
+    "filename": "cello_D_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "D#",
+    "rating": null,
+    "instrument": "cello",
+    "source_microphone": "akg",
+    "filename": "cello_D#_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "E",
+    "rating": null,
+    "instrument": "cello",
+    "source_microphone": "akg",
+    "filename": "cello_E_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "F",
+    "rating": null,
+    "instrument": "cello",
+    "source_microphone": "akg",
+    "filename": "cello_F_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "F#",
+    "rating": null,
+    "instrument": "cello",
+    "source_microphone": "akg",
+    "filename": "cello_F#_akg.wav"
+  },
+  {
+    "octave": 4,
+    "human_note": "G",
+    "rating": null,
+    "instrument": "cello",
+    "source_microphone": "akg",
+    "filename": "cello_G_akg.wav"
+  }
+]

@@ -2,7 +2,7 @@
   {
     "disabled": false,
     "text": [
-      "What instrument play a <HN2> note <RT> the <PI> <I>?"
+      "What instrument plays a <HN2> note <RT> the <PI> <I> ?"
     ],
     "nodes": [
       {
@@ -33,14 +33,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <HN2> note <RT> the <B> sound ?"
+      "What instrument plays a <HN2> note <RT> the <B> sound ?"
     ],
     "nodes": [
       {
@@ -70,14 +70,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <HN2> note <RT> the <L> sound ?"
+      "What instrument plays a <HN2> note <RT> the <L> sound ?"
     ],
     "nodes": [
       {
@@ -107,14 +107,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <HN2> note <RT> the <L> <B> sound ?"
+      "What instrument plays a <HN2> note <RT> the <L> <B> sound ?"
     ],
     "nodes": [
       {
@@ -145,14 +145,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <HN2> note <RT> the <HN> note ?"
+      "What instrument plays a <HN2> note <RT> the <HN> note ?"
     ],
     "nodes": [
       {
@@ -182,14 +182,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <HN2> note <RT> the <L> <HN> note ?"
+      "What instrument plays a <HN2> note <RT> the <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -220,14 +220,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <HN2> note <RT> the <B> <HN> note ?"
+      "What instrument plays a <HN2> note <RT> the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -258,14 +258,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <HN2> note <RT> the <L> <B> <HN> note ?"
+      "What instrument plays a <HN2> note <RT> the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -297,14 +297,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <HN2> note <RT> the <I> that play a <HN> note ?"
+      "What instrument plays a <HN2> note <RT> the <I> that play a <HN> note ?"
     ],
     "nodes": [
       {
@@ -335,14 +335,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <HN2> note <RT> the <I> that play a <L> <HN> note ?"
+      "What instrument plays a <HN2> note <RT> the <I> that play a <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -374,14 +374,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <HN2> note <RT> the <I> that play a <B> <HN> note ?"
+      "What instrument plays a <HN2> note <RT> the <I> that play a <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -413,14 +413,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <HN2> note <RT> the <I> that play a <L> <B> <HN> note ?"
+      "What instrument plays a <HN2> note <RT> the <I> that play a <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -453,18 +453,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
-  
-  
-  
-  
   {
     "disabled": false,
     "text": [
-      "What instrument play a <B2> sound <RT> the <PI> <I>?"
+      "What instrument plays a <B2> sound <RT> the <PI> <I> ?"
     ],
     "nodes": [
       {
@@ -495,14 +491,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <B2> sound <RT> the <B> sound ?"
+      "What instrument plays a <B2> sound <RT> the <B> sound ?"
     ],
     "nodes": [
       {
@@ -532,14 +528,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <B2> sound <RT> the <L> sound ?"
+      "What instrument plays a <B2> sound <RT> the <L> sound ?"
     ],
     "nodes": [
       {
@@ -569,14 +565,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <B2> sound <RT> the <L> <B> sound ?"
+      "What instrument plays a <B2> sound <RT> the <L> <B> sound ?"
     ],
     "nodes": [
       {
@@ -607,14 +603,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <B2> sound <RT> the <HN> note ?"
+      "What instrument plays a <B2> sound <RT> the <HN> note ?"
     ],
     "nodes": [
       {
@@ -644,14 +640,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <B2> sound <RT> the <L> <HN> note ?"
+      "What instrument plays a <B2> sound <RT> the <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -682,14 +678,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <B2> sound <RT> the <B> <HN> note ?"
+      "What instrument plays a <B2> sound <RT> the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -720,14 +716,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <B2> sound <RT> the <L> <B> <HN> note ?"
+      "What instrument plays a <B2> sound <RT> the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -759,14 +755,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <B2> sound <RT> the <I> that play a <HN> note ?"
+      "What instrument plays a <B2> sound <RT> the <I> that play a <HN> note ?"
     ],
     "nodes": [
       {
@@ -797,14 +793,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <B2> sound <RT> the <I> that play a <L> <HN> note ?"
+      "What instrument plays a <B2> sound <RT> the <I> that play a <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -836,14 +832,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <B2> sound <RT> the <I> that play a <B> <HN> note ?"
+      "What instrument plays a <B2> sound <RT> the <I> that play a <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -875,14 +871,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <B2> sound <RT> the <I> that play a <L> <B> <HN> note ?"
+      "What instrument plays a <B2> sound <RT> the <I> that play a <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -915,19 +911,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
-  
-  
-  
-  
-  
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> sound <RT> the <PI> <I>?"
+      "What instrument plays a <L2> sound <RT> the <PI> <I> ?"
     ],
     "nodes": [
       {
@@ -958,14 +949,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> sound <RT> the <B> sound ?"
+      "What instrument plays a <L2> sound <RT> the <B> sound ?"
     ],
     "nodes": [
       {
@@ -995,14 +986,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> sound <RT> the <L> sound ?"
+      "What instrument plays a <L2> sound <RT> the <L> sound ?"
     ],
     "nodes": [
       {
@@ -1032,14 +1023,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> sound <RT> the <L> <B> sound ?"
+      "What instrument plays a <L2> sound <RT> the <L> <B> sound ?"
     ],
     "nodes": [
       {
@@ -1070,14 +1061,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> sound <RT> the <HN> note ?"
+      "What instrument plays a <L2> sound <RT> the <HN> note ?"
     ],
     "nodes": [
       {
@@ -1107,14 +1098,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> sound <RT> the <L> <HN> note ?"
+      "What instrument plays a <L2> sound <RT> the <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -1145,14 +1136,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> sound <RT> the <B> <HN> note ?"
+      "What instrument plays a <L2> sound <RT> the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -1183,14 +1174,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> sound <RT> the <L> <B> <HN> note ?"
+      "What instrument plays a <L2> sound <RT> the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -1222,14 +1213,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> sound <RT> the <I> that play a <HN> note ?"
+      "What instrument plays a <L2> sound <RT> the <I> that play a <HN> note ?"
     ],
     "nodes": [
       {
@@ -1260,14 +1251,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> sound <RT> the <I> that play a <L> <HN> note ?"
+      "What instrument plays a <L2> sound <RT> the <I> that play a <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -1299,14 +1290,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> sound <RT> the <I> that play a <B> <HN> note ?"
+      "What instrument plays a <L2> sound <RT> the <I> that play a <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -1338,14 +1329,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> sound <RT> the <I> that play a <L> <B> <HN> note ?"
+      "What instrument plays a <L2> sound <RT> the <I> that play a <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -1378,18 +1369,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
-  
-  
-  
-  
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <B2> sound <RT> the <PI> <I>?"
+      "What instrument plays a <L2> <B2> sound <RT> the <PI> <I> ?"
     ],
     "nodes": [
       {
@@ -1421,14 +1408,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <B2> sound <RT> the <B> sound ?"
+      "What instrument plays a <L2> <B2> sound <RT> the <B> sound ?"
     ],
     "nodes": [
       {
@@ -1459,14 +1446,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <B2> sound <RT> the <L> sound ?"
+      "What instrument plays a <L2> <B2> sound <RT> the <L> sound ?"
     ],
     "nodes": [
       {
@@ -1497,14 +1484,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <B2> sound <RT> the <L> <B> sound ?"
+      "What instrument plays a <L2> <B2> sound <RT> the <L> <B> sound ?"
     ],
     "nodes": [
       {
@@ -1536,14 +1523,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <B2> sound <RT> the <HN> note ?"
+      "What instrument plays a <L2> <B2> sound <RT> the <HN> note ?"
     ],
     "nodes": [
       {
@@ -1574,14 +1561,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <B2> sound <RT> the <L> <HN> note ?"
+      "What instrument plays a <L2> <B2> sound <RT> the <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -1613,14 +1600,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <B2> sound <RT> the <B> <HN> note ?"
+      "What instrument plays a <L2> <B2> sound <RT> the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -1652,14 +1639,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <B2> sound <RT> the <L> <B> <HN> note ?"
+      "What instrument plays a <L2> <B2> sound <RT> the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -1692,14 +1679,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <B2> sound <RT> the <I> that play a <HN> note ?"
+      "What instrument plays a <L2> <B2> sound <RT> the <I> that play a <HN> note ?"
     ],
     "nodes": [
       {
@@ -1731,14 +1718,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <B2> sound <RT> the <I> that play a <L> <HN> note ?"
+      "What instrument plays a <L2> <B2> sound <RT> the <I> that play a <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -1771,14 +1758,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <B2> sound <RT> the <I> that play a <B> <HN> note ?"
+      "What instrument plays a <L2> <B2> sound <RT> the <I> that play a <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -1811,14 +1798,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <B2> sound <RT> the <I> that play a <L> <B> <HN> note ?"
+      "What instrument plays a <L2> <B2> sound <RT> the <I> that play a <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -1852,18 +1839,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
-  
-  
-  
-  
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <HN2> note <RT> the <PI> <I>?"
+      "What instrument plays a <L2> <HN2> note <RT> the <PI> <I> ?"
     ],
     "nodes": [
       {
@@ -1895,14 +1878,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <HN2> note <RT> the <B> sound ?"
+      "What instrument plays a <L2> <HN2> note <RT> the <B> sound ?"
     ],
     "nodes": [
       {
@@ -1933,14 +1916,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <HN2> note <RT> the <L> sound ?"
+      "What instrument plays a <L2> <HN2> note <RT> the <L> sound ?"
     ],
     "nodes": [
       {
@@ -1971,14 +1954,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <HN2> note <RT> the <L> <B> sound ?"
+      "What instrument plays a <L2> <HN2> note <RT> the <L> <B> sound ?"
     ],
     "nodes": [
       {
@@ -2010,14 +1993,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <HN2> note <RT> the <HN> note ?"
+      "What instrument plays a <L2> <HN2> note <RT> the <HN> note ?"
     ],
     "nodes": [
       {
@@ -2048,14 +2031,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <HN2> note <RT> the <L> <HN> note ?"
+      "What instrument plays a <L2> <HN2> note <RT> the <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -2087,14 +2070,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <HN2> note <RT> the <B> <HN> note ?"
+      "What instrument plays a <L2> <HN2> note <RT> the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -2126,14 +2109,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <HN2> note <RT> the <L> <B> <HN> note ?"
+      "What instrument plays a <L2> <HN2> note <RT> the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -2166,14 +2149,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <HN2> note <RT> the <I> that play a <HN> note ?"
+      "What instrument plays a <L2> <HN2> note <RT> the <I> that play a <HN> note ?"
     ],
     "nodes": [
       {
@@ -2205,14 +2188,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <HN2> note <RT> the <I> that play a <L> <HN> note ?"
+      "What instrument plays a <L2> <HN2> note <RT> the <I> that play a <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -2245,14 +2228,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <HN2> note <RT> the <I> that play a <B> <HN> note ?"
+      "What instrument plays a <L2> <HN2> note <RT> the <I> that play a <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -2285,14 +2268,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <HN2> note <RT> the <I> that play a <L> <B> <HN> note ?"
+      "What instrument plays a <L2> <HN2> note <RT> the <I> that play a <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -2326,19 +2309,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
-  
-  
-  
-  
-  
   {
     "disabled": false,
     "text": [
-      "What instrument play a <B2> <HN2> note <RT> the <PI> <I>?"
+      "What instrument plays a <B2> <HN2> note <RT> the <PI> <I> ?"
     ],
     "nodes": [
       {
@@ -2370,14 +2348,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <B2> <HN2> note <RT> the <B> sound ?"
+      "What instrument plays a <B2> <HN2> note <RT> the <B> sound ?"
     ],
     "nodes": [
       {
@@ -2408,14 +2386,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <B2> <HN2> note <RT> the <L> sound ?"
+      "What instrument plays a <B2> <HN2> note <RT> the <L> sound ?"
     ],
     "nodes": [
       {
@@ -2446,14 +2424,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <B2> <HN2> note <RT> the <L> <B> sound ?"
+      "What instrument plays a <B2> <HN2> note <RT> the <L> <B> sound ?"
     ],
     "nodes": [
       {
@@ -2485,14 +2463,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <B2> <HN2> note <RT> the <HN> note ?"
+      "What instrument plays a <B2> <HN2> note <RT> the <HN> note ?"
     ],
     "nodes": [
       {
@@ -2523,14 +2501,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <B2> <HN2> note <RT> the <L> <HN> note ?"
+      "What instrument plays a <B2> <HN2> note <RT> the <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -2562,14 +2540,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <B2> <HN2> note <RT> the <B> <HN> note ?"
+      "What instrument plays a <B2> <HN2> note <RT> the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -2601,14 +2579,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <B2> <HN2> note <RT> the <L> <B> <HN> note ?"
+      "What instrument plays a <B2> <HN2> note <RT> the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -2641,14 +2619,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <B2> <HN2> note <RT> the <I> that play a <HN> note ?"
+      "What instrument plays a <B2> <HN2> note <RT> the <I> that play a <HN> note ?"
     ],
     "nodes": [
       {
@@ -2680,14 +2658,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <B2> <HN2> note <RT> the <I> that play a <L> <HN> note ?"
+      "What instrument plays a <B2> <HN2> note <RT> the <I> that play a <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -2720,14 +2698,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <B2> <HN2> note <RT> the <I> that play a <B> <HN> note ?"
+      "What instrument plays a <B2> <HN2> note <RT> the <I> that play a <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -2760,14 +2738,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <B2> <HN2> note <RT> the <I> that play a <L> <B> <HN> note ?"
+      "What instrument plays a <B2> <HN2> note <RT> the <I> that play a <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -2801,19 +2779,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
-  
-  
-  
-  
-  
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <B2> <HN2> note <RT> the <PI> <I>?"
+      "What instrument plays a <L2> <B2> <HN2> note <RT> the <PI> <I> ?"
     ],
     "nodes": [
       {
@@ -2846,14 +2819,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <B2> <HN2> note <RT> the <B> sound ?"
+      "What instrument plays a <L2> <B2> <HN2> note <RT> the <B> sound ?"
     ],
     "nodes": [
       {
@@ -2885,14 +2858,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <B2> <HN2> note <RT> the <L> sound ?"
+      "What instrument plays a <L2> <B2> <HN2> note <RT> the <L> sound ?"
     ],
     "nodes": [
       {
@@ -2924,14 +2897,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <B2> <HN2> note <RT> the <L> <B> sound ?"
+      "What instrument plays a <L2> <B2> <HN2> note <RT> the <L> <B> sound ?"
     ],
     "nodes": [
       {
@@ -2964,14 +2937,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <B2> <HN2> note <RT> the <HN> note ?"
+      "What instrument plays a <L2> <B2> <HN2> note <RT> the <HN> note ?"
     ],
     "nodes": [
       {
@@ -3003,14 +2976,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <B2> <HN2> note <RT> the <L> <HN> note ?"
+      "What instrument plays a <L2> <B2> <HN2> note <RT> the <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -3043,14 +3016,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <B2> <HN2> note <RT> the <B> <HN> note ?"
+      "What instrument plays a <L2> <B2> <HN2> note <RT> the <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -3083,14 +3056,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <B2> <HN2> note <RT> the <L> <B> <HN> note ?"
+      "What instrument plays a <L2> <B2> <HN2> note <RT> the <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -3124,14 +3097,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <B2> <HN2> note <RT> the <I> that play a <HN> note ?"
+      "What instrument plays a <L2> <B2> <HN2> note <RT> the <I> that play a <HN> note ?"
     ],
     "nodes": [
       {
@@ -3164,14 +3137,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <B2> <HN2> note <RT> the <I> that play a <L> <HN> note ?"
+      "What instrument plays a <L2> <B2> <HN2> note <RT> the <I> that play a <L> <HN> note ?"
     ],
     "nodes": [
       {
@@ -3205,14 +3178,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <B2> <HN2> note <RT> the <I> that play a <B> <HN> note ?"
+      "What instrument plays a <L2> <B2> <HN2> note <RT> the <I> that play a <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -3246,14 +3219,14 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   },
   {
     "disabled": false,
     "text": [
-      "What instrument play a <L2> <B2> <HN2> note <RT> the <I> that play a <L> <B> <HN> note ?"
+      "What instrument plays a <L2> <B2> <HN2> note <RT> the <I> that play a <L> <B> <HN> note ?"
     ],
     "nodes": [
       {
@@ -3288,7 +3261,7 @@
         "inputs": [
           2
         ],
-        "type": "query_position_instrument"
+        "type": "query_instrument"
       }
     ]
   }

@@ -1,6 +1,374 @@
 [
   {
-    "disabled": true,
+    "disabled": false,
+    "text": [
+      "Among the <I> sounds, is there a <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_exist"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <I> sounds, is there a <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_exist"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <I> sounds, is there a <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_exist"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <B> sounds, is there one played by a <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_exist"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <B> sounds, is there a <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_exist"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <B> sounds, is there a <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_exist"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <L> sounds, is there a <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_exist"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <L> sounds, is there one played by a <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_exist"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <L> sounds, is there a <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_exist"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <HN> notes in the scene, is there a <B> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<B>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_exist"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <HN> notes in the scene, is there played by a <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_exist"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <HN> notes in the scene, is there a <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_exist"
+      }
+    ]
+  },
+  
+  
+  
+  
+  
+  
+  
+  
+  {
+    "disabled": false,
     "text": [
       "Is there a <I> playing ?"
     ],
@@ -21,7 +389,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <B> sound playing ?"
     ],
@@ -43,7 +411,7 @@
   },
   {
     "note": "Limited number of answers. There is always a loud or quiet sound in the scene",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <L> sound playing ?"
     ],
@@ -65,7 +433,7 @@
   },
   {
     "note": "Only produce 0 & 1 answers",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <HN> note playing ?"
     ],
@@ -86,7 +454,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <I> or a <I2> playing ?"
     ],
@@ -136,7 +504,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <HN> or a <HN2> note playing ?"
     ],
@@ -186,7 +554,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <L> sound played by a <I> ?"
     ],
@@ -208,7 +576,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <B> sound played by a <I> ?"
     ],
@@ -230,7 +598,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <L> sound played by a <I> or a <I2> ?"
     ],
@@ -282,7 +650,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <B> sound played by a <I> or a <I2> ?"
     ],
@@ -335,7 +703,7 @@
   },
   {
     "note": "Limited number of answers. Template get instantiated just 4 times on 70 scenes. Answer always true. Need some empty filters",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there other sounds that have the same brightness as the <PI> <I> ?"
     ],
@@ -370,7 +738,7 @@
   },
   {
     "note": "Limited number of answers. Template get instantiated just 4 times on 70 scenes. Answer always true. Need some empty filters",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there other sounds that have the same loudness as the <PI> <I> ?"
     ],
@@ -404,7 +772,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <I2> that have the same brightness as the <PI> <I> ?"
     ],
@@ -456,7 +824,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <I2> that have the same loudness as the <PI> <I> ?"
     ],
@@ -508,9 +876,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there a <I> playing in the <PG> of the scene?"
+      "Is there a <I> playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -530,9 +898,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there a <L> sound playing in the <PG> of the scene?"
+      "Is there a <L> sound playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -552,9 +920,9 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
-      "Is there a <I> or a <I2> playing in the <PG> of the scene?"
+      "Is there a <I> or a <I2> playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {

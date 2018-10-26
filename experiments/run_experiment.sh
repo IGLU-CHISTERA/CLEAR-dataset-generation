@@ -31,7 +31,7 @@ set -e
 
 cd ${ROOTDIR}
 echo "-----------------------------------------------------------------------------------------------------------"
-echo "    AQA Dataset Generation"
+echo "    AQA Dataset Generation  --- Experiment : ${EXPERIMENT_NAME}  ---  `date +"%d/%m/%Y %H:%M"`"
 echo "-----------------------------------------------------------------------------------------------------------"
 echo "[NOTE] This script should be run inside the virtual environment associated with Aqa-Dataset-Gen project"
 echo "[NOTE] The output of each process can be found in the log folder of the experiment"
@@ -39,17 +39,33 @@ echo "[NOTE] Stopping this script will not stop the background process."
 echo "[NOTE] Make sure all the process are stopped if CTRL+C on this script"
 echo "-----------------------------------------------------------------------------------------------------------"
 
-trap "echo interrupted scene generation" SIGINT
+#trap "echo interrupted scene generation" SIGINT
 
 ## Generate the scenes
 echo "Generating scenes..."
 python ./scene_generation/scene_generator.py @${EXPERIMENT_DIR}/scene_generator.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/scene_generation.log"
 echo -e "Scene generation Done\n"
 
+# Scene production
+echo "Starting scene production..."
+python ./scene_generation/produce_scenes.py @${EXPERIMENT_DIR}/train_scene_producer.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/train_scene_production.log" &
+TRAIN_SCENE_PRODUCTION_PID=$!
+
+# Sleep to let the first script create the folders and avoid race condition
+sleep 1
+
+python ./scene_generation/produce_scenes.py @${EXPERIMENT_DIR}/val_scene_producer.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/val_scene_production.log" &
+VAL_SCENE_PRODUCTION_PID=$!
+
+python ./scene_generation/produce_scenes.py @${EXPERIMENT_DIR}/test_scene_producer.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/test_scene_production.log" &
+TEST_SCENE_PRODUCTION_PID=$!
+
 ## Question Generation
 echo 'Starting Training Question Generation...'
 python ./question_generation/generate_questions.py @${EXPERIMENT_DIR}/train_question_generator.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/train_question_generation.log" &
 TRAINING_QUESTION_GENERATION_PID=$!
+# Sleep to let the first script create the folders and avoid race condition
+sleep 1
 
 echo 'Starting Validation Question Generation...'
 python ./question_generation/generate_questions.py @${EXPERIMENT_DIR}/val_question_generator.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/val_question_generation.log" &
@@ -59,7 +75,7 @@ echo 'Starting Test Question Generation...'
 python ./question_generation/generate_questions.py @${EXPERIMENT_DIR}/test_question_generator.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/test_question_generation.log" &
 TEST_QUESTION_GENERATION_PID=$!
 
-trap "echo 'Killing question generation' && kill -9 ${TRAINING_QUESTION_GENERATION_PID} ${VAL_QUESTION_GENERATION_PID} ${TEST_QUESTION_GENERATION_PID}" SIGINT
+#trap "echo 'Killing question generation' && kill -9 ${TRAINING_QUESTION_GENERATION_PID} ${VAL_QUESTION_GENERATION_PID} ${TEST_QUESTION_GENERATION_PID}" SIGINT
 
 # Wait for process to finish
 wait $TRAINING_QUESTION_GENERATION_PID $VAL_QUESTION_GENERATION_PID $TEST_QUESTION_GENERATION_PID
@@ -79,19 +95,8 @@ python ./utils/consolidate_questions.py --set_type test --output_folder ${OUTPUT
 
 echo -e "Question consolidation Done\n"
 
-# Scene production
-echo "Starting scene production..."
-python ./scene_generation/produce_scenes.py @${EXPERIMENT_DIR}/train_scene_producer.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/train_scene_production.log" &
-TRAIN_SCENE_PRODUCTION_PID=$!
+#trap "echo 'killing scene production' && kill -9 ${TRAIN_SCENE_PRODUCTION_PID} ${VAL_SCENE_PRODUCTION_PID} ${TEST_SCENE_PRODUCTION_PID}" SIGINT
 
-python ./scene_generation/produce_scenes.py @${EXPERIMENT_DIR}/val_scene_producer.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/val_scene_production.log" &
-VAL_SCENE_PRODUCTION_PID=$!
-
-python ./scene_generation/produce_scenes.py @${EXPERIMENT_DIR}/test_scene_producer.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/test_scene_production.log" &
-TEST_SCENE_PRODUCTION_PID=$!
-
-trap "echo 'killing scene production' && kill -9 ${TRAINING_SCNE_PRODUCTION_PID} ${VAL_SCENE_PRODUCTION_PID} ${TEST_SCENE_PRODUCTION_PID}" SIGINT
-
-wait $TRAIN_SCENE_PRODUCTION_PID $VAL_SCENE_PRODUCTION_PID $TEST_SCENE_PRODUCTION_PID
+wait $TRAIN_SCENE_PRODUCTION_PID $VAL_SCENE_PRODUCTION_PID $TEST_SCENE_PRODUCTION_PID $TRAINING_QUESTION_GENERATION_PID $VAL_QUESTION_GENERATION_PID $TEST_QUESTION_GENERATION_PID
 
 echo -e "Scene production done\n"

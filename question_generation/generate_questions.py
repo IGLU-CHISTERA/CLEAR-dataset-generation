@@ -10,10 +10,12 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 
 from __future__ import print_function
-import argparse, ujson, os, random, math
+import argparse, ujson, os, random, math, statistics
 import time
 import re
+import sys
 from functools import reduce
+from itertools import groupby
 import copy
 from utils.misc import init_random_seed
 
@@ -151,6 +153,22 @@ def precompute_filter_options(scene_struct, attr_keys, can_be_null_attributes):
           deleted_keys.add(key)
           del attribute_map[key]
 
+  # FIXME : Generalize this
+  # FIXME : Make sure this will hold when there is more positional attributes
+  # Removing position attribute if there is only one occurrence of the instrument
+  if "position_instrument" in attr_keys:
+    keys_by_instrument = OrderedDict()
+    for instrument, key in groupby(attribute_map.keys(), lambda x: x[0]):
+      if instrument not in keys_by_instrument:
+        keys_by_instrument[instrument] = []
+      keys_by_instrument[instrument] += list(key)
+
+    for instrument, keys in keys_by_instrument.items():
+      if len(keys) == 1:
+        # Only have 1 object, we remove the position attribute
+        attribute_map[(instrument, None)] = attribute_map[keys[0]]
+        del attribute_map[keys[0]]
+
   if '_filter_options' not in scene_struct:
     scene_struct['_filter_options'] = {}
 
@@ -220,7 +238,7 @@ def find_relate_filter_options(object_idx, scene_struct, attr, can_be_null_attri
   trivial_options_keys = []
   non_trivial_options_keys = []
   all_options = {}
-  
+
   for relationship in scene_struct['relationships']:
     relationship_index = scene_struct['_relationships_indexes'][relationship['type']]
     related = set(scene_struct['relationships'][relationship_index]['indexes'][object_idx])
@@ -309,6 +327,7 @@ def placeholders_to_attribute(template_text,metadata):
   matches = re.findall(reg,template_text)
 
   # FIXME : By iterating over each types, we also iterate over relation. Do we want this ?
+  # FIXME : No need to do this every time. This list is read from the metadata and doesn't change
   attribute_correspondences = {metadata['attributes'][t]['placeholder']: t for t in metadata['attributes']}
 
   for placeholder in matches:
@@ -464,7 +483,19 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
       answer_counts_sorted = sorted(answer_counts.values())
       median_count = answer_counts_sorted[len(answer_counts_sorted) // 2]
       median_count = max(median_count, 5)
-      if cur_answer_count > 1.1 * answer_counts_sorted[-2]:         # TODO : Those skipping probabilities should be in config file
+
+      nb_answers = len(answer_counts_sorted)
+      idx = max(int(math.floor(nb_answers*0.15)), 2)
+
+      std = statistics.stdev(answer_counts_sorted)
+
+      # FIXME : Do not hardcode STD threshold
+      if std > 5:
+        reset_stats['std'] += 1
+        states = reset_states_if_needed(states)
+        continue
+
+      if cur_answer_count > 1.1 * answer_counts_sorted[-idx]:         # TODO : Those skipping probabilities should be in config file
         if verbose: print('skipping due to second count')
         states = reset_states_if_needed(states)
         continue
@@ -476,6 +507,8 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
       # If the template contains a raw relate node then we need to check for
       # degeneracy at the end
       has_relate = any(n['type'] == 'relate' for n in template['nodes'])
+      #has_relate = any(n['type'] == 'relate' for n in q['nodes'])    # FIXME : Relate node is never explicitly in the template. only in the program instantiation.
+                                                                      # FIXME : degenerate check is never called
       if has_relate:
         degen = qeng.is_degenerate(q, metadata, scene_struct, answer=answer,
                                    verbose=verbose)
@@ -764,15 +797,15 @@ def main(args):
     os.mkdir(questions_output_folder)
 
   if os.path.isfile(questions_output_filepath):
-    print("This experiment have already been run. Please bump the version number or delete the previous output.")
     exit(1)
+    print("This experiment have already been run. Please bump the version number or delete the previous output.", file=sys.stderr)
 
   # Create tmp folder to store questions (separated in small files)
   if not os.path.isdir(tmp_output_folder):
     os.mkdir(tmp_output_folder)
   else:
-    print("Directory %s already exist. Please change the output filename")
     exit(1)  # FIXME : Maybe we should have a prompt ? This might be dangerous while running experiments automatically. We might get stuck there and waste a lot of time
+    print("Directory %s already exist. Please change the output filename", file=sys.stderr)
 
   # Setting & Saving the random seed
   if args.random_nb_generator_seed is not None:
@@ -906,9 +939,10 @@ def main(args):
     scene_count += 1
 
     # Order templates by the number of questions we have so far for those
-    # templates. This is a simple heuristic to give a flat distribution over
-    # templates.
+    # templates. This is a simple heuristic to give a flat distribution over templates.
+    # We shuffle the templates before sorting to ensure variability when the counts are equals
     templates_items = list(templates.items())
+    random.shuffle(templates_items)
     templates_items = sorted(templates_items,
                         key=lambda x: template_counts[x[0]])
     num_instantiated = 0

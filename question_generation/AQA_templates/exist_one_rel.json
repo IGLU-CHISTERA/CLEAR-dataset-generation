@@ -1,6 +1,6 @@
 [
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <I2> playing <RT> the <PI> <I> ?"
     ],
@@ -32,7 +32,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <I2> playing <RT> the <P> sound ?"
     ],
@@ -63,7 +63,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <B> sound playing <RT> the <PI> <I> ?"
     ],
@@ -95,7 +95,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <B> sound playing <RT> the <P> sound ?"
     ],
@@ -126,7 +126,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <L> sound playing <RT> the <PI> <I> ?"
     ],
@@ -158,7 +158,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <L> sound playing <RT> the <P> sound ?"
     ],
@@ -189,7 +189,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <HN> note playing <RT> the <PI> <I> ?"
     ],
@@ -221,7 +221,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <HN> note playing <RT> the <P> sound ?"
     ],
@@ -252,7 +252,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <I2> or a <I3> playing <RT> the <PI> <I> ?"
     ],
@@ -338,7 +338,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <I> or a <I2> playing <RT> the <P> sound ?"
     ],
@@ -408,7 +408,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <HN> or a <HN2> note playing <RT> the <PI> <I> ?"
     ],
@@ -480,7 +480,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <HN> or a <HN2> note playing <RT> the <P> sound ?"
     ],
@@ -550,7 +550,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <L> sound played by a <I2> that is <RT> the <PI> <I> ?"
     ],
@@ -592,7 +592,7 @@
     ]
   },
   {
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <L> sound played by a <I> that is <RT> the <P> sound ?"
     ],
@@ -625,7 +625,7 @@
   },
   {
     "note": "Limited nb of answers, template instantiated 10 times on 70 scenes",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <B> sound played by a <I2> that is <RT> the <PI> <I> ?"
     ],
@@ -668,7 +668,7 @@
   },
   {
     "note": "Limited nb of answers, template instantiated 13 times on 70 scenes",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <B> sound played by a <I> that is <RT> the <P> sound ?"
     ],
@@ -701,7 +701,7 @@
   },
   {
     "note": "DOESNT WORK. All relation are classified as trivial. Why ?",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there other sounds that have the same brightness as the <PI2> <I2> that is <RT> the <PI> <I> ?"
     ],
@@ -756,7 +756,7 @@
   },
   {
     "note": "DOESNT WORK. All relation are classified as trivial. Why ?",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there other sounds that have the same loudness as the <PI2> <I2> that is <RT> the <PI> <I> ?"
     ],
@@ -811,7 +811,7 @@
   },
   {
     "note": "DOESNT WORK. All relation are classified as trivial. Why ?",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <I3> that have the same brightness as the <PI2> <I2> that is <RT> the <PI> <I> ?"
     ],
@@ -889,7 +889,7 @@
   },
   {
     "note": "DOESNT WORK. All relation are classified as trivial. Why ?",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "Is there a <I3> that have the same loudness as the <PI2> <I2> that is <RT> the <PI> <I> ?"
     ],

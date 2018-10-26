@@ -1,7 +1,234 @@
 [
   {
+    "disabled": false,
+    "text": [
+      "Among the <I> sounds, what is the brightness of the one playing the <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_brightness"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <I> sounds, what is the brightness of that play a <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_brightness"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <L> sounds, what is the brightness of the one that is played by a <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_brightness"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <L> sounds, what is the brightness of the one that is a <HN> note ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_brightness"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <HN> notes in the scene, what is the brightness of the one that is played by a <I> ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<I>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_brightness"
+      }
+    ]
+  },
+  {
+    "disabled": false,
+    "text": [
+      "Among the <HN> notes in the scene, what is the brightness of the one that is a <L> sound ?"
+    ],
+    "nodes": [
+      {
+        "inputs": [],
+        "type": "scene"
+      },
+      {
+        "side_inputs": [
+          "<HN>"
+        ],
+        "inputs": [
+          0
+        ],
+        "type": "filter_not_unique"
+      },
+      {
+        "side_inputs": [
+          "<L>"
+        ],
+        "inputs": [
+          1
+        ],
+        "type": "filter_unique"
+      },
+      {
+        "inputs": [
+          2
+        ],
+        "type": "query_brightness"
+      }
+    ]
+  },
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  {
     "note": "Limited nb of answer. 51 on 70. Probably due to the fact that a lot of sounds are neither bright or dark",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the brightness of the <P> sound ?"
     ],
@@ -29,7 +256,7 @@
   },
   {
     "note": "Limited nb of answer. 49 on 70. Probably due to the fact that a lot of sounds are neither bright or dark",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the brightness of the <PI> <I> sound ?"
     ],
@@ -58,7 +285,7 @@
   },
   {
     "note": "Limited nb of answer. 35 on 70. Probably due to the fact that a lot of sounds are neither bright or dark",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the brightness of the <I> sound that is playing in the <PG> of the scene ?"
     ],
@@ -87,7 +314,7 @@
   },
   {
     "note": "Limited nb of answer. 14 on 70.",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the brightness of the <L> sound that is playing in the <PG> of the scene ?"
     ],
@@ -116,7 +343,7 @@
   },
   {
     "note": "Limited nb of answer. 51 on 70. Probably due to the fact that a lot of sounds are neither bright or dark",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "There is a <HN> note played in the <PG> of the scene; What is the brightness of this sound ?"
     ],
@@ -145,7 +372,7 @@
   },
   {
     "note": "Limited nb of answer. 51 on 70. Probably due to the fact that a lot of sounds are neither bright or dark",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "There is a <L> <HN> note played in the <PG> of the scene; What is the brightness of this sound ?"
     ],
@@ -175,7 +402,7 @@
   },
   {
     "note": "DOESN'T GIVE ANY ANSWER. ALWAYS GIVING THE SAME ANSWER WHICH HAS None BRIGHTNESS",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the brightness of the longest sound in the scene ?"
     ],
@@ -200,7 +427,7 @@
   },
   {
     "note": "Limited nb of answer. 18 on 70. Probably due to the fact that a lot of sounds are neither bright or dark",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the brightness of the longest sound playing in the <PG> of the scene ?"
     ],
@@ -234,7 +461,7 @@
   },
   {
     "note": "Limited nb of answer. 4 on 70. Probably due to the fact that a lot of sounds are neither bright or dark",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the brightness of the shortest sound in the scene ?"
     ],
@@ -259,7 +486,7 @@
   },
   {
     "note": "Limited nb of answer. 4 on 70. ALWAYS CHOOSING THE MIDDLE OF THE SCENE ?",
-    "disabled": true,
+    "disabled": false,
     "text": [
       "What is the brightness of the shortest sound playing in the <PG> of the scene ?"
     ],
