@@ -6,7 +6,15 @@ import ujson
 import random
 
 # TODO : Rename this file to data processing (Or something like that. Misc is too generic)
+from_pydub_bit_depth_to_np_type = {
+  16 : np.float32,
+  32 : np.float64
+}
 
+to_pydub_bit_depth_to_np_type = {
+  16 : np.int16,
+  32 : np.int32
+}
 
 def pydub_audiosegment_to_float_array(audio_segment, frame_rate, n_bytes):
     """Convert an integer buffer to floating point values.
@@ -19,25 +27,30 @@ def pydub_audiosegment_to_float_array(audio_segment, frame_rate, n_bytes):
     FIXME : See https://groups.google.com/d/msg/librosa/XWae4PdbXuk/4LjHK3d4BAAJ for a fix
     """
 
+    bit_depth = 8 * n_bytes
+
     raw_data = audio_segment.get_array_of_samples()
 
     # Invert the scale of the data
-    scale = 1. / float(1 << ((8 * n_bytes) - 1))
+    scale = 1. / float(1 << (bit_depth - 1))
 
     # Construct the format string
     fmt = '<i{:d}'.format(n_bytes)
 
     # Rescale and format the data buffer
-    return scale * np.frombuffer(raw_data, fmt).astype(np.float64)      # FIXME : Using float64 instead of float32 may cause memory/performance issues (Necessary to keep precision for reconversion)
+    return scale * np.frombuffer(raw_data, fmt).astype(from_pydub_bit_depth_to_np_type[bit_depth])
 
 
 def float_array_to_pydub_audiosegment(float_array, frame_rate, n_bytes):
+    bit_depth = 8 * n_bytes
     # Revert the scale of the data
-    scale = float(1 << ((8 * n_bytes) - 1))
+    scale = float(1 << ((bit_depth) - 1))
 
-    array_of_samples = array('i', np.multiply(scale, float_array).astype(np.int32))
+    scaled = np.multiply(scale, float_array)
 
-    return AudioSegment(array_of_samples.tostring(),
+    array_of_samples = array(get_array_type(bit_depth), scaled.astype(to_pydub_bit_depth_to_np_type[bit_depth]))
+
+    return AudioSegment(array_of_samples,
                         frame_rate=frame_rate,
                         sample_width=n_bytes,
                         channels=1)
