@@ -194,6 +194,7 @@
       },
       {
         "side_inputs": [
+          "<B>",
           "<L>"
         ],
         "inputs": [

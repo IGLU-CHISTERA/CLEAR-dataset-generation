@@ -423,7 +423,7 @@
     "note": "Limited nb of answer. 59 on 70.",
     "disabled": false,
     "text": [
-      "What is the loudness of the longest sound playing in the <PG> of th scene ?"
+      "What is the loudness of the longest sound playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {
@@ -482,7 +482,7 @@
     "note": "Limited nb of answer. 59 on 70.",
     "disabled": false,
     "text": [
-      "What is the loudness of the shortest sound playing in the <PG> of th scene ?"
+      "What is the loudness of the shortest sound playing in the <PG> of the scene ?"
     ],
     "nodes": [
       {

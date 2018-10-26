@@ -146,7 +146,7 @@
   {
     "disabled": false,
     "text": [
-      "Among the <HN> notes in the scenes, what is the instrument that play the <B> sound ?"
+      "Among the <HN> notes in the scene, what is the instrument that play the <B> sound ?"
     ],
     "nodes": [
       {
@@ -182,7 +182,7 @@
   {
     "disabled": false,
     "text": [
-      "Among the <HN> notes in the scenes, what is the instrument that play the <L> sound ?"
+      "Among the <HN> notes in the scene, what is the instrument that play the <L> sound ?"
     ],
     "nodes": [
       {

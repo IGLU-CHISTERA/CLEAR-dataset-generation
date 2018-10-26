@@ -272,7 +272,7 @@
   {
     "disabled": false,
     "text": [
-      "Among the <HN> notes in the scenes, how many are <B> ?"
+      "Among the <HN> notes in the scene, how many are <B> ?"
     ],
     "nodes": [
       {
@@ -302,7 +302,7 @@
   {
     "disabled": false,
     "text": [
-      "Among the <HN> notes in the scenes, how many are played by a <I> ?"
+      "Among the <HN> notes in the scene, how many are played by a <I> ?"
     ],
     "nodes": [
       {
@@ -332,7 +332,7 @@
   {
     "disabled": false,
     "text": [
-      "Among the <HN> notes in the scenes, how many are <L> ?"
+      "Among the <HN> notes in the scene, how many are <L> ?"
     ],
     "nodes": [
       {

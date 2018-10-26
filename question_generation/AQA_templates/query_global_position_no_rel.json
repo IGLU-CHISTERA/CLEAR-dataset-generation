@@ -326,7 +326,7 @@
   {
     "disabled": false,
     "text": [
-      "Among the <HN> notes in the scenes, in what part of the scene is the one that is <B> ?"
+      "Among the <HN> notes in the scene, in what part of the scene is the one that is <B> ?"
     ],
     "nodes": [
       {
@@ -362,7 +362,7 @@
   {
     "disabled": false,
     "text": [
-      "Among the <HN> notes in the scenes, in what part of the scene is the one that is played by a <I> ?"
+      "Among the <HN> notes in the scene, in what part of the scene is the one that is played by a <I> ?"
     ],
     "nodes": [
       {
@@ -398,7 +398,7 @@
   {
     "disabled": false,
     "text": [
-      "Among the <HN> notes in the scenes, in what part of the scene is the one that is <L> ?"
+      "Among the <HN> notes in the scene, in what part of the scene is the one that is <L> ?"
     ],
     "nodes": [
       {
