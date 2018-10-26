@@ -491,7 +491,6 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
 
       # FIXME : Do not hardcode STD threshold
       if std > 5:
-        reset_stats['std'] += 1
         states = reset_states_if_needed(states)
         continue
 
