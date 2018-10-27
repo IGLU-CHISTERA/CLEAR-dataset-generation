@@ -353,6 +353,9 @@ def mainPool():
 
     pool = Pool(processes=nbProcess)
     pool.map(producer.produceScene, idList)
+    
+    pool.close()
+    pool.join()
 
     print("Job Done !")
 
