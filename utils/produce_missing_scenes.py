@@ -2,6 +2,7 @@ import os
 import re
 import subprocess
 import argparse
+import ujson
 
 
 """
@@ -54,9 +55,15 @@ def get_nb_scenes(scene_generator_args_path):
 
 def run_producer(args_filepath, experiment_name, missing_ids):
   command = "python ./scene_generation/produce_scenes.py @%s --output_version_nb %s --produce_specific_scenes %s"
-  ids_str = [str(id) for id in missing_ids]
-  command = command % (args_filepath, experiment_name, ','.join(ids_str))
+  tmp_file_path = "/tmp/%s_missing_ids.json" % experiment_name
+
+  with open(tmp_file_path, 'w') as f:
+    ujson.dump(list(missing_ids), f)
+
+  command = command % (args_filepath, experiment_name, tmp_file_path)
   subprocess.run(command.split(' '))
+
+  os.remove(tmp_file_path)
 
 
 def main():

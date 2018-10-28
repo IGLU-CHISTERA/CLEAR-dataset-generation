@@ -345,7 +345,8 @@ def mainPool():
       init_random_seed(args.random_nb_generator_seed, args.output_version_nb, random_seed_save_filepath)
 
     if args.produce_specific_scenes != '':
-      idList = [int(id) for id in args.produce_specific_scenes.split(',')]
+      with open(args.produce_specific_scenes, 'r') as f:
+        idList = ujson.load(f)
     else:
       idList = list(range(producer.nbOfLoadedScenes))
 
