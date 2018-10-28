@@ -1,6 +1,22 @@
 import os
 import re
 import subprocess
+import argparse
+
+
+"""
+Arguments definition
+"""
+parser = argparse.ArgumentParser(fromfile_prefix_chars='@')
+
+parser.add_argument('--output_folder', default='./output', type=str,
+                    help='Folder where the audio and images will be saved')
+
+parser.add_argument('--experiments_folder', default='./experiments', type=str,
+                    help='Folder where the audio and images will be saved')
+
+parser.add_argument('--output_version_nb', default='0.1', type=str,
+                    help='Version number that will be appended to the produced file')
 
 
 def get_missing_scene_ids(generated_dataset_path, expected_nb_scenes):
@@ -44,12 +60,10 @@ def run_producer(args_filepath, experiment_name, missing_ids):
 
 
 def main():
-  output_path = './output'
-  experiments_path = './experiments'
-  experiment_name = 'v1.1.0_1k_scenes_20_inst'
+  args = parser.parse_args()
 
-  experiment_output_path = os.path.join(output_path, experiment_name)
-  experiment_path = os.path.join(experiments_path, experiment_name)
+  experiment_output_path = os.path.join(args.output_folder, args.output_version_nb)
+  experiment_path = os.path.join(args.experiments_folder, args.output_version_nb)
 
   scene_experiment_config = os.path.join(experiment_path, 'scene_generator.args')
   producer_experiment_config = os.path.join(experiment_path, '%s_scene_producer.args')
@@ -73,13 +87,13 @@ def main():
   print("Found %d files missing" % (len(train_id_missing) + len(val_id_missing) + len(test_id_missing)))
 
   if len(train_id_missing) > 0:
-    run_producer(train_producer_experiment_config, experiment_name, train_id_missing)
+    run_producer(train_producer_experiment_config, args.output_version_nb, train_id_missing)
 
   if len(val_id_missing) > 0:
-    run_producer(val_producer_experiment_config, experiment_name, val_id_missing)
+    run_producer(val_producer_experiment_config, args.output_version_nb, val_id_missing)
 
   if len(test_id_missing) > 0:
-    run_producer(test_producer_experiment_config, experiment_name, test_id_missing)
+    run_producer(test_producer_experiment_config, args.output_version_nb, test_id_missing)
 
   print("Done")
 
