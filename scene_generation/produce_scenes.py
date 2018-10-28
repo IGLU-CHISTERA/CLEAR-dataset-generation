@@ -65,6 +65,9 @@ parser.add_argument('--random_nb_generator_seed', default=None, type=int,
 parser.add_argument('--nb_process', default=4, type=int,
                     help='Number of process allocated for the production')
 
+parser.add_argument('--produce_specific_scenes', default="", type=str,
+                    help='Range for the reverberation parameter. Should be written as 0,100 for a range from 0 to 100')
+
 parser.add_argument('--produce_audio_files', action='store_true',
                     help='If set, will produce the audio file')
 
@@ -101,6 +104,7 @@ class AudioSceneProducer:
                  withReverb,
                  reverbSettings,
                  produce_audio_files,
+                 produce_specific_scenes,
                  primarySoundsJsonFilename,
                  primarySoundFolderPath,
                  setType,
@@ -150,13 +154,14 @@ class AudioSceneProducer:
         self.images_output_folder = os.path.join(self.images_output_folder, self.setType)
         self.audio_output_folder = os.path.join(self.audio_output_folder, self.setType)
 
-        if os.path.isdir(self.images_output_folder) or os.path.isdir(self.audio_output_folder):
-            print("This experiment have already been run. Please bump the version number or delete the following folders :\n" +
-                  "'%s'\nand\n'%s'" % (self.images_output_folder, self.audio_output_folder), file=sys.stderr)
-            exit(1)
-        else:
-            os.mkdir(self.audio_output_folder)
-            os.mkdir(self.images_output_folder)
+        if not produce_specific_scenes :
+          if (os.path.isdir(self.images_output_folder) or os.path.isdir(self.audio_output_folder)):
+              print("This experiment have already been run. Please bump the version number or delete the following folders :\n" +
+                    "'%s'\nand\n'%s'" % (self.images_output_folder, self.audio_output_folder), file=sys.stderr)
+              exit(1)
+          else:
+              os.mkdir(self.audio_output_folder)
+              os.mkdir(self.images_output_folder)
 
         self.currentSceneIndex = -1  # We start at -1 since nextScene() will increment idx at the start of the fct
         self.nbOfLoadedScenes = len(self.scenes)
@@ -321,6 +326,7 @@ def mainPool():
                                   setType=args.set_type,
                                   outputPrefix=args.output_filename_prefix,
                                   produce_audio_files=args.produce_audio_files,
+                                  produce_specific_scenes=args.produce_specific_scenes != '',
                                   withBackgroundNoise=args.with_background_noise,
                                   backgroundNoiseGainSetting=backgroundNoiseGainSetting,
                                   withReverb=args.with_reverb,
@@ -338,8 +344,10 @@ def mainPool():
 
       init_random_seed(args.random_nb_generator_seed, args.output_version_nb, random_seed_save_filepath)
 
-
-    idList = list(range(producer.nbOfLoadedScenes))
+    if args.produce_specific_scenes != '':
+      idList = [int(id) for id in args.produce_specific_scenes.split(',')]
+    else:
+      idList = list(range(producer.nbOfLoadedScenes))
 
     # TODO : Save the producing parameters somewhere
 
@@ -353,7 +361,7 @@ def mainPool():
 
     pool = Pool(processes=nbProcess)
     pool.map(producer.produceScene, idList)
-    
+
     pool.close()
     pool.join()
 
