@@ -65,6 +65,12 @@ parser.add_argument('--random_nb_generator_seed', default=None, type=int,
 parser.add_argument('--nb_process', default=4, type=int,
                     help='Number of process allocated for the production')
 
+parser.add_argument('--produce_specific_scenes', default="", type=str,
+                    help='Range for the reverberation parameter. Should be written as 0,100 for a range from 0 to 100')
+
+parser.add_argument('--produce_audio_files', action='store_true',
+                    help='If set, will produce the audio file')
+
 parser.add_argument('--output_filename_prefix', default='AQA', type=str,
                     help='Prefix used for produced files')
 
@@ -97,6 +103,8 @@ class AudioSceneProducer:
                  backgroundNoiseGainSetting,
                  withReverb,
                  reverbSettings,
+                 produce_audio_files,
+                 produce_specific_scenes,
                  primarySoundsJsonFilename,
                  primarySoundFolderPath,
                  setType,
@@ -109,6 +117,8 @@ class AudioSceneProducer:
 
         self.outputPrefix = outputPrefix
         self.setType = setType
+
+        self.produce_audio_files = produce_audio_files
 
         experiment_output_folder = os.path.join(self.outputFolder, self.version_nb)
 
@@ -144,13 +154,14 @@ class AudioSceneProducer:
         self.images_output_folder = os.path.join(self.images_output_folder, self.setType)
         self.audio_output_folder = os.path.join(self.audio_output_folder, self.setType)
 
-        if os.path.isdir(self.images_output_folder) or os.path.isdir(self.audio_output_folder):
-            print("This experiment have already been run. Please bump the version number or delete the following folders :\n" +
-                  "'%s'\nand\n'%s'" % (self.images_output_folder, self.audio_output_folder), file=sys.stderr)
-            exit(1)
-        else:
-            os.mkdir(self.audio_output_folder)
-            os.mkdir(self.images_output_folder)
+        if not produce_specific_scenes :
+          if (os.path.isdir(self.images_output_folder) or os.path.isdir(self.audio_output_folder)):
+              print("This experiment have already been run. Please bump the version number or delete the following folders :\n" +
+                    "'%s'\nand\n'%s'" % (self.images_output_folder, self.audio_output_folder), file=sys.stderr)
+              exit(1)
+          else:
+              os.mkdir(self.audio_output_folder)
+              os.mkdir(self.images_output_folder)
 
         self.currentSceneIndex = -1  # We start at -1 since nextScene() will increment idx at the start of the fct
         self.nbOfLoadedScenes = len(self.scenes)
@@ -192,10 +203,11 @@ class AudioSceneProducer:
 
             sceneAudioSegment = self.assembleAudioScene(scene)
 
-            # FIXME : Create the setType folder if doesnt exist
-            sceneAudioSegment.export(
-              os.path.join(self.audio_output_folder, '%s_%s_%06d.wav' % (self.outputPrefix, self.setType, sceneId)),
-              format='wav')
+            if self.produce_audio_files:
+              # FIXME : Create the setType folder if doesnt exist
+              sceneAudioSegment.export(
+                os.path.join(self.audio_output_folder, '%s_%s_%06d.wav' % (self.outputPrefix, self.setType, sceneId)),
+                format='wav')
 
             spectrogram = AudioSceneProducer.createSpectrogram(sceneAudioSegment,
                                                                self.spectrogramSettings['height'],
@@ -313,6 +325,8 @@ def mainPool():
                                   primarySoundFolderPath=args.primary_sounds_folder,
                                   setType=args.set_type,
                                   outputPrefix=args.output_filename_prefix,
+                                  produce_audio_files=args.produce_audio_files,
+                                  produce_specific_scenes=args.produce_specific_scenes != '',
                                   withBackgroundNoise=args.with_background_noise,
                                   backgroundNoiseGainSetting=backgroundNoiseGainSetting,
                                   withReverb=args.with_reverb,
@@ -330,8 +344,11 @@ def mainPool():
 
       init_random_seed(args.random_nb_generator_seed, args.output_version_nb, random_seed_save_filepath)
 
-
-    idList = list(range(producer.nbOfLoadedScenes))
+    if args.produce_specific_scenes != '':
+      with open(args.produce_specific_scenes, 'r') as f:
+        idList = ujson.load(f)
+    else:
+      idList = list(range(producer.nbOfLoadedScenes))
 
     # TODO : Save the producing parameters somewhere
 
@@ -345,6 +362,9 @@ def mainPool():
 
     pool = Pool(processes=nbProcess)
     pool.map(producer.produceScene, idList)
+
+    pool.close()
+    pool.join()
 
     print("Job Done !")
 
