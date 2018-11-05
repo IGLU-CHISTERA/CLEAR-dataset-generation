@@ -350,8 +350,6 @@ def mainPool():
     else:
       idList = list(range(producer.nbOfLoadedScenes))
 
-    # TODO : Save the producing parameters somewhere
-
     # FIXME : The definition of the threads should be done inside the class
 
     # FIXME : Each process should load their composition sound instead of loading everything in memory here
