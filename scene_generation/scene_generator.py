@@ -347,7 +347,6 @@ class Scene_generator:
                     self.stats['levels'][current_level] = 1
                 else:
                     self.stats['levels'][current_level] += 1
-                print("Intermediate constraint not met. %d levels to go and %d missing families" % (nb_level_to_go, missing_nb_families))
                 return False
 
         # CONSTRAINT VALIDATION : min_objects_per_family && min_nb_families_subject_to_min_objects_per_family
@@ -538,7 +537,6 @@ class Scene_generator:
                     if len(generated_scenes) % force_back_up_threshold == 0:
                         next_node = root_node
                         state = []
-                        print("Got back to the top")
                         continue
 
                 # Going up in the tree
