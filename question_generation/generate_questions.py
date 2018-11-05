@@ -1,6 +1,7 @@
 # TODO : Add author mention
 # TODO : Change heading comments
 # FIXME : A lot of info are retrieved from metadata. They don't change for each instantiations. We should only retrieve them once instead of everytime
+# FIXME : Break down this file in multiple files
 
 # Copyright 2017-present, Facebook, Inc.
 # All rights reserved.
@@ -944,6 +945,7 @@ def main(args):
     random.shuffle(templates_items)
     templates_items = sorted(templates_items,
                         key=lambda x: template_counts[x[0]])
+
     num_instantiated = 0
     for (fn, idx), template in templates_items:
       if 'disabled' in template and template['disabled']:
