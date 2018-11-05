@@ -11,7 +11,7 @@ from collections import defaultdict
 from timbral_models import *
 
 from utils.perceptual_loudness import get_perceptual_loudness
-from utils.misc import init_random_seed
+from utils.misc import init_random_seed, save_generation_arguments
 
 
 """
@@ -282,6 +282,15 @@ class Scene_generator:
 
         self.constrained_attributes = ['brightness', 'loudness']     # Attributes on which the 'min_ratio_for_attribute' constraint will be applied
 
+        # Stats
+        self.stats = {
+            'levels': {},
+            'nbValid': 0,
+            'nbMissingFamilies': 0,
+            'nbMissingObjectPerFam': 0,
+            'attribute_constraint': {}
+        }
+
     def validate_final(self, state):
         # TODO : Validate final state before adding this scene to the repository
         # TODO : Validate all the constraints ? (Maybe not necessary to reverify the intermediate)
@@ -477,17 +486,6 @@ class Scene_generator:
         state = []
         generated_scenes = []
 
-        # FIXME : Remove this, debugging purpose
-        self.stats = {
-            'levels' : {},
-            'nbValid': 0,
-            'nbMissingFamilies' : 0,
-            'nbMissingObjectPerFam' : 0,
-            'attribute_constraint' : {}
-        }
-
-        print("Starting Scenes Generation")
-
         continue_work = True
 
         while continue_work:
@@ -503,7 +501,6 @@ class Scene_generator:
 
 
                     state.append(new_sound)
-                    # TODO : random Chance of overlapping
                     next_node = current_node.add_child(new_sound)
 
                     if not self.validate_intermediate(state, next_node.level):
@@ -698,6 +695,9 @@ if __name__ == '__main__':
       print("This experiment have already been run. Please bump the version number or delete the previous output.",
             file=sys.stderr)
       exit(1)
+
+    # FIXME : This should be done in the experiment script instead of here. This script should not have any knowledge of the arguments file
+    save_generation_arguments(args.output_version_nb, args.output_folder)
 
     # Setting & Saving the random seed
     if args.random_nb_generator_seed is not None:
