@@ -1,9 +1,11 @@
+import os
 import numpy as np
 from array import array
 from pydub import AudioSegment
 from pydub.utils import get_min_max_value, get_frame_width, get_array_type, db_to_float
 import ujson
 import random
+from shutil import copy2 as copyfile
 
 # TODO : Rename this file to data processing (Or something like that. Misc is too generic)
 from_pydub_bit_depth_to_np_type = {
@@ -65,6 +67,26 @@ def init_random_seed(seed, version_nb, seed_save_path):
       'seed': seed,
       'version_nb': version_nb
     }, f, indent=2)
+
+
+# FIXME : This should be done in the run_experiment.sh script. The python script should not have knowledge of the arguments file
+def save_generation_arguments(experiment_name, output_folder):
+  experiment_path = os.path.join('.', 'experiments', experiment_name)
+  output_path = os.path.join(output_folder, experiment_name)
+  args_output_folder_path = os.path.join(output_path, 'generation_args')
+
+  args_files = [f for f in os.listdir(experiment_path) if os.path.isfile(os.path.join(experiment_path, f)) and f.endswith('.args')]
+
+  print("Saving generation arguments to %s" % args_output_folder_path)
+
+  if not os.path.isdir(output_path):
+    os.mkdir(output_path)
+
+  if not os.path.isdir(args_output_folder_path):
+    os.mkdir(args_output_folder_path)
+
+  for filename in args_files:
+    copyfile(os.path.join(experiment_path, filename), os.path.join(args_output_folder_path, filename))
 
 
 def generate_random_noise(duration, gain, frame_width, sample_rate):
