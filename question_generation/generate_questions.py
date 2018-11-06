@@ -19,6 +19,9 @@ from functools import reduce
 from itertools import groupby
 import copy
 from utils.misc import init_random_seed
+from question_generation.helper import question_node_shallow_copy, placeholders_to_attribute, \
+                                       translate_can_be_null_attributes, replace_optionals, \
+                                       question_program_cleanup
 
 from collections import OrderedDict
 
@@ -276,78 +279,6 @@ def find_relate_filter_options(object_idx, scene_struct, attr, can_be_null_attri
   return options
 
 
-def node_shallow_copy(node):
-  new_node = {
-    'type': node['type'],
-    'inputs': node['inputs'],
-  }
-  if 'side_inputs' in node:
-    new_node['side_inputs'] = node['side_inputs']
-  return new_node
-
-# TODO : Adapt other_heuristic
-def other_heuristic(text, param_vals):
-  """
-  Post-processing heuristic to handle the word "other"
-  """
-  if ' other ' not in text and ' another ' not in text:
-    return text
-  target_keys = {
-    '<Z>',  '<C>',  '<M>',  '<S>',        # FIXME : Hardcoded string placeholder
-    '<Z2>', '<C2>', '<M2>', '<S2>',
-  }
-  if param_vals.keys() != target_keys:
-    return text
-  key_pairs = [
-    ('<Z>', '<Z2>'),                      # FIXME : Hardcoded string placeholder
-    ('<C>', '<C2>'),
-    ('<M>', '<M2>'),
-    ('<S>', '<S2>'),
-  ]
-  remove_other = False
-  for k1, k2 in key_pairs:
-    v1 = param_vals.get(k1, None)
-    v2 = param_vals.get(k2, None)
-    if v1 != '' and v2 != '' and v1 != v2:
-      print('other has got to go! %s = %s but %s = %s'
-            % (k1, v1, k2, v2))
-      remove_other = True
-      break
-  if remove_other:
-    if ' other ' in text:
-      text = text.replace(' other ', ' ')
-    if ' another ' in text:
-      text = text.replace(' another ', ' a ')
-  return text
-
-
-def placeholders_to_attribute(template_text,metadata):
-  correspondences = {}
-  # Extracting the placeholders from the text
-  reg = re.compile('<([a-zA-Z]+)(\d)?>')
-  matches = re.findall(reg,template_text)
-
-  # FIXME : By iterating over each types, we also iterate over relation. Do we want this ?
-  # FIXME : No need to do this every time. This list is read from the metadata and doesn't change
-  attribute_correspondences = {metadata['attributes'][t]['placeholder']: t for t in metadata['attributes']}
-
-  for placeholder in matches:
-    correspondences['<%s%s>' % (placeholder[0], placeholder[1])] = attribute_correspondences['<%s>' % placeholder[0]]
-
-  return correspondences
-
-
-def translate_can_be_null_attributes(can_be_null_attributes, param_name_to_attribute):
-  '''
-  Translate placeholder strings to attribute names and remove duplicate
-  '''
-  tmp = set()
-  for can_be_null_attribute in can_be_null_attributes:
-    tmp.add(param_name_to_attribute[can_be_null_attribute])
-
-  return list(tmp)
-
-
 def validate_constraints(template, state, outputs, param_name_to_attribute, verbose):
   for constraint in template['constraints']:
     if constraint['type'] == 'NEQ':
@@ -440,7 +371,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
     if reset_states_if_needed.reset_counter < reset_threshold:
       if len(current_states) == 0:
         initial_state = {
-          'nodes': [node_shallow_copy(template['nodes'][0])],
+          'nodes': [question_node_shallow_copy(template['nodes'][0])],
           'vals': {},
           'input_map': {0: 0},
           'next_template_node': 1,
@@ -531,7 +462,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
     # Otherwise fetch the next node from the template
     # Make a shallow copy so cached _outputs don't leak ... this is very nasty
     next_node = template['nodes'][state['next_template_node']]
-    next_node = node_shallow_copy(next_node)
+    next_node = question_node_shallow_copy(next_node)
 
     if next_node['type'] in qeng.functions_to_be_expanded:
 
@@ -693,75 +624,40 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
   return instantiate_texts_from_solutions(template, synonyms, final_states)
 
 
-# FIXME : The probability should be loaded from config
-def replace_optionals(s):
+# TODO : Adapt other_heuristic
+def other_heuristic(text, param_vals):
   """
-  Each substring of s that is surrounded in square brackets is treated as
-  optional and is removed with probability 0.5. For example the string
-
-  "A [aa] B [bb]"
-
-  could become any of
-
-  "A aa B bb"
-  "A  B bb"
-  "A aa B "
-  "A  B "
-
-  with probability 1/4.
+  Post-processing heuristic to handle the word "other"
   """
-  pat = re.compile(r'\[([^\[]*)\]')
-
-  while True:
-    match = re.search(pat, s)
-    if not match:
+  if ' other ' not in text and ' another ' not in text:
+    return text
+  target_keys = {
+    '<Z>',  '<C>',  '<M>',  '<S>',        # FIXME : Hardcoded string placeholder
+    '<Z2>', '<C2>', '<M2>', '<S2>',
+  }
+  if param_vals.keys() != target_keys:
+    return text
+  key_pairs = [
+    ('<Z>', '<Z2>'),                      # FIXME : Hardcoded string placeholder
+    ('<C>', '<C2>'),
+    ('<M>', '<M2>'),
+    ('<S>', '<S2>'),
+  ]
+  remove_other = False
+  for k1, k2 in key_pairs:
+    v1 = param_vals.get(k1, None)
+    v2 = param_vals.get(k2, None)
+    if v1 != '' and v2 != '' and v1 != v2:
+      print('other has got to go! %s = %s but %s = %s'
+            % (k1, v1, k2, v2))
+      remove_other = True
       break
-    i0 = match.start()
-    i1 = match.end()
-    if random.random() > 0.5:
-      s = s[:i0] + match.groups()[0] + s[i1:]
-    else:
-      s = s[:i0] + s[i1:]
-  return s
-
-
-def global_position_from_index(idx, nb_obj):
-  """
-  Separate the scene in 3 parts (Beginning, middle, end) based on the index of the object
-  """
-
-  part_size = math.floor(nb_obj/3)
-  if idx + 1 <= part_size:
-    return "beginning"
-  elif idx + 1 <= 2*part_size:
-    return "middle"
-  else:
-    return "end"
-
-
-def question_program_cleanup(questions):
-  # Change "side_inputs" to "value_inputs" in all functions of all functional         # FIXME : Fix this at the same time
-  # programs. My original name for these was "side_inputs" but I decided to
-  # change the name to "value_inputs" for the public CLEVR release. I should
-  # probably go through all question generation code and templates and rename,
-  # but that could be tricky and take a while, so instead I'll just do it here.
-  # To further complicate things, originally functions without value inputs did
-  # not have a "side_inputs" field at all, and I'm pretty sure this fact is used
-  # in some of the code above; however in the public CLEVR release all functions
-  # have a "value_inputs" field, and it's an empty list for functions that take
-  # no value inputs. Again this should probably be refactored, but the quick and
-  # dirty solution is to keep the code above as-is, but here make "value_inputs"
-  # an empty list for those functions that do not have "side_inputs". Gross.
-  for q in questions:
-    for f in q['program']:
-      if 'side_inputs' in f:
-        f['value_inputs'] = f['side_inputs']
-        del f['side_inputs']
-      else:
-        f['value_inputs'] = []
-
-  for q in questions:
-    del q['program']  # FIXME : Remove this. We don't include program to improve readability while testing
+  if remove_other:
+    if ' other ' in text:
+      text = text.replace(' other ', ' ')
+    if ' another ' in text:
+      text = text.replace(' another ', ' a ')
+  return text
 
 
 def write_questions_part_to_file(tmp_folder_path, filename, scene_info, questions, index):
@@ -778,8 +674,6 @@ def write_questions_part_to_file(tmp_folder_path, filename, scene_info, question
         'info': scene_info,
         'questions': questions,
       }, f, indent=2, sort_keys=True, escape_forward_slashes=False)
-
-
 
 
 def main(args):
