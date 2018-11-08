@@ -660,22 +660,6 @@ def other_heuristic(text, param_vals):
   return text
 
 
-def write_questions_part_to_file(tmp_folder_path, filename, scene_info, questions, index):
-  question_program_cleanup(questions)
-
-  tmp_filename = filename.replace(".json", "_%.5d.json" % index)
-  tmp_filepath = os.path.join(tmp_folder_path, tmp_filename)
-
-  print("Writing to file %s" % tmp_filepath)
-
-  with open(tmp_filepath, 'w') as f:
-    # FIXME : Remove indent parameter. Take more space. Only useful for readability while testing
-    ujson.dump({
-        'info': scene_info,
-        'questions': questions,
-      }, f, indent=2, sort_keys=True, escape_forward_slashes=False)
-
-
 def main(args):
   experiment_output_folder = os.path.join(args.output_folder, args.output_version_nb)
   questions_output_folder = os.path.join(experiment_output_folder, 'questions')

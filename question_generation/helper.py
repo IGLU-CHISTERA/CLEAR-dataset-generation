@@ -40,6 +40,22 @@ def translate_can_be_null_attributes(can_be_null_attributes, param_name_to_attri
   return list(tmp)
 
 
+def write_questions_part_to_file(tmp_folder_path, filename, scene_info, questions, index):
+  question_program_cleanup(questions)
+
+  tmp_filename = filename.replace(".json", "_%.5d.json" % index)
+  tmp_filepath = os.path.join(tmp_folder_path, tmp_filename)
+
+  print("Writing to file %s" % tmp_filepath)
+
+  with open(tmp_filepath, 'w') as f:
+    # FIXME : Remove indent parameter. Take more space. Only useful for readability while testing
+    ujson.dump({
+        'info': scene_info,
+        'questions': questions,
+      }, f, indent=2, sort_keys=True, escape_forward_slashes=False)
+
+
 # FIXME : The probability should be loaded from config
 def replace_optionals(s):
   """
