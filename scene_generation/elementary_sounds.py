@@ -18,8 +18,8 @@ class Elementary_Sounds:
     print("Loading Elementary sounds")
     self.folderpath = folder_path
 
-    with open(os.path.join(self.folderpath, definition_filename)) as primary_sounds_definition:
-      self.definition = ujson.load(primary_sounds_definition)
+    with open(os.path.join(self.folderpath, definition_filename)) as file:
+      self.definition = ujson.load(file)
 
     self.notes = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B']
 
@@ -51,55 +51,55 @@ class Elementary_Sounds:
   def get(self, index):
     return self.definition[index]
 
-  def _preprocess_sounds(self, nb_objects_per_scene, shuffle_primary_sounds=True):
+  def _preprocess_sounds(self, nb_objects_per_scene, shuffle_sounds=True):
 
-    if shuffle_primary_sounds:
+    if shuffle_sounds:
       np.random.shuffle(self.definition)
 
     # Store max and min brightness for each instrument. Used for brightness normalization
     brightness_per_instrument = defaultdict(lambda: {'max': 0, 'min': 9999})
 
-    for id, primary_sound in enumerate(self.definition):
-      primary_sound_filename = os.path.join(self.folderpath, primary_sound['filename'])
-      primary_sound_audiosegment = AudioSegment.from_wav(primary_sound_filename)
+    for id, elementary_sound in enumerate(self.definition):
+      elementary_sound_filename = os.path.join(self.folderpath, elementary_sound['filename'])
+      elementary_sound_audiosegment = AudioSegment.from_wav(elementary_sound_filename)
 
-      primary_sound['id'] = id
+      elementary_sound['id'] = id
 
-      primary_sound['duration'] = int(primary_sound_audiosegment.duration_seconds * 1000)
+      elementary_sound['duration'] = int(elementary_sound_audiosegment.duration_seconds * 1000)
 
       # FIXME : The perceptual loudness threshold should not be hardcoded
-      perceptual_loudness = get_perceptual_loudness(primary_sound_audiosegment)
-      primary_sound['loudness'] = 'quiet' if perceptual_loudness < -27 else 'loud'
+      perceptual_loudness = get_perceptual_loudness(elementary_sound_audiosegment)
+      elementary_sound['loudness'] = 'quiet' if perceptual_loudness < -27 else 'loud'
 
-      self.longest_durations.append(primary_sound['duration'])
+      self.longest_durations.append(elementary_sound['duration'])
 
-      primary_sound['int_brightness'] = timbral_brightness(primary_sound_filename)
+      elementary_sound['int_brightness'] = timbral_brightness(elementary_sound_filename)
 
-      if primary_sound['int_brightness'] > brightness_per_instrument[primary_sound['instrument']]['max']:
-        brightness_per_instrument[primary_sound['instrument']]['max'] = primary_sound['int_brightness']
-      elif primary_sound['int_brightness'] < brightness_per_instrument[primary_sound['instrument']]['min']:
-        brightness_per_instrument[primary_sound['instrument']]['min'] = primary_sound['int_brightness']
+      if elementary_sound['int_brightness'] > brightness_per_instrument[elementary_sound['instrument']]['max']:
+        brightness_per_instrument[elementary_sound['instrument']]['max'] = elementary_sound['int_brightness']
+      elif elementary_sound['int_brightness'] < brightness_per_instrument[elementary_sound['instrument']]['min']:
+        brightness_per_instrument[elementary_sound['instrument']]['min'] = elementary_sound['int_brightness']
 
     # Normalize the brightness per instrument and assign the brightness label
-    for id, primary_sound in enumerate(self.definition):
-      max_brightness = brightness_per_instrument[primary_sound['instrument']]['max']
-      min_brightness = brightness_per_instrument[primary_sound['instrument']]['min']
-      cur_brightness = primary_sound['int_brightness']
+    for id, elementary_sound in enumerate(self.definition):
+      max_brightness = brightness_per_instrument[elementary_sound['instrument']]['max']
+      min_brightness = brightness_per_instrument[elementary_sound['instrument']]['min']
+      cur_brightness = elementary_sound['int_brightness']
 
       # Normalize brightness per instrument
-      primary_sound['rel_brightness'] = (cur_brightness - min_brightness) / (max_brightness - min_brightness)
+      elementary_sound['rel_brightness'] = (cur_brightness - min_brightness) / (max_brightness - min_brightness)
 
       # Assign brightness label
-      if primary_sound['rel_brightness'] > 0.6:  # FIXME : The brightness threshold should not be hardcoded
-        primary_sound['brightness'] = 'bright'
-      elif primary_sound['rel_brightness'] < 0.4:  # FIXME : The brightness threshold should not be hardcoded
-        primary_sound['brightness'] = 'dark'
+      if elementary_sound['rel_brightness'] > 0.6:  # FIXME : The brightness threshold should not be hardcoded
+        elementary_sound['brightness'] = 'bright'
+      elif elementary_sound['rel_brightness'] < 0.4:  # FIXME : The brightness threshold should not be hardcoded
+        elementary_sound['brightness'] = 'dark'
       else:
-        primary_sound['brightness'] = None
+        elementary_sound['brightness'] = None
 
       # Cleanup unused properties
-      del primary_sound['int_brightness']
-      del primary_sound['rel_brightness']
+      del elementary_sound['int_brightness']
+      del elementary_sound['rel_brightness']
 
     # Remove the 20% longest sounds.
     # Use the sum of the duration of the next 'nb_objects_per_scene' as the scene total duration

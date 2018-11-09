@@ -23,7 +23,7 @@ parser.add_argument('--max_nb_scene', default=None, type=int,
                          'Depending on the scene_length and tree_width, the number of scene generated may be lower.')
 
 parser.add_argument('--scene_length', default=6, type=int,
-                    help='Number of primary sounds in the generated scenes')
+                    help='Number of elementary sounds in the generated scenes')
 
 parser.add_argument('--tree_width', default=5, type=int,
                     help='Number of node explored at each level of the generation tree')
@@ -50,11 +50,11 @@ parser.add_argument('--training_set_ratio', default=0.7, type=float,
 parser.add_argument('--random_nb_generator_seed', default=None, type=int,
                     help='Set the random number generator seed to reproduce results')
 
-parser.add_argument('--primary_sounds_folder', default='../primary_sounds',
-                    help='Folder containing all the primary sounds and the JSON listing them')
+parser.add_argument('--elementary_sounds_folder', default='../elementary_sounds',
+                    help='Folder containing all the elementary sounds and the JSON listing them')
 
-parser.add_argument('--primary_sounds_definition_filename', default='primary_sounds.json',
-                    help='Filename of the JSON file listing the attributes of the primary sounds')
+parser.add_argument('--elementary_sounds_definition_filename', default='elementary_sounds.json',
+                    help='Filename of the JSON file listing the attributes of the elementary sounds')
 
 parser.add_argument('--metadata_file', default='../metadata.json',
                     help='File containing all the information related to the possible attributes of the objects')
@@ -74,15 +74,15 @@ class Scene_generator:
     """
     Scene generation logic.
     Create a tree of depth 'nb_objects_per_scene' and width 'nb_tree_branch'.
-    Each node represent a primary sound. The tree is instantiated Depth first.
+    Each node represent a elementary sound. The tree is instantiated Depth first.
     A scene is composed by taking a end node and going back up until we reach the root node.
     Validation is done at every node insertion in order to remove the combinations that do not respect the constraints.
     """
     def __init__(self, nb_objects_per_scene,
                  nb_tree_branch,
                  silence_padding_per_object,
-                 primary_sounds_folderpath,
-                 primary_sounds_definition_filename,
+                 elementary_sounds_folderpath,
+                 elementary_sounds_definition_filename,
                  metadata_filepath,
                  version_nb,
                  additional_scenes_multiplier,          # FIXME : Ugly name.. i'm tired..
@@ -102,13 +102,13 @@ class Scene_generator:
         with open(metadata_filepath) as metadata:
             self.attributes_values = {key: val['values'] for key, val in ujson.load(metadata)['attributes'].items()}
 
-        self.primary_sounds = Elementary_Sounds(primary_sounds_folderpath, primary_sounds_definition_filename, nb_objects_per_scene)
+        self.elementary_sounds = Elementary_Sounds(elementary_sounds_folderpath, elementary_sounds_definition_filename, nb_objects_per_scene)
 
         # Since the sounds can't repeat themselves in the same scene,
-        # The longest scene is the sum of the X longest primary sounds.
+        # The longest scene is the sum of the X longest elementary sounds + some silence padding
         # Where X is the number of objects in the scene
         # Plus the silence
-        self.scene_duration = sum(self.primary_sounds.longest_durations) + silence_padding_per_object * (nb_objects_per_scene + 1)
+        self.scene_duration = sum(self.elementary_sounds.longest_durations) + silence_padding_per_object * (nb_objects_per_scene + 1)
 
         # Constraints
         # TODO : Calculate constraints based on nb_object_per_scene ?
@@ -131,15 +131,15 @@ class Scene_generator:
         }
 
     def _scene_id_list_to_sound_list(self, scene_id_list):
-        return [self.primary_sounds.definition[idx] for idx in scene_id_list]
+        return [self.elementary_sounds.definition[idx] for idx in scene_id_list]
 
     def _generate_scene_id_list(self):
         # Shuffling sounds id
-        np.random.shuffle(self.primary_sounds.id_list_shuffled)
+        np.random.shuffle(self.elementary_sounds.id_list_shuffled)
 
         # TODO : Random chance to take different interval than the first NB_Object ? Add more randomness. Necessary ?
 
-        return self.primary_sounds.id_list_shuffled[:self.nb_objects_per_scene]
+        return self.elementary_sounds.id_list_shuffled[:self.nb_objects_per_scene]
 
     def _validate_scene(self, scene_objects):
 
@@ -150,7 +150,7 @@ class Scene_generator:
             return False
 
         # Validate min_nb_families constraint
-        families_count, current_nb_families = self.primary_sounds.sounds_to_families_count(scene_objects)
+        families_count, current_nb_families = self.elementary_sounds.sounds_to_families_count(scene_objects)
 
         if current_nb_families < self.constraints['min_nb_families']:
             return False
@@ -399,8 +399,8 @@ if __name__ == '__main__':
     scene_generator = Scene_generator(args.scene_length,
                                       args.tree_width,
                                       args.silence_padding_per_object,
-                                      args.primary_sounds_folder,
-                                      args.primary_sounds_definition_filename,
+                                      args.elementary_sounds_folder,
+                                      args.elementary_sounds_definition_filename,
                                       args.metadata_file,
                                       args.output_version_nb,
                                       5,        # FIXME : Take as parameter
