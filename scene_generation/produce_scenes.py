@@ -23,11 +23,11 @@ parser = argparse.ArgumentParser(fromfile_prefix_chars='@')
 parser.add_argument('--output_folder', default='../output', type=str,
                     help='Folder where the audio and images will be saved')
 
-parser.add_argument('--primary_sounds_folder', default='../primary_sounds', type=str,
-                    help='Folder containing all the primary sounds and the JSON listing them')
+parser.add_argument('--elementary_sounds_folder', default='../elementary_sounds', type=str,
+                    help='Folder containing all the elementary sounds and the JSON listing them')
 
-parser.add_argument('--primary_sounds_definition_filename', default='primary_sounds.json', type=str,
-                    help='Filename of the JSON file listing the attributes of the primary sounds')
+parser.add_argument('--elementary_sounds_definition_filename', default='elementary_sounds.json', type=str,
+                    help='Filename of the JSON file listing the attributes of the elementary sounds')
 
 parser.add_argument('--set_type', default='train', type=str,
                     help="Specify the set type (train/val/test)")
@@ -83,17 +83,6 @@ parser.add_argument('--output_version_nb', default='0.1', type=str,
 # It will then generate the corresponding audio file & spectrogram   #
 ######################################################################
 
-# TODO : The audio file must have a fixed length to maintain the same temporal resolution on spectrograms
-#        We calculate the scene length by maxNbOfPrimarySoundsInOneScene * longestPrimarySoundLength + maxNbOfPrimarySoundsInOneScene * sleepTimeBetweenSounds + beginSleepTime + endSleepTime
-#        Some scenes will require padding. We should pad with silence (Or noise ? Would add more randomness).
-#        Instead of padding everything at the end, we should distribute part of the padding between each sounds
-#        We should not pad always the same way to reduce bias in data.
-#        We should pad or not between each sound according to a certain probability. Then split the rest between beginning and end
-# TODO/Investigate : Insert random noise instead of silence between primary sounds
-
-# FIXME : We should probably clear previously generated audio & images before generating. (We may end up with samples from another run otherwise)
-# TODO : Add more comments
-# FIXME : Take sample rate as parameter. If primary sounds have a lower sample freq, upscale ?
 class AudioSceneProducer:
     def __init__(self,
                  outputFolder,
@@ -105,14 +94,14 @@ class AudioSceneProducer:
                  reverbSettings,
                  produce_audio_files,
                  produce_specific_scenes,
-                 primarySoundsJsonFilename,
-                 primarySoundFolderPath,
+                 elementarySoundsJsonFilename,
+                 elementarySoundFolderPath,
                  setType,
                  outputPrefix):
 
         # Paths
         self.outputFolder = outputFolder
-        self.primarySoundFolderPath = primarySoundFolderPath
+        self.elementarySoundFolderPath = elementarySoundFolderPath
         self.version_nb = version_nb
 
         self.outputPrefix = outputPrefix
@@ -122,9 +111,9 @@ class AudioSceneProducer:
 
         experiment_output_folder = os.path.join(self.outputFolder, self.version_nb)
 
-        # Loading primary sounds definition from 'primarySounds.json'
-        with open(os.path.join(self.primarySoundFolderPath, primarySoundsJsonFilename)) as primarySoundJson:
-            self.primarySounds = ujson.load(primarySoundJson)
+        # Loading elementary sounds definition from json definition file
+        with open(os.path.join(self.elementarySoundFolderPath, elementarySoundsJsonFilename)) as file:
+            self.elementarySounds = ujson.load(file)
 
         # Loading scenes definition
         sceneFilename = '%s_%s_scenes.json' % (self.outputPrefix, self.setType)
@@ -155,7 +144,7 @@ class AudioSceneProducer:
         self.audio_output_folder = os.path.join(self.audio_output_folder, self.setType)
 
         if not produce_specific_scenes :
-          if (os.path.isdir(self.images_output_folder) or os.path.isdir(self.audio_output_folder)):
+          if os.path.isdir(self.images_output_folder) or os.path.isdir(self.audio_output_folder):
               print("This experiment have already been run. Please bump the version number or delete the following folders :\n" +
                     "'%s'\nand\n'%s'" % (self.images_output_folder, self.audio_output_folder), file=sys.stderr)
               exit(1)
@@ -173,11 +162,11 @@ class AudioSceneProducer:
         # Initialize the list that contain the loaded sounds
         self.loadedSounds = []
 
-    def _loadAllPrimarySounds(self):
+    def loadAllElementarySounds(self):
         print("Loading elementary sounds")
-        for sound in self.primarySounds:
+        for sound in self.elementarySounds:
             # Creating the audio segment (Suppose WAV format)
-            soundFilepath = os.path.join(self.primarySoundFolderPath, sound['filename'])
+            soundFilepath = os.path.join(self.elementarySoundFolderPath, sound['filename'])
             soundAudioSegment = AudioSegment.from_wav(soundFilepath)
             self.loadedSounds.append({
                 'name': sound['filename'],
@@ -192,7 +181,7 @@ class AudioSceneProducer:
             return filterResult[0]['audioSegment']
         else:
             print('[ERROR] Could not retrieve loaded audio segment \'' + name + '\' from memory.')
-            exit(0)  # FIXME : Should probably raise an exception here instead
+            exit(1)  # FIXME : Should probably raise an exception here instead
 
     def produceScene(self, sceneId):
         if sceneId < self.nbOfLoadedScenes:
@@ -321,8 +310,8 @@ def mainPool():
 
     producer = AudioSceneProducer(outputFolder=args.output_folder,
                                   version_nb= args.output_version_nb,
-                                  primarySoundsJsonFilename=args.primary_sounds_definition_filename,
-                                  primarySoundFolderPath=args.primary_sounds_folder,
+                                  elementarySoundsJsonFilename=args.elementary_sounds_definition_filename,
+                                  elementarySoundFolderPath=args.elementary_sounds_folder,
                                   setType=args.set_type,
                                   outputPrefix=args.output_filename_prefix,
                                   produce_audio_files=args.produce_audio_files,
@@ -353,7 +342,7 @@ def mainPool():
     # FIXME : The definition of the threads should be done inside the class
 
     # FIXME : Each process should load their composition sound instead of loading everything in memory here
-    producer._loadAllPrimarySounds()
+    producer.loadAllElementarySounds()
 
     # FIXME : All the process should probably not work from the same object attributes
     nbProcess = args.nb_process
@@ -365,6 +354,7 @@ def mainPool():
     pool.join()
 
     print("Job Done !")
+
 
 if __name__ == '__main__':
     mainPool()
