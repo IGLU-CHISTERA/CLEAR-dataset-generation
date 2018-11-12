@@ -18,6 +18,7 @@ import sys
 from functools import reduce
 from itertools import groupby
 import copy
+import numpy as np
 from utils.misc import init_random_seed
 from question_generation.helper import question_node_shallow_copy, placeholders_to_attribute, \
                                        translate_can_be_null_attributes, replace_optionals, \
@@ -419,8 +420,8 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
       nb_answers = len(answer_counts_sorted)
       idx = max(int(math.floor(nb_answers*0.15)), 2)
 
-      std = statistics.stdev(answer_counts_sorted)
 
+      std = np.std(answer_counts_sorted, ddof=1)
       # FIXME : Do not hardcode STD threshold
       if std > 5:
         states = reset_states_if_needed(states)
