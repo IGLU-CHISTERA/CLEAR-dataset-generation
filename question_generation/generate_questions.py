@@ -421,11 +421,11 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
       idx = max(int(math.floor(nb_answers*0.15)), 2)
 
 
-      std = np.std(answer_counts_sorted, ddof=1)
+      #std = np.std(answer_counts_sorted, ddof=1)
       # FIXME : Do not hardcode STD threshold
-      if std > 5:
-        states = reset_states_if_needed(states)
-        continue
+      #if std > 5:
+      #  states = reset_states_if_needed(states)
+      #  continue
 
       if cur_answer_count > 1.1 * answer_counts_sorted[-idx]:         # TODO : Those skipping probabilities should be in config file
         if verbose: print('skipping due to second count')
