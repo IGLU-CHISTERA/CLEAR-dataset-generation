@@ -133,7 +133,7 @@ def precompute_filter_options(scene_struct, attr_keys, can_be_null_attributes):
       mask.append((i // (2 ** j)) % 2)
     masks.append(mask)
 
-  random.shuffle(masks)
+  np.random.shuffle(masks)
 
   for object_idx, obj in enumerate(scene_struct['objects']):
     key = qeng.get_filter_key(attr_keys, scene_struct, object_idx)
@@ -267,7 +267,7 @@ def find_relate_filter_options(object_idx, scene_struct, attr, can_be_null_attri
         non_trivial_options_keys.append(key)
       all_options[key] = sorted(list(intersection))
 
-  random.shuffle(trivial_options_keys)
+  np.random.shuffle(trivial_options_keys)
   options_to_keep = non_trivial_options_keys + trivial_options_keys[:nb_trivial]
 
   # FIXME : Looping a second time is really ineficient.. We do it to make sure that we keep the same order in the dict to ensure reproducibility
@@ -515,7 +515,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
       # This ensure that for the same seed of the random number generator, the same output will be produced
       filter_option_keys = sorted(filter_options.keys(), key=lambda x: x[0] if x[0] is not None else '')
 
-      random.shuffle(filter_option_keys)
+      np.random.shuffle(filter_option_keys)
       for k in filter_option_keys:
         new_nodes = []
         cur_next_vals = {l: v for l, v in state['vals'].items()}
@@ -589,7 +589,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
       param_name = next_node['side_inputs'][0]
       param_type = param_name_to_attribute[param_name]
       param_vals = metadata['attributes'][param_type]['values'][:]
-      random.shuffle(param_vals)
+      np.random.shuffle(param_vals)
       for val in param_vals:
         input_map = {k: v for k, v in state['input_map'].items()}
         input_map[state['next_template_node']] = len(state['nodes'])
@@ -821,7 +821,7 @@ def main(args):
     # templates. This is a simple heuristic to give a flat distribution over templates.
     # We shuffle the templates before sorting to ensure variability when the counts are equals
     templates_items = list(templates.items())
-    random.shuffle(templates_items)
+    np.random.shuffle(templates_items)
     templates_items = sorted(templates_items,
                         key=lambda x: template_counts[x[0]])
 
