@@ -264,7 +264,7 @@ class AudioSceneProducer:
       # TODO : Take color map as parameter
       # Set figure settings to remove all axis
       spectrogram = plt.figure(frameon=False)
-      spectrogram.set_size_inches(spectrogramHeight, spectrogramWidth)
+      spectrogram.set_size_inches(spectrogramWidth, spectrogramHeight)
       ax = plt.Axes(spectrogram, [0., 0., 1., 1.])
       ax.set_axis_off()
       spectrogram.add_axes(ax)

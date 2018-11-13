@@ -2,8 +2,8 @@
 --output_folder=output
 --primary_sounds_folder=elementary_sounds_16_bits
 --primary_sounds_definition_filename=elementary_sounds_sharp.json
---spectrogram_height=480
---spectrogram_width=320
+--spectrogram_height=320
+--spectrogram_width=480
 --spectrogram_window_length=1024
 --spectrogram_window_overlap=512
 --nb_process=3
