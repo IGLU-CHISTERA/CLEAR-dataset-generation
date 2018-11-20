@@ -77,7 +77,7 @@ python ./question_generation/generate_questions.py @${EXPERIMENT_DIR}/test_quest
 TEST_QUESTION_GENERATION_PID=$!
 
 # Wait for process to finish
-wait $TRAINING_QUESTION_GENERATION_PID $VAL_QUESTION_GENERATION_PID $TEST_QUESTION_GENERATION_PID
+wait ${TRAINING_QUESTION_GENERATION_PID} ${VAL_QUESTION_GENERATION_PID} ${TEST_QUESTION_GENERATION_PID}
 
 echo -e "Question generation done\n"
 
@@ -94,7 +94,7 @@ python ./utils/consolidate_questions.py --set_type test --output_folder ${OUTPUT
 
 echo -e "Question consolidation Done\n"
 
-wait $TRAIN_SCENE_PRODUCTION_PID $VAL_SCENE_PRODUCTION_PID $TEST_SCENE_PRODUCTION_PID
+wait ${TRAIN_SCENE_PRODUCTION_PID} ${VAL_SCENE_PRODUCTION_PID} ${TEST_SCENE_PRODUCTION_PID}
 
 echo -e "Scene production done\n"
 
