@@ -42,8 +42,6 @@ echo "[NOTE] Stopping this script will not stop the background process."
 echo "[NOTE] Make sure all the process are stopped if CTRL+C on this script"
 echo "-----------------------------------------------------------------------------------------------------------"
 
-#trap "echo interrupted scene generation" SIGINT
-
 ## Generate the scenes
 echo "Generating scenes..."
 python ./scene_generation/scene_generator.py @${EXPERIMENT_DIR}/scene_generator.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/scene_generation.log"
@@ -78,8 +76,6 @@ echo 'Starting Test Question Generation...'
 python ./question_generation/generate_questions.py @${EXPERIMENT_DIR}/test_question_generator.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/test_question_generation.log" &
 TEST_QUESTION_GENERATION_PID=$!
 
-#trap "echo 'Killing question generation' && kill -9 ${TRAINING_QUESTION_GENERATION_PID} ${VAL_QUESTION_GENERATION_PID} ${TEST_QUESTION_GENERATION_PID}" SIGINT
-
 # Wait for process to finish
 wait $TRAINING_QUESTION_GENERATION_PID $VAL_QUESTION_GENERATION_PID $TEST_QUESTION_GENERATION_PID
 
@@ -98,9 +94,7 @@ python ./utils/consolidate_questions.py --set_type test --output_folder ${OUTPUT
 
 echo -e "Question consolidation Done\n"
 
-#trap "echo 'killing scene production' && kill -9 ${TRAIN_SCENE_PRODUCTION_PID} ${VAL_SCENE_PRODUCTION_PID} ${TEST_SCENE_PRODUCTION_PID}" SIGINT
-
-wait $TRAIN_SCENE_PRODUCTION_PID $VAL_SCENE_PRODUCTION_PID $TEST_SCENE_PRODUCTION_PID $TRAINING_QUESTION_GENERATION_PID $VAL_QUESTION_GENERATION_PID $TEST_QUESTION_GENERATION_PID
+wait $TRAIN_SCENE_PRODUCTION_PID $VAL_SCENE_PRODUCTION_PID $TEST_SCENE_PRODUCTION_PID
 
 echo -e "Scene production done\n"
 
