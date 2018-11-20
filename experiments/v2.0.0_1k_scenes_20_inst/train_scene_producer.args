@@ -1,0 +1,16 @@
+--set_type=train
+--output_folder=output
+--elementary_sounds_folder=elementary_sounds_16_bits
+--elementary_sounds_definition_filename=elementary_sounds_sharp.json
+--spectrogram_height=320
+--spectrogram_width=480
+--spectrogram_window_length=1024
+--spectrogram_window_overlap=512
+--nb_process=2
+--output_filename_prefix=AQA
+--with_background_noise
+--background_noise_gain_range=-90,-80
+--with_reverb
+--reverb_room_scale=30,100
+--reverb_delay_range=50,400
+--random_nb_generator_seed=5343256
