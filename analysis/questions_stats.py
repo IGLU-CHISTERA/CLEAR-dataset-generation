@@ -1,3 +1,4 @@
+import re
 import ujson
 from collections import defaultdict
 import json
@@ -249,6 +250,18 @@ def get_question_text_with_answer_duplicate_count(questions_with_answers):
   return counter
 
 
+def check_for_placeholders(questions):
+  invalid_templates = set()
+  reg = re.compile('<([a-zA-Z]+)(\d)?>')
+
+  for question in questions:
+    matches = re.findall(reg, question['question'])
+    if len(matches) > 0:
+      invalid_templates.add(question['template_filename'])
+
+  return invalid_templates
+
+
 def get_difference_between_sets(training_questions, validation_questions, test_questions, result_filepath):
   analysis_result = {
     'total_question_count': {},
@@ -383,8 +396,10 @@ if __name__ == "__main__":
   training_questions, validation_questions, test_questions = load_questions(questions_path)
   print("Question loaded")
 
+  invalid_templates = check_for_placeholders(test_questions)
+
   # Get differences between sets
-  get_difference_between_sets(training_questions, validation_questions, test_questions, './differences_between_sets.json')
+  #get_difference_between_sets(training_questions, validation_questions, test_questions, './differences_between_sets.json')
 
   # Analyze scenes for each set
   #analyse_questions(output_path, 'train', training_questions)

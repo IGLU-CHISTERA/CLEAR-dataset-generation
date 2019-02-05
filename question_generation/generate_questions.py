@@ -28,6 +28,7 @@ from collections import OrderedDict
 
 import question_engine as qeng
 
+# FIXME : Update this documentation string
 """
 Generate synthetic questions and answers for CLEVR images. Input is a single
 JSON file containing ground-truth scene information for all images, and output
@@ -690,6 +691,7 @@ def main(args):
   if args.random_nb_generator_seed is not None:
     random_seed_save_filepath = os.path.join(questions_output_folder, 'question_generator_random_seed.json')
 
+    # FIXME : Should still save the seed even if it is not provided in the arguments
     init_random_seed(args.random_nb_generator_seed, args.output_version_nb, random_seed_save_filepath)
 
   with open(args.metadata_file, 'r') as f:
