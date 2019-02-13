@@ -19,7 +19,7 @@ REL_OUTPUT_DIR=$(grep output_folder ${EXPERIMENT_DIR}/scene_generator.args | awk
 OUTPUT_DIR="${ROOT_DIR}/${REL_OUTPUT_DIR}"
 EXPERIMENT_OUTPUT_DIR="${OUTPUT_DIR}/${EXPERIMENT_NAME}"
 ARGUMENTS_COPY_DIR="${EXPERIMENT_OUTPUT_DIR}/arguments"
-LOG_DIR="${EXPERIMENT_OUTPUT_DIR}/log"
+LOG_DIR="${EXPERIMENT_OUTPUT_DIR}/logs"
 
 # Creating all necessary folders
 if [[ ! -d "${OUTPUT_DIR}" ]]; then
