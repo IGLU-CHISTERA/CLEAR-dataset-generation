@@ -8,19 +8,19 @@ CURRENT_DATE_TIME=$(date +'%d-%m-%Y_%Hh%M')
 SECONDS=0
 
 EXPERIMENT_NAME=$1
-if [ "${EXPERIMENT_NAME: -1}" = "/" ]; then
+if [[ "${EXPERIMENT_NAME: -1}" = "/" ]]; then
     EXPERIMENT_NAME="${EXPERIMENT_NAME:: -1}"
 fi
 EXPERIMENT_DIR="${DIR}/${EXPERIMENT_NAME}"
 
 ROOT_LOG_DIR="${EXPERIMENT_DIR}/log"
 
-if [ ! -d "${ROOT_LOG_DIR}" ]; then
+if [[ ! -d "${ROOT_LOG_DIR}" ]]; then
   mkdir "${ROOT_LOG_DIR}"
 fi
 
 LOG_DIR="${ROOT_LOG_DIR}/${CURRENT_DATE_TIME}"
-if [ ! -d "${LOG_DIR}" ]; then
+if [[ ! -d "${LOG_DIR}" ]]; then
   mkdir "${LOG_DIR}"
 fi
 
