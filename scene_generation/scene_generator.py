@@ -389,9 +389,10 @@ if __name__ == '__main__':
 
     # Setting & Saving the random seed
     if args.random_nb_generator_seed is not None:
-      random_seed_save_filepath = os.path.join(scenes_output_folder, 'scene_generator_random_seed.json')
-
-      init_random_seed(args.random_nb_generator_seed, args.output_version_nb, random_seed_save_filepath)
+        init_random_seed(args.random_nb_generator_seed)
+    else:
+        print("The seed must be specified in the arguments.", file=sys.stderr)
+        exit(1)
 
     scene_generator = Scene_generator(args.scene_length,
                                       args.tree_width,

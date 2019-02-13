@@ -329,9 +329,10 @@ def mainPool():
 
     # Setting & Saving the random seed
     if args.random_nb_generator_seed is not None:
-      random_seed_save_filepath = os.path.join(args.output_folder,args.output_version_nb, 'producer_random_seed.json')
-
-      init_random_seed(args.random_nb_generator_seed, args.output_version_nb, random_seed_save_filepath)
+        init_random_seed(args.random_nb_generator_seed)
+    else:
+        print("The seed must be specified in the arguments.", file=sys.stderr)
+        exit(1)
 
     if args.produce_specific_scenes != '':
       with open(args.produce_specific_scenes, 'r') as f:

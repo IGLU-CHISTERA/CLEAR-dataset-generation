@@ -688,9 +688,10 @@ def main(args):
 
   # Setting & Saving the random seed
   if args.random_nb_generator_seed is not None:
-    random_seed_save_filepath = os.path.join(questions_output_folder, 'question_generator_random_seed.json')
-
-    init_random_seed(args.random_nb_generator_seed, args.output_version_nb, random_seed_save_filepath)
+    init_random_seed(args.random_nb_generator_seed)
+  else:
+    print("The seed must be specified in the arguments.", file=sys.stderr)
+    exit(1)
 
   with open(args.metadata_file, 'r') as f:
     metadata = ujson.load(f)

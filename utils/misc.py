@@ -58,15 +58,9 @@ def float_array_to_pydub_audiosegment(float_array, frame_rate, n_bytes):
                         channels=1)
 
 
-def init_random_seed(seed, version_nb, seed_save_path):
+def init_random_seed(seed):
   random.seed(seed)
   np.random.seed(seed)
-
-  with open(seed_save_path, 'w') as f:
-    ujson.dump({
-      'seed': seed,
-      'version_nb': version_nb
-    }, f, indent=2)
 
 
 def generate_random_noise(duration, gain, frame_width, sample_rate):
