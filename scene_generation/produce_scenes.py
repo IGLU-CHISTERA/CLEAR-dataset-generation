@@ -289,6 +289,7 @@ class AudioSceneProducer:
 def mainPool():
     args = parser.parse_args()
 
+    # Preparing settings
     reverbRoomScaleRange = args.reverb_room_scale_range.split(',')
     reverbDelayRange = args.reverb_delay_range.split(',')
     reverbSettings = {
@@ -308,6 +309,7 @@ def mainPool():
       'max': int(backgroundNoiseGainRange[1])
     }
 
+    # Creating the producer
     producer = AudioSceneProducer(outputFolder=args.output_folder,
                                   version_nb= args.output_version_nb,
                                   elementarySoundsJsonFilename=args.elementary_sounds_definition_filename,
@@ -335,20 +337,24 @@ def mainPool():
         exit(1)
 
     if args.produce_specific_scenes != '':
-      with open(args.produce_specific_scenes, 'r') as f:
-        idList = ujson.load(f)
+        bounds = [int(x) for x in args.produce_specific_scenes.split(",")]
+        if len(bounds) != 2 or bounds[0] > bounds[1]:
+            print("Invalid scenes interval. Must be specified as X,Y where X is the low bound and Y the high bound.",
+                  file= sys.stderr)
+            exit(1)
+
+        bounds[1] = bounds[1] if bounds[1] < producer.nbOfLoadedScenes else producer.nbOfLoadedScenes
+        idList = list(range(bounds[0], bounds[1]))
+
     else:
-      idList = list(range(producer.nbOfLoadedScenes))
+        idList = list(range(producer.nbOfLoadedScenes))
 
-    # FIXME : The definition of the threads should be done inside the class
-
-    # FIXME : Each process should load their composition sound instead of loading everything in memory here
+    # Load and preprocess all elementary sounds into memory
     producer.loadAllElementarySounds()
 
-    # FIXME : All the process should probably not work from the same object attributes
-    nbProcess = args.nb_process
+    pool = Pool(processes=args.nb_process)
 
-    pool = Pool(processes=nbProcess)
+    # Start the production
     pool.map(producer.produceScene, idList)
 
     pool.close()
