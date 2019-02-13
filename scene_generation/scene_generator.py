@@ -7,7 +7,7 @@ import os, sys
 from collections import defaultdict
 
 from timbral_models import *
-from utils.misc import init_random_seed, save_generation_arguments
+from utils.misc import init_random_seed
 from scene_generation.elementary_sounds import Elementary_Sounds
 
 
@@ -386,9 +386,6 @@ if __name__ == '__main__':
       print("This experiment have already been run. Please bump the version number or delete the previous output.",
             file=sys.stderr)
       exit(1)
-
-    # FIXME : This should be done in the experiment script instead of here. This script should not have any knowledge of the arguments file
-    save_generation_arguments(args.output_version_nb, args.output_folder)
 
     # Setting & Saving the random seed
     if args.random_nb_generator_seed is not None:

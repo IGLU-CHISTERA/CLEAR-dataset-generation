@@ -27,6 +27,8 @@ fi
 # Output dir must be specified in scene_generator.args (May be omitted from other args file, we will use the extracted one)
 OUTPUT_DIR=$(grep output_folder ${EXPERIMENT_DIR}/scene_generator.args | awk -F '=' '{print $2}')
 
+ARGUMENTS_COPY_DIR="${ROOTDIR}/${OUTPUT_DIR}/arguments"
+
 # TODO : This script must be run in the virtual environment. Figure a way to make sure we are in the environment ?
 
 # Will stop the script on first error
@@ -93,6 +95,18 @@ python ./utils/consolidate_questions.py --set_type val  --output_folder ${OUTPUT
 python ./utils/consolidate_questions.py --set_type test --output_folder ${OUTPUT_DIR} --output_version_nb ${EXPERIMENT_NAME} --tmp_folder_prefix TMP_ --remove_tmp > "${LOG_DIR}/test_question_consolidation.log"
 
 echo -e "Question consolidation Done\n"
+
+echo "Copying generation arguments to output folder..."
+
+if [[ -d "${ARGUMENTS_COPY_DIR}" ]]; then
+  rm -rf "${ARGUMENTS_COPY_DIR}"
+fi
+
+mkdir ${ARGUMENTS_COPY_DIR}
+
+cp ${EXPERIMENT_DIR}/*.args ${ARGUMENTS_COPY_DIR}
+
+echo -e "Arguments copy Done\n"
 
 wait ${TRAIN_SCENE_PRODUCTION_PID} ${VAL_SCENE_PRODUCTION_PID} ${TEST_SCENE_PRODUCTION_PID}
 
