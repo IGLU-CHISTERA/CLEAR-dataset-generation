@@ -378,14 +378,14 @@ if __name__ == '__main__':
     scenes_output_folder = os.path.join(experiment_output_folder, 'scenes')
 
     if not os.path.isdir(experiment_output_folder):
-      os.mkdir(experiment_output_folder)
+        os.mkdir(experiment_output_folder)
 
     if not os.path.isdir(scenes_output_folder):
-      os.mkdir(scenes_output_folder)
+        os.mkdir(scenes_output_folder)
     else:
-      print("This experiment have already been run. Please bump the version number or delete the previous output.",
+        print("This experiment have already been run. Please bump the version number or delete the previous output.",
             file=sys.stderr)
-      exit(1)
+        exit(1)
 
     # Setting & Saving the random seed
     if args.random_nb_generator_seed is not None:
