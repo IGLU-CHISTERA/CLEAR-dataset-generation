@@ -53,12 +53,12 @@ echo "[NOTE] Make sure all the process are stopped if CTRL+C on this script"
 echo "-----------------------------------------------------------------------------------------------------------"
 
 ## Generate the scenes
-echo "Generating scenes..."
+echo ">> Generating scenes..."
 python ./scene_generation/scene_generator.py @${EXPERIMENT_DIR}/scene_generator.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_scene_generation.log"
-echo -e "Scene generation Done\n"
+echo -e ">> Scene generation Done\n"
 
 # Scene production
-echo "Starting scene production..."
+echo ">> Starting scene production..."
 python ./scene_generation/produce_scenes.py @${EXPERIMENT_DIR}/train_scene_producer.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_train_scene_production.log" &
 TRAIN_SCENE_PRODUCTION_PID=$!
 
@@ -72,27 +72,25 @@ python ./scene_generation/produce_scenes.py @${EXPERIMENT_DIR}/test_scene_produc
 TEST_SCENE_PRODUCTION_PID=$!
 
 ## Question Generation
-echo 'Starting Training Question Generation...'
+echo '>>> Starting Question Generation...'
 python ./question_generation/generate_questions.py @${EXPERIMENT_DIR}/train_question_generator.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_train_question_generation.log" &
 TRAINING_QUESTION_GENERATION_PID=$!
 # Sleep to let the first script create the folders and avoid race condition
 sleep 1
 
-echo 'Starting Validation Question Generation...'
 python ./question_generation/generate_questions.py @${EXPERIMENT_DIR}/val_question_generator.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_val_question_generation.log" &
 VAL_QUESTION_GENERATION_PID=$!
 
-echo 'Starting Test Question Generation...'
 python ./question_generation/generate_questions.py @${EXPERIMENT_DIR}/test_question_generator.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_test_question_generation.log" &
 TEST_QUESTION_GENERATION_PID=$!
 
 # Wait for process to finish
 wait ${TRAINING_QUESTION_GENERATION_PID} ${VAL_QUESTION_GENERATION_PID} ${TEST_QUESTION_GENERATION_PID}
 
-echo -e "Question generation done\n"
+echo -e ">>> Question generation done\n"
 
 # Consolidate results
-echo "Consolidating questions json..."
+echo ">>> Consolidating questions json..."
 # Training questions
 python ./utils/consolidate_questions.py --set_type train --output_folder ${OUTPUT_DIR} --output_version_nb ${EXPERIMENT_NAME} --tmp_folder_prefix TMP_ --remove_tmp > "${LOG_DIR}/${CURRENT_DATE_TIME}_train_question_consolidation.log"
 
@@ -102,9 +100,9 @@ python ./utils/consolidate_questions.py --set_type val  --output_folder ${OUTPUT
 # Test questions
 python ./utils/consolidate_questions.py --set_type test --output_folder ${OUTPUT_DIR} --output_version_nb ${EXPERIMENT_NAME} --tmp_folder_prefix TMP_ --remove_tmp > "${LOG_DIR}/${CURRENT_DATE_TIME}_test_question_consolidation.log"
 
-echo -e "Question consolidation Done\n"
+echo -e ">>> Question consolidation Done\n"
 
-echo "Copying generation arguments to output folder..."
+echo ">>> Copying generation arguments to output folder..."
 
 if [[ -d "${ARGUMENTS_COPY_DIR}" ]]; then
   rm -rf "${ARGUMENTS_COPY_DIR}"
@@ -114,11 +112,12 @@ mkdir ${ARGUMENTS_COPY_DIR}
 
 cp ${EXPERIMENT_DIR}/*.args ${ARGUMENTS_COPY_DIR}
 
-echo -e "Arguments copy Done\n"
+echo -e ">>> Arguments copy Done\n"
 
+echo -e ">> Waiting for scene production..\n"
 wait ${TRAIN_SCENE_PRODUCTION_PID} ${VAL_SCENE_PRODUCTION_PID} ${TEST_SCENE_PRODUCTION_PID}
 
-echo -e "Scene production done\n"
+echo -e ">> Scene production done\n"
 
 DURATION=$SECONDS
 HOURS=$((${DURATION} / 3600))
