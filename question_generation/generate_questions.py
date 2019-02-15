@@ -15,6 +15,7 @@ import argparse, ujson, os, random, math, statistics
 import time
 import re
 import sys
+from shutil import rmtree as rm_dir
 from functools import reduce
 from itertools import groupby
 import copy
@@ -117,6 +118,8 @@ parser.add_argument('--time_dfs', action='store_true',
     help="Time each depth-first search; must be given with --verbose")
 parser.add_argument('--profile', action='store_true',
     help="If given then run inside cProfile")
+parser.add_argument('--clear_existing_files', action='store_true',
+                    help='If set, will delete all files in the output folder before starting the generation.')
 # args = parser.parse_args()
 
 
@@ -675,16 +678,22 @@ def main(args):
   if not os.path.isdir(questions_output_folder):
     os.mkdir(questions_output_folder)
 
-  if os.path.isfile(questions_output_filepath):
-    exit(1)
+  question_file_exist = os.path.isfile(questions_output_filepath)
+  if question_file_exist and args.clear_existing_files:
+    os.remove(questions_output_filepath)
+  elif question_file_exist:
     print("This experiment have already been run. Please bump the version number or delete the previous output.", file=sys.stderr)
+    exit(1)
 
   # Create tmp folder to store questions (separated in small files)
   if not os.path.isdir(tmp_output_folder):
     os.mkdir(tmp_output_folder)
+  elif args.clear_existing_files:
+    rm_dir(tmp_output_folder)
+    os.mkdir(tmp_output_folder)
   else:
-    exit(1)  # FIXME : Maybe we should have a prompt ? This might be dangerous while running experiments automatically. We might get stuck there and waste a lot of time
     print("Directory %s already exist. Please change the output filename", file=sys.stderr)
+    exit(1)  # FIXME : Maybe we should have a prompt ? This might be dangerous while running experiments automatically. We might get stuck there and waste a lot of time
 
   # Setting & Saving the random seed
   if args.random_nb_generator_seed is not None:
