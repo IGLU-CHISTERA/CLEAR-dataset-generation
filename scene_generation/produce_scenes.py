@@ -1,13 +1,13 @@
 import sys
 import random
 from pydub import AudioSegment
-from pydub.generators import WhiteNoise as WhiteNoiseGenerator
 from utils.effects import do_reverb_transform
 from utils.misc import pydub_audiosegment_to_float_array, float_array_to_pydub_audiosegment
 from utils.misc import generate_random_noise, init_random_seed
 import os, ujson, argparse
 from multiprocessing import Pool
 import matplotlib
+from shutil import rmtree as rm_dir
 # Matplotlib options to reduce memory usage
 matplotlib.interactive(False)
 matplotlib.use('agg')
@@ -48,7 +48,8 @@ parser.add_argument('--with_background_noise', action='store_true',
                     help='Use this setting to include a background noise in the scenes')
 
 parser.add_argument('--background_noise_gain_range', default="-100,-20", type=str,
-                    help='Range for the gain applied to the background noise. Should be written as 0,100 for a range from 0 to 100')
+                    help='Range for the gain applied to the background noise. '
+                         'Should be written as 0,100 for a range from 0 to 100')
 
 parser.add_argument('--with_reverb', action='store_true',
                     help='Use this setting to include ramdom reverberations in the scenes')
@@ -68,8 +69,15 @@ parser.add_argument('--nb_process', default=4, type=int,
 parser.add_argument('--produce_specific_scenes', default="", type=str,
                     help='Range for the reverberation parameter. Should be written as 0,100 for a range from 0 to 100')
 
-parser.add_argument('--produce_audio_files', action='store_true',
-                    help='If set, will produce the audio file')
+parser.add_argument('--no_audio_files', action='store_true',
+                    help='If set, audio file won\'t be produced. '
+                         'The --produce_spectrograms switch will also be activated')
+
+parser.add_argument('--produce_spectrograms', action='store_true',
+                    help='If set, produce the spectrograms for each scenes')
+
+parser.add_argument('--clear_existing_files', action='store_true',
+                    help='If set, will delete all files in the output folder before starting the generation.')
 
 parser.add_argument('--output_filename_prefix', default='AQA', type=str,
                     help='Prefix used for produced files')
@@ -93,7 +101,8 @@ class AudioSceneProducer:
                  withReverb,
                  reverbSettings,
                  produce_audio_files,
-                 produce_specific_scenes,
+                 produce_spectrograms,
+                 clear_existing_files,
                  elementarySoundsJsonFilename,
                  elementarySoundFolderPath,
                  setType,
@@ -108,6 +117,7 @@ class AudioSceneProducer:
         self.setType = setType
 
         self.produce_audio_files = produce_audio_files
+        self.produce_spectrograms = produce_spectrograms
 
         experiment_output_folder = os.path.join(self.outputFolder, self.version_nb)
 
@@ -143,14 +153,19 @@ class AudioSceneProducer:
         self.images_output_folder = os.path.join(self.images_output_folder, self.setType)
         self.audio_output_folder = os.path.join(self.audio_output_folder, self.setType)
 
-        if not produce_specific_scenes :
-          if os.path.isdir(self.images_output_folder) or os.path.isdir(self.audio_output_folder):
-              print("This experiment have already been run. Please bump the version number or delete the following folders :\n" +
-                    "'%s'\nand\n'%s'" % (self.images_output_folder, self.audio_output_folder), file=sys.stderr)
-              exit(1)
-          else:
-              os.mkdir(self.audio_output_folder)
-              os.mkdir(self.images_output_folder)
+        if self.produce_audio_files:
+            if not os.path.isdir(self.audio_output_folder):
+                os.mkdir(self.audio_output_folder)
+            elif clear_existing_files:
+                rm_dir(self.audio_output_folder)
+                os.mkdir(self.audio_output_folder)
+
+        if self.produce_spectrograms:
+            if not os.path.isdir(self.images_output_folder):
+                os.mkdir(self.images_output_folder)
+            elif clear_existing_files:
+                rm_dir(self.images_output_folder)
+                os.mkdir(self.images_output_folder)
 
         self.currentSceneIndex = -1  # We start at -1 since nextScene() will increment idx at the start of the fct
         self.nbOfLoadedScenes = len(self.scenes)
@@ -158,6 +173,9 @@ class AudioSceneProducer:
         if self.nbOfLoadedScenes == 0:
             print("[ERROR] Must have at least 1 scene in '"+sceneFilepath+"'", file=sys.stderr)
             exit(1)
+
+        self.show_status_every = int(self.nbOfLoadedScenes/10)
+        self.show_status_every = self.show_status_every if self.show_status_every > 0 else 1
 
         # Initialize the list that contain the loaded sounds
         self.loadedSounds = []
@@ -187,7 +205,7 @@ class AudioSceneProducer:
         if sceneId < self.nbOfLoadedScenes:
 
             scene = self.scenes[sceneId]
-            if sceneId % 100 == 0:
+            if sceneId % self.show_status_every == 0:
               print('Producing scene ' + str(sceneId), flush=True)
 
             sceneAudioSegment = self.assembleAudioScene(scene)
@@ -198,18 +216,19 @@ class AudioSceneProducer:
                 os.path.join(self.audio_output_folder, '%s_%s_%06d.wav' % (self.outputPrefix, self.setType, sceneId)),
                 format='wav')
 
-            spectrogram = AudioSceneProducer.createSpectrogram(sceneAudioSegment,
-                                                               self.spectrogramSettings['height'],
-                                                               self.spectrogramSettings['width'],
-                                                               self.spectrogramSettings['window_length'],
-                                                               self.spectrogramSettings['window_overlap'])
+            if self.produce_spectrograms:
+                spectrogram = AudioSceneProducer.createSpectrogram(sceneAudioSegment,
+                                                                   self.spectrogramSettings['height'],
+                                                                   self.spectrogramSettings['width'],
+                                                                   self.spectrogramSettings['window_length'],
+                                                                   self.spectrogramSettings['window_overlap'])
 
-            # FIXME : Create the setType folder if doesnt exist
-            spectrogram.savefig(
-              os.path.join(self.images_output_folder, '%s_%s_%06d.png' % (self.outputPrefix, self.setType, sceneId)),
-              dpi=1)
+                # FIXME : Create the setType folder if doesnt exist
+                spectrogram.savefig(
+                  os.path.join(self.images_output_folder, '%s_%s_%06d.png' % (self.outputPrefix, self.setType, sceneId)),
+                  dpi=1)
 
-            AudioSceneProducer.clearSpectrogram(spectrogram)
+                AudioSceneProducer.clearSpectrogram(spectrogram)
 
         else:
             print("[ERROR] The scene specified by id '%d' couln't be found" % sceneId)
@@ -289,6 +308,10 @@ class AudioSceneProducer:
 def mainPool():
     args = parser.parse_args()
 
+    # If not producing audio, we will produce spectrograms
+    if args.no_audio_files and not args.produce_spectrograms:
+        args.produce_spectrograms = True
+
     # Preparing settings
     reverbRoomScaleRange = args.reverb_room_scale_range.split(',')
     reverbDelayRange = args.reverb_delay_range.split(',')
@@ -316,8 +339,9 @@ def mainPool():
                                   elementarySoundFolderPath=args.elementary_sounds_folder,
                                   setType=args.set_type,
                                   outputPrefix=args.output_filename_prefix,
-                                  produce_audio_files=args.produce_audio_files,
-                                  produce_specific_scenes=args.produce_specific_scenes != '',
+                                  produce_audio_files=not args.no_audio_files,
+                                  produce_spectrograms=args.produce_spectrograms,
+                                  clear_existing_files= args.clear_existing_files,
                                   withBackgroundNoise=args.with_background_noise,
                                   backgroundNoiseGainSetting=backgroundNoiseGainSetting,
                                   withReverb=args.with_reverb,
@@ -336,22 +360,24 @@ def mainPool():
         print("The seed must be specified in the arguments.", file=sys.stderr)
         exit(1)
 
-    if args.produce_specific_scenes != '':
+    # Setting ids of scenes to produce
+    if args.produce_specific_scenes == '':
+        idList = list(range(producer.nbOfLoadedScenes))
+    else:
         bounds = [int(x) for x in args.produce_specific_scenes.split(",")]
         if len(bounds) != 2 or bounds[0] > bounds[1]:
             print("Invalid scenes interval. Must be specified as X,Y where X is the low bound and Y the high bound.",
-                  file= sys.stderr)
+                  file=sys.stderr)
             exit(1)
 
         bounds[1] = bounds[1] if bounds[1] < producer.nbOfLoadedScenes else producer.nbOfLoadedScenes
         idList = list(range(bounds[0], bounds[1]))
 
-    else:
-        idList = list(range(producer.nbOfLoadedScenes))
 
     # Load and preprocess all elementary sounds into memory
     producer.loadAllElementarySounds()
 
+    # Create process pool
     pool = Pool(processes=args.nb_process)
 
     # Start the production
@@ -360,7 +386,13 @@ def mainPool():
     pool.close()
     pool.join()
 
+    nb_generated = len(idList)
     print("Job Done !")
+    if args.produce_spectrograms:
+        print(">>> Produced %d spectrograms." % nb_generated)
+
+    if not args.no_audio_files:
+        print(">>> Produced %d audio files." % nb_generated)
 
 
 if __name__ == '__main__':
