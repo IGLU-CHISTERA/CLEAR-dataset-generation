@@ -1,5 +1,6 @@
 import ujson
 import random
+from shutil import rmtree as rm_dir
 import time
 import argparse
 from itertools import groupby
@@ -67,6 +68,9 @@ parser.add_argument('--output_filename_prefix', default='AQA', type=str,
 
 parser.add_argument('--output_version_nb', default='0.1', type=str,
                     help='Version number that will be appended to the generated scene file')
+
+parser.add_argument('--clear_existing_files', action='store_true',
+                    help='If set, will delete all files in the output folder before starting the generation.')
 
 
 class Scene_generator:
@@ -381,6 +385,9 @@ if __name__ == '__main__':
         os.mkdir(experiment_output_folder)
 
     if not os.path.isdir(scenes_output_folder):
+        os.mkdir(scenes_output_folder)
+    elif args.clear_existing_files:
+        rm_dir(scenes_output_folder)
         os.mkdir(scenes_output_folder)
     else:
         print("This experiment have already been run. Please bump the version number or delete the previous output.",
