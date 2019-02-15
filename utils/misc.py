@@ -58,35 +58,9 @@ def float_array_to_pydub_audiosegment(float_array, frame_rate, n_bytes):
                         channels=1)
 
 
-def init_random_seed(seed, version_nb, seed_save_path):
+def init_random_seed(seed):
   random.seed(seed)
   np.random.seed(seed)
-
-  with open(seed_save_path, 'w') as f:
-    ujson.dump({
-      'seed': seed,
-      'version_nb': version_nb
-    }, f, indent=2)
-
-
-# FIXME : This should be done in the run_experiment.sh script. The python script should not have knowledge of the arguments file
-def save_generation_arguments(experiment_name, output_folder):
-  experiment_path = os.path.join('.', 'experiments', experiment_name)
-  output_path = os.path.join(output_folder, experiment_name)
-  args_output_folder_path = os.path.join(output_path, 'generation_args')
-
-  args_files = [f for f in os.listdir(experiment_path) if os.path.isfile(os.path.join(experiment_path, f)) and f.endswith('.args')]
-
-  print("Saving generation arguments to %s" % args_output_folder_path)
-
-  if not os.path.isdir(output_path):
-    os.mkdir(output_path)
-
-  if not os.path.isdir(args_output_folder_path):
-    os.mkdir(args_output_folder_path)
-
-  for filename in args_files:
-    copyfile(os.path.join(experiment_path, filename), os.path.join(args_output_folder_path, filename))
 
 
 def generate_random_noise(duration, gain, frame_width, sample_rate):

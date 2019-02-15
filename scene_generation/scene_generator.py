@@ -1,5 +1,6 @@
 import ujson
 import random
+from shutil import rmtree as rm_dir
 import time
 import argparse
 from itertools import groupby
@@ -7,7 +8,7 @@ import os, sys
 from collections import defaultdict
 
 from timbral_models import *
-from utils.misc import init_random_seed, save_generation_arguments
+from utils.misc import init_random_seed
 from scene_generation.elementary_sounds import Elementary_Sounds
 
 
@@ -67,6 +68,9 @@ parser.add_argument('--output_filename_prefix', default='AQA', type=str,
 
 parser.add_argument('--output_version_nb', default='0.1', type=str,
                     help='Version number that will be appended to the generated scene file')
+
+parser.add_argument('--clear_existing_files', action='store_true',
+                    help='If set, will delete all files in the output folder before starting the generation.')
 
 
 class Scene_generator:
@@ -378,23 +382,24 @@ if __name__ == '__main__':
     scenes_output_folder = os.path.join(experiment_output_folder, 'scenes')
 
     if not os.path.isdir(experiment_output_folder):
-      os.mkdir(experiment_output_folder)
+        os.mkdir(experiment_output_folder)
 
     if not os.path.isdir(scenes_output_folder):
-      os.mkdir(scenes_output_folder)
+        os.mkdir(scenes_output_folder)
+    elif args.clear_existing_files:
+        rm_dir(scenes_output_folder)
+        os.mkdir(scenes_output_folder)
     else:
-      print("This experiment have already been run. Please bump the version number or delete the previous output.",
+        print("This experiment have already been run. Please bump the version number or delete the previous output.",
             file=sys.stderr)
-      exit(1)
-
-    # FIXME : This should be done in the experiment script instead of here. This script should not have any knowledge of the arguments file
-    save_generation_arguments(args.output_version_nb, args.output_folder)
+        exit(1)
 
     # Setting & Saving the random seed
     if args.random_nb_generator_seed is not None:
-      random_seed_save_filepath = os.path.join(scenes_output_folder, 'scene_generator_random_seed.json')
-
-      init_random_seed(args.random_nb_generator_seed, args.output_version_nb, random_seed_save_filepath)
+        init_random_seed(args.random_nb_generator_seed)
+    else:
+        print("The seed must be specified in the arguments.", file=sys.stderr)
+        exit(1)
 
     scene_generator = Scene_generator(args.scene_length,
                                       args.tree_width,
