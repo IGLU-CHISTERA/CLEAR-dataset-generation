@@ -36,7 +36,7 @@ def get_text(templates):
 def main():
   output_path = './output'
   output_version_nb = 'v1.0.0_test_templates'
-  template_folder = "./question_generation/AQA_templates_ENOUGH_INSTANCES"
+  template_folder = "./question_generation/CLEAR_templates_ENOUGH_INSTANCES"
 
   templates = load_templates(template_folder)
 

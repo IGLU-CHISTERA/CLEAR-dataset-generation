@@ -546,7 +546,7 @@ def graph_scene_distribution(training_scenes, val_scenes, test_scenes, filename)
 def main():
   questions_path = "/home/jerome/dev/datasets-remote/v2.0.0_50k_scenes_40_inst-titan01/questions"
   scene_path = '/home/jerome/dev/datasets-remote/v2.0.0_50k_scenes_40_inst-titan01/scenes'
-  template_path = 'question_generation/AQA_templates'
+  template_path = 'question_generation/CLEAR_templates'
 
   training_questions, val_questions, test_questions = load_questions_with_program_beautified(questions_path, template_path)
   train_scenes, val_scenes, test_scenes = load_scenes_beautified(scene_path)

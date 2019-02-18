@@ -51,7 +51,7 @@ def scene2primary_sound_position(scenes, n_primary_sounds):
 def load_scenes(scene_path, subsets):
     scenes = dict()
     for subset in subsets:
-        fname = os.path.join(scene_path, 'AQA_' + subset + '_scenes.json')
+        fname = os.path.join(scene_path, 'CLEAR_' + subset + '_scenes.json')
         with open(fname) as f:
             scenes[subset] = ujson.load(f)['scenes']
     print("Scenes loaded")

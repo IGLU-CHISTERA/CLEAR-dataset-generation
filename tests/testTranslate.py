@@ -6,8 +6,8 @@ from time import time
 
 
 def main():
-  testSound = AudioSegment.from_wav('/home/jerome/dev/Aqa-Dataset-Gen/elementary_sounds_16_bits/violin_F_akg.wav')
-  #testSound = AudioSegment.from_wav('/home/jerome/dev/Aqa-Dataset-Gen/elementary_sounds/violin_F_akg.wav')
+  testSound = AudioSegment.from_wav('/home/jerome/dev/CLEAR-Dataset-Gen/elementary_sounds_16_bits/violin_F_akg.wav')
+  #testSound = AudioSegment.from_wav('/home/jerome/dev/CLEAR-Dataset-Gen/elementary_sounds/violin_F_akg.wav')
   orig = testSound.get_array_of_samples()
   before = time()
   for i in range(10):

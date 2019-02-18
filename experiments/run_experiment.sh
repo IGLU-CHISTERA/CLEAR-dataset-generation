@@ -44,9 +44,9 @@ set -e
 
 cd ${ROOT_DIR}
 echo "-----------------------------------------------------------------------------------------------------------"
-echo "    AQA Dataset Generation  --- Experiment : ${EXPERIMENT_NAME}  ---  `date +"%d/%m/%Y %H:%M"`"
+echo "    CLEAR Dataset Generation  --- Experiment : ${EXPERIMENT_NAME}  ---  `date +"%d/%m/%Y %H:%M"`"
 echo "-----------------------------------------------------------------------------------------------------------"
-echo "[NOTE] This script should be run inside the virtual environment associated with Aqa-Dataset-Gen project"
+echo "[NOTE] This script should be run inside the virtual environment associated with CLEAR-Dataset-Geneneration project"
 echo "[NOTE] The output of each process can be found in the log folder of the experiment"
 echo "[NOTE] Stopping this script will not stop the background process."
 echo "[NOTE] Make sure all the process are stopped if CTRL+C on this script"

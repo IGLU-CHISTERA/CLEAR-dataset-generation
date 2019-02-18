@@ -227,11 +227,11 @@ def add_occurence_note_to_templates(templates, occurence_by_template, max_instan
 if __name__ == "__main__":
   # FIXME : Should be able to chose between train, val and test sets
   # TODO : Take those as parameters
-  question_filename = "AQA_%s_questions.json"
-  scenes_filename = "AQA_%s_scenes.json"
+  question_filename = "CLEAR_%s_questions.json"
+  scenes_filename = "CLEAR_%s_scenes.json"
   output_path = './output'
   output_version_nb = 'v1.0.0_test_templates'
-  template_folder = "./question_generation/AQA_templates_ALL_ENABLED"
+  template_folder = "./question_generation/CLEAR_templates_ALL_ENABLED"
   output_folder = os.path.join(output_path, output_version_nb)
   question_folder = os.path.join(output_folder, 'questions')
   scene_folder = os.path.join(output_folder, 'scenes')
@@ -268,7 +268,7 @@ if __name__ == "__main__":
 
   #enable_all(templates)
 
-  #write_templates(templates, 'question_generation/AQA_templates_ALL_ENABLED')
+  #write_templates(templates, 'question_generation/CLEAR_templates_ALL_ENABLED')
 
 
   # Calculate the nb of occurence for each templates
@@ -282,11 +282,11 @@ if __name__ == "__main__":
                                                                output_version_nb,
                                                                minimum_ratio=0.6)
 
-  write_templates(accepted_templates, 'question_generation/AQA_templates_ENOUGH_INSTANCES')
-  write_templates(rejected_templates, 'question_generation/AQA_templates_NOT_ENOUGH_INSTANCES')
+  write_templates(accepted_templates, 'question_generation/CLEAR_templates_ENOUGH_INSTANCES')
+  write_templates(rejected_templates, 'question_generation/CLEAR_templates_NOT_ENOUGH_INSTANCES')
 
 
-  #write_templates(templates_with_instantiation_stats, 'question_generation/AQA_templates_WITH_STATS')
+  #write_templates(templates_with_instantiation_stats, 'question_generation/CLEAR_templates_WITH_STATS')
 
   #node_types = get_all_last_node_type(templates)
 
@@ -294,10 +294,10 @@ if __name__ == "__main__":
 
   #non_percussion_templates, percussion_templates = filter_percussion_templates(templates)
 
-  #write_templates(non_percussion_templates, 'question_generation/AQA_templates_NO_PERCUSSION')
+  #write_templates(non_percussion_templates, 'question_generation/CLEAR_templates_NO_PERCUSSION')
   #enabled_templates, disabled_templates = filter_templates_with_notes(templates)
 
-  #write_templates(enabled_templates, 'question_generation/AQA_templates_PASSING')
-  #write_templates(disabled_templates, 'question_generation/AQA_templates_NOT_PASSING')
+  #write_templates(enabled_templates, 'question_generation/CLEAR_templates_PASSING')
+  #write_templates(disabled_templates, 'question_generation/CLEAR_templates_NOT_PASSING')
 
   print("Done")

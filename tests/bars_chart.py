@@ -10,7 +10,7 @@ from analysis.scenes_stats import load_scenes, get_scene_distributions
 renderer = hv.renderer('bokeh')
 
 questions_path = "/home/jerome/dev/datasets-remote/v2.0.0_50k_scenes_40_inst-titan01/questions"
-template_path = 'question_generation/AQA_templates'
+template_path = 'question_generation/CLEAR_templates'
 
 training_questions, val_questions, test_questions = load_questions_with_program_beautified(questions_path, template_path)
 templates = load_templates(template_path)

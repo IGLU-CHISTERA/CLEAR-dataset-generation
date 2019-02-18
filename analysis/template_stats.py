@@ -151,9 +151,9 @@ def get_template_text(templates):
 def main():
     cwd = os.path.dirname(os.path.realpath(__file__))
     # FIXME : Take paths as argument
-    template_dir = "question_generation/AQA_templates"
-    #template_dir = "question_generation/AQA_templates_PASSING"
-    #template_dir = "question_generation/AQA_templates_NOT_PASSING"
+    template_dir = "question_generation/CLEAR_templates"
+    #template_dir = "question_generation/CLEAR_templates_PASSING"
+    #template_dir = "question_generation/CLEAR_templates_NOT_PASSING"
     synonyms_path = "question_generation/synonyms.json"
     metadata_path = "metadata.json"
 

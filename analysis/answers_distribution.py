@@ -45,7 +45,7 @@ families = {
 
 def load_questions(questions_path):
   print("Loading questions...")
-  filename = "AQA_%s_questions.json"
+  filename = "CLEAR_%s_questions.json"
   training_question_path = os.path.join(questions_path, filename % 'train')
   validation_questions_path = os.path.join(questions_path, filename % 'val')
   test_questions_path = os.path.join(questions_path, filename % 'test')
@@ -152,7 +152,7 @@ def get_answer_distribution(questions):
 
 def main():
   #args = parser.parse_args()
-  template_path = 'question_generation/AQA_templates'
+  template_path = 'question_generation/CLEAR_templates'
   question_path = "/home/jerome/dev/film-aqa/data/v1.1.0_1k_scenes_20_inst/questions"
   experiment_name = "v2.0.0_50k_scenes_40_inst"
   question_path = "/home/jerome/dev/datasets-remote/%s/questions" % experiment_name

@@ -63,7 +63,7 @@ parser.add_argument('--metadata_file', default='../metadata.json',
 parser.add_argument('--output_folder', default='../output',
                     help='Folder where the generated scenes will be saved')
 
-parser.add_argument('--output_filename_prefix', default='AQA', type=str,
+parser.add_argument('--output_filename_prefix', default='CLEAR', type=str,
                     help='Prefix used for generated scene file')
 
 parser.add_argument('--output_version_nb', default='0.1', type=str,
@@ -341,19 +341,19 @@ class Scene_generator:
             if scene_count < nb_training:
                 scene['split'] = 'train'
                 scene['image_index'] = training_index   # TODO : Change this key to "scene_index". Keeping image reference for simplicity
-                scene['image_filename'] = "AQA_%s_%06d.png" % (scene['split'], training_index)
+                scene['image_filename'] = "CLEAR_%s_%06d.png" % (scene['split'], training_index)
                 training_index += 1
                 training_scenes.append(scene)
             elif scene_count < nb_training + nb_valid:
                 scene['split'] = 'val'
                 scene['image_index'] = valid_index      # TODO : Change this key to "scene_index". Keeping image reference for simplicity
-                scene['image_filename'] = "AQA_%s_%06d.png" % (scene['split'], valid_index)
+                scene['image_filename'] = "CLEAR_%s_%06d.png" % (scene['split'], valid_index)
                 valid_index += 1
                 valid_scenes.append(scene)
             else:
                 scene['split'] = 'test'
                 scene['image_index'] = test_index       # TODO : Change this key to "scene_index". Keeping image reference for simplicity
-                scene['image_filename'] = "AQA_%s_%06d.png" % (scene['split'], test_index)
+                scene['image_filename'] = "CLEAR_%s_%06d.png" % (scene['split'], test_index)
                 test_index += 1
                 test_scenes.append(scene)
 

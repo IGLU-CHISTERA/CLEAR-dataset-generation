@@ -4,7 +4,7 @@ from itertools import groupby
 
 ####### Questions Stats ###############
 
-with open('./output/questions/AQA_V0.0.1_train_questions.json', 'r') as f:
+with open('./output/questions/CLEAR_V0.0.1_train_questions.json', 'r') as f:
     questions = ujson.load(f)['questions']
 
 questions_by_images = {}
@@ -46,7 +46,7 @@ print(ujson.dumps(groups, indent=4, sort_keys=True))
 
 ####### Scenes Stats ###############
 
-with open('./output/scenes/AQA_V0.1_train_scenes.json', 'r') as f:
+with open('./output/scenes/CLEAR_V0.1_train_scenes.json', 'r') as f:
     scenes = ujson.load(f)['scenes']
 
 for scene in scenes:

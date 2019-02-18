@@ -64,7 +64,7 @@ parser = argparse.ArgumentParser(fromfile_prefix_chars='@')
 
 parser.add_argument('--output_folder', default='./output',
     help="Folder where to store the generated questions")
-parser.add_argument('--output_filename_prefix', default='AQA',
+parser.add_argument('--output_filename_prefix', default='CLEAR',
     help="Prefix for the output file")
 parser.add_argument('--output_version_nb', default='0.0.1',
     help="Identifier of the dataset version.")

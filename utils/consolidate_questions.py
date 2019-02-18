@@ -13,7 +13,7 @@ parser.add_argument('--tmp_folder_prefix', default='TMP_',
     help="Prefix for the temporary output folder")
 parser.add_argument('--set_type', default='train', type=str,
     help="Specify the set type (train/val/test)")
-parser.add_argument('--output_filename_prefix', default='AQA',
+parser.add_argument('--output_filename_prefix', default='CLEAR',
     help="Prefix for the output file")
 parser.add_argument('--remove_tmp', action="store_true",
     help="Will delete the tmp folder after consolidation")

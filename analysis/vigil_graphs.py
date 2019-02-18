@@ -83,7 +83,7 @@ def graph_answer_distribution_by_family_second(questions):
 def main():
   questions_path = "/home/jerome/dev/datasets-remote/v2.0.0_50k_scenes_40_inst-titan01/questions"
   scene_path = '/home/jerome/dev/datasets-remote/v2.0.0_50k_scenes_40_inst-titan01/scenes'
-  template_path = 'question_generation/AQA_templates'
+  template_path = 'question_generation/CLEAR_templates'
 
   training_questions, val_questions, test_questions = load_questions_with_program_beautified(questions_path, template_path)
   #train_scenes, val_scenes, test_scenes = load_scenes(scene_path)

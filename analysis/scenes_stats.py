@@ -40,7 +40,7 @@ def load_scenes_beautified(scenes_path):
 
 
 def load_scenes(scenes_path):
-  filename = "AQA_%s_scenes.json"
+  filename = "CLEAR_%s_scenes.json"
   training_scenes_path = os.path.join(scenes_path, filename % 'train')
   validation_scenes_path = os.path.join(scenes_path, filename % 'val')
   test_scenes_path = os.path.join(scenes_path, filename % 'test')

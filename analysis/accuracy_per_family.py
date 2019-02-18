@@ -15,7 +15,7 @@ parser.add_argument('--exp_name', default='', type=str,
 
 def load_questions(questions_path):
   print("Loading questions...")
-  filename = "AQA_%s_questions.json"
+  filename = "CLEAR_%s_questions.json"
   training_question_path = os.path.join(questions_path, filename % 'train')
   validation_questions_path = os.path.join(questions_path, filename % 'val')
   test_questions_path = os.path.join(questions_path, filename % 'test')
