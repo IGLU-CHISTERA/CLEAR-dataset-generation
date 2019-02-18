@@ -9,5 +9,5 @@
 --elementary_sounds_definition_filename=elementary_sounds_sharp.json
 --metadata_file=metadata_sharp.json
 --output_folder=output
---output_filename_prefix=AQA
+--output_filename_prefix=CLEAR
 --random_nb_generator_seed=584979
