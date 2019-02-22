@@ -716,6 +716,10 @@ def load_scenes(scene_filepath, start_idx, nb_scenes_to_gen):
   return scenes, scene_info
 
 
+def get_max_scene_length(scenes):
+  return np.max([len(scene['objects']) for scene in scenes])
+
+
 def load_and_prepare_metadata(metadata_filepath, scenes):
   # Loading metadata
   with open(metadata_filepath, 'r') as f:
@@ -763,7 +767,7 @@ def load_and_prepare_metadata(metadata_filepath, scenes):
   # Instantiate the question engine attributes handlers
   qeng.instantiate_attributes_handlers(metadata, instrument_count, max_scene_length)
 
-  return metadata, max_scene_length
+  return metadata
 
 
 def create_reset_counts_fct(templates, metadata, max_scene_length):
@@ -798,6 +802,98 @@ def load_synonyms(synonyms_filepath):
   # Read synonyms file
   with open(args.synonyms_json, 'r') as f:
     return ujson.load(f)
+
+
+def generate_info_section(set_type, version_nb):
+    return {
+            "name": "CLEAR",
+            "license": "Creative Commons Attribution (CC-BY 4.0)",
+            "version": version_nb,
+            "split": set_type,
+            "date": time.strftime("%x")
+        }
+
+
+def generate_and_write_questions_to_file(scenes, templates, metadata, synonyms,
+                                         questions_info, output_folder, output_filename):
+  # Helper function
+  reset_counts = create_reset_counts_fct(templates, metadata, get_max_scene_length(scenes))
+
+  # Initialisation
+  questions = []
+  question_index = 0
+  file_written = 0
+  scene_count = 0
+  nb_scenes = len(scenes)
+
+  for i, scene in enumerate(scenes):
+    scene_fn = scene['image_filename']  # FIXME : Scene key related to image. Should refer to "sound_filename" or scene
+    scene_struct = scene
+    print('starting scene %s (%d / %d)' % (scene_fn, i + 1, nb_scenes))
+
+    if scene_count % args.reset_counts_every == 0:
+      template_counts, template_answer_counts = reset_counts()
+    scene_count += 1
+
+    # Order templates by the number of questions we have so far for those
+    # templates. This is a simple heuristic to give a flat distribution over templates.
+    # We shuffle the templates before sorting to ensure variability when the counts are equals
+    templates_items = list(templates.items())
+    np.random.shuffle(templates_items)
+    templates_items = sorted(templates_items,
+                             key=lambda x: template_counts[x[0]])
+
+    num_instantiated = 0
+    for (template_fn, template_idx), template in templates_items:
+      if 'disabled' in template and template['disabled']:
+        continue
+
+      print('    trying template ', template_fn, template_idx, flush=True)
+
+      ts, qs, ans = instantiate_templates_dfs(
+        scene_struct,
+        template,
+        metadata,
+        template_answer_counts[(template_fn, template_idx)],
+        synonyms,
+        reset_threshold=args.instantiation_retry_threshold,
+        max_instances=args.instances_per_template,
+        verbose=args.verbose)
+      image_index = int(os.path.splitext(scene_fn)[0].split('_')[-1])
+      for t, q, a in zip(ts, qs, ans):
+        questions.append({
+          'split': args.set_type,
+          'image_filename': scene_fn,  # FIXME : Do we even need this ? We can reconstruct from the image index & prefix
+          'image_index': image_index,  # FIXME : should be scene index
+          'image': os.path.splitext(scene_fn)[0],
+          'question': t,
+          'program': q,
+          'answer': a,
+          'template_filename': '%s-%d' % (template_fn, template_idx),  # FIXME : This should be template_id
+          'question_family_index': template_idx,  # FIXME : This index doesn't represent the question family index
+          'question_index': question_index,  # FIXME : This is not efficient
+        })
+        question_index += 1
+      if len(ts) > 0:
+        num_instantiated += 1
+        template_counts[(template_fn, template_idx)] += 1
+      elif args.verbose:
+        print('Could not generate any question for template "%s-%d"' % (template_fn, template_idx))
+
+      if num_instantiated >= args.templates_per_image:
+        # We have instantiated enough template for this scene
+        break
+
+    if question_index != 0 and question_index % args.write_to_file_every == 0:
+      write_questions_part_to_file(output_folder, output_filename, questions_info, questions, file_written)
+      file_written += 1
+      questions = []
+
+  if len(questions) > 0 or file_written == 0:
+    # Write the rest of the questions
+    # If no file were written and we have 0 questions,
+    # we still want an output file with no questions (Otherwise it will break the pipeline)
+    write_questions_part_to_file(output_folder, output_filename, questions_info, questions, file_written)
 
 
 def main(args):
@@ -843,89 +939,26 @@ def main(args):
     exit(1)  # FIXME : Maybe we should have a prompt ? This might be dangerous while running experiments automatically. We might get stuck there and waste a lot of time
 
   # Load templates, scenes, metadata and synonyms from file
-  scenes, scene_info = load_scenes(scene_filepath, args.scene_start_idx, args.num_scenes)   # FIXME : Get rid of scene_info
-  metadata, max_scene_length = load_and_prepare_metadata(args.metadata_file, scenes)
+  scenes, scene_info = load_scenes(scene_filepath, args.scene_start_idx, args.num_scenes)
+  metadata = load_and_prepare_metadata(args.metadata_file, scenes)
   templates = load_and_prepare_templates(args.template_dir)
   synonyms = load_synonyms(args.synonyms_json)
 
-  # Helper function
-  reset_counts = create_reset_counts_fct(templates, metadata, max_scene_length)
+  # Create question info section
+  questions_info = generate_info_section(args.set_type, args.output_version_nb)
 
-  # Initialisation
-  questions = []
-  question_index = 0
-  file_written = 0
-  scene_count = 0
-  nb_scenes = len(scenes)
+  # Start question generation
+  generate_and_write_questions_to_file(scenes,
+                                       templates,
+                                       metadata,
+                                       synonyms,
+                                       questions_info,
+                                       tmp_output_folder,
+                                       questions_filename)
 
-  for i, scene in enumerate(scenes):
-    scene_fn = scene['image_filename']          # FIXME : Scene key related to image. Should refer to "sound_filename" or scene
-    scene_struct = scene
-    print('starting scene %s (%d / %d)' % (scene_fn, i + 1, nb_scenes))
+  print("Questions generation done !")
 
-    if scene_count % args.reset_counts_every == 0:
-      template_counts, template_answer_counts = reset_counts()
-    scene_count += 1
 
-    # Order templates by the number of questions we have so far for those
-    # templates. This is a simple heuristic to give a flat distribution over templates.
-    # We shuffle the templates before sorting to ensure variability when the counts are equals
-    templates_items = list(templates.items())
-    np.random.shuffle(templates_items)
-    templates_items = sorted(templates_items,
-                        key=lambda x: template_counts[x[0]])
-
-    num_instantiated = 0
-    for (template_fn, template_idx), template in templates_items:
-      if 'disabled' in template and template['disabled']:
-        continue
-
-      print('    trying template ', template_fn, template_idx, flush=True)
-
-      ts, qs, ans = instantiate_templates_dfs(
-                      scene_struct,
-                      template,
-                      metadata,
-                      template_answer_counts[(template_fn, template_idx)],
-                      synonyms,
-                      reset_threshold=args.instantiation_retry_threshold,
-                      max_instances=args.instances_per_template,
-                      verbose=args.verbose)
-      image_index = int(os.path.splitext(scene_fn)[0].split('_')[-1])
-      for t, q, a in zip(ts, qs, ans):
-        questions.append({
-          'split': args.set_type,
-          'image_filename': scene_fn,            # FIXME : Do we even need this ? We can reconstruct from the image index & prefix
-          'image_index': image_index,            # FIXME : should be scene index
-          'image': os.path.splitext(scene_fn)[0],
-          'question': t,
-          'program': q,
-          'answer': a,
-          'template_filename': '%s-%d' % (template_fn, template_idx),   # FIXME : This should be template_id
-          'question_family_index': template_idx,         # FIXME : This index doesn't represent the question family index
-          'question_index': question_index,     # FIXME : This is not efficient
-        })
-        question_index += 1
-      if len(ts) > 0:
-        num_instantiated += 1
-        template_counts[(template_fn, template_idx)] += 1
-      elif args.verbose:
-        print('Could not generate any question for template "%s-%d"' % (template_fn, template_idx))
-
-      if num_instantiated >= args.templates_per_image:
-        # We have instantiated enough template for this scene
-        break
-
-    if question_index != 0 and question_index % args.write_to_file_every == 0:
-      write_questions_part_to_file(tmp_output_folder, questions_filename, scene_info, questions, file_written)    # FIXME : Remove the scene_info
-      file_written += 1
-      questions = []
-
-  if len(questions) > 0 or file_written == 0:
-    # Write the rest of the questions
-    # If no file were written and we have 0 questions, 
-    # we still want an output file with no questions (Otherwise it will break the pipeline)
-    write_questions_part_to_file(tmp_output_folder, questions_filename, scene_info, questions, file_written)      # FIXME : Remove the scene_info
 
 
 if __name__ == '__main__':

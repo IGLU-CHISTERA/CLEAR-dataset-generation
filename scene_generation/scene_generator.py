@@ -291,7 +291,7 @@ class Scene_generator:
             }
         ]
 
-        scene_indexes = list(range(0, self.nb_objects_per_scene))
+        scene_indexes = list(range(0, self.nb_objects_per_scene))           # FIXME : Would not work with variable scene length
 
         for i in range(0, self.nb_objects_per_scene):
             if i - 1 >= 0:
