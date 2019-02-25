@@ -1,9 +1,9 @@
 import sys
 import random
 from pydub import AudioSegment
-from utils.effects import do_reverb_transform
+from utils.audio_processing import add_reverberation, generate_random_noise
 from utils.misc import pydub_audiosegment_to_float_array, float_array_to_pydub_audiosegment
-from utils.misc import generate_random_noise, init_random_seed
+from utils.misc import init_random_seed
 import os, ujson, argparse
 from multiprocessing import Pool
 import matplotlib
@@ -263,7 +263,7 @@ class AudioSceneProducer:
     def applyReverberation(audioSegment, roomScale, delay):
       floatArray = pydub_audiosegment_to_float_array(audioSegment, audioSegment.frame_rate, audioSegment.sample_width)
 
-      floatArrayWithReverb = do_reverb_transform(floatArray, room_scale=roomScale, pre_delay=delay)
+      floatArrayWithReverb = add_reverberation(floatArray, room_scale=roomScale, pre_delay=delay)
 
       return float_array_to_pydub_audiosegment(floatArrayWithReverb, audioSegment.frame_rate, audioSegment.sample_width)
 

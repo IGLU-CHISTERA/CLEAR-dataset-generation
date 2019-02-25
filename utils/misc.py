@@ -1,13 +1,21 @@
-import os
 import numpy as np
 from array import array
 from pydub import AudioSegment
-from pydub.utils import get_min_max_value, get_frame_width, get_array_type, db_to_float
-import ujson
+from pydub.utils import get_array_type
 import random
-from shutil import copy2 as copyfile
 
-# TODO : Rename this file to data processing (Or something like that. Misc is too generic)
+
+'''
+Random Seed Management
+'''
+def init_random_seed(seed):
+  random.seed(seed)
+  np.random.seed(seed)
+
+
+'''
+Format conversion
+'''
 from_pydub_bit_depth_to_np_type = {
   16 : np.float32,
   32 : np.float64
@@ -17,6 +25,7 @@ to_pydub_bit_depth_to_np_type = {
   16 : np.int16,
   32 : np.int32
 }
+
 
 def pydub_audiosegment_to_float_array(audio_segment, frame_rate, n_bytes):
     """Convert an integer buffer to floating point values.
@@ -56,33 +65,3 @@ def float_array_to_pydub_audiosegment(float_array, frame_rate, n_bytes):
                         frame_rate=frame_rate,
                         sample_width=n_bytes,
                         channels=1)
-
-
-def init_random_seed(seed):
-  random.seed(seed)
-  np.random.seed(seed)
-
-
-def generate_random_noise(duration, gain, frame_width, sample_rate):
-  bit_depth = 8 * frame_width
-  minval, maxval = get_min_max_value(bit_depth)
-  sample_width = get_frame_width(bit_depth)
-  array_type = get_array_type(bit_depth)
-
-  gain = db_to_float(gain)
-  sample_count = int(sample_rate * (duration / 1000.0))
-
-  data = ((np.random.rand(sample_count, 1) * 2) - 1.0) * maxval * gain
-  data = array(array_type, data)
-
-  try:
-    data = data.tobytes()
-  except:
-    data = data.tostring()
-
-  return AudioSegment(data=data, metadata={
-    "channels": 1,
-    "sample_width": sample_width,
-    "frame_rate": sample_rate,
-    "frame_width": sample_width,
-  })

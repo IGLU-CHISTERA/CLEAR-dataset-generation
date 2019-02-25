@@ -5,7 +5,7 @@ from pydub import AudioSegment
 from collections import defaultdict
 
 from timbral_models import timbral_brightness
-from utils.perceptual_loudness import get_perceptual_loudness
+from utils.audio_processing import get_perceptual_loudness
 
 
 class Elementary_Sounds:

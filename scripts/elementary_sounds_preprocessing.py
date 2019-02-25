@@ -8,7 +8,7 @@ from shutil import rmtree as rmdir
 from pydub import AudioSegment
 from pydub.silence import split_on_silence
 
-from utils.perceptual_loudness import get_perceptual_loudness
+from utils.audio_processing import get_perceptual_loudness
 
 
 def load_elementary_sounds_definition(elementary_sounds_folder_path, elementary_sounds_definition_filename):
