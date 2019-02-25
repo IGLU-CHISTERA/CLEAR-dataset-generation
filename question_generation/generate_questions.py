@@ -88,22 +88,22 @@ parser.add_argument('--write_to_file_every',
     default=5000, type=int,
     help="The number of questions that will be written to each files.")
 
-# Control which and how many images to process
+# Control which and how many scenes to process
 parser.add_argument('--scene_start_idx', default=0, type=int,
-    help="The image at which to start generating questions; this allows " +
+    help="The scene index at which to start generating questions; this allows " +
          "question generation to be split across many workers")
 parser.add_argument('--num_scenes', default=0, type=int,
-    help="The number of images for which to generate questions. Setting to 0 " +
+    help="The number of scenes for which to generate questions. Setting to 0 " +
          "generates questions for all scenes in the input file starting from " +
          "--scene_start_idx")
 
 # Control the number of questions per image; we will attempt to generate
-# templates_per_image * instances_per_template questions per image.
-parser.add_argument('--templates_per_image', default=10, type=int,
+# templates_per_scene * instances_per_template questions per image.
+parser.add_argument('--templates_per_scene', default=10, type=int,
     help="The number of different templates that should be instantiated " +
-         "on each image")
+         "on each scene")
 parser.add_argument('--instances_per_template', default=1, type=int,
-    help="The number of times each template should be instantiated on an image")
+    help="The number of times each template should be instantiated")
 parser.add_argument('--instantiation_retry_threshold', default=10000, type=int,
     help="Maximum number of retry attempt in order to reach the instances_per_template")
 
@@ -878,7 +878,7 @@ def generate_and_write_questions_to_file(scenes, templates, metadata, synonyms,
         print('Could not generate any question for template "%s-%d" on scene "%s"' %
               (template_fn, template_idx, scene['scene_filename']))
 
-      if num_instantiated >= args.templates_per_image:
+      if num_instantiated >= args.templates_per_scene:
         # We have instantiated enough template for this scene
         break
 
