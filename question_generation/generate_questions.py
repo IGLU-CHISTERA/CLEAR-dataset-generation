@@ -827,9 +827,7 @@ def generate_and_write_questions_to_file(scenes, templates, metadata, synonyms,
   nb_scenes = len(scenes)
 
   for i, scene in enumerate(scenes):
-    scene_fn = scene['image_filename']  # FIXME : Scene key related to image. Should refer to "sound_filename" or scene
-    scene_struct = scene
-    print('starting scene %s (%d / %d)' % (scene_fn, i + 1, nb_scenes))
+    print('starting scene %s (%d / %d)' % (scene['scene_filename'], i + 1, nb_scenes))
 
     if scene_count % args.reset_counts_every == 0:
       template_counts, template_answer_counts = reset_counts()
@@ -851,7 +849,7 @@ def generate_and_write_questions_to_file(scenes, templates, metadata, synonyms,
       print('    trying template ', template_fn, template_idx, flush=True)
 
       ts, qs, ans = instantiate_templates_dfs(
-        scene_struct,
+        scene,
         template,
         metadata,
         template_answer_counts[(template_fn, template_idx)],
@@ -859,13 +857,12 @@ def generate_and_write_questions_to_file(scenes, templates, metadata, synonyms,
         reset_threshold=args.instantiation_retry_threshold,
         max_instances=args.instances_per_template,
         verbose=args.verbose)
-      image_index = int(os.path.splitext(scene_fn)[0].split('_')[-1])
+
       for t, q, a in zip(ts, qs, ans):
         questions.append({
           'split': args.set_type,
-          'image_filename': scene_fn,  # FIXME : Do we even need this ? We can reconstruct from the image index & prefix
-          'image_index': image_index,  # FIXME : should be scene index
-          'image': os.path.splitext(scene_fn)[0],
+          'scene_filename': scene['scene_filename'],
+          'scene_index': scene['scene_index'],
           'question': t,
           'program': q,
           'answer': a,
@@ -878,7 +875,8 @@ def generate_and_write_questions_to_file(scenes, templates, metadata, synonyms,
         num_instantiated += 1
         template_counts[(template_fn, template_idx)] += 1
       elif args.verbose:
-        print('Could not generate any question for template "%s-%d"' % (template_fn, template_idx))
+        print('Could not generate any question for template "%s-%d" on scene "%s"' %
+              (template_fn, template_idx, scene['scene_filename']))
 
       if num_instantiated >= args.templates_per_image:
         # We have instantiated enough template for this scene

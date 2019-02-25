@@ -339,21 +339,21 @@ class Scene_generator:
             }
 
             if scene_count < nb_training:
-                scene['split'] = 'train'
-                scene['image_index'] = training_index   # TODO : Change this key to "scene_index". Keeping image reference for simplicity
-                scene['image_filename'] = "CLEAR_%s_%06d.png" % (scene['split'], training_index)
+                scene['set_type'] = 'train'
+                scene['scene_index'] = '%.6d' % training_index
+                scene['scene_filename'] = "CLEAR_%s_%06d.wav" % (scene['set_type'], training_index)
                 training_index += 1
                 training_scenes.append(scene)
             elif scene_count < nb_training + nb_valid:
-                scene['split'] = 'val'
-                scene['image_index'] = valid_index      # TODO : Change this key to "scene_index". Keeping image reference for simplicity
-                scene['image_filename'] = "CLEAR_%s_%06d.png" % (scene['split'], valid_index)
+                scene['set_type'] = 'val'
+                scene['scene_index'] = '%.6d' % valid_index
+                scene['scene_filename'] = "CLEAR_%s_%06d.wav" % (scene['set_type'], valid_index)
                 valid_index += 1
                 valid_scenes.append(scene)
             else:
-                scene['split'] = 'test'
-                scene['image_index'] = test_index       # TODO : Change this key to "scene_index". Keeping image reference for simplicity
-                scene['image_filename'] = "CLEAR_%s_%06d.png" % (scene['split'], test_index)
+                scene['set_type'] = 'test'
+                scene['scene_index'] = '%.6d' % test_index
+                scene['scene_filename'] = "CLEAR_%s_%06d.wav" % (scene['set_type'], test_index)
                 test_index += 1
                 test_scenes.append(scene)
 
