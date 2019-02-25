@@ -109,6 +109,3 @@ def question_program_cleanup(questions):
         del f['side_inputs']
       else:
         f['value_inputs'] = []
-
-  for q in questions:
-    del q['program']  # FIXME : Remove this. We don't include program to improve readability while testing
