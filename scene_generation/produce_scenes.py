@@ -79,7 +79,7 @@ parser.add_argument('--produce_spectrograms', action='store_true',
 parser.add_argument('--clear_existing_files', action='store_true',
                     help='If set, will delete all files in the output folder before starting the generation.')
 
-parser.add_argument('--output_filename_prefix', default='AQA', type=str,
+parser.add_argument('--output_filename_prefix', default='CLEAR', type=str,
                     help='Prefix used for produced files')
 
 parser.add_argument('--output_version_nb', default='0.1', type=str,

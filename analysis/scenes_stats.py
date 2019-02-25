@@ -1,4 +1,5 @@
 import ujson
+from collections import defaultdict
 import json
 import os
 import copy
@@ -18,9 +19,28 @@ parser.add_argument('--output_folder', default='../output', type=str,
 parser.add_argument('--output_version_nb', type=str,
                     help='Version number to analyse')
 
+def beautify_scenes(scenes):
+  for scene in scenes:
+    for object in scene['objects']:
+      object['brightness'] = object['brightness'].capitalize() if object['brightness'] is not None else 'None'
+      object['instrument'] = object['instrument'].capitalize()
+      object['loudness'] = object['loudness'].capitalize()
+      object['human_note'] = object['human_note'].replace('_Sharp', '#').capitalize()
+
+  return scenes
+
+def load_scenes_beautified(scenes_path):
+  training_scenes, validation_scenes, test_scenes = load_scenes(scenes_path)
+
+  training_scenes = beautify_scenes(training_scenes)
+  validation_scenes = beautify_scenes(validation_scenes)
+  test_scenes = beautify_scenes(test_scenes)
+
+  return training_scenes, validation_scenes, test_scenes
+
 
 def load_scenes(scenes_path):
-  filename = "AQA_%s_scenes.json"
+  filename = "CLEAR_%s_scenes.json"
   training_scenes_path = os.path.join(scenes_path, filename % 'train')
   validation_scenes_path = os.path.join(scenes_path, filename % 'val')
   test_scenes_path = os.path.join(scenes_path, filename % 'test')
@@ -35,6 +55,35 @@ def load_scenes(scenes_path):
     test_scenes = ujson.load(f)['scenes']
 
   return training_scenes, validation_scenes, test_scenes
+
+
+def get_scene_distributions(scenes):
+  instrument_counter = defaultdict(lambda : 0)
+  brightness_counter = defaultdict(lambda: 0)
+  loudness_counter = defaultdict(lambda: 0)
+  musical_note_counter = defaultdict(lambda: 0)
+  total_nb_object = len(scenes) * 10
+
+  for scene in scenes:
+    for obj in scene['objects']:
+      instrument_counter[obj['instrument']] += 1
+      brightness_counter[obj['brightness']] += 1
+      loudness_counter[obj['loudness']] += 1
+      musical_note_counter[obj['human_note']] += 1
+
+  for key, count in instrument_counter.items():
+    instrument_counter[key] = count/total_nb_object
+
+  for key, count in brightness_counter.items():
+    brightness_counter[key] = count/total_nb_object
+
+  for key, count in loudness_counter.items():
+    loudness_counter[key] = count/total_nb_object
+
+  for key, count in musical_note_counter.items():
+    musical_note_counter[key] = count/total_nb_object
+
+  return instrument_counter, brightness_counter, loudness_counter, musical_note_counter
 
 
 def do_analyse_scenes(scenes):
@@ -192,12 +241,23 @@ def save_piechart(output_path, counts_by_attributes):
 
 if __name__ == "__main__":
   args = parser.parse_args()
-  output_path = "./%s/%s" % (args.output_folder, args.output_version_nb)
+
+  args.output_folder = "/home/jerome/dev/datasets-remote/"
+  args.output_version_nb = 'v1.1.0_50k_scenes_40_inst-audio-question-answering-p100-ws-1'
+
+  output_path = "%s/%s" % (args.output_folder, args.output_version_nb)
   scenes_path = os.path.join(output_path, 'scenes')
 
   # Load scenes
   training_scenes, validation_scenes, test_scenes = load_scenes(scenes_path)
+  all_scenes = training_scenes + validation_scenes + test_scenes
+
+  get_scene_distributions(all_scenes)
   print("Scenes loaded")
+
+  print("Size : ")
+  print(len(training_scenes) + len(validation_scenes) + len(test_scenes))
+  exit(0)
 
   # Analyze scenes for each set
   analyse_scenes(output_path, 'train', training_scenes)

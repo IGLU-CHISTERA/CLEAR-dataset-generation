@@ -63,7 +63,7 @@ parser.add_argument('--metadata_file', default='../metadata.json',
 parser.add_argument('--output_folder', default='../output',
                     help='Folder where the generated scenes will be saved')
 
-parser.add_argument('--output_filename_prefix', default='AQA', type=str,
+parser.add_argument('--output_filename_prefix', default='CLEAR', type=str,
                     help='Prefix used for generated scene file')
 
 parser.add_argument('--output_version_nb', default='0.1', type=str,
@@ -291,7 +291,7 @@ class Scene_generator:
             }
         ]
 
-        scene_indexes = list(range(0, self.nb_objects_per_scene))
+        scene_indexes = list(range(0, self.nb_objects_per_scene))           # FIXME : Would not work with variable scene length
 
         for i in range(0, self.nb_objects_per_scene):
             if i - 1 >= 0:
@@ -339,21 +339,21 @@ class Scene_generator:
             }
 
             if scene_count < nb_training:
-                scene['split'] = 'train'
-                scene['image_index'] = training_index   # TODO : Change this key to "scene_index". Keeping image reference for simplicity
-                scene['image_filename'] = "AQA_%s_%06d.png" % (scene['split'], training_index)
+                scene['set_type'] = 'train'
+                scene['scene_index'] = '%.6d' % training_index
+                scene['scene_filename'] = "CLEAR_%s_%06d.wav" % (scene['set_type'], training_index)
                 training_index += 1
                 training_scenes.append(scene)
             elif scene_count < nb_training + nb_valid:
-                scene['split'] = 'val'
-                scene['image_index'] = valid_index      # TODO : Change this key to "scene_index". Keeping image reference for simplicity
-                scene['image_filename'] = "AQA_%s_%06d.png" % (scene['split'], valid_index)
+                scene['set_type'] = 'val'
+                scene['scene_index'] = '%.6d' % valid_index
+                scene['scene_filename'] = "CLEAR_%s_%06d.wav" % (scene['set_type'], valid_index)
                 valid_index += 1
                 valid_scenes.append(scene)
             else:
-                scene['split'] = 'test'
-                scene['image_index'] = test_index       # TODO : Change this key to "scene_index". Keeping image reference for simplicity
-                scene['image_filename'] = "AQA_%s_%06d.png" % (scene['split'], test_index)
+                scene['set_type'] = 'test'
+                scene['scene_index'] = '%.6d' % test_index
+                scene['scene_filename'] = "CLEAR_%s_%06d.wav" % (scene['set_type'], test_index)
                 test_index += 1
                 test_scenes.append(scene)
 

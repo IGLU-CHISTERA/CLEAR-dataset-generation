@@ -29,6 +29,9 @@ from collections import OrderedDict
 
 import question_engine as qeng
 
+# FIXME : Remove cprofile args
+# FIXME : Remove args.time_DFS
+# FIXME : Update this documentation string
 """
 Generate synthetic questions and answers for CLEVR images. Input is a single
 JSON file containing ground-truth scene information for all images, and output
@@ -63,7 +66,7 @@ parser = argparse.ArgumentParser(fromfile_prefix_chars='@')
 
 parser.add_argument('--output_folder', default='./output',
     help="Folder where to store the generated questions")
-parser.add_argument('--output_filename_prefix', default='AQA',
+parser.add_argument('--output_filename_prefix', default='CLEAR',
     help="Prefix for the output file")
 parser.add_argument('--output_version_nb', default='0.0.1',
     help="Identifier of the dataset version.")
@@ -85,22 +88,22 @@ parser.add_argument('--write_to_file_every',
     default=5000, type=int,
     help="The number of questions that will be written to each files.")
 
-# Control which and how many images to process
+# Control which and how many scenes to process
 parser.add_argument('--scene_start_idx', default=0, type=int,
-    help="The image at which to start generating questions; this allows " +
+    help="The scene index at which to start generating questions; this allows " +
          "question generation to be split across many workers")
 parser.add_argument('--num_scenes', default=0, type=int,
-    help="The number of images for which to generate questions. Setting to 0 " +
+    help="The number of scenes for which to generate questions. Setting to 0 " +
          "generates questions for all scenes in the input file starting from " +
          "--scene_start_idx")
 
 # Control the number of questions per image; we will attempt to generate
-# templates_per_image * instances_per_template questions per image.
-parser.add_argument('--templates_per_image', default=10, type=int,
+# templates_per_scene * instances_per_template questions per image.
+parser.add_argument('--templates_per_scene', default=10, type=int,
     help="The number of different templates that should be instantiated " +
-         "on each image")
+         "on each scene")
 parser.add_argument('--instances_per_template', default=1, type=int,
-    help="The number of times each template should be instantiated on an image")
+    help="The number of times each template should be instantiated")
 parser.add_argument('--instantiation_retry_threshold', default=10000, type=int,
     help="Maximum number of retry attempt in order to reach the instances_per_template")
 
@@ -664,14 +667,251 @@ def other_heuristic(text, param_vals):
   return text
 
 
+def load_and_prepare_templates(template_dir):
+  # Load templates from disk
+  # Key is (filename, file_idx)
+
+  num_loaded_templates = 0
+  templates = OrderedDict()
+  for fn in os.listdir(template_dir):
+    if not fn.endswith('.json'): continue
+    with open(os.path.join(template_dir, fn), 'r') as f:
+      try:
+        template_json = ujson.load(f)
+        for i, template in enumerate(template_json):
+          num_loaded_templates += 1
+          key = (fn, i)
+
+          # Adding optionals parameters if not present. Remove the need to do null check when accessing
+          optionals_keys = ['constraints', 'can_be_null_attributes']
+          for op_key in optionals_keys:
+            if op_key not in template:
+              template[op_key] = []
+
+          templates[key] = template
+      except ValueError:
+        print("[ERROR] Could not load template %s" % fn)    # FIXME : We should probably pause or do something to inform the user. This message will be flooded by the rest of the output. Maybe do a pause before generating ?
+  print('Read %d templates from disk' % num_loaded_templates)
+
+  return templates
+
+
+def load_scenes(scene_filepath, start_idx, nb_scenes_to_gen):
+  # Read file containing input scenes
+  with open(scene_filepath, 'r') as f:
+    scene_data = ujson.load(f)
+    scenes = scene_data['scenes']
+    nb_scenes_loaded = len(scenes)
+    scene_info = scene_data['info']
+
+  if nb_scenes_to_gen > 0:
+    end = start_idx + nb_scenes_to_gen
+    end = end if end < nb_scenes_loaded else nb_scenes_loaded
+    scenes = scenes[start_idx:end]
+  else:
+    scenes = scenes[start_idx:]
+
+  print('Read %d scenes from disk' % len(scenes))
+
+  return scenes, scene_info
+
+
+def get_max_scene_length(scenes):
+  return np.max([len(scene['objects']) for scene in scenes])
+
+
+def load_and_prepare_metadata(metadata_filepath, scenes):
+  # Loading metadata
+  with open(metadata_filepath, 'r') as f:
+    metadata = ujson.load(f)
+
+  # To initialize the metadata, we first need to know how many instruments each scene contains
+  instrument_count_empty = {}
+  instrument_indexes_empty = {}
+
+  for instrument in metadata['attributes']['instrument']['values']:
+    instrument_count_empty[instrument] = 0
+    instrument_indexes_empty[instrument] = []
+
+  instrument_count = dict(instrument_count_empty)
+
+  max_scene_length = 0
+  for scene in scenes:
+    # Keep track of the maximum number of objects across all scenes
+    scene_length = len(scene['objects'])
+    if scene_length > max_scene_length:
+      max_scene_length = scene_length
+
+    # Keep track of the indexes for each instrument
+    instrument_indexes = copy.deepcopy(instrument_indexes_empty)
+    for i, obj in enumerate(scene['objects']):
+      instrument_indexes[obj['instrument']].append(i)
+
+    # TODO : Generalize this for all attributes
+    # Insert the instrument indexes in the scene definition
+    # (Will be used for relative positioning. Increased performance compared to doing the search everytime)
+    scene['instrument_indexes'] = instrument_indexes
+
+    # Retrieve the maximum number of occurence for each instruments
+    for instrument, index_list in instrument_indexes.items():
+      count = len(index_list)
+      if count > instrument_count[instrument]:
+        instrument_count[instrument] = count
+
+    # Insert reference from relation label (Ex: before, after, ..) to index in scene['relationships']
+    # Again for performance. Faster than searching in the dict every time
+    scene['_relationships_indexes'] = {}
+    for i, relation_data in enumerate(scene['relationships']):
+      scene['_relationships_indexes'][relation_data['type']] = i
+
+  # Instantiate the question engine attributes handlers
+  qeng.instantiate_attributes_handlers(metadata, instrument_count, max_scene_length)
+
+  return metadata
+
+
+def create_reset_counts_fct(templates, metadata, max_scene_length):
+  def reset_counts():
+    # Maps a template (filename, index) to the number of questions we have
+    # so far using that template
+    template_counts = {}
+    # Maps a template (filename, index) to a dict mapping the answer to the
+    # number of questions so far of that template type with that answer
+    template_answer_counts = {}
+    for key, template in templates.items():
+      template_counts[key] = 0
+      last_node = template['nodes'][-1]['type']
+      output_type = qeng.functions[last_node]['output']
+
+      if output_type == 'bool':
+        answers = [True, False]
+      elif output_type == 'integer':
+        answers = list(range(0, max_scene_length + 1))      # FIXME : This won't hold if the scenes have different length
+      else:
+        answers = metadata['attributes'][output_type]['values']
+
+      template_answer_counts[key] = {}
+      for a in answers:
+        template_answer_counts[key][a] = 0
+    return template_counts, template_answer_counts
+
+  return reset_counts
+
+
+def load_synonyms(synonyms_filepath):
+  # Read synonyms file
+  with open(args.synonyms_json, 'r') as f:
+    return ujson.load(f)
+
+
+def generate_info_section(set_type, version_nb):
+    return {
+            "name": "CLEAR",
+            "license": "Creative Commons Attribution (CC-BY 4.0)",
+            "version": version_nb,
+            "split": set_type,
+            "date": time.strftime("%x")
+        }
+
+
+def generate_and_write_questions_to_file(scenes, templates, metadata, synonyms,
+                                         questions_info, output_folder, output_filename):
+  # Helper function
+  reset_counts = create_reset_counts_fct(templates, metadata, get_max_scene_length(scenes))
+
+  # Initialisation
+  questions = []
+  question_index = 0
+  file_written = 0
+  scene_count = 0
+  nb_scenes = len(scenes)
+
+  for i, scene in enumerate(scenes):
+    print('starting scene %s (%d / %d)' % (scene['scene_filename'], i + 1, nb_scenes))
+
+    if scene_count % args.reset_counts_every == 0:
+      template_counts, template_answer_counts = reset_counts()
+    scene_count += 1
+
+    # Order templates by the number of questions we have so far for those
+    # templates. This is a simple heuristic to give a flat distribution over templates.
+    # We shuffle the templates before sorting to ensure variability when the counts are equals
+    templates_items = list(templates.items())
+    np.random.shuffle(templates_items)
+    templates_items = sorted(templates_items,
+                             key=lambda x: template_counts[x[0]])
+
+    num_instantiated = 0
+    for (template_fn, template_idx), template in templates_items:
+      if 'disabled' in template and template['disabled']:
+        continue
+
+      print('    trying template ', template_fn, template_idx, flush=True)
+
+      ts, qs, ans = instantiate_templates_dfs(
+        scene,
+        template,
+        metadata,
+        template_answer_counts[(template_fn, template_idx)],
+        synonyms,
+        reset_threshold=args.instantiation_retry_threshold,
+        max_instances=args.instances_per_template,
+        verbose=args.verbose)
+
+      for t, q, a in zip(ts, qs, ans):
+        questions.append({
+          'split': args.set_type,
+          'scene_filename': scene['scene_filename'],
+          'scene_index': scene['scene_index'],
+          'question': t,
+          'program': q,
+          'answer': a,
+          'template_filename': '%s-%d' % (template_fn, template_idx),  # FIXME : This should be template_id
+          'question_family_index': template_idx,  # FIXME : This index doesn't represent the question family index
+          'question_index': question_index,  # FIXME : This is not efficient
+        })
+        question_index += 1
+      if len(ts) > 0:
+        num_instantiated += 1
+        template_counts[(template_fn, template_idx)] += 1
+      elif args.verbose:
+        print('Could not generate any question for template "%s-%d" on scene "%s"' %
+              (template_fn, template_idx, scene['scene_filename']))
+
+      if num_instantiated >= args.templates_per_scene:
+        # We have instantiated enough template for this scene
+        break
+
+    if question_index != 0 and question_index % args.write_to_file_every == 0:
+      write_questions_part_to_file(output_folder, output_filename, questions_info, questions, file_written)
+      file_written += 1
+      questions = []
+
+  if len(questions) > 0 or file_written == 0:
+    # Write the rest of the questions
+    # If no file were written and we have 0 questions,
+    # we still want an output file with no questions (Otherwise it will break the pipeline)
+    write_questions_part_to_file(output_folder, output_filename, questions_info, questions, file_written)
+
+
 def main(args):
+  # Paths definition from arguments
   experiment_output_folder = os.path.join(args.output_folder, args.output_version_nb)
   questions_output_folder = os.path.join(experiment_output_folder, 'questions')
   tmp_output_folder = os.path.join(questions_output_folder, 'TMP_%s' % args.set_type)
   questions_filename = '%s_%s_questions.json' % (args.output_filename_prefix, args.set_type)
   questions_output_filepath = os.path.join(questions_output_folder, questions_filename)
-  scene_filepath = os.path.join(experiment_output_folder, 'scenes', '%s_%s_scenes.json' % (args.output_filename_prefix, args.set_type))
+  scene_filepath = os.path.join(experiment_output_folder, 'scenes',
+                                '%s_%s_scenes.json' % (args.output_filename_prefix, args.set_type))
 
+  # Setting the random seed from arguments
+  if args.random_nb_generator_seed is not None:
+    init_random_seed(args.random_nb_generator_seed)
+  else:
+    print("The seed must be specified in the arguments.", file=sys.stderr)
+    exit(1)
+
+  # Folder structure creation
   if not os.path.isdir(experiment_output_folder):
     os.mkdir(experiment_output_folder)
 
@@ -682,7 +922,8 @@ def main(args):
   if question_file_exist and args.clear_existing_files:
     os.remove(questions_output_filepath)
   elif question_file_exist:
-    print("This experiment have already been run. Please bump the version number or delete the previous output.", file=sys.stderr)
+    print("This experiment have already been run. Please bump the version number or delete the previous output.",
+          file=sys.stderr)
     exit(1)
 
   # Create tmp folder to store questions (separated in small files)
@@ -695,209 +936,30 @@ def main(args):
     print("Directory %s already exist. Please change the output filename", file=sys.stderr)
     exit(1)  # FIXME : Maybe we should have a prompt ? This might be dangerous while running experiments automatically. We might get stuck there and waste a lot of time
 
-  # Setting & Saving the random seed
-  if args.random_nb_generator_seed is not None:
-    init_random_seed(args.random_nb_generator_seed)
-  else:
-    print("The seed must be specified in the arguments.", file=sys.stderr)
-    exit(1)
+  # Load templates, scenes, metadata and synonyms from file
+  scenes, scene_info = load_scenes(scene_filepath, args.scene_start_idx, args.num_scenes)
+  metadata = load_and_prepare_metadata(args.metadata_file, scenes)
+  templates = load_and_prepare_templates(args.template_dir)
+  synonyms = load_synonyms(args.synonyms_json)
 
-  with open(args.metadata_file, 'r') as f:
-    metadata = ujson.load(f)
+  # Create question info section
+  questions_info = generate_info_section(args.set_type, args.output_version_nb)
 
-  # Load templates from disk
-  # Key is (filename, file_idx)
-  num_loaded_templates = 0
-  templates = OrderedDict()
-  for fn in os.listdir(args.template_dir):
-    if not fn.endswith('.json'): continue
-    with open(os.path.join(args.template_dir, fn), 'r') as f:
-      base = os.path.splitext(fn)[0]
-      try:
-        template_json = ujson.load(f)
-        for i, template in enumerate(template_json):
-          num_loaded_templates += 1
-          key = (fn, i)
-          templates[key] = template
+  # Start question generation
+  generate_and_write_questions_to_file(scenes,
+                                       templates,
+                                       metadata,
+                                       synonyms,
+                                       questions_info,
+                                       tmp_output_folder,
+                                       questions_filename)
 
-          # Adding optionals parameters if not present. Remove the need to do null check when accessing
-          optionals_keys = ['constraints', 'can_be_null_attributes']
-          for op_key in optionals_keys:
-            if op_key not in template:
-              template[op_key] = []
-      except ValueError:
-        print("[ERROR] Could not load template %s" % fn)    # FIXME : We should probably pause or do something to inform the user. This message will be flooded by the rest of the output. Maybe do a pause before generating ?
-  print('Read %d templates from disk' % num_loaded_templates)
+  print("Questions generation done !")
 
-  # Read file containing input scenes
-  all_scenes = []
-  with open(scene_filepath, 'r') as f:
-    scene_data = ujson.load(f)    # FIXME : Quantify the impact on performance
-    all_scenes = scene_data['scenes']
-    scene_info = scene_data['info']
-  begin = args.scene_start_idx
-  if args.num_scenes > 0:
-    end = args.scene_start_idx + args.num_scenes
-    all_scenes = all_scenes[begin:end]
-  else:
-    all_scenes = all_scenes[begin:]
 
-  print('Read %d scenes from disk' % len(all_scenes))
-
-  # Instantiate dict to keep track of the count per instrument
-  instrument_count_empty = {}
-  instrument_indexes_empty = {}
-
-  for instrument in metadata['attributes']['instrument']['values']:
-    instrument_count_empty[instrument] = 0
-    instrument_indexes_empty[instrument] = []
-
-  instrument_count = dict(instrument_count_empty)
-
-  max_scene_length = 0
-  for scene in all_scenes:
-    # Keep track of the maximum number of objects across all scenes
-    scene_length = len(scene['objects'])
-    if scene_length > max_scene_length:
-      max_scene_length = scene_length
-
-    # TODO : Generalize for all attributes
-    # Keep track of the index for each instrument
-    instrument_indexes = copy.deepcopy(instrument_indexes_empty)
-    for i, obj in enumerate(scene['objects']):
-      instrument_indexes[obj['instrument']].append(i)
-
-    scene['instrument_indexes'] = instrument_indexes
-
-    for instrument, index_list in instrument_indexes.items():
-      count = len(index_list)
-      if count > instrument_count[instrument]:
-        instrument_count[instrument] = count
-
-    # Keep reference from type to index of relationships
-    scene['_relationships_indexes'] = {}
-    for i, relation_data in enumerate(scene['relationships']):
-      scene['_relationships_indexes'][relation_data['type']] = i
-
-  # Instantiate the question engine attributes handlers
-  qeng.instantiate_attributes_handlers(metadata, instrument_count, max_scene_length)
-
-  def reset_counts():
-    # Maps a template (filename, index) to the number of questions we have
-    # so far using that template
-    template_counts = {}
-    # Maps a template (filename, index) to a dict mapping the answer to the
-    # number of questions so far of that template type with that answer
-    template_answer_counts = {}
-    for key, template in templates.items():
-      template_counts[key] = 0
-      final_node_type = template['nodes'][-1]['type']
-      final_dtype = qeng.functions[final_node_type]['output']
-
-      if final_dtype == 'bool':
-        answers = [True, False]
-      elif final_dtype == 'integer':
-        answers = list(range(0, max_scene_length + 1))      # FIXME : This won't hold if the scenes have different length
-      else:
-        answers = metadata['attributes'][final_dtype]['values']
-
-      template_answer_counts[key] = {}
-      for a in answers:
-        template_answer_counts[key][a] = 0
-    return template_counts, template_answer_counts
-
-  template_counts, template_answer_counts = reset_counts()
-
-  # Read synonyms file
-  with open(args.synonyms_json, 'r') as f:
-    synonyms = ujson.load(f)
-
-  questions = []
-  question_index = 0
-  file_written = 0
-  scene_count = 0
-  for i, scene in enumerate(all_scenes):
-    scene_fn = scene['image_filename']          # FIXME : Scene key related to image. Should refer to "sound_filename" or scene
-    scene_struct = scene
-    print('starting image %s (%d / %d)'
-          % (scene_fn, i + 1, len(all_scenes)))
-
-    if scene_count % args.reset_counts_every == 0:
-      print('resetting counts')
-      template_counts, template_answer_counts = reset_counts()
-    scene_count += 1
-
-    # Order templates by the number of questions we have so far for those
-    # templates. This is a simple heuristic to give a flat distribution over templates.
-    # We shuffle the templates before sorting to ensure variability when the counts are equals
-    templates_items = list(templates.items())
-    np.random.shuffle(templates_items)
-    templates_items = sorted(templates_items,
-                        key=lambda x: template_counts[x[0]])
-
-    num_instantiated = 0
-    for (fn, idx), template in templates_items:
-      if 'disabled' in template and template['disabled']:
-        continue
-
-      print('    trying template ', fn, idx, flush=True)
-      
-      if args.time_dfs and args.verbose:
-        tic = time.time()
-      ts, qs, ans = instantiate_templates_dfs(
-                      scene_struct,
-                      template,
-                      metadata,
-                      template_answer_counts[(fn, idx)],
-                      synonyms,
-                      reset_threshold=args.instantiation_retry_threshold,
-                      max_instances=args.instances_per_template,
-                      verbose=args.verbose)
-      if args.time_dfs and args.verbose:
-        toc = time.time()
-        print('that took ', toc - tic)
-      image_index = int(os.path.splitext(scene_fn)[0].split('_')[-1])
-      for t, q, a in zip(ts, qs, ans):
-        questions.append({
-          'split': scene_info['split'],
-          'image_filename': scene_fn,
-          'image_index': image_index,
-          'image': os.path.splitext(scene_fn)[0],
-          'question': t,
-          'program': q,
-          'answer': a,
-          'template_filename': '%s-%d' % (fn, idx),
-          'question_family_index': idx,         # FIXME : This index doesn't represent the question family index
-          'question_index': question_index,     # FIXME : This is not efficient
-        })
-        question_index += 1
-      if len(ts) > 0:
-        num_instantiated += 1
-        template_counts[(fn, idx)] += 1
-      elif args.verbose:
-        print('did not get any =(')
-
-      if num_instantiated >= args.templates_per_image:
-        # We have instantiated enough template for this image
-        break
-
-    if question_index != 0 and question_index % args.write_to_file_every == 0:
-      write_questions_part_to_file(tmp_output_folder, questions_filename, scene_info, questions, file_written)
-      file_written += 1
-      questions = []
-
-  if len(questions) > 0 or file_written == 0:
-    # Write the rest of the questions
-    # If no file were written and we have 0 questions, 
-    # we still want an output file with no questions (Otherwise it will break the pipeline)
-    write_questions_part_to_file(tmp_output_folder, questions_filename, scene_info, questions, file_written)
 
 
 if __name__ == '__main__':
   args = parser.parse_args()
-  if args.profile:
-    import cProfile
-    cProfile.run('main(args)')
-  else:
-    main(args)
+  main(args)
 

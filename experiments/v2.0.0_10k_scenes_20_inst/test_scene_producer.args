@@ -7,7 +7,7 @@
 --spectrogram_window_length=1024
 --spectrogram_window_overlap=512
 --nb_process=2
---output_filename_prefix=AQA
+--output_filename_prefix=CLEAR
 --with_background_noise
 --background_noise_gain_range=-90,-80
 --with_reverb

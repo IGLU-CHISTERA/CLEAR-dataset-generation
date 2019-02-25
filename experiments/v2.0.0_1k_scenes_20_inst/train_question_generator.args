@@ -1,7 +1,7 @@
 --set_type=train
---output_filename_prefix=AQA
+--output_filename_prefix=CLEAR
 --output_folder=output
---template_dir=question_generation/AQA_templates
+--template_dir=question_generation/CLEAR_templates
 --templates_per_image=20
 --instances_per_template=1
 --instantiation_retry_threshold=100
