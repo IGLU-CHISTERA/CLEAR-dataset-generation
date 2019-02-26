@@ -339,21 +339,18 @@ class Scene_generator:
             }
 
             if scene_count < nb_training:
-                scene['set_type'] = 'train'
                 scene['scene_index'] = '%.6d' % training_index
-                scene['scene_filename'] = "CLEAR_%s_%06d.wav" % (scene['set_type'], training_index)
+                scene['scene_filename'] = "CLEAR_train_%06d.wav" % training_index
                 training_index += 1
                 training_scenes.append(scene)
             elif scene_count < nb_training + nb_valid:
-                scene['set_type'] = 'val'
                 scene['scene_index'] = '%.6d' % valid_index
-                scene['scene_filename'] = "CLEAR_%s_%06d.wav" % (scene['set_type'], valid_index)
+                scene['scene_filename'] = "CLEAR_val_%06d.wav" % valid_index
                 valid_index += 1
                 valid_scenes.append(scene)
             else:
-                scene['set_type'] = 'test'
                 scene['scene_index'] = '%.6d' % test_index
-                scene['scene_filename'] = "CLEAR_%s_%06d.wav" % (scene['set_type'], test_index)
+                scene['scene_filename'] = "CLEAR_test_%06d.wav" % test_index
                 test_index += 1
                 test_scenes.append(scene)
 

@@ -869,7 +869,6 @@ def generate_and_write_questions_to_file(scenes, templates, metadata, synonyms,
           'program': q,
           'answer': a,
           'template_index': '%s-%d' % (template_fn, template_idx),
-          'question_family_index': template_idx,  # FIXME : This index doesn't represent the question family index
           'question_index': question_index,
         })
         question_index += 1
