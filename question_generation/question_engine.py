@@ -26,7 +26,7 @@ in a JSON metadata file.
 # from each of the node's inputs; the handler should return the computed output
 # value from this node.
 
-use_last_position_value = False
+use_last_position_value = False    # FIXME : Document this, make it a parameter ?
 
 # FIXME : This won't work if the scene is longer than 11
 idx_to_position_str = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "eleventh"]
@@ -192,7 +192,7 @@ def get_position_instrument(scene_struct, idx, instrument):
     return "last"
   # FIXME : Should we enable this ? IF ENABLED, We need to add the instrument alone in metadata values
   elif len(instrument_indexes) == 1 and random.random() > 0.5 and False:  # FIXME : This probability should be parametrable
-    return ""   #FIXME : This will create 2 spaces when used to generate the sentence (precompute_filter_options)
+    return ""
   else:
     return idx_to_position_str[relative_position_idx]
 
@@ -207,9 +207,6 @@ def query_position_instrument_handler(scene_struct, inputs, value_inputs):
   return get_position_instrument(scene_struct, idx, instrument)
 
 
-# FIXME : Could be changed to a one liner. Having an external array with [beginning, middle, end] would
-# FIXME : facilitate the metadata enhancement (Right now it seems weird that answers for other position attributes
-# FIXME : are not written in the metadata file but the one for position_global are
 def get_position_global(scene_struct, idx):
   part_size = math.floor(len(scene_struct['objects']) / 3)
   if idx + 1 < part_size:
@@ -227,7 +224,7 @@ def query_position_global_handler(scene_struct, inputs, value_inputs):
 
   position = get_position_global(scene_struct, idx)
 
-  return position + " of the scene"   # FIXME : Is this really interesting ?
+  return position + " of the scene"
 
 
 def get_position(attribute_name, scene_struct, obj_idx):

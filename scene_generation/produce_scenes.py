@@ -199,7 +199,7 @@ class AudioSceneProducer:
             return filterResult[0]['audioSegment']
         else:
             print('[ERROR] Could not retrieve loaded audio segment \'' + name + '\' from memory.')
-            exit(1)  # FIXME : Should probably raise an exception here instead
+            exit(1)
 
     def produceScene(self, sceneId):
         if sceneId < self.nbOfLoadedScenes:
@@ -211,7 +211,6 @@ class AudioSceneProducer:
             sceneAudioSegment = self.assembleAudioScene(scene)
 
             if self.produce_audio_files:
-              # FIXME : Create the setType folder if doesnt exist
               sceneAudioSegment.export(
                 os.path.join(self.audio_output_folder, '%s_%s_%06d.wav' % (self.outputPrefix, self.setType, sceneId)),
                 format='wav')
@@ -223,7 +222,6 @@ class AudioSceneProducer:
                                                                    self.spectrogramSettings['window_length'],
                                                                    self.spectrogramSettings['window_overlap'])
 
-                # FIXME : Create the setType folder if doesnt exist
                 spectrogram.savefig(
                   os.path.join(self.images_output_folder, '%s_%s_%06d.png' % (self.outputPrefix, self.setType, sceneId)),
                   dpi=1)
@@ -290,7 +288,6 @@ class AudioSceneProducer:
 
       # Generate the spectrogram
       # See https://matplotlib.org/api/_as_gen/matplotlib.pyplot.specgram.html?highlight=matplotlib%20pyplot%20specgram#matplotlib.pyplot.specgram
-      # TODO : Use essentia to generate spectrogram, mfcc, etc ?
       Pxx, freqs, bins, im = plt.specgram(x=sceneAudioSegment.get_array_of_samples(), Fs=sceneAudioSegment.frame_rate,
                                           window=matplotlib.mlab.window_hanning,
                                           NFFT=windowLength,

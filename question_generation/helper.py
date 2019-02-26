@@ -51,7 +51,6 @@ def write_questions_part_to_file(tmp_folder_path, filename, info_section, questi
   print("Writing to file %s" % tmp_filepath)
 
   with open(tmp_filepath, 'w') as f:
-    # FIXME : Remove indent parameter. Take more space. Only useful for readability while testing
     ujson.dump({
         'info': info_section,
         'questions': questions,

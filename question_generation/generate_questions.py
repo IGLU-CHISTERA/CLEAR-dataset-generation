@@ -1,6 +1,5 @@
 # TODO : Add author mention
 # TODO : Change heading comments
-# FIXME : A lot of info are retrieved from metadata. They don't change for each instantiations. We should only retrieve them once instead of everytime
 # FIXME : Break down this file in multiple files
 
 # Copyright 2017-present, Facebook, Inc.
@@ -11,9 +10,8 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 
 from __future__ import print_function
-import argparse, ujson, os, random, math, statistics
+import argparse, ujson, os, random, math
 import time
-import re
 import sys
 from shutil import rmtree as rm_dir
 from functools import reduce
@@ -29,8 +27,6 @@ from collections import OrderedDict
 
 import question_engine as qeng
 
-# FIXME : Remove cprofile args
-# FIXME : Remove args.time_DFS
 # FIXME : Update this documentation string
 """
 Generate synthetic questions and answers for CLEVR images. Input is a single
@@ -117,10 +113,6 @@ parser.add_argument('--reset_counts_every', default=250, type=int,
          "will result in longer runtimes.")
 parser.add_argument('--verbose', action='store_true',
     help="Print more verbose output")
-parser.add_argument('--time_dfs', action='store_true',
-    help="Time each depth-first search; must be given with --verbose")
-parser.add_argument('--profile', action='store_true',
-    help="If given then run inside cProfile")
 parser.add_argument('--clear_existing_files', action='store_true',
                     help='If set, will delete all files in the output folder before starting the generation.')
 # args = parser.parse_args()
@@ -344,7 +336,7 @@ def instantiate_texts_from_solutions(template, synonyms, final_states):
   for state in final_states:
     structured_questions.append(state['nodes'])
 
-    # Translating True/False values to yes/no   # FIXME : Should we translate them from the beginning instead ?
+    # Translating True/False values to yes/no
     if type(state['answer']) is bool:
       state['answer'] = bool_to_yes_no[state['answer']]
 
@@ -692,7 +684,7 @@ def load_and_prepare_templates(template_dir):
 
           templates[key] = template
       except ValueError:
-        print("[ERROR] Could not load template %s" % fn)    # FIXME : We should probably pause or do something to inform the user. This message will be flooded by the rest of the output. Maybe do a pause before generating ?
+        print("[ERROR] Could not load template %s" % fn)
   print('Read %d templates from disk' % num_loaded_templates)
 
   return templates
@@ -862,7 +854,6 @@ def generate_and_write_questions_to_file(scenes, templates, metadata, synonyms,
 
       for t, q, a in zip(ts, qs, ans):
         questions.append({
-          'set_type': args.set_type,     # FIXME : Is this necessary ? We already have this info in the info section
           'scene_filename': scene['scene_filename'],
           'scene_index': scene['scene_index'],
           'question': t,
@@ -934,8 +925,8 @@ def main(args):
     rm_dir(tmp_output_folder)
     os.mkdir(tmp_output_folder)
   else:
-    print("Directory %s already exist. Please change the output filename", file=sys.stderr)
-    exit(1)  # FIXME : Maybe we should have a prompt ? This might be dangerous while running experiments automatically. We might get stuck there and waste a lot of time
+    print("Directory %s already exist. Please change the experiment name", file=sys.stderr)
+    exit(1)
 
   # Load templates, scenes, metadata and synonyms from file
   scenes, scene_info = load_scenes(scene_filepath, args.scene_start_idx, args.num_scenes)

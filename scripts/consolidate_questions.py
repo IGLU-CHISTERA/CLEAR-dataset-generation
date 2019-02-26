@@ -32,7 +32,7 @@ def load_all_tmp_json(folder_path):
         if info_section is None:
           info_section = file_content['info']
       except ValueError:
-        print("[ERROR] Could not load question file %s" % fn)    # FIXME : We should probably pause or do something to inform the user. This message will be flooded by the rest of the output. Maybe do a pause before generating ?
+        print("[ERROR] Could not load question file %s" % fn)
 
   questions = sorted(questions, key=lambda x: x['question_index'])
 
@@ -44,7 +44,6 @@ def load_all_tmp_json(folder_path):
 
 def write_to_file(filepath, data):
   with open(filepath, 'w') as f:
-    # FIXME : Remove indent parameter. Take more space. Only useful for readability while testing
     ujson.dump(data, f, indent=2, sort_keys=True, escape_forward_slashes=False)
 
 
