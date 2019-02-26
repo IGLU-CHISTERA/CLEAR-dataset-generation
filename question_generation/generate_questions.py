@@ -810,7 +810,7 @@ def generate_info_section(set_type, version_nb):
             "name": "CLEAR",
             "license": "Creative Commons Attribution (CC-BY 4.0)",
             "version": version_nb,
-            "split": set_type,
+            "set_type": set_type,
             "date": time.strftime("%x")
         }
 
@@ -861,7 +861,7 @@ def generate_and_write_questions_to_file(scenes, templates, metadata, synonyms,
 
       for t, q, a in zip(ts, qs, ans):
         questions.append({
-          'split': args.set_type,
+          'set_type': args.set_type,     # FIXME : Is this necessary ? We already have this info in the info section
           'scene_filename': scene['scene_filename'],
           'scene_index': scene['scene_index'],
           'question': t,

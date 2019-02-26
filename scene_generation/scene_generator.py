@@ -272,7 +272,7 @@ class Scene_generator:
                 "name": "CLEAR",
                 "license": "Creative Commons Attribution (CC-BY 4.0)",
                 "version": self.version_nb,
-                "split": set_type,
+                "set_type": set_type,
                 "date": time.strftime("%x")
             }
 
