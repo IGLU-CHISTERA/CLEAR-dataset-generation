@@ -10,8 +10,11 @@ def question_node_shallow_copy(node):
     'type': node['type'],
     'inputs': node['inputs'],
   }
-  if 'side_inputs' in node:
-    new_node['side_inputs'] = node['side_inputs']
+  if 'value_inputs' in node:
+    new_node['value_inputs'] = node['value_inputs']
+  else:
+    new_node['value_inputs'] = []
+
   return new_node
 
 
@@ -42,8 +45,6 @@ def translate_can_be_null_attributes(can_be_null_attributes, param_name_to_attri
 
 
 def write_questions_part_to_file(tmp_folder_path, filename, info_section, questions, index):
-  question_program_cleanup(questions)
-
   tmp_filename = filename.replace(".json", "_%.5d.json" % index)
   tmp_filepath = os.path.join(tmp_folder_path, tmp_filename)
 
@@ -87,25 +88,3 @@ def replace_optionals(s):
     else:
       s = s[:i0] + s[i1:]
   return s
-
-
-def question_program_cleanup(questions):
-  # Change "side_inputs" to "value_inputs" in all functions of all functional         # FIXME : Fix this at the same time
-  # programs. My original name for these was "side_inputs" but I decided to
-  # change the name to "value_inputs" for the public CLEVR release. I should
-  # probably go through all question generation code and templates and rename,
-  # but that could be tricky and take a while, so instead I'll just do it here.
-  # To further complicate things, originally functions without value inputs did
-  # not have a "side_inputs" field at all, and I'm pretty sure this fact is used
-  # in some of the code above; however in the public CLEVR release all functions
-  # have a "value_inputs" field, and it's an empty list for functions that take
-  # no value inputs. Again this should probably be refactored, but the quick and
-  # dirty solution is to keep the code above as-is, but here make "value_inputs"
-  # an empty list for those functions that do not have "side_inputs". Gross.
-  for q in questions:
-    for f in q['program']:
-      if 'side_inputs' in f:
-        f['value_inputs'] = f['side_inputs']
-        del f['side_inputs']
-      else:
-        f['value_inputs'] = []

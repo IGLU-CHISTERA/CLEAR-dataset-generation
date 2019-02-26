@@ -10,7 +10,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<PI>",
           "<I>"
         ],
@@ -64,7 +64,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<PG>"
         ],
         "inputs": [
@@ -122,7 +122,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<PG>"
         ],
         "inputs": [
@@ -155,7 +155,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<HN>"
         ],
         "inputs": [
@@ -182,7 +182,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<PG>",
           "<HN>"
         ],
@@ -211,7 +211,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<PG>",
           "<L>"
         ],
@@ -240,7 +240,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<PG>",
           "<B>"
         ],
@@ -269,7 +269,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>"
         ],
@@ -298,7 +298,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<PG>",
           "<L>",
           "<B>"
@@ -327,7 +327,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<HN>"
         ],
@@ -355,7 +355,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<PG>",
           "<L>",
           "<HN>"
@@ -384,7 +384,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>",
           "<HN>"
         ],
@@ -413,7 +413,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<PG>",
           "<B>",
           "<HN>"
@@ -442,7 +442,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>",
           "<HN>"
@@ -472,7 +472,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<PG>",
           "<L>",
           "<B>",

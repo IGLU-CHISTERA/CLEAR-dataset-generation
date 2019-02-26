@@ -31,17 +31,17 @@ use_last_position_value = False
 # FIXME : This won't work if the scene is longer than 11
 idx_to_position_str = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "eleventh"]
 
-def scene_handler(scene_struct, inputs, side_inputs):
+def scene_handler(scene_struct, inputs, value_inputs):
   # Just return all objects in the scene
   return list(range(len(scene_struct['objects'])))
 
 
 def make_filter_handler(attribute):
   is_position_attribute = attribute.startswith('position')
-  def filter_handler(scene_struct, inputs, side_inputs):
+  def filter_handler(scene_struct, inputs, value_inputs):
     assert len(inputs) == 1
-    assert len(side_inputs) == 1
-    value = side_inputs[0]
+    assert len(value_inputs) == 1
+    value = value_inputs[0]
     output = []
     for idx in inputs[0]:
       if is_position_attribute:
@@ -54,61 +54,61 @@ def make_filter_handler(attribute):
   return filter_handler
 
 
-def unique_handler(scene_struct, inputs, side_inputs):
+def unique_handler(scene_struct, inputs, value_inputs):
   assert len(inputs) == 1
   if len(inputs[0]) != 1:
     return '__INVALID__'
   return inputs[0][0]
 
 
-def not_unique_handler(scene_struct, inputs, side_inputs):
+def not_unique_handler(scene_struct, inputs, value_inputs):
   assert len(inputs) == 1
   if len(inputs[0]) == 1:
     return '__INVALID__'
   return inputs[0]
 
 
-def relate_handler(scene_struct, inputs, side_inputs):
+def relate_handler(scene_struct, inputs, value_inputs):
   assert len(inputs) == 1
-  assert len(side_inputs) == 1
-  relation = side_inputs[0]
+  assert len(value_inputs) == 1
+  relation = value_inputs[0]
   relation_index = scene_struct['_relationships_indexes'][relation]
   return scene_struct['relationships'][relation_index]['indexes'][inputs[0]]
     
 
-def union_handler(scene_struct, inputs, side_inputs):
+def union_handler(scene_struct, inputs, value_inputs):
   assert len(inputs) == 2
-  assert len(side_inputs) == 0
+  assert len(value_inputs) == 0
   return sorted(list(set(inputs[0]) | set(inputs[1])))
 
 
-def intersect_handler(scene_struct, inputs, side_inputs):
+def intersect_handler(scene_struct, inputs, value_inputs):
   assert len(inputs) == 2
-  assert len(side_inputs) == 0
+  assert len(value_inputs) == 0
   return sorted(list(set(inputs[0]) & set(inputs[1])))
 
 
-def count_handler(scene_struct, inputs, side_inputs):
+def count_handler(scene_struct, inputs, value_inputs):
   assert len(inputs) == 1
   return len(inputs[0])
 
 
-def add_handler(scene_struct, inputs, side_inputs):
+def add_handler(scene_struct, inputs, value_inputs):
   assert len(inputs) == 2
-  assert len(side_inputs) == 0
+  assert len(value_inputs) == 0
 
   return inputs[0] + inputs[1]
 
 
-def or_handler(scene_struct, inputs, side_inputs):
+def or_handler(scene_struct, inputs, value_inputs):
   assert len(inputs) == 2
-  assert len(side_inputs) == 0
+  assert len(value_inputs) == 0
 
   return inputs[0] or inputs[1]
 
 
 def make_same_attr_handler(attribute):
-  def same_attr_handler(scene_struct, inputs, side_inputs):
+  def same_attr_handler(scene_struct, inputs, value_inputs):
     cache_key = '_same_%s' % attribute
     if cache_key not in scene_struct:
       cache = {}
@@ -122,15 +122,15 @@ def make_same_attr_handler(attribute):
 
     cache = scene_struct[cache_key]
     assert len(inputs) == 1
-    assert len(side_inputs) == 0
+    assert len(value_inputs) == 0
     return cache[inputs[0]]
   return same_attr_handler
 
 
 def make_query_handler(attribute):
-  def query_handler(scene_struct, inputs, side_inputs):
+  def query_handler(scene_struct, inputs, value_inputs):
     assert len(inputs) == 1
-    assert len(side_inputs) == 0
+    assert len(value_inputs) == 0
     idx = inputs[0]
     obj = scene_struct['objects'][idx]
     assert attribute in obj
@@ -144,27 +144,27 @@ def make_query_handler(attribute):
   return query_handler
 
 
-def exist_handler(scene_struct, inputs, side_inputs):
+def exist_handler(scene_struct, inputs, value_inputs):
   assert len(inputs) == 1
-  assert len(side_inputs) == 0
+  assert len(value_inputs) == 0
   return len(inputs[0]) > 0
 
 
-def equal_handler(scene_struct, inputs, side_inputs):
+def equal_handler(scene_struct, inputs, value_inputs):
   assert len(inputs) == 2
-  assert len(side_inputs) == 0
+  assert len(value_inputs) == 0
   return inputs[0] == inputs[1]
 
 
-def less_than_handler(scene_struct, inputs, side_inputs):
+def less_than_handler(scene_struct, inputs, value_inputs):
   assert len(inputs) == 2
-  assert len(side_inputs) == 0
+  assert len(value_inputs) == 0
   return inputs[0] < inputs[1]
 
 
-def greater_than_handler(scene_struct, inputs, side_inputs):
+def greater_than_handler(scene_struct, inputs, value_inputs):
   assert len(inputs) == 2
-  assert len(side_inputs) == 0
+  assert len(value_inputs) == 0
   return inputs[0] > inputs[1]
 
 
@@ -175,9 +175,9 @@ def get_absolute_position(scene_struct, idx):
     return idx_to_position_str[idx]
 
 
-def query_absolute_position_handler(scene_struct, inputs, side_inputs):
+def query_absolute_position_handler(scene_struct, inputs, value_inputs):
   assert len(inputs) == 1
-  assert len(side_inputs) == 0
+  assert len(value_inputs) == 0
   idx = inputs[0]
 
   return get_absolute_position(scene_struct, idx)
@@ -198,9 +198,9 @@ def get_position_instrument(scene_struct, idx, instrument):
 
 
 # TODO : Generalize for all attributes
-def query_position_instrument_handler(scene_struct, inputs, side_inputs):
+def query_position_instrument_handler(scene_struct, inputs, value_inputs):
   assert len(inputs) == 1
-  assert len(side_inputs) == 0
+  assert len(value_inputs) == 0
   idx = inputs[0]
   instrument = scene_struct['objects'][idx]['instrument']
 
@@ -220,9 +220,9 @@ def get_position_global(scene_struct, idx):
     return "end"
 
 
-def query_position_global_handler(scene_struct, inputs, side_inputs):
+def query_position_global_handler(scene_struct, inputs, value_inputs):
   assert len(inputs) == 1
-  assert len(side_inputs) == 0
+  assert len(value_inputs) == 0
   idx = inputs[0]
 
   position = get_position_global(scene_struct, idx)
@@ -240,9 +240,9 @@ def get_position(attribute_name, scene_struct, obj_idx):
     return get_position_global(scene_struct, obj_idx)
 
 
-def filter_longest_duration_handler(scene_struct, inputs, side_inputs):
+def filter_longest_duration_handler(scene_struct, inputs, value_inputs):
   assert len(inputs) == 1
-  assert len(side_inputs) == 0
+  assert len(value_inputs) == 0
   if len(inputs[0]) == 0:
     return '__INVALID__'
 
@@ -273,9 +273,9 @@ def filter_longest_duration_handler(scene_struct, inputs, side_inputs):
   return longest['index']
 
 
-def filter_shortest_duration_handler(scene_struct, inputs, side_inputs):
+def filter_shortest_duration_handler(scene_struct, inputs, value_inputs):
   assert len(inputs) == 1
-  assert len(side_inputs) == 0
+  assert len(value_inputs) == 0
   if len(inputs[0]) == 0:
     return '__INVALID__'
 
@@ -306,9 +306,9 @@ def filter_shortest_duration_handler(scene_struct, inputs, side_inputs):
 
 
 def make_count_different_handler(attribute):
-  def count_different_handler(scene_struct, inputs, side_inputs):
+  def count_different_handler(scene_struct, inputs, value_inputs):
     assert len(inputs) == 1
-    assert len(side_inputs) == 0
+    assert len(value_inputs) == 0
 
     counter = set()
 
@@ -527,8 +527,8 @@ def answer_question(question, metadata, scene_struct, all_outputs=False,
       assert node_type in functions, msg
       handler = functions[node_type]['handler']
       node_inputs = [node_outputs[idx] for idx in node['inputs']]
-      side_inputs = node.get('side_inputs', [])
-      node_output = handler(scene_struct, node_inputs, side_inputs)
+      value_inputs = node.get('value_inputs', [])
+      node_output = handler(scene_struct, node_inputs, value_inputs)
       if cache_outputs:
         node['_output'] = node_output
     node_outputs.append(node_output)
@@ -541,6 +541,7 @@ def answer_question(question, metadata, scene_struct, all_outputs=False,
     return node_outputs[-1]
 
 
+# FIXME : Verify the use of this
 def insert_scene_node(nodes, idx):
   # First make a shallow-ish copy of the input
   new_nodes = []
@@ -549,12 +550,15 @@ def insert_scene_node(nodes, idx):
       'type': node['type'],
       'inputs': node['inputs'],
     }
-    if 'side_inputs' in node:
-      new_node['side_inputs'] = node['side_inputs']
+    if 'value_inputs' in node:
+      new_node['value_inputs'] = node['value_inputs']
+    else:
+      new_node['value_inputs'] = []
+
     new_nodes.append(new_node)
 
   # Replace the specified index with a scene node
-  new_nodes[idx] = {'type': 'scene', 'inputs': []}
+  new_nodes[idx] = {'type': 'scene', 'inputs': [], 'value_inputs': []}
 
   # Search backwards from the last node to see which nodes are actually used
   output_used = [False] * len(new_nodes)
@@ -602,8 +606,8 @@ def is_degenerate(question, metadata, scene_struct, answer=None, verbose=False):
         print('here is truncated question:')
         for i, n in enumerate(new_question['nodes']):
           name = n['type']
-          if 'side_inputs' in n:
-            name = '%s[%s]' % (name, n['side_inputs'][0])
+          if 'value_inputs' in n:
+            name = '%s[%s]' % (name, n['value_inputs'][0])
           print(i, name, n['_output'])
         print('new answer is: ', new_answer)
 

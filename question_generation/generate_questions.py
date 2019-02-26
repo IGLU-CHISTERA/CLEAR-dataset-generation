@@ -473,7 +473,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
 
     if next_node['type'] in qeng.functions_to_be_expanded:
 
-      params_in_node = sorted([param_name_to_attribute[i] for i in next_node['side_inputs']])
+      params_in_node = sorted([param_name_to_attribute[i] for i in next_node['value_inputs']])
       
       if next_node['type'].startswith('relate_filter'):
         unique = (next_node['type'] == 'relate_filter_unique')
@@ -526,29 +526,29 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
         new_nodes = []
         cur_next_vals = {l: v for l, v in state['vals'].items()}
         next_input = state['input_map'][next_node['inputs'][0]]
-        filter_side_inputs = sorted(next_node['side_inputs'], key=lambda param: param_name_to_attribute[param])
+        filter_value_inputs = sorted(next_node['value_inputs'], key=lambda param: param_name_to_attribute[param])
 
         if next_node['type'].startswith('relate'):
-          param_name = next_node['side_inputs'][0] # First one should be relate   # FIXME : Now that the order of the side inputs doesn't matter, the order of <R> shouldn't either
-          filter_side_inputs = sorted(next_node['side_inputs'][1:], key=lambda param: param_name_to_attribute[param])
+          param_name = next_node['value_inputs'][0] # First one should be relate   # FIXME : Now that the order of the side inputs doesn't matter, the order of <R> shouldn't either
+          filter_value_inputs = sorted(next_node['value_inputs'][1:], key=lambda param: param_name_to_attribute[param])
           param_type = param_name_to_attribute[param_name]
           param_val = k[0]    # Relation value
           k = k[1]            # Other attributes filter
           new_nodes.append({
             'type': 'relate',
             'inputs': [next_input],
-            'side_inputs': [param_val],
+            'value_inputs': [param_val],
           })
           cur_next_vals[param_name] = param_val
           next_input = len(state['nodes']) + len(new_nodes) - 1
-        for param_name, param_val in zip(filter_side_inputs, k):
+        for param_name, param_val in zip(filter_value_inputs, k):
           param_type = param_name_to_attribute[param_name]
           filter_type = 'filter_%s' % param_type
           if param_val is not None:
             new_nodes.append({
               'type': filter_type,
               'inputs': [next_input],
-              'side_inputs': [param_val],
+              'value_inputs': [param_val],
             })
             cur_next_vals[param_name] = param_val
             next_input = len(state['nodes']) + len(new_nodes) - 1
@@ -574,6 +574,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
           new_nodes.append({
             'type': extra_type,
             'inputs': [input_map[next_node['inputs'][0]] + len(new_nodes)],
+            'value_inputs': []
           })
         input_map[state['next_template_node']] = len(state['nodes']) + len(new_nodes) - 1
         states.append({
@@ -583,16 +584,16 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
           'next_template_node': state['next_template_node'] + 1,
         })
 
-    elif 'side_inputs' in next_node:
+    elif 'value_inputs' in next_node and next_node['value_inputs']:
       # If the next node has template parameters, expand them out
       # TODO_ORIG: Generalize this to work for nodes with more than one side input
-      assert len(next_node['side_inputs']) == 1, 'NOT IMPLEMENTED'
+      assert len(next_node['value_inputs']) == 1, 'NOT IMPLEMENTED'
 
       # Use metadata to figure out domain of valid values for this parameter.
       # Iterate over the values in a random order; then it is safe to bail
       # from the DFS as soon as we find the desired number of valid template
       # instantiations.
-      param_name = next_node['side_inputs'][0]
+      param_name = next_node['value_inputs'][0]
       param_type = param_name_to_attribute[param_name]
       param_vals = metadata['attributes'][param_type]['values'][:]
       np.random.shuffle(param_vals)
@@ -602,7 +603,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
         cur_next_node = {
           'type': next_node['type'],
           'inputs': [input_map[idx] for idx in next_node['inputs']],
-          'side_inputs': [val],
+          'value_inputs': [val],
         }
         cur_next_vals = {k: v for k, v in state['vals'].items()}
         cur_next_vals[param_name] = val

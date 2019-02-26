@@ -10,7 +10,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<PI>",
           "<I>"
         ],
@@ -20,7 +20,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>"
         ],
@@ -48,7 +48,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>"
         ],
         "inputs": [
@@ -57,7 +57,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>"
         ],
@@ -85,7 +85,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>"
         ],
         "inputs": [
@@ -94,7 +94,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>"
         ],
@@ -122,7 +122,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>"
         ],
@@ -132,7 +132,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>"
         ],
@@ -160,7 +160,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<HN>"
         ],
         "inputs": [
@@ -169,7 +169,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>"
         ],
@@ -197,7 +197,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>",
           "<HN>"
         ],
@@ -207,7 +207,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>"
         ],
@@ -235,7 +235,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<HN>"
         ],
@@ -245,7 +245,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>"
         ],
@@ -273,7 +273,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>",
           "<HN>"
@@ -284,7 +284,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>"
         ],
@@ -312,7 +312,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<HN>"
         ],
@@ -322,7 +322,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>"
         ],
@@ -350,7 +350,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<B>",
           "<HN>"
@@ -361,7 +361,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>"
         ],
@@ -389,7 +389,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<I>",
           "<B>",
@@ -401,7 +401,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>"
         ],
@@ -429,7 +429,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<PI>",
           "<I>"
         ],
@@ -439,7 +439,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L>",
           "<I2>"
@@ -468,7 +468,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>"
         ],
         "inputs": [
@@ -477,7 +477,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L>",
           "<I2>"
@@ -506,7 +506,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>"
         ],
         "inputs": [
@@ -515,7 +515,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<I2>"
@@ -544,7 +544,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>"
         ],
@@ -554,7 +554,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<I2>"
@@ -583,7 +583,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<HN>"
         ],
         "inputs": [
@@ -592,7 +592,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L>",
           "<I2>"
@@ -621,7 +621,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>",
           "<HN>"
         ],
@@ -631,7 +631,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L>",
           "<I2>"
@@ -660,7 +660,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<HN>"
         ],
@@ -670,7 +670,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<I2>"
@@ -699,7 +699,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>",
           "<HN>"
@@ -710,7 +710,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<I2>"
@@ -739,7 +739,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<HN>"
         ],
@@ -749,7 +749,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L>",
           "<I2>"
@@ -778,7 +778,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<B>",
           "<HN>"
@@ -789,7 +789,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L>",
           "<I2>"
@@ -818,7 +818,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<I>",
           "<B>",
@@ -830,7 +830,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<I2>"
@@ -859,7 +859,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<PI>",
           "<I>"
         ],
@@ -869,7 +869,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<I2>"
@@ -898,7 +898,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>"
         ],
         "inputs": [
@@ -907,7 +907,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<I2>"
@@ -936,7 +936,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>"
         ],
         "inputs": [
@@ -945,7 +945,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<I2>"
@@ -974,7 +974,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>"
         ],
@@ -984,7 +984,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<I2>"
@@ -1013,7 +1013,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<HN>"
         ],
         "inputs": [
@@ -1022,7 +1022,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<I2>"
@@ -1051,7 +1051,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>",
           "<HN>"
         ],
@@ -1061,7 +1061,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<I2>"
@@ -1090,7 +1090,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<HN>"
         ],
@@ -1100,7 +1100,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<I2>"
@@ -1129,7 +1129,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>",
           "<HN>"
@@ -1140,7 +1140,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<I2>"
@@ -1169,7 +1169,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<HN>"
         ],
@@ -1179,7 +1179,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<I2>"
@@ -1208,7 +1208,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<B>",
           "<HN>"
@@ -1219,7 +1219,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<I2>"
@@ -1248,7 +1248,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<I>",
           "<B>",
@@ -1260,7 +1260,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<I2>"
@@ -1289,7 +1289,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<PI>",
           "<I>"
         ],
@@ -1299,7 +1299,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<L2>",
@@ -1329,7 +1329,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>"
         ],
         "inputs": [
@@ -1338,7 +1338,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<L2>",
@@ -1368,7 +1368,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>"
         ],
         "inputs": [
@@ -1377,7 +1377,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<L2>",
@@ -1407,7 +1407,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>"
         ],
@@ -1417,7 +1417,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<L2>",
@@ -1447,7 +1447,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<HN>"
         ],
         "inputs": [
@@ -1456,7 +1456,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<L2>",
@@ -1486,7 +1486,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>",
           "<HN>"
         ],
@@ -1496,7 +1496,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<L2>",
@@ -1526,7 +1526,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<HN>"
         ],
@@ -1536,7 +1536,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<L2>",
@@ -1566,7 +1566,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>",
           "<HN>"
@@ -1577,7 +1577,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<L2>",
@@ -1607,7 +1607,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<HN>"
         ],
@@ -1617,7 +1617,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<L2>",
@@ -1647,7 +1647,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<B>",
           "<HN>"
@@ -1658,7 +1658,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<L2>",
@@ -1688,7 +1688,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<I>",
           "<B>",
@@ -1700,7 +1700,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<L2>",
@@ -1731,7 +1731,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<PI>",
           "<I>"
         ],
@@ -1741,7 +1741,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B>"
         ],
@@ -1769,7 +1769,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>"
         ],
         "inputs": [
@@ -1778,7 +1778,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>"
         ],
@@ -1806,7 +1806,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>"
         ],
         "inputs": [
@@ -1815,7 +1815,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B>"
         ],
@@ -1843,7 +1843,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>"
         ],
@@ -1853,7 +1853,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>"
         ],
@@ -1881,7 +1881,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<HN>"
         ],
         "inputs": [
@@ -1890,7 +1890,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B>"
         ],
@@ -1918,7 +1918,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>",
           "<HN>"
         ],
@@ -1928,7 +1928,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>"
         ],
@@ -1956,7 +1956,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<HN>"
         ],
@@ -1966,7 +1966,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B>"
         ],
@@ -1994,7 +1994,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>",
           "<HN>"
@@ -2005,7 +2005,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>"
         ],
@@ -2033,7 +2033,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<HN>"
         ],
@@ -2043,7 +2043,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B>"
         ],
@@ -2071,7 +2071,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<B>",
           "<HN>"
@@ -2082,7 +2082,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>"
         ],
@@ -2110,7 +2110,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<I>",
           "<B>",
@@ -2122,7 +2122,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>"
         ],
@@ -2150,7 +2150,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<PI>",
           "<I>"
         ],
@@ -2160,7 +2160,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L>",
           "<B>"
@@ -2189,7 +2189,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>"
         ],
         "inputs": [
@@ -2198,7 +2198,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<L>"
@@ -2227,7 +2227,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>"
         ],
         "inputs": [
@@ -2236,7 +2236,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B>",
           "<L2>"
@@ -2265,7 +2265,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>"
         ],
@@ -2275,7 +2275,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<B2>"
@@ -2304,7 +2304,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<HN>"
         ],
         "inputs": [
@@ -2313,7 +2313,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B>",
           "<L>"
@@ -2342,7 +2342,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>",
           "<HN>"
         ],
@@ -2352,7 +2352,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<L>"
@@ -2381,7 +2381,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<HN>"
         ],
@@ -2391,7 +2391,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B>",
           "<L2>"
@@ -2420,7 +2420,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>",
           "<HN>"
@@ -2431,7 +2431,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<L2>"
@@ -2460,7 +2460,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<HN>"
         ],
@@ -2470,7 +2470,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B>",
           "<L>"
@@ -2499,7 +2499,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<B>",
           "<HN>"
@@ -2510,7 +2510,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<L>"
@@ -2539,7 +2539,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<I>",
           "<B>",
@@ -2551,7 +2551,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<L2>"
@@ -2580,7 +2580,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<PI>",
           "<I>"
         ],
@@ -2590,7 +2590,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B>",
           "<L>"
@@ -2619,7 +2619,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>"
         ],
         "inputs": [
@@ -2628,7 +2628,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<L>"
@@ -2657,7 +2657,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>"
         ],
         "inputs": [
@@ -2666,7 +2666,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B>",
           "<L2>"
@@ -2695,7 +2695,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>"
         ],
@@ -2705,7 +2705,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<L2>"
@@ -2734,7 +2734,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<HN>"
         ],
         "inputs": [
@@ -2743,7 +2743,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B>",
           "<L>"
@@ -2772,7 +2772,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>",
           "<HN>"
         ],
@@ -2782,7 +2782,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<L>"
@@ -2811,7 +2811,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<HN>"
         ],
@@ -2821,7 +2821,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B>",
           "<L2>"
@@ -2850,7 +2850,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>",
           "<HN>"
@@ -2861,7 +2861,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<L2>"
@@ -2890,7 +2890,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<HN>"
         ],
@@ -2900,7 +2900,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B>",
           "<L>"
@@ -2929,7 +2929,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<B>",
           "<HN>"
@@ -2940,7 +2940,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<L>"
@@ -2969,7 +2969,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<I>",
           "<B>",
@@ -2981,7 +2981,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<B2>",
           "<L2>"
@@ -3010,7 +3010,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<PI>",
           "<I>"
         ],
@@ -3020,7 +3020,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<HN>"
         ],
@@ -3048,7 +3048,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>"
         ],
         "inputs": [
@@ -3057,7 +3057,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<HN>"
         ],
@@ -3085,7 +3085,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>"
         ],
         "inputs": [
@@ -3094,7 +3094,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<HN>"
         ],
@@ -3122,7 +3122,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>"
         ],
@@ -3132,7 +3132,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<HN>"
         ],
@@ -3160,7 +3160,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<HN>"
         ],
         "inputs": [
@@ -3169,7 +3169,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<HN2>"
         ],
@@ -3197,7 +3197,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>",
           "<HN>"
         ],
@@ -3207,7 +3207,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<HN2>"
         ],
@@ -3235,7 +3235,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<HN>"
         ],
@@ -3245,7 +3245,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<HN2>"
         ],
@@ -3273,7 +3273,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>",
           "<HN>"
@@ -3284,7 +3284,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<HN2>"
         ],
@@ -3312,7 +3312,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<HN>"
         ],
@@ -3322,7 +3322,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<HN2>"
         ],
@@ -3350,7 +3350,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<B>",
           "<HN>"
@@ -3361,7 +3361,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<HN2>"
         ],
@@ -3389,7 +3389,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<I>",
           "<B>",
@@ -3401,7 +3401,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<HN2>"
         ],
@@ -3429,7 +3429,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<PI>",
           "<I>"
         ],
@@ -3439,7 +3439,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<HN>"
@@ -3468,7 +3468,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>"
         ],
         "inputs": [
@@ -3477,7 +3477,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<HN>"
@@ -3506,7 +3506,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>"
         ],
         "inputs": [
@@ -3515,7 +3515,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<HN>"
@@ -3544,7 +3544,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>"
         ],
@@ -3554,7 +3554,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<HN>"
@@ -3583,7 +3583,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<HN>"
         ],
         "inputs": [
@@ -3592,7 +3592,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<HN2>"
@@ -3621,7 +3621,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>",
           "<HN>"
         ],
@@ -3631,7 +3631,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<HN2>"
@@ -3660,7 +3660,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<HN>"
         ],
@@ -3670,7 +3670,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<HN2>"
@@ -3699,7 +3699,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>",
           "<HN>"
@@ -3710,7 +3710,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<HN2>"
@@ -3739,7 +3739,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<HN>"
         ],
@@ -3749,7 +3749,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<HN2>"
@@ -3778,7 +3778,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<B>",
           "<HN>"
@@ -3789,7 +3789,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<HN2>"
@@ -3818,7 +3818,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<I>",
           "<B>",
@@ -3830,7 +3830,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<HN2>"
@@ -3859,7 +3859,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<PI>",
           "<I>"
         ],
@@ -3869,7 +3869,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<B2>",
@@ -3899,7 +3899,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>"
         ],
         "inputs": [
@@ -3908,7 +3908,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<B2>",
@@ -3938,7 +3938,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>"
         ],
         "inputs": [
@@ -3947,7 +3947,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<B2>",
@@ -3977,7 +3977,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>"
         ],
@@ -3987,7 +3987,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<B2>",
@@ -4017,7 +4017,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<HN>"
         ],
         "inputs": [
@@ -4026,7 +4026,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<B2>",
@@ -4056,7 +4056,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>",
           "<HN>"
         ],
@@ -4066,7 +4066,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<B2>",
@@ -4096,7 +4096,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<HN>"
         ],
@@ -4106,7 +4106,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<B2>",
@@ -4136,7 +4136,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>",
           "<HN>"
@@ -4147,7 +4147,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<B2>",
@@ -4177,7 +4177,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<HN>"
         ],
@@ -4187,7 +4187,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<B2>",
@@ -4217,7 +4217,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<B>",
           "<HN>"
@@ -4228,7 +4228,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<B2>",
@@ -4258,7 +4258,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<I>",
           "<B>",
@@ -4270,7 +4270,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<L2>",
           "<B2>",
@@ -4300,7 +4300,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<PI>",
           "<I>"
         ],
@@ -4310,7 +4310,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<HN>"
@@ -4339,7 +4339,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>"
         ],
         "inputs": [
@@ -4348,7 +4348,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<HN>"
@@ -4377,7 +4377,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>"
         ],
         "inputs": [
@@ -4386,7 +4386,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<HN>"
@@ -4415,7 +4415,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>"
         ],
@@ -4425,7 +4425,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<HN>"
@@ -4454,7 +4454,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<HN>"
         ],
         "inputs": [
@@ -4463,7 +4463,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<HN2>"
@@ -4492,7 +4492,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>",
           "<HN>"
         ],
@@ -4502,7 +4502,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<HN2>"
@@ -4531,7 +4531,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<HN>"
         ],
@@ -4541,7 +4541,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<HN2>"
@@ -4570,7 +4570,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>",
           "<HN>"
@@ -4581,7 +4581,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<HN2>"
@@ -4610,7 +4610,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<HN>"
         ],
@@ -4620,7 +4620,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<HN2>"
@@ -4649,7 +4649,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<B>",
           "<HN>"
@@ -4660,7 +4660,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<HN2>"
@@ -4689,7 +4689,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<I>",
           "<B>",
@@ -4701,7 +4701,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<HN2>"
@@ -4730,7 +4730,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<PI>",
           "<I>"
         ],
@@ -4740,7 +4740,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<L2>",
@@ -4770,7 +4770,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>"
         ],
         "inputs": [
@@ -4779,7 +4779,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<L2>",
@@ -4809,7 +4809,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>"
         ],
         "inputs": [
@@ -4818,7 +4818,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<L2>",
@@ -4848,7 +4848,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>"
         ],
@@ -4858,7 +4858,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<L2>",
@@ -4888,7 +4888,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<HN>"
         ],
         "inputs": [
@@ -4897,7 +4897,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<L2>",
@@ -4927,7 +4927,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>",
           "<HN>"
         ],
@@ -4937,7 +4937,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<L2>",
@@ -4967,7 +4967,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<HN>"
         ],
@@ -4977,7 +4977,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<L2>",
@@ -5007,7 +5007,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>",
           "<HN>"
@@ -5018,7 +5018,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<L2>",
@@ -5048,7 +5048,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<HN>"
         ],
@@ -5058,7 +5058,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<L2>",
@@ -5088,7 +5088,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<B>",
           "<HN>"
@@ -5099,7 +5099,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<L2>",
@@ -5129,7 +5129,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<I>",
           "<B>",
@@ -5141,7 +5141,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<L2>",
@@ -5171,7 +5171,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<PI>",
           "<I>"
         ],
@@ -5181,7 +5181,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<B2>",
@@ -5211,7 +5211,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>"
         ],
         "inputs": [
@@ -5220,7 +5220,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<B2>",
@@ -5250,7 +5250,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>"
         ],
         "inputs": [
@@ -5259,7 +5259,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<B2>",
@@ -5289,7 +5289,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>"
         ],
@@ -5299,7 +5299,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<B2>",
@@ -5329,7 +5329,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<HN>"
         ],
         "inputs": [
@@ -5338,7 +5338,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<B2>",
@@ -5368,7 +5368,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>",
           "<HN>"
         ],
@@ -5378,7 +5378,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<B2>",
@@ -5408,7 +5408,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<HN>"
         ],
@@ -5418,7 +5418,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<B2>",
@@ -5448,7 +5448,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>",
           "<HN>"
@@ -5459,7 +5459,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<B2>",
@@ -5489,7 +5489,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<HN>"
         ],
@@ -5499,7 +5499,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<B2>",
@@ -5529,7 +5529,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<B>",
           "<HN>"
@@ -5540,7 +5540,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<B2>",
@@ -5570,7 +5570,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<I>",
           "<B>",
@@ -5582,7 +5582,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<B2>",
@@ -5612,7 +5612,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<PI>",
           "<I>"
         ],
@@ -5622,7 +5622,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<B2>",
@@ -5653,7 +5653,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>"
         ],
         "inputs": [
@@ -5662,7 +5662,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<B2>",
@@ -5693,7 +5693,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>"
         ],
         "inputs": [
@@ -5702,7 +5702,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<B2>",
@@ -5733,7 +5733,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>"
         ],
@@ -5743,7 +5743,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<B2>",
@@ -5774,7 +5774,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<HN>"
         ],
         "inputs": [
@@ -5783,7 +5783,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<B2>",
@@ -5814,7 +5814,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<B>",
           "<HN>"
         ],
@@ -5824,7 +5824,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<B2>",
@@ -5855,7 +5855,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<HN>"
         ],
@@ -5865,7 +5865,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<B2>",
@@ -5896,7 +5896,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<B>",
           "<HN>"
@@ -5907,7 +5907,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<B2>",
@@ -5938,7 +5938,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<HN>"
         ],
@@ -5948,7 +5948,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<B2>",
@@ -5979,7 +5979,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<I>",
           "<B>",
           "<HN>"
@@ -5990,7 +5990,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<B2>",
@@ -6021,7 +6021,7 @@
         "type": "scene"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<L>",
           "<I>",
           "<B>",
@@ -6033,7 +6033,7 @@
         "type": "filter_unique"
       },
       {
-        "side_inputs": [
+        "value_inputs": [
           "<RT>",
           "<I2>",
           "<B2>",
