@@ -33,7 +33,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -70,7 +70,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -107,7 +107,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -145,7 +145,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -182,7 +182,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -220,7 +220,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -259,7 +259,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -297,7 +297,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -336,7 +336,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -375,7 +375,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -415,7 +415,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -440,7 +440,7 @@
         "inputs": [
           1
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -474,7 +474,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -499,7 +499,7 @@
         "inputs": [
           1
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -533,7 +533,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -562,7 +562,7 @@
         "inputs": [
           1
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -591,7 +591,7 @@
         "inputs": [
           1
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -621,7 +621,7 @@
         "inputs": [
           1
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -659,7 +659,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -696,7 +696,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -733,7 +733,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -771,7 +771,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -808,7 +808,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -846,7 +846,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -885,7 +885,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -923,7 +923,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -962,7 +962,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1001,7 +1001,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1041,7 +1041,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1079,7 +1079,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1116,7 +1116,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1153,7 +1153,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1191,7 +1191,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1228,7 +1228,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1266,7 +1266,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1305,7 +1305,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1343,7 +1343,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1382,7 +1382,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1421,7 +1421,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1461,7 +1461,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1500,7 +1500,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1538,7 +1538,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1576,7 +1576,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1615,7 +1615,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1653,7 +1653,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1692,7 +1692,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1732,7 +1732,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1771,7 +1771,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1811,7 +1811,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1851,7 +1851,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1892,7 +1892,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1932,7 +1932,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -1971,7 +1971,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -2010,7 +2010,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -2050,7 +2050,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -2089,7 +2089,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -2129,7 +2129,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -2170,7 +2170,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -2210,7 +2210,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -2251,7 +2251,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -2292,7 +2292,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -2334,7 +2334,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -2374,7 +2374,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -2413,7 +2413,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -2452,7 +2452,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -2492,7 +2492,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -2531,7 +2531,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -2571,7 +2571,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -2612,7 +2612,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -2652,7 +2652,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -2693,7 +2693,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -2734,7 +2734,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   },
@@ -2776,7 +2776,7 @@
         "inputs": [
           2
         ],
-        "type": "query_human_note"
+        "type": "query_note"
       }
     ]
   }

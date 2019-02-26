@@ -1,7 +1,7 @@
 [
   {
     "octave": 4,
-    "human_note": "C",
+    "note": "C",
     "rating": 9.0,
     "instrument": "flute",
     "source_microphone": "akg",
@@ -9,7 +9,7 @@
   },
   {
     "octave": 4,
-    "human_note": "C#",
+    "note": "C#",
     "rating": 9.0,
     "instrument": "flute",
     "source_microphone": "akg",
@@ -17,7 +17,7 @@
   },
   {
     "octave": 4,
-    "human_note": "D",
+    "note": "D",
     "rating": 9.0,
     "instrument": "flute",
     "source_microphone": "akg",
@@ -25,7 +25,7 @@
   },
   {
     "octave": 4,
-    "human_note": "D#",
+    "note": "D#",
     "rating": 9.0,
     "instrument": "flute",
     "source_microphone": "akg",
@@ -33,7 +33,7 @@
   },
   {
     "octave": 4,
-    "human_note": "E",
+    "note": "E",
     "rating": 9.0,
     "instrument": "flute",
     "source_microphone": "akg",
@@ -41,7 +41,7 @@
   },
   {
     "octave": 4,
-    "human_note": "F",
+    "note": "F",
     "rating": 9.0,
     "instrument": "flute",
     "source_microphone": "akg",
@@ -49,7 +49,7 @@
   },
   {
     "octave": 4,
-    "human_note": "F#",
+    "note": "F#",
     "rating": 9.0,
     "instrument": "flute",
     "source_microphone": "akg",
@@ -57,7 +57,7 @@
   },
   {
     "octave": 4,
-    "human_note": "G",
+    "note": "G",
     "rating": 9.0,
     "instrument": "flute",
     "source_microphone": "akg",
@@ -65,7 +65,7 @@
   },
   {
     "octave": 4,
-    "human_note": "G#",
+    "note": "G#",
     "rating": 9.0,
     "instrument": "flute",
     "source_microphone": "akg",
@@ -73,7 +73,7 @@
   },
   {
     "octave": 4,
-    "human_note": "A",
+    "note": "A",
     "rating": 9.0,
     "instrument": "flute",
     "source_microphone": "akg",
@@ -81,7 +81,7 @@
   },
   {
     "octave": 4,
-    "human_note": "A#",
+    "note": "A#",
     "rating": 9.0,
     "instrument": "flute",
     "source_microphone": "akg",
@@ -89,7 +89,7 @@
   },
   {
     "octave": 4,
-    "human_note": "B",
+    "note": "B",
     "rating": 9.0,
     "instrument": "flute",
     "source_microphone": "akg",
@@ -97,7 +97,7 @@
   },
   {
     "octave": 4,
-    "human_note": "C",
+    "note": "C",
     "rating": null,
     "instrument": "clarinet",
     "source_microphone": "akg",
@@ -105,7 +105,7 @@
   },
   {
     "octave": 4,
-    "human_note": "C#",
+    "note": "C#",
     "rating": null,
     "instrument": "clarinet",
     "source_microphone": "akg",
@@ -113,7 +113,7 @@
   },
   {
     "octave": 4,
-    "human_note": "D",
+    "note": "D",
     "rating": 8.0,
     "instrument": "clarinet",
     "source_microphone": "akg",
@@ -121,7 +121,7 @@
   },
   {
     "octave": 4,
-    "human_note": "D#",
+    "note": "D#",
     "rating": null,
     "instrument": "clarinet",
     "source_microphone": "akg",
@@ -129,7 +129,7 @@
   },
   {
     "octave": 4,
-    "human_note": "E",
+    "note": "E",
     "rating": null,
     "instrument": "clarinet",
     "source_microphone": "akg",
@@ -137,7 +137,7 @@
   },
   {
     "octave": 4,
-    "human_note": "F",
+    "note": "F",
     "rating": 7.5,
     "instrument": "clarinet",
     "source_microphone": "akg",
@@ -145,7 +145,7 @@
   },
   {
     "octave": 4,
-    "human_note": "F#",
+    "note": "F#",
     "rating": null,
     "instrument": "clarinet",
     "source_microphone": "akg",
@@ -153,7 +153,7 @@
   },
   {
     "octave": 4,
-    "human_note": "G",
+    "note": "G",
     "rating": null,
     "instrument": "clarinet",
     "source_microphone": "akg",
@@ -161,7 +161,7 @@
   },
   {
     "octave": 4,
-    "human_note": "G#",
+    "note": "G#",
     "rating": 7.0,
     "instrument": "clarinet",
     "source_microphone": "akg",
@@ -169,7 +169,7 @@
   },
   {
     "octave": 4,
-    "human_note": "A",
+    "note": "A",
     "rating": null,
     "instrument": "clarinet",
     "source_microphone": "akg",
@@ -177,7 +177,7 @@
   },
   {
     "octave": 4,
-    "human_note": "A#",
+    "note": "A#",
     "rating": 6.5,
     "instrument": "clarinet",
     "source_microphone": "akg",
@@ -185,7 +185,7 @@
   },
   {
     "octave": 4,
-    "human_note": "B",
+    "note": "B",
     "rating": null,
     "instrument": "clarinet",
     "source_microphone": "akg",
@@ -193,7 +193,7 @@
   },
   {
     "octave": 4,
-    "human_note": "B",
+    "note": "B",
     "rating": 6.5,
     "instrument": "trumpet",
     "source_microphone": "akg",
@@ -201,7 +201,7 @@
   },
   {
     "octave": 4,
-    "human_note": "A#",
+    "note": "A#",
     "rating": 6.0,
     "instrument": "trumpet",
     "source_microphone": "akg",
@@ -209,7 +209,7 @@
   },
   {
     "octave": 4,
-    "human_note": "A",
+    "note": "A",
     "rating": 7.5,
     "instrument": "trumpet",
     "source_microphone": "akg",
@@ -217,7 +217,7 @@
   },
   {
     "octave": 4,
-    "human_note": "G#",
+    "note": "G#",
     "rating": 8.0,
     "instrument": "trumpet",
     "source_microphone": "akg",
@@ -225,7 +225,7 @@
   },
   {
     "octave": 4,
-    "human_note": "G",
+    "note": "G",
     "rating": null,
     "instrument": "trumpet",
     "source_microphone": "akg",
@@ -233,7 +233,7 @@
   },
   {
     "octave": 4,
-    "human_note": "F#",
+    "note": "F#",
     "rating": 6.5,
     "instrument": "trumpet",
     "source_microphone": "akg",
@@ -241,7 +241,7 @@
   },
   {
     "octave": 4,
-    "human_note": "F",
+    "note": "F",
     "rating": 7.5,
     "instrument": "trumpet",
     "source_microphone": "akg",
@@ -249,7 +249,7 @@
   },
   {
     "octave": 4,
-    "human_note": "E",
+    "note": "E",
     "rating": 8.0,
     "instrument": "trumpet",
     "source_microphone": "akg",
@@ -257,7 +257,7 @@
   },
   {
     "octave": 4,
-    "human_note": "D#",
+    "note": "D#",
     "rating": null,
     "instrument": "trumpet",
     "source_microphone": "akg",
@@ -265,7 +265,7 @@
   },
   {
     "octave": 4,
-    "human_note": "D",
+    "note": "D",
     "rating": 5.0,
     "instrument": "trumpet",
     "source_microphone": "akg",
@@ -273,7 +273,7 @@
   },
   {
     "octave": 4,
-    "human_note": "C#",
+    "note": "C#",
     "rating": 8.0,
     "instrument": "trumpet",
     "source_microphone": "akg",
@@ -281,7 +281,7 @@
   },
   {
     "octave": 4,
-    "human_note": "C",
+    "note": "C",
     "rating": 7.0,
     "instrument": "trumpet",
     "source_microphone": "akg",
@@ -289,7 +289,7 @@
   },
   {
     "octave": 4,
-    "human_note": "C#",
+    "note": "C#",
     "rating": 10.0,
     "instrument": "violin",
     "source_microphone": "akg",
@@ -297,7 +297,7 @@
   },
   {
     "octave": 4,
-    "human_note": "D",
+    "note": "D",
     "rating": 6.0,
     "instrument": "violin",
     "source_microphone": "akg",
@@ -305,7 +305,7 @@
   },
   {
     "octave": 4,
-    "human_note": "D#",
+    "note": "D#",
     "rating": 10.0,
     "instrument": "violin",
     "source_microphone": "akg",
@@ -313,7 +313,7 @@
   },
   {
     "octave": 4,
-    "human_note": "E",
+    "note": "E",
     "rating": 10.0,
     "instrument": "violin",
     "source_microphone": "akg",
@@ -321,7 +321,7 @@
   },
   {
     "octave": 4,
-    "human_note": "F",
+    "note": "F",
     "rating": 10.0,
     "instrument": "violin",
     "source_microphone": "akg",
@@ -329,7 +329,7 @@
   },
   {
     "octave": 4,
-    "human_note": "A",
+    "note": "A",
     "rating": null,
     "instrument": "violin",
     "source_microphone": "akg",
@@ -337,7 +337,7 @@
   },
   {
     "octave": 4,
-    "human_note": "A#",
+    "note": "A#",
     "rating": 10.0,
     "instrument": "violin",
     "source_microphone": "akg",
@@ -345,7 +345,7 @@
   },
   {
     "octave": 4,
-    "human_note": "B",
+    "note": "B",
     "rating": 8.0,
     "instrument": "violin",
     "source_microphone": "akg",
@@ -353,7 +353,7 @@
   },
   {
     "octave": 4,
-    "human_note": "C",
+    "note": "C",
     "rating": 10.0,
     "instrument": "violin",
     "source_microphone": "akg",
@@ -361,7 +361,7 @@
   },
   {
     "octave": 4,
-    "human_note": "F#",
+    "note": "F#",
     "rating": 9.0,
     "instrument": "violin",
     "source_microphone": "akg",
@@ -369,7 +369,7 @@
   },
   {
     "octave": 4,
-    "human_note": "G",
+    "note": "G",
     "rating": 9.0,
     "instrument": "violin",
     "source_microphone": "akg",
@@ -377,7 +377,7 @@
   },
   {
     "octave": 4,
-    "human_note": "G#",
+    "note": "G#",
     "rating": null,
     "instrument": "violin",
     "source_microphone": "akg",
@@ -385,7 +385,7 @@
   },
   {
     "octave": 4,
-    "human_note": "C",
+    "note": "C",
     "rating": 9.0,
     "instrument": "cello",
     "source_microphone": "akg",
@@ -393,7 +393,7 @@
   },
   {
     "octave": 4,
-    "human_note": "C#",
+    "note": "C#",
     "rating": null,
     "instrument": "cello",
     "source_microphone": "akg",
@@ -401,7 +401,7 @@
   },
   {
     "octave": 4,
-    "human_note": "D",
+    "note": "D",
     "rating": null,
     "instrument": "cello",
     "source_microphone": "akg",
@@ -409,7 +409,7 @@
   },
   {
     "octave": 4,
-    "human_note": "D#",
+    "note": "D#",
     "rating": null,
     "instrument": "cello",
     "source_microphone": "akg",
@@ -417,7 +417,7 @@
   },
   {
     "octave": 4,
-    "human_note": "E",
+    "note": "E",
     "rating": null,
     "instrument": "cello",
     "source_microphone": "akg",
@@ -425,7 +425,7 @@
   },
   {
     "octave": 4,
-    "human_note": "F",
+    "note": "F",
     "rating": null,
     "instrument": "cello",
     "source_microphone": "akg",
@@ -433,7 +433,7 @@
   },
   {
     "octave": 4,
-    "human_note": "F#",
+    "note": "F#",
     "rating": null,
     "instrument": "cello",
     "source_microphone": "akg",
@@ -441,7 +441,7 @@
   },
   {
     "octave": 4,
-    "human_note": "G",
+    "note": "G",
     "rating": null,
     "instrument": "cello",
     "source_microphone": "akg",

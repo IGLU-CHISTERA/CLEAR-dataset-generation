@@ -19,7 +19,7 @@
         "beginning of the scene", "middle of the scene", "end of the scene"
       ]
     },
-    "human_note": {
+    "note": {
       "placeholder" : "<HN>",
       "values" : [
         "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"
