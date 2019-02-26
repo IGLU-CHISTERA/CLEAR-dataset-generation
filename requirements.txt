@@ -1,4 +1,9 @@
+numpy==1.14.5
+scipy==1.1.0
 pydub==0.23.1
 pysndfx==0.3.6
-timbral-models==0.4.0
 ujson==1.35
+librosa==0.6.2
+pyloudnorm==0.0.1
+essentia==2.1b5.dev416
+git+https://github.com/AudioCommons/timbral_models@a00f966d6a3ffc311ba4fa633b8bbe1beb0b28e5
