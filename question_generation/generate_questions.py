@@ -620,6 +620,7 @@ def instantiate_templates_dfs(scene_struct, template, metadata, answer_counts,
       next_node = {
         'type': next_node['type'],
         'inputs': [input_map[idx] for idx in next_node['inputs']],
+        'value_inputs': []
       }
       states.append({
         'nodes': state['nodes'] + [next_node],
