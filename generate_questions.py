@@ -19,13 +19,13 @@ from itertools import groupby
 import copy
 import numpy as np
 from utils.misc import init_random_seed
-from question_generation.helper import  question_node_shallow_copy, placeholders_to_attribute, \
+from utils.helper import question_node_shallow_copy, placeholders_to_attribute, \
                                         translate_can_be_null_attributes, replace_optionals, \
                                         write_questions_part_to_file
 
 from collections import OrderedDict
 
-import question_engine as qeng
+import utils.question_engine as qeng
 
 # FIXME : Update this documentation string
 """

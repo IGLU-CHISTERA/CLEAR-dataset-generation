@@ -9,7 +9,7 @@ from collections import defaultdict
 
 from timbral_models import *
 from utils.misc import init_random_seed
-from scene_generation.elementary_sounds import Elementary_Sounds
+from utils.elementary_sounds import Elementary_Sounds
 
 
 """
@@ -420,6 +420,6 @@ if __name__ == '__main__':
         scenes_filepath = os.path.join(scenes_output_folder, scenes_filename)
 
         with open(scenes_filepath, 'w') as f:
-            ujson.dump(scene_struct, f, sort_keys=True, escape_forward_slashes=False)
+            ujson.dump(scene_struct, f, indent=2, sort_keys=True, escape_forward_slashes=False)
 
     print('done')

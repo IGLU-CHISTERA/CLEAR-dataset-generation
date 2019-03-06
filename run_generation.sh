@@ -1,6 +1,5 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
-ROOT_DIR="${DIR}/.."
 OLDDIR=$PWD
 CURRENT_DATE_TIME=$(date +'%d-%m-%Y_%Hh%M')
 
@@ -11,12 +10,12 @@ EXPERIMENT_NAME=$1
 if [[ "${EXPERIMENT_NAME: -1}" = "/" ]]; then
     EXPERIMENT_NAME="${EXPERIMENT_NAME:: -1}"
 fi
-EXPERIMENT_DIR="${DIR}/${EXPERIMENT_NAME}"
+EXPERIMENT_DIR="${DIR}/arguments/${EXPERIMENT_NAME}"
 
 # TODO : Supply another way to provide the output path
 # Output dir must be specified in scene_generator.args (May be omitted from other args file, we will use the extracted one)
 REL_OUTPUT_DIR=$(grep output_folder ${EXPERIMENT_DIR}/scene_generator.args | awk -F '=' '{print $2}')
-OUTPUT_DIR="${ROOT_DIR}/${REL_OUTPUT_DIR}"
+OUTPUT_DIR="${DIR}/${REL_OUTPUT_DIR}"
 EXPERIMENT_OUTPUT_DIR="${OUTPUT_DIR}/${EXPERIMENT_NAME}"
 ARGUMENTS_COPY_DIR="${EXPERIMENT_OUTPUT_DIR}/arguments"
 LOG_DIR="${EXPERIMENT_OUTPUT_DIR}/logs"
@@ -42,46 +41,45 @@ fi
 # Will stop the script on first error
 set -e
 
-cd ${ROOT_DIR}
 echo "-----------------------------------------------------------------------------------------------------------"
-echo "    CLEAR Dataset Generation  --- Experiment : ${EXPERIMENT_NAME}  ---  `date +"%d/%m/%Y %H:%M"`"
+echo "    CLEAR Dataset Generation  --- Version : ${EXPERIMENT_NAME}  ---  `date +"%d/%m/%Y %H:%M"`"
 echo "-----------------------------------------------------------------------------------------------------------"
 echo "[NOTE] This script should be run inside the virtual environment associated with CLEAR-Dataset-Geneneration project"
-echo "[NOTE] The output of each process can be found in the log folder of the experiment"
+echo "[NOTE] The output of each process can be found in the log folder"
 echo "[NOTE] Stopping this script will not stop the background process."
 echo "[NOTE] Make sure all the process are stopped if CTRL+C on this script"
 echo "-----------------------------------------------------------------------------------------------------------"
 
 ## Generate the scenes
 echo ">> Generating scenes..."
-python ./scene_generation/scene_generator.py @${EXPERIMENT_DIR}/scene_generator.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_scene_generation.log"
+python generate_scenes_definition.py @${EXPERIMENT_DIR}/scene_generator.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_scene_generation.log"
 echo -e ">> Scene generation Done\n"
 
 # Scene production
 echo ">> Starting scene production..."
-python ./scene_generation/produce_scenes.py @${EXPERIMENT_DIR}/train_scene_producer.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_train_scene_production.log" &
+python produce_scenes_audio.py @${EXPERIMENT_DIR}/train_scene_producer.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_train_scene_production.log" &
 TRAIN_SCENE_PRODUCTION_PID=$!
 
 # Sleep to let the first script create the folders and avoid race condition
 sleep 1
 
-python ./scene_generation/produce_scenes.py @${EXPERIMENT_DIR}/val_scene_producer.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_val_scene_production.log" &
+python produce_scenes_audio.py @${EXPERIMENT_DIR}/val_scene_producer.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_val_scene_production.log" &
 VAL_SCENE_PRODUCTION_PID=$!
 
-python ./scene_generation/produce_scenes.py @${EXPERIMENT_DIR}/test_scene_producer.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_test_scene_production.log" &
+python produce_scenes_audio.py @${EXPERIMENT_DIR}/test_scene_producer.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_test_scene_production.log" &
 TEST_SCENE_PRODUCTION_PID=$!
 
 ## Question Generation
 echo '>>> Starting Question Generation...'
-python ./question_generation/generate_questions.py @${EXPERIMENT_DIR}/train_question_generator.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_train_question_generation.log" &
+python generate_questions.py @${EXPERIMENT_DIR}/train_question_generator.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_train_question_generation.log" &
 TRAINING_QUESTION_GENERATION_PID=$!
 # Sleep to let the first script create the folders and avoid race condition
 sleep 1
 
-python ./question_generation/generate_questions.py @${EXPERIMENT_DIR}/val_question_generator.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_val_question_generation.log" &
+python generate_questions.py @${EXPERIMENT_DIR}/val_question_generator.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_val_question_generation.log" &
 VAL_QUESTION_GENERATION_PID=$!
 
-python ./question_generation/generate_questions.py @${EXPERIMENT_DIR}/test_question_generator.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_test_question_generation.log" &
+python generate_questions.py @${EXPERIMENT_DIR}/test_question_generator.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_test_question_generation.log" &
 TEST_QUESTION_GENERATION_PID=$!
 
 # Wait for process to finish
