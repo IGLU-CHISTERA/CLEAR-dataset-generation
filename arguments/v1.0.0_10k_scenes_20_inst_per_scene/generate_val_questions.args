@@ -1,0 +1,12 @@
+--set_type=val
+--output_filename_prefix=CLEAR
+--output_folder=output
+--template_dir=templates/question_templates
+--templates_per_scene=20
+--instances_per_template=1
+--instantiation_retry_threshold=100
+--reset_counts_every=400
+--write_to_file_every=100
+--metadata_file=templates/attributes.json
+--synonyms_json=templates/synonyms.json
+--random_nb_generator_seed=42572985

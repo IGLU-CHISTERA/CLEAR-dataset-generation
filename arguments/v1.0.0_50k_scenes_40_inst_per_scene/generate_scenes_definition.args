@@ -1,0 +1,13 @@
+--max_nb_scene=50000
+--scene_length=10
+--tree_width=8
+--constraint_min_nb_families=3
+--constraint_min_object_per_family=2
+--constraint_min_nb_families_subject_to_min_object_per_family=2
+--training_set_ratio=0.7
+--elementary_sounds_folder=elementary_sounds
+--elementary_sounds_definition_filename=elementary_sounds.json
+--metadata_file=templates/attributes.json
+--output_folder=output
+--output_filename_prefix=CLEAR
+--random_nb_generator_seed=54979
