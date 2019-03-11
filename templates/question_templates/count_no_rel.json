@@ -1,1029 +1,1053 @@
 [
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "Among the <I> sounds, how many are <B> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_not_unique"
+        "type":"filter_not_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "Among the <I> sounds, how many are <L> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_not_unique"
+        "type":"filter_not_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "Among the <I> sounds, how many play a <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_not_unique"
+        "type":"filter_not_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "Among the <B> sounds, how many are played by a <I> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_not_unique"
+        "type":"filter_not_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "Among the <B> sounds, how many are <L> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_not_unique"
+        "type":"filter_not_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "Among the <B> sounds, how many are a <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_not_unique"
+        "type":"filter_not_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "Among the <L> sounds, how many are <B> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_not_unique"
+        "type":"filter_not_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "Among the <L> sounds, how many are played by a <I> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_not_unique"
+        "type":"filter_not_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "Among the <L> sounds, how many are a <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_not_unique"
+        "type":"filter_not_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "Among the <HN> notes in the scene, how many are <B> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_not_unique"
+        "type":"filter_not_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "Among the <HN> notes in the scene, how many are played by a <I> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_not_unique"
+        "type":"filter_not_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "Among the <HN> notes in the scene, how many are <L> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_not_unique"
+        "type":"filter_not_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "How many <I> are playing ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "How many <B> sound are playing ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "How many <L> sound are playing ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       }
     ]
   },
   {
-    "note": "Only produce 0 & 1 answers",
-    "disabled": false,
-    "text": [
+    "text":[
       "How many <HN> note are playing ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "How many <I> or <I2> are playing ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       },
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       },
       {
-        "inputs": [
+        "inputs":[
           1,
           3
         ],
-        "type": "add"
+        "type":"add"
       }
     ],
-    "constraints": [
+    "constraints":[
       {
-        "params": [
+        "params":[
           "<I>",
           "<I2>"
         ],
-        "type": "NEQ"
+        "type":"NEQ"
       }
     ]
   },
   {
-    "note": "Limited nb of answers. {0,1,2,3}",
-    "disabled": false,
-    "text": [
+    "text":[
       "How many <HN> or <HN2> are playing ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       },
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       },
       {
-        "inputs": [
+        "inputs":[
           1,
           3
         ],
-        "type": "add"
+        "type":"add"
       }
     ],
-    "constraints": [
+    "constraints":[
       {
-        "params": [
+        "params":[
           "<HN>",
           "<HN2>"
         ],
-        "type": "NEQ"
+        "type":"NEQ"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "How many <L> sound are played by a <I> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       }
     ]
   },
   {
-    "note": "Limited nb of answers {0,1,2}",
-    "disabled": false,
-    "text": [
+    "text":[
       "How many <B> sound are played by a <I> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "How many <L> sound are played by a <I> or a <I2> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       },
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       },
       {
-        "inputs": [
+        "inputs":[
           1,
           3
         ],
-        "type": "add"
+        "type":"add"
       }
     ],
-    "constraints": [
+    "constraints":[
       {
-        "params": [
+        "params":[
           "<I>",
           "<I2>"
         ],
-        "type": "NEQ"
+        "type":"NEQ"
       }
     ]
   },
   {
-    "note": "Limited nb of answers {0,1,2}",
-    "disabled": false,
-    "text": [
+    "text":[
       "How many <B> sound are played by a <I> or a <I2> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       },
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       },
       {
-        "inputs": [
+        "inputs":[
           1,
           3
         ],
-        "type": "add"
+        "type":"add"
       }
     ],
-    "constraints": [
+    "constraints":[
       {
-        "params": [
+        "params":[
           "<I>",
           "<I2>"
         ],
-        "type": "NEQ"
+        "type":"NEQ"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "How many other sounds have the same brightness as the <PI> <I> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "same_brightness"
+        "type":"same_brightness"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "count"
+        "type":"count"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "How many other sounds have the same loudness as the <PI> <I> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "same_loudness"
+        "type":"same_loudness"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "count"
+        "type":"count"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "How many <I2> have the same brightness as the <PI> <I> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "same_brightness"
+        "type":"same_brightness"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "filter"
+        "type":"filter"
       },
       {
-        "inputs": [
+        "inputs":[
           3
         ],
-        "type": "count"
+        "type":"count"
       }
     ],
-    "constraints": [
+    "constraints":[
       {
-        "params": [
+        "params":[
           "<I>",
           "<I2>"
         ],
-        "type": "NEQ"
+        "type":"NEQ"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "How many <I2> have the same loudness as the <PI> <I> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "same_loudness"
+        "type":"same_loudness"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "filter"
+        "type":"filter"
       },
       {
-        "inputs": [
+        "inputs":[
           3
         ],
-        "type": "count"
+        "type":"count"
       }
     ],
-    "constraints": [
+    "constraints":[
       {
-        "params": [
+        "params":[
           "<I>",
           "<I2>"
         ],
-        "type": "NEQ"
+        "type":"NEQ"
       }
     ]
   },
   {
-    "note": "Limited number of answer possible since the <PG> filter reduce the number of object to 3",
-    "disabled": false,
-    "text": [
+    "text":[
       "How many <I> are playing in the <PG> of the scene ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PG>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       }
     ]
   },
   {
-    "note": "Limited number of answer possible since the <PG> filter reduce the number of object to 3",
-    "disabled": false,
-    "text": [
+    "text":[
       "How many <L> sounds are playing in the <PG> of the scene ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PG>",
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "How many <I> or <I2> are playing in the <PG> of the scene ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PG>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       },
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PG>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "filter_count"
+        "type":"filter_count"
       },
       {
-        "inputs": [
+        "inputs":[
           1,
           3
         ],
-        "type": "add"
+        "type":"add"
       }
     ],
-    "constraints": [
+    "constraints":[
       {
-        "params": [
+        "params":[
           "<I>",
           "<I2>"
         ],
-        "type": "NEQ"
+        "type":"NEQ"
       }
     ]
   },
   {
-    "note": "Due to our generation constraints, the number is always 5 or 6. We can still use this function in conjunction with some filters",
-    "disabled": false,
-    "text": [
+    "text":[
       "How many different instruments are playing ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "count_different_instrument"
+        "type":"count_different_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "How many different instruments are playing in the <PG> of the scene ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PG>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter"
+        "type":"filter"
       },
       {
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "count_different_instrument"
+        "type":"count_different_instrument"
       }
     ]
   }

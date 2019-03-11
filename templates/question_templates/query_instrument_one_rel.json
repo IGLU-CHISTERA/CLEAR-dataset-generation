@@ -1,3267 +1,3351 @@
 [
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <HN2> note <RT> the <PI> <I> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <HN2> note <RT> the <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <HN2> note <RT> the <L> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <HN2> note <RT> the <L> <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <HN2> note <RT> the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <HN2> note <RT> the <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <HN2> note <RT> the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <HN2> note <RT> the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <HN2> note <RT> the <I> that play a <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <HN2> note <RT> the <I> that play a <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <HN2> note <RT> the <I> that play a <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <HN2> note <RT> the <I> that play a <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <B2> sound <RT> the <PI> <I> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <B2> sound <RT> the <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <B2> sound <RT> the <L> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <B2> sound <RT> the <L> <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <B2> sound <RT> the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <B2> sound <RT> the <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <B2> sound <RT> the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <B2> sound <RT> the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <B2> sound <RT> the <I> that play a <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <B2> sound <RT> the <I> that play a <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <B2> sound <RT> the <I> that play a <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <B2> sound <RT> the <I> that play a <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> sound <RT> the <PI> <I> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> sound <RT> the <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> sound <RT> the <L> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> sound <RT> the <L> <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> sound <RT> the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> sound <RT> the <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> sound <RT> the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> sound <RT> the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> sound <RT> the <I> that play a <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> sound <RT> the <I> that play a <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> sound <RT> the <I> that play a <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> sound <RT> the <I> that play a <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <B2> sound <RT> the <PI> <I> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <B2> sound <RT> the <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <B2> sound <RT> the <L> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <B2> sound <RT> the <L> <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <B2> sound <RT> the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <B2> sound <RT> the <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <B2> sound <RT> the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <B2> sound <RT> the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <B2> sound <RT> the <I> that play a <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <B2> sound <RT> the <I> that play a <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <B2> sound <RT> the <I> that play a <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <B2> sound <RT> the <I> that play a <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <HN2> note <RT> the <PI> <I> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <HN2> note <RT> the <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <HN2> note <RT> the <L> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <HN2> note <RT> the <L> <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <HN2> note <RT> the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <HN2> note <RT> the <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <HN2> note <RT> the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <HN2> note <RT> the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <HN2> note <RT> the <I> that play a <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <HN2> note <RT> the <I> that play a <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <HN2> note <RT> the <I> that play a <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <HN2> note <RT> the <I> that play a <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <B2> <HN2> note <RT> the <PI> <I> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <B2> <HN2> note <RT> the <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <B2> <HN2> note <RT> the <L> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <B2> <HN2> note <RT> the <L> <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <B2> <HN2> note <RT> the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <B2> <HN2> note <RT> the <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <B2> <HN2> note <RT> the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <B2> <HN2> note <RT> the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <B2> <HN2> note <RT> the <I> that play a <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <B2> <HN2> note <RT> the <I> that play a <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <B2> <HN2> note <RT> the <I> that play a <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <B2> <HN2> note <RT> the <I> that play a <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <B2> <HN2> note <RT> the <PI> <I> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <B2> <HN2> note <RT> the <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <B2> <HN2> note <RT> the <L> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <B2> <HN2> note <RT> the <L> <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <B2> <HN2> note <RT> the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <B2> <HN2> note <RT> the <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <B2> <HN2> note <RT> the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <B2> <HN2> note <RT> the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <B2> <HN2> note <RT> the <I> that play a <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <B2> <HN2> note <RT> the <I> that play a <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <B2> <HN2> note <RT> the <I> that play a <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What instrument plays a <L2> <B2> <HN2> note <RT> the <I> that play a <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_instrument"
+        "type":"query_instrument"
       }
     ]
   }

@@ -1,514 +1,515 @@
 [
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "Among the <I> sounds, what is the loudness of the one playing a <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_not_unique"
+        "type":"filter_not_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_loudness"
+        "type":"query_loudness"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "Among the <I> sounds, what is the loudness of the one playing the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_not_unique"
+        "type":"filter_not_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_loudness"
+        "type":"query_loudness"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "Among the <B> sounds, what is the loudness of the one played by a <I> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_not_unique"
+        "type":"filter_not_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_loudness"
+        "type":"query_loudness"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "Among the <B> sounds, what is the loudness of the one that is a <HN> note?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_not_unique"
+        "type":"filter_not_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_loudness"
+        "type":"query_loudness"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "Among the <HN> notes in the scene, what is the loudness of the one that is a <B> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_not_unique"
+        "type":"filter_not_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_loudness"
+        "type":"query_loudness"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "Among the <HN> notes in the scene, what is the loudness of the one that is played by a <I> ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_not_unique"
+        "type":"filter_not_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_loudness"
+        "type":"query_loudness"
       }
     ]
   },
-
-
-
-
-
-
-
-
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What is the loudness of the <P> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<P>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "query_loudness"
+        "type":"query_loudness"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What is the loudness of the <PI> <I> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "query_loudness"
+        "type":"query_loudness"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "What is the loudness of the <I> sound that is playing in the <PG> of the scene ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<PG>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "query_loudness"
+        "type":"query_loudness"
       }
     ]
   },
   {
-    "note": "limited nb of answer. 48 on 70. Probably difficult to uniquely filter object only on brightness attribute",
-    "disabled": false,
-    "text": [
+    "text":[
       "What is the loudness of the <B> sound that is playing in the <PG> of the scene ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>",
           "<PG>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "query_loudness"
+        "type":"query_loudness"
       }
     ]
   },
   {
-    "note": "Limited nb of answer. 51 on 70. Probably due to the fact that a lot of sounds are neither bright or dark",
-    "disabled": false,
-    "text": [
+    "text":[
       "There is a <HN> note played in the <PG> of the scene; What is the loudness of this sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>",
           "<PG>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "query_loudness"
+        "type":"query_loudness"
       }
     ]
   },
   {
-    "note": "Limited nb of answer. 51 on 70. Probably due to the fact that a lot of sounds are neither bright or dark",
-    "disabled": false,
-    "text": [
+    "text":[
       "There is a <L> <HN> note played in the <PG> of the scene; What is the loudness of this sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<HN>",
           "<PG>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "query_loudness"
+        "type":"query_loudness"
       }
     ]
   },
   {
-    "note": "Limited nb of answer. 4 on 70. INVESTIGATE THIS",
-    "disabled": false,
-    "text": [
+    "text":[
       "What is the loudness of the longest sound in the scene ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_longest_duration"
+        "type":"filter_longest_duration"
       },
       {
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "query_loudness"
+        "type":"query_loudness"
       }
     ]
   },
   {
-    "note": "Limited nb of answer. 59 on 70.",
-    "disabled": false,
-    "text": [
+    "text":[
       "What is the loudness of the longest sound playing in the <PG> of the scene ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PG>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter"
+        "type":"filter"
       },
       {
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "filter_longest_duration"
+        "type":"filter_longest_duration"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_loudness"
+        "type":"query_loudness"
       }
     ]
   },
   {
-    "note": "Limited nb of answer. 39 on 70.",
-    "disabled": false,
-    "text": [
+    "text":[
       "What is the loudness of the shortest sound in the scene ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_shortest_duration"
+        "type":"filter_shortest_duration"
       },
       {
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "query_loudness"
+        "type":"query_loudness"
       }
     ]
   },
   {
-    "note": "Limited nb of answer. 59 on 70.",
-    "disabled": false,
-    "text": [
+    "text":[
       "What is the loudness of the shortest sound playing in the <PG> of the scene ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PG>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter"
+        "type":"filter"
       },
       {
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "filter_shortest_duration"
+        "type":"filter_shortest_duration"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_loudness"
+        "type":"query_loudness"
       }
     ]
   }

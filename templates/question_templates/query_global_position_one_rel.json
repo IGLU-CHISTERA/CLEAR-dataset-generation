@@ -1,6055 +1,6209 @@
 [
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> that is <RT> the <PI> <I> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> that is <RT> the <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> that is <RT> the <L> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> that is <RT> the <L> <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> that is <RT> the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> that is <RT> the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> that is <RT> the <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> that is <RT> the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> that is <RT> the <I> that play the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> that is <RT> the <I> that play the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L> <I2> that is <RT> the <PI> <I> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L> <I2> that is <RT> the <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <I2> that is <RT> the <L> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <I2> that is <RT> the <L> <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L> <I2> that is <RT> the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L> <I2> that is <RT> the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <I2> that is <RT> the <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <I2> that is <RT> the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L> <I2> that is <RT> the <I> that play the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L> <I2> that is <RT> the <I> that play the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <I2> that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <B2> <I2> that is <RT> the <PI> <I> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <B2> <I2> that is <RT> the <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <B2> <I2> that is <RT> the <L> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <B2> <I2> that is <RT> the <L> <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <B2> <I2> that is <RT> the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <B2> <I2> that is <RT> the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <B2> <I2> that is <RT> the <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <B2> <I2> that is <RT> the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <B2> <I2> that is <RT> the <I> that play the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <B2> <I2> that is <RT> the <I> that play the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <B2> <I2> that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <PI> <I> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <L> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <L> <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <I> that play the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <I> that play the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> <I2> that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>",
           "<L2>",
           "<I2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <B> sound that is <RT> the <PI> <I> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <B2> sound that is <RT> the <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <B> sound that is <RT> the <L> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <B2> sound that is <RT> the <L> <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <B> sound that is <RT> the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <B2> sound that is <RT> the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <B> sound that is <RT> the <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <B2> sound that is <RT> the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <B> sound that is <RT> the <I> that play the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <B2> sound that is <RT> the <I> that play the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <B2> sound that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L> <B> sound that is <RT> the <PI> <I> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L> <B2> sound that is <RT> the <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B> sound that is <RT> the <L> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> sound that is <RT> the <L> <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<B2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L> <B> sound that is <RT> the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B>",
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L> <B2> sound that is <RT> the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B> sound that is <RT> the <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> sound that is <RT> the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L> <B> sound that is <RT> the <I> that play the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B>",
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L> <B2> sound that is <RT> the <I> that play the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> sound that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L> <B> sound that is <RT> the <PI> <I> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B>",
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L> <B2> sound that is <RT> the <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B> sound that is <RT> the <L> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> sound that is <RT> the <L> <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L> <B> sound that is <RT> the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B>",
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L> <B2> sound that is <RT> the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B> sound that is <RT> the <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> sound that is <RT> the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L> <B> sound that is <RT> the <I> that play the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B>",
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L> <B2> sound that is <RT> the <I> that play the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> sound that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<B2>",
           "<L2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <HN> note that is <RT> the <PI> <I> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <HN> note that is <RT> the <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <HN> note that is <RT> the <L> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <HN> note that is <RT> the <L> <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <HN2> note that is <RT> the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <HN2> note that is <RT> the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <HN2> note that is <RT> the <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <HN2> note that is <RT> the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <HN2> note that is <RT> the <I> that play the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <HN2> note that is <RT> the <I> that play the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <HN2> note that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <HN> note that is <RT> the <PI> <I> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <HN> note that is <RT> the <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <HN> note that is <RT> the <L> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <HN> note that is <RT> the <L> <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <HN2> note that is <RT> the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <HN2> note that is <RT> the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <HN2> note that is <RT> the <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <HN2> note that is <RT> the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <HN2> note that is <RT> the <I> that play the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <HN2> note that is <RT> the <I> that play the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <HN2> note that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> <HN> note that is <RT> the <PI> <I> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<B2>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> <HN> note that is <RT> the <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<B2>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> <HN> note that is <RT> the <L> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<B2>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> <HN> note that is <RT> the <L> <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<B2>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> <HN2> note that is <RT> the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> <HN2> note that is <RT> the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> <HN2> note that is <RT> the <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> <HN2> note that is <RT> the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> <HN2> note that is <RT> the <I> that play the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> <HN2> note that is <RT> the <I> that play the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <L2> <B2> <HN2> note that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<L2>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <HN> note that is <RT> the <PI> <I> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <HN> note that is <RT> the <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <HN> note that is <RT> the <L> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <HN> note that is <RT> the <L> <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <HN2> note that is <RT> the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <HN2> note that is <RT> the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <HN2> note that is <RT> the <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <HN2> note that is <RT> the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <HN2> note that is <RT> the <I> that play the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <HN2> note that is <RT> the <I> that play the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <HN2> note that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <L2> <HN> note that is <RT> the <PI> <I> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<L2>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <L2> <HN> note that is <RT> the <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<L2>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <L2> <HN> note that is <RT> the <L> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<L2>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <L2> <HN> note that is <RT> the <L> <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<L2>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <L2> <HN2> note that is <RT> the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <L2> <HN2> note that is <RT> the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <L2> <HN2> note that is <RT> the <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <L2> <HN2> note that is <RT> the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <L2> <HN2> note that is <RT> the <I> that play the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <L2> <HN2> note that is <RT> the <I> that play the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <L2> <HN2> note that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <B2> <HN> note that is <RT> the <PI> <I> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<B2>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <B2> <HN> note that is <RT> the <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<B2>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <B2> <HN> note that is <RT> the <L> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<B2>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <B2> <HN> note that is <RT> the <L> <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<B2>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <B2> <HN2> note that is <RT> the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <B2> <HN2> note that is <RT> the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <B2> <HN2> note that is <RT> the <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <B2> <HN2> note that is <RT> the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <B2> <HN2> note that is <RT> the <I> that play the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <B2> <HN2> note that is <RT> the <I> that play the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <B2> <HN2> note that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<B2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <L2> <B2> <HN> note that is <RT> the <PI> <I> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<PI>",
           "<I>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<B2>",
           "<L2>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <L2> <B2> <HN> note that is <RT> the <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<B2>",
           "<L2>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <L2> <B2> <HN> note that is <RT> the <L> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<B2>",
           "<L2>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <L2> <B2> <HN> note that is <RT> the <L> <B> sound ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<B2>",
           "<L2>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <L2> <B2> <HN2> note that is <RT> the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<B2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <L2> <B2> <HN2> note that is <RT> the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<B2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <L2> <B2> <HN2> note that is <RT> the <L> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<B2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <L2> <B2> <HN2> note that is <RT> the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<B2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <L2> <B2> <HN2> note that is <RT> the <I> that play the <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<B2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <L2> <B2> <HN2> note that is <RT> the <I> that play the <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<B2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   },
   {
-    "disabled": false,
-    "text": [
+    "text":[
       "In what part of the scene is the <I2> playing a <L2> <B2> <HN2> note that is <RT> the <I> that play the <L> <B> <HN> note ?"
     ],
-    "nodes": [
+    "nodes":[
       {
-        "inputs": [],
-        "type": "scene"
+        "inputs":[
+
+        ],
+        "type":"scene"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<L>",
           "<I>",
           "<B>",
           "<HN>"
         ],
-        "inputs": [
+        "inputs":[
           0
         ],
-        "type": "filter_unique"
+        "type":"filter_unique"
       },
       {
-        "value_inputs": [
+        "value_inputs":[
           "<RT>",
           "<I2>",
           "<B2>",
           "<L2>",
           "<HN2>"
         ],
-        "inputs": [
+        "inputs":[
           1
         ],
-        "type": "relate_filter_unique"
+        "type":"relate_filter_unique"
       },
       {
-        "inputs": [
+        "inputs":[
           2
         ],
-        "type": "query_position_global"
+        "type":"query_position_global"
       }
     ]
   }
