@@ -8,12 +8,12 @@ import os, ujson, argparse
 from multiprocessing import Pool
 import matplotlib
 from shutil import rmtree as rm_dir
+
 # Matplotlib options to reduce memory usage
 matplotlib.interactive(False)
 matplotlib.use('agg')
 
 import matplotlib.pyplot as plt
-
 
 """
 Arguments definition
@@ -171,10 +171,10 @@ class AudioSceneProducer:
         self.nbOfLoadedScenes = len(self.scenes)
 
         if self.nbOfLoadedScenes == 0:
-            print("[ERROR] Must have at least 1 scene in '"+sceneFilepath+"'", file=sys.stderr)
+            print("[ERROR] Must have at least 1 scene in '" + sceneFilepath + "'", file=sys.stderr)
             exit(1)
 
-        self.show_status_every = int(self.nbOfLoadedScenes/10)
+        self.show_status_every = int(self.nbOfLoadedScenes / 10)
         self.show_status_every = self.show_status_every if self.show_status_every > 0 else 1
 
         # Initialize the list that contain the loaded sounds
@@ -206,14 +206,13 @@ class AudioSceneProducer:
 
             scene = self.scenes[sceneId]
             if sceneId % self.show_status_every == 0:
-              print('Producing scene ' + str(sceneId), flush=True)
+                print('Producing scene ' + str(sceneId), flush=True)
 
             sceneAudioSegment = self.assembleAudioScene(scene)
 
             if self.produce_audio_files:
-              sceneAudioSegment.export(
-                os.path.join(self.audio_output_folder, '%s_%s_%06d.wav' % (self.outputPrefix, self.setType, sceneId)),
-                format='wav')
+                audioFilename = '%s_%s_%06d.wav' % (self.outputPrefix, self.setType, sceneId)
+                sceneAudioSegment.export(os.path.join(self.audio_output_folder, audioFilename),format='wav')
 
             if self.produce_spectrograms:
                 spectrogram = AudioSceneProducer.createSpectrogram(sceneAudioSegment,
@@ -222,9 +221,8 @@ class AudioSceneProducer:
                                                                    self.spectrogramSettings['window_length'],
                                                                    self.spectrogramSettings['window_overlap'])
 
-                spectrogram.savefig(
-                  os.path.join(self.images_output_folder, '%s_%s_%06d.png' % (self.outputPrefix, self.setType, sceneId)),
-                  dpi=1)
+                imageFilename = '%s_%s_%06d.png' % (self.outputPrefix, self.setType, sceneId)
+                spectrogram.savefig(os.path.join(self.images_output_folder, imageFilename),dpi=1)
 
                 AudioSceneProducer.clearSpectrogram(spectrogram)
 
@@ -232,75 +230,77 @@ class AudioSceneProducer:
             print("[ERROR] The scene specified by id '%d' couln't be found" % sceneId)
 
     def assembleAudioScene(self, scene):
-      sceneAudioSegment = AudioSegment.empty()
+        sceneAudioSegment = AudioSegment.empty()
 
-      sceneAudioSegment += AudioSegment.silent(duration=scene['silence_before'])
-      for sound in scene['objects']:
-        newAudioSegment = self._getLoadedAudioSegmentByName(sound['filename'])
+        sceneAudioSegment += AudioSegment.silent(duration=scene['silence_before'])
+        for sound in scene['objects']:
+            newAudioSegment = self._getLoadedAudioSegmentByName(sound['filename'])
 
-        sceneAudioSegment += newAudioSegment
+            sceneAudioSegment += newAudioSegment
 
-        # Insert a silence padding after the sound
-        sceneAudioSegment += AudioSegment.silent(duration=sound['silence_after'])
+            # Insert a silence padding after the sound
+            sceneAudioSegment += AudioSegment.silent(duration=sound['silence_after'])
 
-      if self.withBackgroundNoise:
-        gain = random.randrange(self.backgroundNoiseGainSetting['min'], self.backgroundNoiseGainSetting['max'])
-        sceneAudioSegment = AudioSceneProducer.overlayBackgroundNoise(sceneAudioSegment, gain)
+        if self.withBackgroundNoise:
+            gain = random.randrange(self.backgroundNoiseGainSetting['min'], self.backgroundNoiseGainSetting['max'])
+            sceneAudioSegment = AudioSceneProducer.overlayBackgroundNoise(sceneAudioSegment, gain)
 
-      if self.withReverb:
-        roomScale = random.randrange(self.reverbSettings['roomScale']['min'], self.reverbSettings['roomScale']['max'])
-        delay = random.randrange(self.reverbSettings['delay']['min'], self.reverbSettings['delay']['max'])
-        sceneAudioSegment = AudioSceneProducer.applyReverberation(sceneAudioSegment, roomScale, delay)
+        if self.withReverb:
+            roomScale = random.randrange(self.reverbSettings['roomScale']['min'],
+                                         self.reverbSettings['roomScale']['max'])
+            delay = random.randrange(self.reverbSettings['delay']['min'], self.reverbSettings['delay']['max'])
+            sceneAudioSegment = AudioSceneProducer.applyReverberation(sceneAudioSegment, roomScale, delay)
 
-      # Make sure the everything is in Mono (If stereo, will convert to mono)
-      sceneAudioSegment.set_channels(1)
+        # Make sure the everything is in Mono (If stereo, will convert to mono)
+        sceneAudioSegment.set_channels(1)
 
-      return sceneAudioSegment
+        return sceneAudioSegment
 
     @staticmethod
     def applyReverberation(audioSegment, roomScale, delay):
-      floatArray = pydub_audiosegment_to_float_array(audioSegment, audioSegment.frame_rate, audioSegment.sample_width)
+        floatArray = pydub_audiosegment_to_float_array(audioSegment, audioSegment.frame_rate, audioSegment.sample_width)
 
-      floatArrayWithReverb = add_reverberation(floatArray, room_scale=roomScale, pre_delay=delay)
+        floatArrayWithReverb = add_reverberation(floatArray, room_scale=roomScale, pre_delay=delay)
 
-      return float_array_to_pydub_audiosegment(floatArrayWithReverb, audioSegment.frame_rate, audioSegment.sample_width)
+        return float_array_to_pydub_audiosegment(floatArrayWithReverb, audioSegment.frame_rate,
+                                                 audioSegment.sample_width)
 
     @staticmethod
     def overlayBackgroundNoise(sceneAudioSegment, noiseGain):
-      backgroundNoise = generate_random_noise(sceneAudioSegment.duration_seconds * 1000,
-                                              noiseGain,
-                                              sceneAudioSegment.frame_width,
-                                              sceneAudioSegment.frame_rate)
+        backgroundNoise = generate_random_noise(sceneAudioSegment.duration_seconds * 1000,
+                                                noiseGain,
+                                                sceneAudioSegment.frame_width,
+                                                sceneAudioSegment.frame_rate)
 
-      sceneAudioSegment = backgroundNoise.overlay(sceneAudioSegment)
+        sceneAudioSegment = backgroundNoise.overlay(sceneAudioSegment)
 
-      return sceneAudioSegment
+        return sceneAudioSegment
 
     @staticmethod
     def createSpectrogram(sceneAudioSegment, spectrogramHeight, spectrogramWidth, windowLength, windowOverlap):
-      # TODO : Take color map as parameter
-      # Set figure settings to remove all axis
-      spectrogram = plt.figure(frameon=False)
-      spectrogram.set_size_inches(spectrogramWidth, spectrogramHeight)
-      ax = plt.Axes(spectrogram, [0., 0., 1., 1.])
-      ax.set_axis_off()
-      spectrogram.add_axes(ax)
+        # Set figure settings to remove all axis
+        spectrogram = plt.figure(frameon=False)
+        spectrogram.set_size_inches(spectrogramWidth, spectrogramHeight)
+        ax = plt.Axes(spectrogram, [0., 0., 1., 1.])
+        ax.set_axis_off()
+        spectrogram.add_axes(ax)
 
-      # Generate the spectrogram
-      # See https://matplotlib.org/api/_as_gen/matplotlib.pyplot.specgram.html?highlight=matplotlib%20pyplot%20specgram#matplotlib.pyplot.specgram
-      Pxx, freqs, bins, im = plt.specgram(x=sceneAudioSegment.get_array_of_samples(), Fs=sceneAudioSegment.frame_rate,
-                                          window=matplotlib.mlab.window_hanning,
-                                          NFFT=windowLength,
-                                          noverlap=windowOverlap,
-                                          scale='dB')
+        # Generate the spectrogram
+        # See https://matplotlib.org/api/_as_gen/matplotlib.pyplot.specgram.html?highlight=matplotlib%20pyplot%20specgram#matplotlib.pyplot.specgram
+        Pxx, freqs, bins, im = plt.specgram(x=sceneAudioSegment.get_array_of_samples(), Fs=sceneAudioSegment.frame_rate,
+                                            window=matplotlib.mlab.window_hanning,
+                                            NFFT=windowLength,
+                                            noverlap=windowOverlap,
+                                            scale='dB')
 
-      return spectrogram
+        return spectrogram
 
     @staticmethod
     def clearSpectrogram(spectrogram):
-      # Close and Clear the figure
-      plt.close(spectrogram)
-      spectrogram.clear()
+        # Close and Clear the figure
+        plt.close(spectrogram)
+        spectrogram.clear()
+
 
 def mainPool():
     args = parser.parse_args()
@@ -313,32 +313,32 @@ def mainPool():
     reverbRoomScaleRange = args.reverb_room_scale_range.split(',')
     reverbDelayRange = args.reverb_delay_range.split(',')
     reverbSettings = {
-      'roomScale': {
-        'min': int(reverbRoomScaleRange[0]),
-        'max': int(reverbRoomScaleRange[1])
-      },
-      'delay': {
-        'min': int(reverbDelayRange[0]),
-        'max': int(reverbDelayRange[1])
-      }
+        'roomScale': {
+            'min': int(reverbRoomScaleRange[0]),
+            'max': int(reverbRoomScaleRange[1])
+        },
+        'delay': {
+            'min': int(reverbDelayRange[0]),
+            'max': int(reverbDelayRange[1])
+        }
     }
 
     backgroundNoiseGainRange = args.background_noise_gain_range.split(',')
     backgroundNoiseGainSetting = {
-      'min': int(backgroundNoiseGainRange[0]),
-      'max': int(backgroundNoiseGainRange[1])
+        'min': int(backgroundNoiseGainRange[0]),
+        'max': int(backgroundNoiseGainRange[1])
     }
 
     # Creating the producer
     producer = AudioSceneProducer(outputFolder=args.output_folder,
-                                  version_nb= args.output_version_nb,
+                                  version_nb=args.output_version_nb,
                                   elementarySoundsJsonFilename=args.elementary_sounds_definition_filename,
                                   elementarySoundFolderPath=args.elementary_sounds_folder,
                                   setType=args.set_type,
                                   outputPrefix=args.output_filename_prefix,
                                   produce_audio_files=not args.no_audio_files,
                                   produce_spectrograms=args.produce_spectrograms,
-                                  clear_existing_files= args.clear_existing_files,
+                                  clear_existing_files=args.clear_existing_files,
                                   withBackgroundNoise=args.with_background_noise,
                                   backgroundNoiseGainSetting=backgroundNoiseGainSetting,
                                   withReverb=args.with_reverb,
@@ -369,7 +369,6 @@ def mainPool():
 
         bounds[1] = bounds[1] if bounds[1] < producer.nbOfLoadedScenes else producer.nbOfLoadedScenes
         idList = list(range(bounds[0], bounds[1]))
-
 
     # Load and preprocess all elementary sounds into memory
     producer.loadAllElementarySounds()
