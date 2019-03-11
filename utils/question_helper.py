@@ -127,8 +127,7 @@ def find_relate_filter_options(object_idx, scene_struct, attr, can_be_null_attri
   nb_filters = len(scene_struct['_filter_options'][filter_key].keys()) * len(scene_struct['relationships'])
   nb_trivial = int(round(nb_filters * trivial_frac / (1 - trivial_frac)))
 
-  # TODO/VERIFY : Will probably have to change the definition of "trivial"
-  # TODO_ORIG: Right now this is only looking for nontrivial combinations; in some
+  # TODO: Right now this is only looking for nontrivial combinations; in some
   # cases I may want to add trivial combinations, either where the intersection
   # is empty or where the intersection is equal to the filtering output.
   trivial_options_keys = []

@@ -92,7 +92,7 @@ def write_audio_segments(audio_segments, output_folder_path, original_folder_pat
 
 
 def main():
-  # TODO : Add argument parsing for all parameters
+  # FIXME : Add argument parsing for all parameters
   # Paths
   elementary_sounds_folder_path = "/NOBACKUP/jerome/datasets/good-sounds/filtered/akg"
   elementary_sounds_definition_filename = "elementary_sounds.json"

@@ -17,7 +17,7 @@ Arguments definition
 """
 parser = argparse.ArgumentParser(fromfile_prefix_chars='@')
 
-# TODO : Remove unused params
+# FIXME : Remove unused params
 
 parser.add_argument('--max_nb_scene', default=None, type=int,
                     help='Maximum number of scenes that will be generated.' +
@@ -74,7 +74,7 @@ parser.add_argument('--clear_existing_files', action='store_true',
 
 
 class Scene_generator:
-    # TODO : Rewrite doc string
+    # FIXME : Rewrite doc string
     """
     Scene generation logic.
     Create a tree of depth 'nb_objects_per_scene' and width 'nb_tree_branch'.
@@ -115,7 +115,6 @@ class Scene_generator:
         self.scene_duration = sum(self.elementary_sounds.longest_durations) + silence_padding_per_object * (nb_objects_per_scene + 1)
 
         # Constraints
-        # TODO : Calculate constraints based on nb_object_per_scene ?
         self.constraints = {
             'min_nb_families': constraint_min_nb_families,
             'min_objects_per_family': constraint_min_objects_per_family,
@@ -138,10 +137,8 @@ class Scene_generator:
         return [self.elementary_sounds.definition[idx] for idx in scene_id_list]
 
     def _generate_scene_id_list(self):
-        # Shuffling sounds id
+        # Shuffle all sounds and pick the first 'nb_objects_per_scene' as the scene
         np.random.shuffle(self.elementary_sounds.id_list_shuffled)
-
-        # TODO : Random chance to take different interval than the first NB_Object ? Add more randomness. Necessary ?
 
         return self.elementary_sounds.id_list_shuffled[:self.nb_objects_per_scene]
 
@@ -189,39 +186,23 @@ class Scene_generator:
         return True
 
     def _generate_scenes(self, start_index, nb_to_generate):
-
-        # TODO : Generate more scenes than necessary and keep only nb_to_generate ? Add more variability
-
         processed_ids = defaultdict(lambda: False)
         valid_ids = defaultdict(lambda: False)
         scenes_objects = []
         counter = 0
-
-        # Stats
-        duplicate_processing = 0
-        duplicate_validation = 0
-        invalid = 0
 
         while counter < nb_to_generate:
             scene_id_list = self._generate_scene_id_list()
             hashmap_index = str(scene_id_list)
             scene_objects = self._scene_id_list_to_sound_list(scene_id_list)
 
-
-            # TODO : Remove duplicate stats
             if not processed_ids[hashmap_index]:
                 processed_ids[hashmap_index] = True
                 if not valid_ids[hashmap_index] :
                     if self._validate_scene(scene_objects):
                         valid_ids[hashmap_index] = True
-                        scenes_objects.append(scene_objects)            # TODO : Make sure this is not to memory hungry. We could also use the keys of preprocessed_ids
+                        scenes_objects.append(scene_objects)
                         counter += 1
-                    else:
-                        invalid += 1
-                else:
-                    duplicate_validation += 1
-            else:
-                duplicate_processing += 1
 
         return scenes_objects
 
