@@ -319,6 +319,40 @@ def load_synonyms(synonyms_filepath):
     return ujson.load(f)
 
 
+'''
+  Others
+'''
+
+
+def question_node_shallow_copy(node):
+  """
+  Create a copy of the question tree node
+  """
+  new_node = {
+    'type': node['type'],
+    'inputs': node['inputs'],
+  }
+  if 'value_inputs' in node:
+    new_node['value_inputs'] = node['value_inputs']
+  else:
+    new_node['value_inputs'] = []
+
+  return new_node
+
+
+def write_questions_part_to_file(tmp_folder_path, filename, info_section, questions, index):
+  tmp_filename = filename.replace(".json", "_%.5d.json" % index)
+  tmp_filepath = os.path.join(tmp_folder_path, tmp_filename)
+
+  print("Writing to file %s" % tmp_filepath)
+
+  with open(tmp_filepath, 'w') as f:
+    ujson.dump({
+        'info': info_section,
+        'questions': questions,
+      }, f, indent=2, sort_keys=True, escape_forward_slashes=False)
+
+
 def create_reset_counts_fct(templates, metadata, max_scene_length):
   """
   Create a helper function that is used to reset the answer counts
@@ -380,42 +414,6 @@ def replace_optional_words(s):
     else:
       s = s[:i0] + s[i1:]
   return s
-
-
-# TODO : Adapt other_heuristic
-def replace_other_word_if_needed(text, param_vals):
-  """
-  Post-processing heuristic to handle the word "other"
-  """
-  if ' other ' not in text and ' another ' not in text:
-    return text
-  target_keys = {
-    '<Z>',  '<C>',  '<M>',  '<S>',        # FIXME : Hardcoded string placeholder
-    '<Z2>', '<C2>', '<M2>', '<S2>',
-  }
-  if param_vals.keys() != target_keys:
-    return text
-  key_pairs = [
-    ('<Z>', '<Z2>'),                      # FIXME : Hardcoded string placeholder
-    ('<C>', '<C2>'),
-    ('<M>', '<M2>'),
-    ('<S>', '<S2>'),
-  ]
-  remove_other = False
-  for k1, k2 in key_pairs:
-    v1 = param_vals.get(k1, None)
-    v2 = param_vals.get(k2, None)
-    if v1 != '' and v2 != '' and v1 != v2:
-      print('other has got to go! %s = %s but %s = %s'
-            % (k1, v1, k2, v2))
-      remove_other = True
-      break
-  if remove_other:
-    if ' other ' in text:
-      text = text.replace(' other ', ' ')
-    if ' another ' in text:
-      text = text.replace(' another ', ' a ')
-  return text
 
 
 def validate_constraints(template, state, outputs, param_name_to_attribute, verbose):

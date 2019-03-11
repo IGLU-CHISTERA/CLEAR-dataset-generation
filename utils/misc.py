@@ -69,35 +69,6 @@ def float_array_to_pydub_audiosegment(float_array, frame_rate, n_bytes):
                         channels=1)
 
 
-
-## QUESTION SUTFF
-
-def question_node_shallow_copy(node):
-  new_node = {
-    'type': node['type'],
-    'inputs': node['inputs'],
-  }
-  if 'value_inputs' in node:
-    new_node['value_inputs'] = node['value_inputs']
-  else:
-    new_node['value_inputs'] = []
-
-  return new_node
-
-
-def write_questions_part_to_file(tmp_folder_path, filename, info_section, questions, index):
-  tmp_filename = filename.replace(".json", "_%.5d.json" % index)
-  tmp_filepath = os.path.join(tmp_folder_path, tmp_filename)
-
-  print("Writing to file %s" % tmp_filepath)
-
-  with open(tmp_filepath, 'w') as f:
-    ujson.dump({
-        'info': info_section,
-        'questions': questions,
-      }, f, indent=2, sort_keys=True, escape_forward_slashes=False)
-
-
 def get_max_scene_length(scenes):
   return np.max([len(scene['objects']) for scene in scenes])
 

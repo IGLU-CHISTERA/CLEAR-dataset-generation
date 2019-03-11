@@ -1,6 +1,5 @@
 # TODO : Add author mention
 # TODO : Change heading comments
-# FIXME : Break down this file in multiple files
 
 # Copyright 2017-present, Facebook, Inc.
 # All rights reserved.
@@ -17,22 +16,19 @@ import numpy as np
 # Question Engine (Question Answering Mechanism)
 import utils.question_engine as qeng
 
-# File loading
-from utils.question_helper import load_scenes, load_and_prepare_metadata, load_and_prepare_templates, load_synonyms
+# File handling
+from utils.question_helper import load_scenes, load_and_prepare_metadata, load_and_prepare_templates, load_synonyms, \
+                                  write_questions_part_to_file
 
 # Filtering
 from utils.question_helper import find_relate_filter_options, find_filter_options, add_empty_filter_options
 
 # Other helpers
-from utils.question_helper import validate_constraints, create_reset_counts_fct, replace_optional_words, replace_other_word_if_needed
+from utils.question_helper import validate_constraints, create_reset_counts_fct, replace_optional_words, \
+                                  question_node_shallow_copy
 
 # Misc
 from utils.misc import init_random_seed, generate_info_section, get_max_scene_length
-
-
-
-from utils.misc import question_node_shallow_copy, write_questions_part_to_file
-
 
 
 # FIXME : Update this documentation string
@@ -487,7 +483,6 @@ def instantiate_texts_from_solutions(template, synonyms, final_states):
       text = ' '.join(text.split())
     text = replace_optional_words(text)
     text = ' '.join(text.split())
-    text = replace_other_word_if_needed(text, state['vals'])     # FIXME : Remove
     text_questions.append(text)
 
   return text_questions, structured_questions, answers
