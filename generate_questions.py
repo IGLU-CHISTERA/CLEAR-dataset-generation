@@ -547,7 +547,9 @@ def main(args):
                                        tmp_output_folder,
                                        questions_filename)
 
-  print("Questions generation done !")
+  print(">> Questions generation done !")
+  print(">> Questions have been written in multiple files in '%s'." % tmp_output_folder)
+  print(">> Run ./scripts/consolidate_questions.py to merge them into one file.")
 
 
 
