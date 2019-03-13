@@ -30,53 +30,25 @@ Arguments definition
 """
 parser = argparse.ArgumentParser(fromfile_prefix_chars='@')
 
-parser.add_argument('--output_folder', default='../output', type=str,
-                    help='Folder where the audio and images will be saved')
-
+# Inputs
 parser.add_argument('--elementary_sounds_folder', default='../elementary_sounds', type=str,
                     help='Folder containing all the elementary sounds and the JSON listing them')
 
 parser.add_argument('--elementary_sounds_definition_filename', default='elementary_sounds.json', type=str,
                     help='Filename of the JSON file listing the attributes of the elementary sounds')
 
-parser.add_argument('--set_type', default='train', type=str,
-                    help="Specify the set type (train/val/test)")
-
-parser.add_argument('--spectrogram_height', default=480, type=int,
-                    help='Height of the generated spectrogram image')
-
-parser.add_argument('--spectrogram_width', default=320, type=int,
-                    help='Width of the generated spectrogram image')
-
-parser.add_argument('--spectrogram_window_length', default=1024, type=int,
-                    help='Number of samples used in the FFT window')
-
-parser.add_argument('--spectrogram_window_overlap', default=512, type=int,
-                    help='Number of samples that are overlapped in the FFT window')
-
+# Options
 parser.add_argument('--with_background_noise', action='store_true',
                     help='Use this setting to include a background noise in the scenes')
-
 parser.add_argument('--background_noise_gain_range', default="-100,-20", type=str,
                     help='Range for the gain applied to the background noise. '
                          'Should be written as 0,100 for a range from 0 to 100')
 
 parser.add_argument('--with_reverb', action='store_true',
                     help='Use this setting to include ramdom reverberations in the scenes')
-
 parser.add_argument('--reverb_room_scale_range', default="0,100", type=str,
                     help='Range for the reverberation parameter. Should be written as 0,100 for a range from 0 to 100')
-
 parser.add_argument('--reverb_delay_range', default="0,500", type=str,
-                    help='Range for the reverberation parameter. Should be written as 0,100 for a range from 0 to 100')
-
-parser.add_argument('--random_nb_generator_seed', default=None, type=int,
-                    help='Set the random number generator seed to reproduce results')
-
-parser.add_argument('--nb_process', default=4, type=int,
-                    help='Number of process allocated for the production')
-
-parser.add_argument('--produce_specific_scenes', default="", type=str,
                     help='Range for the reverberation parameter. Should be written as 0,100 for a range from 0 to 100')
 
 parser.add_argument('--no_audio_files', action='store_true',
@@ -85,16 +57,34 @@ parser.add_argument('--no_audio_files', action='store_true',
 
 parser.add_argument('--produce_spectrograms', action='store_true',
                     help='If set, produce the spectrograms for each scenes')
+parser.add_argument('--spectrogram_height', default=480, type=int,
+                    help='Height of the generated spectrogram image')
+parser.add_argument('--spectrogram_width', default=320, type=int,
+                    help='Width of the generated spectrogram image')
+parser.add_argument('--spectrogram_window_length', default=1024, type=int,
+                    help='Number of samples used in the FFT window')
+parser.add_argument('--spectrogram_window_overlap', default=512, type=int,
+                    help='Number of samples that are overlapped in the FFT window')
 
+# Outputs
+parser.add_argument('--output_folder', default='../output', type=str,
+                    help='Folder where the audio and images will be saved')
+parser.add_argument('--set_type', default='train', type=str,
+                    help="Specify the set type (train/val/test)")
 parser.add_argument('--clear_existing_files', action='store_true',
                     help='If set, will delete all files in the output folder before starting the generation.')
-
 parser.add_argument('--output_filename_prefix', default='CLEAR', type=str,
                     help='Prefix used for produced files')
-
 parser.add_argument('--output_version_nb', default='0.1', type=str,
                     help='Version number that will be appended to the produced file')
+parser.add_argument('--produce_specific_scenes', default="", type=str,
+                    help='Range for the reverberation parameter. Should be written as 0,100 for a range from 0 to 100')
 
+# Misc
+parser.add_argument('--random_nb_generator_seed', default=None, type=int,
+                    help='Set the random number generator seed to reproduce results')
+parser.add_argument('--nb_process', default=4, type=int,
+                    help='Number of process allocated for the production')
 
 """
     Produce audio recording from scene JSON definition
