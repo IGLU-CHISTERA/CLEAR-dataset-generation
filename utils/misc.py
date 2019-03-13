@@ -1,11 +1,18 @@
+# CLEAR Dataset
+# >> Generic Helper functions
+#
+# Author :      Jerome Abdelnour
+# Year :        2018-2019
+# Affiliations: Universite de Sherbrooke - Electrical and Computer Engineering faculty
+#               KTH Stockholm Royal Institute of Technology
+#               IGLU - CHIST-ERA
+
 import numpy as np
 from array import array
 from pydub import AudioSegment
 from pydub.utils import get_array_type
 import random
-import re, os
 import time
-import ujson
 
 '''
 Random Seed Management
@@ -36,8 +43,8 @@ def pydub_audiosegment_to_float_array(audio_segment, frame_rate, n_bytes):
 
     Taken from https://librosa.github.io/librosa/_modules/librosa/util/utils.html#buf_to_float
 
-    FIXME : This will only work for mono audio segment because of the way data is ordered in a pydub audio segment
-    FIXME : See https://groups.google.com/d/msg/librosa/XWae4PdbXuk/4LjHK3d4BAAJ for a fix
+    NOTE : This will only work for mono audio segment because of the way data is ordered in a pydub audio segment
+    NOTE : See https://groups.google.com/d/msg/librosa/XWae4PdbXuk/4LjHK3d4BAAJ for a fix
     """
 
     bit_depth = 8 * n_bytes
