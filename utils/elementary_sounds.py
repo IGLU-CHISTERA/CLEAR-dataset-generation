@@ -1,3 +1,12 @@
+# CLEAR Dataset
+# >> Elementary Sounds Wrapper
+#
+# Author :      Jerome Abdelnour
+# Year :        2018-2019
+# Affiliations: Universite de Sherbrooke - Electrical and Computer Engineering faculty
+#               KTH Stockholm Royal Institute of Technology
+#               IGLU - CHIST-ERA
+
 import ujson
 import os
 import numpy as np
@@ -11,7 +20,9 @@ from utils.audio_processing import get_perceptual_loudness
 class Elementary_Sounds:
   """
   Elementary sounds loader
-  Load the elementary sounds from file, preprocess them and give an interface to retrieve sounds
+    - Load the elementary sounds from file
+    - preprocess them
+    - give an interface to retrieve sounds
   """
 
   def __init__(self, folder_path, definition_filename, nb_objects_per_scene):
@@ -52,6 +63,13 @@ class Elementary_Sounds:
     return self.definition[index]
 
   def _preprocess_sounds(self, nb_objects_per_scene, shuffle_sounds=True):
+    """
+    Apply some preprocessing on the loaded sounds
+      - Calculate the perceptual loudness (ITU-R BS.1770-4 specification) and assign "Loud" or "Quiet" label
+      - Calculate perceptual brightness and assign "Bright", "Dark" or None label
+      - Retrieve the sound duration
+      - Packup the info in the sound dict
+    """
 
     if shuffle_sounds:
       np.random.shuffle(self.definition)
@@ -108,6 +126,9 @@ class Elementary_Sounds:
     self.longest_durations = sorted_durations[twenty_percent_index:twenty_percent_index + nb_objects_per_scene]
 
   def sounds_to_families_count(self, sound_list):
+    """
+    Return the frequence of each instrument family
+    """
     count = {}
 
     for sound in sound_list:
