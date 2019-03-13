@@ -1,4 +1,4 @@
-# CLEAR Question Generator
+# CLEAR Dataset Question Generator
 #
 # Author :      Jerome Abdelnour
 # Affiliations: Universite de Sherbrooke - Electrical and Computer Engineering faculty
@@ -113,6 +113,95 @@ parser.add_argument('--random_nb_generator_seed', default=None, type=int,
                     help='Set the random number generator seed to reproduce results')
 parser.add_argument('--verbose', action='store_true',
                     help="Print more verbose output")
+
+
+def generate_and_write_questions_to_file(scenes, templates, metadata, synonyms,
+                                         questions_info, output_folder, output_filename):
+    """
+    Wrapper around the question instantiation
+        - Launch question instantiation for each scene
+        - Create appropriate JSON structure
+        - Write questions to file
+            - Questions are written to temporary smaller JSON files.in order to keep memory usage low
+            - ./scripts/consolidate_questions.py should be run afterwards to merge all questions in 1 file
+    """
+
+    # Helper function
+    reset_counts = create_reset_counts_fct(templates, metadata, get_max_scene_length(scenes))
+
+    # Initialisation
+    questions = []
+    question_index = 0
+    file_written = 0
+    scene_count = 0
+    nb_scenes = len(scenes)
+
+    for i, scene in enumerate(scenes):
+        print('starting scene %s (%d / %d)' % (scene['scene_filename'], i + 1, nb_scenes))
+
+        if scene_count % args.reset_counts_every == 0:
+            template_counts, template_answer_counts = reset_counts()
+        scene_count += 1
+
+        # Order templates by the number of questions we have so far for those
+        # templates. This is a simple heuristic to give a flat distribution over templates.
+        # We shuffle the templates before sorting to ensure variability when the counts are equals
+        templates_items = list(templates.items())
+        np.random.shuffle(templates_items)
+        templates_items = sorted(templates_items,
+                                 key=lambda x: template_counts[x[0]])
+
+        num_instantiated = 0
+        for (template_fn, template_idx), template in templates_items:
+            if 'disabled' in template and template['disabled']:
+                continue
+
+            print('    trying template ', template_fn, template_idx, flush=True)
+
+            question_texts, programs, answers = instantiate_template(
+                scene,
+                template,
+                metadata,
+                template_answer_counts[(template_fn, template_idx)],
+                synonyms,
+                reset_threshold=args.instantiation_retry_threshold,
+                max_instances=args.instances_per_template,
+                verbose=args.verbose)
+
+            for question_text, program, answer in zip(question_texts, programs, answers):
+                questions.append({
+                    'scene_filename': scene['scene_filename'],
+                    'scene_index': scene['scene_index'],
+                    'question': question_text,
+                    'program': program,
+                    'answer': answer,
+                    'template_index': '%s-%d' % (template_fn, template_idx),
+                    'question_index': question_index,
+                })
+                question_index += 1
+
+            if len(question_texts) > 0:
+                # Template have been instantiated at least 1 time
+                num_instantiated += 1
+                template_counts[(template_fn, template_idx)] += 1
+            elif args.verbose:
+                print('Could not generate any question for template "%s-%d" on scene "%s"' %
+                      (template_fn, template_idx, scene['scene_filename']))
+
+            if num_instantiated >= args.templates_per_scene:
+                # We have instantiated enough template for this scene
+                break
+
+        if question_index != 0 and question_index % args.write_to_file_every == 0:
+            write_questions_part_to_file(output_folder, output_filename, questions_info, questions, file_written)
+            file_written += 1
+            questions = []
+
+    if len(questions) > 0 or file_written == 0:
+        # Write the rest of the questions
+        # If no file were written and we have 0 questions,
+        # we still want an output file with no questions (Otherwise it will break the pipeline)
+        write_questions_part_to_file(output_folder, output_filename, questions_info, questions, file_written)
 
 
 def instantiate_template(scene_struct, template, metadata, answer_counts,
@@ -390,87 +479,7 @@ def instantiate_template(scene_struct, template, metadata, answer_counts,
     return instantiate_texts_from_solutions(template, synonyms, final_states)
 
 
-def generate_and_write_questions_to_file(scenes, templates, metadata, synonyms,
-                                         questions_info, output_folder, output_filename):
-    # Helper function
-    reset_counts = create_reset_counts_fct(templates, metadata, get_max_scene_length(scenes))
-
-    # Initialisation
-    questions = []
-    question_index = 0
-    file_written = 0
-    scene_count = 0
-    nb_scenes = len(scenes)
-
-    for i, scene in enumerate(scenes):
-        print('starting scene %s (%d / %d)' % (scene['scene_filename'], i + 1, nb_scenes))
-
-        if scene_count % args.reset_counts_every == 0:
-            template_counts, template_answer_counts = reset_counts()
-        scene_count += 1
-
-        # Order templates by the number of questions we have so far for those
-        # templates. This is a simple heuristic to give a flat distribution over templates.
-        # We shuffle the templates before sorting to ensure variability when the counts are equals
-        templates_items = list(templates.items())
-        np.random.shuffle(templates_items)
-        templates_items = sorted(templates_items,
-                                 key=lambda x: template_counts[x[0]])
-
-        num_instantiated = 0
-        for (template_fn, template_idx), template in templates_items:
-            if 'disabled' in template and template['disabled']:
-                continue
-
-            print('    trying template ', template_fn, template_idx, flush=True)
-
-            ts, qs, ans = instantiate_template(
-                scene,
-                template,
-                metadata,
-                template_answer_counts[(template_fn, template_idx)],
-                synonyms,
-                reset_threshold=args.instantiation_retry_threshold,
-                max_instances=args.instances_per_template,
-                verbose=args.verbose)
-
-            for t, q, a in zip(ts, qs, ans):
-                questions.append({
-                    'scene_filename': scene['scene_filename'],
-                    'scene_index': scene['scene_index'],
-                    'question': t,
-                    'program': q,
-                    'answer': a,
-                    'template_index': '%s-%d' % (template_fn, template_idx),
-                    'question_index': question_index,
-                })
-                question_index += 1
-            if len(ts) > 0:
-                num_instantiated += 1
-                template_counts[(template_fn, template_idx)] += 1
-            elif args.verbose:
-                print('Could not generate any question for template "%s-%d" on scene "%s"' %
-                      (template_fn, template_idx, scene['scene_filename']))
-
-            if num_instantiated >= args.templates_per_scene:
-                # We have instantiated enough template for this scene
-                break
-
-        if question_index != 0 and question_index % args.write_to_file_every == 0:
-            write_questions_part_to_file(output_folder, output_filename, questions_info, questions, file_written)
-            file_written += 1
-            questions = []
-
-    if len(questions) > 0 or file_written == 0:
-        # Write the rest of the questions
-        # If no file were written and we have 0 questions,
-        # we still want an output file with no questions (Otherwise it will break the pipeline)
-        write_questions_part_to_file(output_folder, output_filename, questions_info, questions, file_written)
-
-
 bool_to_yes_no = ['no', 'yes']
-
-
 def instantiate_texts_from_solutions(template, synonyms, final_states):
     """
     Translate the validated final_states to textual instantiation of the question
