@@ -1,19 +1,29 @@
-import sys
-import random
-from pydub import AudioSegment
-from utils.audio_processing import add_reverberation, generate_random_noise
-from utils.misc import pydub_audiosegment_to_float_array, float_array_to_pydub_audiosegment
-from utils.misc import init_random_seed
-import os, ujson, argparse
+# CLEAR Dataset
+# >> Scene audio produce
+#
+# Author :      Jerome Abdelnour
+# Year :        2018-2019
+# Affiliations: Universite de Sherbrooke - Electrical and Computer Engineering faculty
+#               KTH Stockholm Royal Institute of Technology
+#               IGLU - CHIST-ERA
+
+
+import sys, os ,argparse, random
 from multiprocessing import Pool
-import matplotlib
 from shutil import rmtree as rm_dir
 
+import ujson
+from pydub import AudioSegment
+
+import matplotlib
 # Matplotlib options to reduce memory usage
 matplotlib.interactive(False)
 matplotlib.use('agg')
-
 import matplotlib.pyplot as plt
+
+from utils.audio_processing import add_reverberation, generate_random_noise
+from utils.misc import init_random_seed, pydub_audiosegment_to_float_array, float_array_to_pydub_audiosegment
+
 
 """
 Arguments definition
@@ -86,10 +96,19 @@ parser.add_argument('--output_version_nb', default='0.1', type=str,
                     help='Version number that will be appended to the produced file')
 
 
-######################################################################
-# This program will read the scene json file                         #
-# It will then generate the corresponding audio file & spectrogram   #
-######################################################################
+"""
+    Produce audio recording from scene JSON definition
+    Can also produce spectrograms of the scene if the correct option is provided
+    
+        - Load scenes JSON definition from file
+        - Calculate random silence duration (Silence between sounds)
+        - Concatenate Elementary Sounds (In the order defined by the scene JSON)
+        - Generate random white noise and overlay on the scene
+        - Apply reverberation effect
+        - Write audio scene to file (Either as a WAV file, a spectrogram/PNG or both
+        
+    The production is distributed across {nb_process} processes
+"""
 
 class AudioSceneProducer:
     def __init__(self,
