@@ -1,76 +1,75 @@
-import ujson
-import random
+# CLEAR Dataset
+# >> Scene Generator
+#
+# Author :      Jerome Abdelnour
+# Year :        2018-2019
+# Affiliations: Universite de Sherbrooke - Electrical and Computer Engineering faculty
+#               KTH Stockholm Royal Institute of Technology
+#               IGLU - CHIST-ERA
+
+import time, argparse, os, sys, random
 from shutil import rmtree as rm_dir
-import time
-import argparse
 from itertools import groupby
-import os, sys
 from collections import defaultdict
 
-from timbral_models import *
+import ujson
+import numpy as np
+
 from utils.misc import init_random_seed
 from utils.elementary_sounds import Elementary_Sounds
-
 
 """
 Arguments definition
 """
 parser = argparse.ArgumentParser(fromfile_prefix_chars='@')
 
-# FIXME : Remove unused params
+# Input
+parser.add_argument('--elementary_sounds_folder', default='./elementary_sounds',
+                    help='Folder containing all the elementary sounds and the JSON listing them')
+parser.add_argument('--elementary_sounds_definition_filename', default='elementary_sounds.json',
+                    help='Filename of the JSON file listing the attributes of the elementary sounds')
 
+parser.add_argument('--metadata_file', default='templates/attributes.json',
+                    help='File containing all the information related to the possible attributes of the objects')
+
+# Options
+parser.add_argument('--scene_length', default=6, type=int,
+                    help='Number of elementary sounds in each scene')
 parser.add_argument('--max_nb_scene', default=None, type=int,
                     help='Maximum number of scenes that will be generated.' +
                          'Depending on the scene_length and tree_width, the number of scene generated may be lower.')
-
-parser.add_argument('--scene_length', default=6, type=int,
-                    help='Number of elementary sounds in the generated scenes')
-
 parser.add_argument('--tree_width', default=5, type=int,
                     help='Number of node explored at each level of the generation tree')
 
 parser.add_argument('--silence_padding_per_object', default=100, type=int,
                     help='Silence length that will be introduced between the objects')
 
+# Constraints
 parser.add_argument('--constraint_min_nb_families', default=3, type=int,
                     help='Minimum number of instrument families required for the scene to be valid')
-
 parser.add_argument('--constraint_min_object_per_family', default=2, type=int,
                     help='Minimum number of object per question family')
-
 parser.add_argument('--constraint_min_nb_families_subject_to_min_object_per_family', default=2, type=int,
                     help='Minimum number of families that must meet the "min_object_per_family" constraint')
-
 parser.add_argument('--constraint_min_ratio_for_attribute', default=0.15, type=float,
                     help='Each scene must contain at least X% of all the values for each attributes')
 
+# Output
 parser.add_argument('--training_set_ratio', default=0.7, type=float,
                     help='Percentage of generated scenes that are labeled as training.' +
                          'Validation and test sets will contain the rest of the scenes')
-
-parser.add_argument('--random_nb_generator_seed', default=None, type=int,
-                    help='Set the random number generator seed to reproduce results')
-
-parser.add_argument('--elementary_sounds_folder', default='../elementary_sounds',
-                    help='Folder containing all the elementary sounds and the JSON listing them')
-
-parser.add_argument('--elementary_sounds_definition_filename', default='elementary_sounds.json',
-                    help='Filename of the JSON file listing the attributes of the elementary sounds')
-
-parser.add_argument('--metadata_file', default='../metadata.json',
-                    help='File containing all the information related to the possible attributes of the objects')
-
-parser.add_argument('--output_folder', default='../output',
+parser.add_argument('--output_folder', default='./output',
                     help='Folder where the generated scenes will be saved')
-
 parser.add_argument('--output_filename_prefix', default='CLEAR', type=str,
                     help='Prefix used for generated scene file')
-
 parser.add_argument('--output_version_nb', default='0.1', type=str,
                     help='Version number that will be appended to the generated scene file')
-
 parser.add_argument('--clear_existing_files', action='store_true',
                     help='If set, will delete all files in the output folder before starting the generation.')
+
+# Misc
+parser.add_argument('--random_nb_generator_seed', default=None, type=int,
+                    help='Set the random number generator seed to reproduce results')
 
 
 class Scene_generator:
