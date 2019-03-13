@@ -28,11 +28,182 @@ import ujson
 import numpy as np
 import utils.question_engine as qeng
 
-'''
-  Tree Filtering functions
-'''
+"""
+    Helper functions for the Question Generator
+        - Constraint validation
+        - File loading & Preprocessing
+        - Tree filtering functions
+        - Structure creation and other misc functions
+"""
 
 
+# Constraing validation
+def validate_constraints(template, state, outputs, param_name_to_attribute, verbose):
+    """
+    Validate that the current state comply with the constraints as defined in the template
+    """
+    for constraint in template['constraints']:
+        if constraint['type'] == 'NEQ':
+            # Fail if both value are the same
+            first_value = state['vals'].get(constraint['params'][0])
+            second_value = state['vals'].get(constraint['params'][1])
+
+            if first_value is not None and second_value is not None and first_value == second_value:
+                if verbose:
+                    print('skipping due to NEQ constraint')
+                    print(constraint)
+                    print(state['vals'])
+                return False
+
+        elif constraint['type'] == 'NULL':
+            # Fail if the parameter have a value
+            if state['vals'].get(constraint['params'][0]) is not None:
+                if verbose:
+                    print('skipping due to NULL constraint')
+                    print(constraint)
+                    print(state['vals'])
+                return False
+
+        elif constraint['type'] == 'NOT_NULL':
+            # Fail if the parameter have an empty value
+            if state['vals'].get(constraint['params'][0]) is not None:
+                if verbose:
+                    print('skipping due to NOT NULL constraint')
+                    print(constraint)
+                    print(state['vals'])
+                return False
+
+        elif constraint['type'] == 'OUT_NEQ':
+            # Fail if both values refer to the same sound
+            first_index = state['input_map'].get(constraint['params'][0], None)
+            second_index = state['input_map'].get(constraint['params'][1], None)
+            if first_index is not None and second_index is not None and outputs[first_index] == outputs[second_index]:
+                if verbose:
+                    print('skipping due to OUT_NEQ constraint')
+                return False
+
+        else:
+            assert False, 'Unrecognized constraint type "%s"' % constraint['type']
+
+    return True
+
+
+# File loading and Preprocessing
+def load_and_prepare_templates(template_dir, metadata):
+    # Load templates from disk
+    # Key is (filename, file_idx)
+
+    num_loaded_templates = 0
+    templates = OrderedDict()
+    for fn in os.listdir(template_dir):
+        if not fn.endswith('.json'): continue
+        with open(os.path.join(template_dir, fn), 'r') as f:
+            try:
+                template_json = ujson.load(f)
+                for i, template in enumerate(template_json):
+                    num_loaded_templates += 1
+                    key = (fn, i)
+
+                    # Create index from placeholder string to attribute string (Ex : <I1> --> Instrument)
+                    template['_param_name_to_attribute'] = placeholders_to_attribute(template['text'][0], metadata)
+
+                    # Adding optionals parameters if not present. Remove the need to do null check when accessing
+                    optionals_keys = ['constraints', 'can_be_null_attributes']
+                    for op_key in optionals_keys:
+                        if op_key not in template:
+                            template[op_key] = []
+
+                    # Remove duplicated can_be_null_attributes (<I> and <I2> will result in 'instrument', 'instrument'.
+                    # We only want to keep the attribute name not the identifier)
+                    template['_can_be_null_attributes'] = translate_can_be_null_attributes(
+                        template['can_be_null_attributes'],
+                        template['_param_name_to_attribute'])
+
+                    templates[key] = template
+            except ValueError:
+                print("[ERROR] Could not load template %s" % fn)
+    print('Read %d templates from disk' % num_loaded_templates)
+
+    return templates
+
+
+def load_scenes(scene_filepath, start_idx, nb_scenes_to_gen):
+    # Read file containing input scenes
+    with open(scene_filepath, 'r') as f:
+        scene_data = ujson.load(f)
+        scenes = scene_data['scenes']
+        nb_scenes_loaded = len(scenes)
+        scene_info = scene_data['info']
+
+    if nb_scenes_to_gen > 0:
+        end = start_idx + nb_scenes_to_gen
+        end = end if end < nb_scenes_loaded else nb_scenes_loaded
+        scenes = scenes[start_idx:end]
+    else:
+        scenes = scenes[start_idx:]
+
+    print('Read %d scenes from disk' % len(scenes))
+
+    return scenes, scene_info
+
+
+def load_and_prepare_metadata(metadata_filepath, scenes):
+    # Loading metadata
+    with open(metadata_filepath, 'r') as f:
+        metadata = ujson.load(f)
+
+    # To initialize the metadata, we first need to know how many instruments each scene contains
+    instrument_count_empty = {}
+    instrument_indexes_empty = {}
+
+    for instrument in metadata['attributes']['instrument']['values']:
+        instrument_count_empty[instrument] = 0
+        instrument_indexes_empty[instrument] = []
+
+    instrument_count = dict(instrument_count_empty)
+
+    max_scene_length = 0
+    for scene in scenes:
+        # Keep track of the maximum number of objects across all scenes
+        scene_length = len(scene['objects'])
+        if scene_length > max_scene_length:
+            max_scene_length = scene_length
+
+        # Keep track of the indexes for each instrument
+        instrument_indexes = copy.deepcopy(instrument_indexes_empty)
+        for i, obj in enumerate(scene['objects']):
+            instrument_indexes[obj['instrument']].append(i)
+
+        # TODO : Generalize this for all attributes
+        # Insert the instrument indexes in the scene definition
+        # (Will be used for relative positioning. Increased performance compared to doing the search everytime)
+        scene['instrument_indexes'] = instrument_indexes
+
+        # Retrieve the maximum number of occurence for each instruments
+        for instrument, index_list in instrument_indexes.items():
+            count = len(index_list)
+            if count > instrument_count[instrument]:
+                instrument_count[instrument] = count
+
+        # Insert reference from relation label (Ex: before, after, ..) to index in scene['relationships']
+        # Again for performance. Faster than searching in the dict every time
+        scene['_relationships_indexes'] = {}
+        for i, relation_data in enumerate(scene['relationships']):
+            scene['_relationships_indexes'][relation_data['type']] = i
+
+    # Instantiate the question engine attributes handlers
+    qeng.instantiate_attributes_handlers(metadata, instrument_count, max_scene_length)
+
+    return metadata
+
+
+def load_synonyms(synonyms_filepath):
+    # Read synonyms file
+    with open(synonyms_filepath, 'r') as f:
+        return ujson.load(f)
+
+
+# Tree Filtering
 def precompute_filter_options(scene_struct, attr_keys, can_be_null_attributes):
     # Keys are tuples (size, color, shape, material) (where some may be None)
     # and values are lists of object idxs that match the filter criterion
@@ -71,8 +242,7 @@ def precompute_filter_options(scene_struct, attr_keys, can_be_null_attributes):
                 deleted_keys.add(key)
                 del attribute_map[key]
 
-    # FIXME : Generalize this
-    # FIXME : Make sure this will hold when there is more positional attributes
+    # TODO : Generalize this to other attributes
     # Removing position attribute if there is only one occurrence of the instrument
     if "position_instrument" in attr_keys:
         keys_by_instrument = OrderedDict()
@@ -191,14 +361,8 @@ def find_relate_filter_options(object_idx, scene_struct, attr, can_be_null_attri
 
     return options
 
-
-'''
-  Misc
-'''
-# Constants
+# Misc
 _placeholders_to_attribute_reg = re.compile('<([a-zA-Z]+)(\d)?>')
-
-
 def placeholders_to_attribute(template_text, metadata):
     correspondences = {}
     # Extracting the placeholders from the text
@@ -224,131 +388,6 @@ def translate_can_be_null_attributes(can_be_null_attributes, param_name_to_attri
 
     return list(tmp)
 
-
-'''
-  File loading & Preprocessing 
-'''
-
-
-def load_and_prepare_templates(template_dir, metadata):
-    # Load templates from disk
-    # Key is (filename, file_idx)
-
-    num_loaded_templates = 0
-    templates = OrderedDict()
-    for fn in os.listdir(template_dir):
-        if not fn.endswith('.json'): continue
-        with open(os.path.join(template_dir, fn), 'r') as f:
-            try:
-                template_json = ujson.load(f)
-                for i, template in enumerate(template_json):
-                    num_loaded_templates += 1
-                    key = (fn, i)
-
-                    # Create index from placeholder string to attribute string (Ex : <I1> --> Instrument)
-                    template['_param_name_to_attribute'] = placeholders_to_attribute(template['text'][0], metadata)
-
-                    # Adding optionals parameters if not present. Remove the need to do null check when accessing
-                    optionals_keys = ['constraints', 'can_be_null_attributes']
-                    for op_key in optionals_keys:
-                        if op_key not in template:
-                            template[op_key] = []
-
-                    # Remove duplicated can_be_null_attributes (<I> and <I2> will result in 'instrument', 'instrument'.
-                    # We only want to keep the attribute name not the identifier)
-                    template['_can_be_null_attributes'] = translate_can_be_null_attributes(
-                        template['can_be_null_attributes'],
-                        template['_param_name_to_attribute'])
-
-                    templates[key] = template
-            except ValueError:
-                print("[ERROR] Could not load template %s" % fn)
-    print('Read %d templates from disk' % num_loaded_templates)
-
-    return templates
-
-
-def load_scenes(scene_filepath, start_idx, nb_scenes_to_gen):
-    # Read file containing input scenes
-    with open(scene_filepath, 'r') as f:
-        scene_data = ujson.load(f)
-        scenes = scene_data['scenes']
-        nb_scenes_loaded = len(scenes)
-        scene_info = scene_data['info']
-
-    if nb_scenes_to_gen > 0:
-        end = start_idx + nb_scenes_to_gen
-        end = end if end < nb_scenes_loaded else nb_scenes_loaded
-        scenes = scenes[start_idx:end]
-    else:
-        scenes = scenes[start_idx:]
-
-    print('Read %d scenes from disk' % len(scenes))
-
-    return scenes, scene_info
-
-
-def load_and_prepare_metadata(metadata_filepath, scenes):
-    # Loading metadata
-    with open(metadata_filepath, 'r') as f:
-        metadata = ujson.load(f)
-
-    # To initialize the metadata, we first need to know how many instruments each scene contains
-    instrument_count_empty = {}
-    instrument_indexes_empty = {}
-
-    for instrument in metadata['attributes']['instrument']['values']:
-        instrument_count_empty[instrument] = 0
-        instrument_indexes_empty[instrument] = []
-
-    instrument_count = dict(instrument_count_empty)
-
-    max_scene_length = 0
-    for scene in scenes:
-        # Keep track of the maximum number of objects across all scenes
-        scene_length = len(scene['objects'])
-        if scene_length > max_scene_length:
-            max_scene_length = scene_length
-
-        # Keep track of the indexes for each instrument
-        instrument_indexes = copy.deepcopy(instrument_indexes_empty)
-        for i, obj in enumerate(scene['objects']):
-            instrument_indexes[obj['instrument']].append(i)
-
-        # TODO : Generalize this for all attributes
-        # Insert the instrument indexes in the scene definition
-        # (Will be used for relative positioning. Increased performance compared to doing the search everytime)
-        scene['instrument_indexes'] = instrument_indexes
-
-        # Retrieve the maximum number of occurence for each instruments
-        for instrument, index_list in instrument_indexes.items():
-            count = len(index_list)
-            if count > instrument_count[instrument]:
-                instrument_count[instrument] = count
-
-        # Insert reference from relation label (Ex: before, after, ..) to index in scene['relationships']
-        # Again for performance. Faster than searching in the dict every time
-        scene['_relationships_indexes'] = {}
-        for i, relation_data in enumerate(scene['relationships']):
-            scene['_relationships_indexes'][relation_data['type']] = i
-
-    # Instantiate the question engine attributes handlers
-    qeng.instantiate_attributes_handlers(metadata, instrument_count, max_scene_length)
-
-    return metadata
-
-
-def load_synonyms(synonyms_filepath):
-    # Read synonyms file
-    with open(synonyms_filepath, 'r') as f:
-        return ujson.load(f)
-
-
-'''
-  Others
-'''
-
-
 def question_node_shallow_copy(node):
     """
     Create a copy of the question tree node
@@ -363,19 +402,6 @@ def question_node_shallow_copy(node):
         new_node['value_inputs'] = []
 
     return new_node
-
-
-def write_questions_part_to_file(tmp_folder_path, filename, info_section, questions, index):
-    tmp_filename = filename.replace(".json", "_%.5d.json" % index)
-    tmp_filepath = os.path.join(tmp_folder_path, tmp_filename)
-
-    print("Writing to file %s" % tmp_filepath)
-
-    with open(tmp_filepath, 'w') as f:
-        ujson.dump({
-            'info': info_section,
-            'questions': questions,
-        }, f, indent=2, sort_keys=True, escape_forward_slashes=False)
 
 
 def create_reset_counts_fct(templates, metadata, max_scene_length):
@@ -399,7 +425,7 @@ def create_reset_counts_fct(templates, metadata, max_scene_length):
                 answers = [True, False]
             elif output_type == 'integer':
                 answers = list(
-                    range(0, max_scene_length + 1))  # FIXME : This won't hold if the scenes have different length
+                    range(0, max_scene_length + 1))  # NOTE : This won't hold if the scenes have different length
             else:
                 answers = metadata['attributes'][output_type]['values']
 
@@ -411,7 +437,6 @@ def create_reset_counts_fct(templates, metadata, max_scene_length):
     return reset_counts
 
 
-# FIXME : The probability should be loaded from config
 def replace_optional_words(s):
     """
     Each substring of s that is surrounded in square brackets is treated as
@@ -442,56 +467,14 @@ def replace_optional_words(s):
             s = s[:i0] + s[i1:]
     return s
 
+def write_questions_part_to_file(tmp_folder_path, filename, info_section, questions, index):
+    tmp_filename = filename.replace(".json", "_%.5d.json" % index)
+    tmp_filepath = os.path.join(tmp_folder_path, tmp_filename)
 
-def validate_constraints(template, state, outputs, param_name_to_attribute, verbose):
-    """
-    Validate that the current state comply with the template constraints
-    """
-    for constraint in template['constraints']:
-        if constraint['type'] == 'NEQ':
-            p1, p2 = constraint['params']
-            v1, v2 = state['vals'].get(p1), state['vals'].get(p2)
-            if v1 is not None and v2 is not None and v1 == v2:
-                if verbose:
-                    print('skipping due to NEQ constraint')
-                    print(constraint)
-                    print(state['vals'])
-                return False
-        elif constraint['type'] == 'NULL':
-            p = constraint['params'][0]
-            p_type = param_name_to_attribute[p]
-            v = state['vals'].get(p)
-            if v is not None:
-                skip = False
-                if p_type == 'instrument' and v != 'thing': skip = True  # FIXME : Hardcoded stuff here
-                if p_type != 'instrument' and v != '': skip = True
-                if skip:
-                    if verbose:
-                        print('skipping due to NULL constraint')
-                        print(constraint)
-                        print(state['vals'])
-                    return False
-        elif constraint['type'] == 'NOT_NULL':
-            p = constraint['params'][0]
-            p_type = param_name_to_attribute[p]
-            v = state['vals'].get(p)
-            if v is not None and (v == '' or v == 'thing'):
-                skip = True  # FIXME : Ugly
-                if skip:
-                    if verbose:
-                        print('skipping due to NOT NULL constraint')
-                        print(constraint)
-                        print(state['vals'])
-                    return False
-        elif constraint['type'] == 'OUT_NEQ':
-            i, j = constraint['params']
-            i = state['input_map'].get(i, None)
-            j = state['input_map'].get(j, None)
-            if i is not None and j is not None and outputs[i] == outputs[j]:
-                if verbose:
-                    print('skipping due to OUT_NEQ constraint')
-                return False
-        else:
-            assert False, 'Unrecognized constraint type "%s"' % constraint['type']
+    print("Writing to file %s" % tmp_filepath)
 
-    return True
+    with open(tmp_filepath, 'w') as f:
+        ujson.dump({
+            'info': info_section,
+            'questions': questions,
+        }, f, indent=2, sort_keys=True, escape_forward_slashes=False)
