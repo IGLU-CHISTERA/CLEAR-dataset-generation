@@ -1,3 +1,21 @@
+# CLEAR Dataset Generation
+# Compositional and Language and Elementary Acoustic Reasoning
+
+TODO :
+* Logos (UdeS, KTH, IGLU, CHIST-ERA)
+* Link to Paper & IEEE Dataport
+* General description
+* Requirements & Virtual Env
+* Quick bullet points of the steps (Maybe poster graph ?)
+* Produced files
+* Elementary sounds
+* Arguments folder
+* Scene Generation
+* Question Generation
+    * Credit to CLEVR
+* Scene Production
+* Way to cite this research
+
 # Environment setup
 We suggest using a virtual environment to run this code
 To make this directory discoverable by your python executable, create a Aqa-Dataset-Gen.pth file in the site-package directory of your virtual environment
