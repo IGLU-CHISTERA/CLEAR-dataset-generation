@@ -319,9 +319,9 @@ def find_relate_filter_options(object_idx, scene_struct, attr, can_be_null_attri
     nb_filters = len(scene_struct['_filter_options'][filter_key].keys()) * len(scene_struct['relationships'])
     nb_trivial = int(round(nb_filters * trivial_frac / (1 - trivial_frac)))
 
-    # TODO: Right now this is only looking for nontrivial combinations; in some
-    # cases I may want to add trivial combinations, either where the intersection
-    # is empty or where the intersection is equal to the filtering output.
+    # TODO: Right now this is only looking for nontrivial combinations; in some cases I may want to add trivial
+    #       combinations, either where the intersection is empty or where the intersection is equal to the
+    #       filtering output.
     trivial_options_keys = []
     non_trivial_options_keys = []
     all_options = {}
@@ -352,7 +352,8 @@ def find_relate_filter_options(object_idx, scene_struct, attr, can_be_null_attri
     np.random.shuffle(trivial_options_keys)
     options_to_keep = non_trivial_options_keys + trivial_options_keys[:nb_trivial]
 
-    # FIXME : Looping a second time is really ineficient.. We do it to make sure that we keep the same order in the dict to ensure reproducibility
+    # NOTE : Looping a second time is really ineficient..
+    #        We do it to make sure that we keep the same order in the dict to ensure reproducibility
     for relationship in scene_struct['relationships']:
         for filters, filtered in scene_struct['_filter_options'][filter_key].items():
             key = (relationship['type'], filters)

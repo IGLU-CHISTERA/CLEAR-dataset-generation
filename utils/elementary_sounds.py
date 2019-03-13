@@ -19,10 +19,11 @@ from utils.audio_processing import get_perceptual_loudness
 
 class Elementary_Sounds:
     """
-    Elementary sounds loader
+    Elementary Sounds Wrapper
       - Load the elementary sounds from file
-      - preprocess them
-      - give an interface to retrieve sounds
+      - Preprocess the sounds
+        - Analyse sounds and add new attributes to the definition
+      - Give an interface to retrieve sounds
     """
 
     def __init__(self, folder_path, definition_filename, nb_objects_per_scene):
@@ -85,7 +86,6 @@ class Elementary_Sounds:
 
             elementary_sound['duration'] = int(elementary_sound_audiosegment.duration_seconds * 1000)
 
-            # FIXME : The perceptual loudness threshold should not be hardcoded
             perceptual_loudness = get_perceptual_loudness(elementary_sound_audiosegment)
             elementary_sound['loudness'] = 'quiet' if perceptual_loudness < -27 else 'loud'
 
@@ -108,9 +108,9 @@ class Elementary_Sounds:
             elementary_sound['rel_brightness'] = (cur_brightness - min_brightness) / (max_brightness - min_brightness)
 
             # Assign brightness label
-            if elementary_sound['rel_brightness'] > 0.6:  # FIXME : The brightness threshold should not be hardcoded
+            if elementary_sound['rel_brightness'] > 0.6:
                 elementary_sound['brightness'] = 'bright'
-            elif elementary_sound['rel_brightness'] < 0.4:  # FIXME : The brightness threshold should not be hardcoded
+            elif elementary_sound['rel_brightness'] < 0.4:
                 elementary_sound['brightness'] = 'dark'
             else:
                 elementary_sound['brightness'] = None
