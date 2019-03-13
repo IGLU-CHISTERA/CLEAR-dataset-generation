@@ -1,3 +1,12 @@
+# CLEAR Dataset
+# >> Audio Processing Helpers
+#
+# Author :      Jerome Abdelnour
+# Year :        2018-2019
+# Affiliations: Universite de Sherbrooke - Electrical and Computer Engineering faculty
+#               KTH Stockholm Royal Institute of Technology
+#               IGLU - CHIST-ERA
+
 from array import array
 from pydub import AudioSegment
 import numpy as np
@@ -7,13 +16,8 @@ from pydub.utils import get_min_max_value, get_frame_width, get_array_type, db_t
 from utils.misc import pydub_audiosegment_to_float_array
 
 
-'''
-Audio Processing
-'''
-
 def get_perceptual_loudness(pydub_audio_segment):
-  # FIXME : The meter should probably not be created everytime
-  loudness_meter = pyloudnorm.Meter(pydub_audio_segment.frame_rate, block_size=0.5)  # FIXME : Hardcoded block size
+  loudness_meter = pyloudnorm.Meter(pydub_audio_segment.frame_rate, block_size=0.5)
 
   sound_float_array = pydub_audiosegment_to_float_array(pydub_audio_segment,
                                                         pydub_audio_segment.frame_rate,
@@ -67,4 +71,3 @@ def add_reverberation(sound,
   )
 
   return transformer(sound)
-
