@@ -1,3 +1,24 @@
+# CLEAR Dataset
+# >> Question Generator Helper
+#
+# Author :      Jerome Abdelnour
+# Year :        2018-2019
+# Affiliations: Universite de Sherbrooke - Electrical and Computer Engineering faculty
+#               KTH Stockholm Royal Institute of Technology
+#               IGLU - CHIST-ERA
+#
+# The question generator is based on the CLEVR question generator (github.com/facebookresearch/clevr-dataset-gen)
+# The code have been adapted to work with acoustic scenes
+
+
+# FIXME : This copyright should only be scoped on the CLEVR code
+# Copyright 2017-present, Facebook, Inc.
+# All rights reserved.
+#
+# This source code is licensed under the BSD-style license found in the
+# LICENSE file in the root directory of this source tree. An additional grant
+# of patent rights can be found in the PATENTS file in the same directory.
+
 import re, random, os, copy
 from collections import OrderedDict
 from functools import reduce
