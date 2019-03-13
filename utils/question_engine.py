@@ -1,7 +1,15 @@
-# FIXME : Add Licence (Got to keep facebook copyright notice ?)
-# FIXME : Add Header
-# FIXME : Add modification history ?
+# CLEAR Dataset Question Generator
+#
+# Author :      Jerome Abdelnour
+# Affiliations: Universite de Sherbrooke - Electrical and Computer Engineering faculty
+#               KTH Stockholm Royal Institute of Technology
+#               IGLU - CHIST-ERA
+#
+# The question generator is based on the CLEVR question generator (github.com/facebookresearch/clevr-dataset-gen)
+# The code have been adapted to work with acoustic scenes
 
+
+# FIXME : This copyright should only be scoped on the CLEVR code
 # Copyright 2017-present, Facebook, Inc.
 # All rights reserved.
 #
@@ -9,16 +17,14 @@
 # LICENSE file in the root directory of this source tree. An additional grant
 # of patent rights can be found in the PATENTS file in the same directory.
 
+"""
+  Utilities for working with function program representations of questions.
+
+  Some of the metadata about what question node types are available etc are stored in a JSON metadata file.
+"""
+
 import math
 import random
-
-"""
-Utilities for working with function program representations of questions.
-
-Some of the metadata about what question node types are available etc are stored
-in a JSON metadata file.
-"""
-
 
 # Handlers for answering questions. Each handler receives the scene structure
 # that was output from Blender, the node, and a list of values that were output
