@@ -18,9 +18,7 @@ import numpy as np
 from utils.misc import init_random_seed
 from utils.elementary_sounds import Elementary_Sounds
 
-"""
-Arguments definition
-"""
+# Arguments definition
 parser = argparse.ArgumentParser(fromfile_prefix_chars='@')
 
 # Input

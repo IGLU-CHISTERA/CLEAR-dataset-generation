@@ -1,6 +1,8 @@
-# CLEAR Dataset Question Generator
+# CLEAR Dataset
+# >> Question Generator
 #
 # Author :      Jerome Abdelnour
+# Year :        2018-2019
 # Affiliations: Universite de Sherbrooke - Electrical and Computer Engineering faculty
 #               KTH Stockholm Royal Institute of Technology
 #               IGLU - CHIST-ERA
