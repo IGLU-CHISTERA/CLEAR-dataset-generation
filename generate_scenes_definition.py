@@ -172,8 +172,6 @@ class Scene_generator:
             # Validate distribution
             distribution = [len(group) / self.nb_objects_per_scene for group in groups.values()]
 
-            # FIXME : Having trouble to make this work for both loudness and pitch (Can take 2 or 3 different values)
-            # FIXME : Should we really discard if a value is missing ? Still got 30% of the levels to go at this point.
             if min(distribution) <= self.constraints['min_ratio_for_attribute'] or len(distribution) < len(self.attributes_values[constrained_attribute]):
                 return False
 
@@ -223,7 +221,6 @@ class Scene_generator:
         padded = 0
         scene_reversed = False
 
-        # FIXME : Doing this made sense with the old approach. Now it doesn't really change anything..
         # Reverse the scene order with a probability of 50%
         # This add more randomness to the silence attribution
         if random.random() > 0.5:
@@ -252,7 +249,7 @@ class Scene_generator:
             }
 
     def _generate_relationships(self, scene_composition):
-        # FIXME : Those relationships are trivial. Could be moved to question engine (Before & after)
+        # TODO : Those relationships are trivial. Could be moved to question engine (Before & after)
         relationships = [
             {
                 'type': 'before',
@@ -266,7 +263,7 @@ class Scene_generator:
             }
         ]
 
-        scene_indexes = list(range(0, self.nb_objects_per_scene))           # FIXME : Would not work with variable scene length
+        scene_indexes = list(range(0, self.nb_objects_per_scene))   # NOTE : Would not work with variable scene length
 
         for i in range(0, self.nb_objects_per_scene):
             if i - 1 >= 0:

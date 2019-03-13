@@ -35,9 +35,10 @@ import random
 
 use_last_position_value = False  # FIXME : Document this, make it a parameter ?
 
-# FIXME : This won't work if the scene is longer than 11
-idx_to_position_str = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth",
-                       "eleventh"]
+# NOTe : This won't work if the scene is longer than 11
+idx_to_position_str = [
+    "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth","eleventh"
+]
 
 
 def scene_handler(scene_struct, inputs, value_inputs):
@@ -182,8 +183,7 @@ def greater_than_handler(scene_struct, inputs, value_inputs):
 
 
 def get_absolute_position(scene_struct, idx):
-    if idx == len(scene_struct[
-                      'objects']) - 1 and random.random() > 0.5 and use_last_position_value:  # FIXME : This probability should be parametrable
+    if idx == len(scene_struct['objects']) - 1 and random.random() > 0.5 and use_last_position_value:
         return "last"
     else:
         return idx_to_position_str[idx]
@@ -203,11 +203,10 @@ def get_position_instrument(scene_struct, idx, instrument):
     relative_position_idx = instrument_indexes.index(idx)
 
     if relative_position_idx == len(
-            instrument_indexes) - 1 and random.random() > 0.5 and use_last_position_value:  # FIXME : This probability should be parametrable
+            instrument_indexes) - 1 and random.random() > 0.5 and use_last_position_value:
         return "last"
-    # FIXME : Should we enable this ? IF ENABLED, We need to add the instrument alone in metadata values
     elif len(
-            instrument_indexes) == 1 and random.random() > 0.5 and False:  # FIXME : This probability should be parametrable
+            instrument_indexes) == 1 and random.random() > 0.5 and False:
         return ""
     else:
         return idx_to_position_str[relative_position_idx]
@@ -246,7 +245,7 @@ def query_position_global_handler(scene_struct, inputs, value_inputs):
 def get_position(attribute_name, scene_struct, obj_idx):
     if attribute_name == 'position':
         return get_absolute_position(scene_struct, obj_idx)
-    elif attribute_name == 'position_instrument':  # FIXME : will need to be updated when we generalize the relative attribute
+    elif attribute_name == 'position_instrument':  # NOTE : Need to be updated when we generalize the relative attribute
         instrument = scene_struct['objects'][obj_idx]['instrument']
         return get_position_instrument(scene_struct, obj_idx, instrument)
     elif attribute_name == 'position_global':
@@ -556,7 +555,6 @@ def answer_question(question, metadata, scene_struct, all_outputs=False,
         return node_outputs[-1]
 
 
-# FIXME : Verify the use of this
 def insert_scene_node(nodes, idx):
     # First make a shallow-ish copy of the input
     new_nodes = []
