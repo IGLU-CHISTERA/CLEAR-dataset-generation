@@ -282,8 +282,7 @@ def instantiate_template(scene_struct, template, metadata, answer_counts,
                 states = reset_states_if_needed(states)
                 continue
 
-            # If the template contains a raw relate node then we need to check for
-            # degeneracy at the end
+            # If the template contains a raw relate node then we need to check for degeneracy at the end
             has_relate = any(n['type'] == 'relate' for n in template['nodes'])
 
             if has_relate:

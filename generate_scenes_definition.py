@@ -15,7 +15,7 @@ from collections import defaultdict
 import ujson
 import numpy as np
 
-from utils.misc import init_random_seed
+from utils.misc import init_random_seed, generate_info_section
 from utils.elementary_sounds import Elementary_Sounds
 
 # Arguments definition
@@ -239,15 +239,6 @@ class Scene_generator:
         # We calculate the remaining padding this way to make sure that rounding doesn't affect the result
         return full_padding_duration - padded
 
-    def _generate_info_section(self, set_type):
-        return {
-                "name": "CLEAR",
-                "license": "Creative Commons Attribution (CC-BY 4.0)",
-                "version": self.version_nb,
-                "set_type": set_type,
-                "date": time.strftime("%x")
-            }
-
     def _generate_relationships(self, scene_composition):
         # TODO : Those relationships are trivial. Could be moved to question engine (Before & after)
         relationships = [
@@ -330,15 +321,15 @@ class Scene_generator:
 
         return {
             "train" : {
-                "info": self._generate_info_section('train'),
+                "info": generate_info_section('train', self.version_nb),
                 "scenes": training_scenes
             },
             "val": {
-                "info": self._generate_info_section('val'),
+                "info": generate_info_section('val', self.version_nb),
                 "scenes": valid_scenes
             },
             "test": {
-                "info": self._generate_info_section('test'),
+                "info": generate_info_section('test', self.version_nb),
                 "scenes": test_scenes
             }
         }
