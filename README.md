@@ -1,9 +1,10 @@
-# CLEAR Dataset Generation<br>Compositional Language and<br>Elementary Acoustic Reasoning
 <p align="middle">
-    <img src="./img/udes.jpg?raw=true" height="100">
-    <img src="./img/iglu.jpg?raw=true" height="100">
-    <img src="./img/kth.png?raw=true" height="100">
+    <img src="./img/udes.jpg?raw=true" height="100" align="left">
+    <img src="./img/iglu.jpg?raw=true" height="100" align="center">
+    <img src="./img/kth.png?raw=true" height="100" align="right">
 </p>
+
+# CLEAR Dataset Generation<br>Compositional Language and<br>Elementary Acoustic Reasoning
 
 We introduced the task of acoustic question answering (AQA) at [NeurIPS VIGIL Workshop 2018](https://arxiv.org/abs/1811.10561) <br>
 The first version of the dataset can be downloaded via [IEEE Dataport](https://ieee-dataport.org/open-access/clear-dataset-compositional-language-and-elementary-acoustic-reasoning)
