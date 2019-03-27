@@ -15,7 +15,7 @@ parser.add_argument('--set_type', default='train', type=str,
     help="Specify the set type (train/val/test)")
 parser.add_argument('--output_filename_prefix', default='CLEAR',
     help="Prefix for the output file")
-parser.add_argument('--remove_tmp', action="store_true",
+parser.add_argument('--remove_tmp', action="store_true", default=True,
     help="Will delete the tmp folder after consolidation")
 
 
