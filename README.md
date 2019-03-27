@@ -1,13 +1,11 @@
-### CLEAR Dataset Generation
-### Compositional Language and Elementary Acoustic Reasoning
-
+# CLEAR Dataset Generation<br>Compositional Language and Elementary Acoustic Reasoning
 
 We introduced the task of acoustic question answering (AQA) in https://arxiv.org/abs/1811.10561 <br>
 We published a dataset for this task at https://ieee-dataport.org/open-access/clear-dataset-compositional-language-and-elementary-acoustic-reasoning
 
 Here is the code that generate the CLEAR dataset.
 
-#### Installation
+## Installation
 This project was written in Python 3<br>
 We recommend creating a virtual environment in order to keep clean dependencies<br>
 Then, install the dependencies using the requirements.txt file
@@ -15,11 +13,12 @@ Then, install the dependencies using the requirements.txt file
 pip install -r requirements.txt
 ```
 
-#### Overview of the generation process
-![Process Overview](img/process_overview.png)
-1. Generation of the scenes definition
-2. Generation of the questions based on the scenes definition
-3. Production of the audio recordings of the scenes (Can also produce spectrograms)
+## Overview of the generation process
+1. Generation of the scenes definition.
+2. Generation of the questions based on the scenes definition.
+3. Production of the audio recordings of the scenes (Can also produce spectrograms if option provided)
+![Process Overview](img/process_overview.png?raw=true)
+
 
 To run the whole generation process with the default configuration simply run
 ``` 
@@ -28,7 +27,26 @@ To run the whole generation process with the default configuration simply run
 
 See **Default Arguments** section for a list of the default versions
 
-#### Output
+## Default Arguments
+The folder `arguments` at the root of this repository contains the arguments list for each part of the generation process
+
+They are divided by version (Simply create a new folder to add a new version):
+```
+    - v1.0.0_1k_scenes_20_inst_per_scene
+    - v1.0.0_1k_scenes_40_inst_per_scene
+    - v1.0.0_10k_scenes_20_inst_per_scene
+    - v1.0.0_10k_scenes_40_inst_per_scene
+    - v1.0.0_50k_scenes_20_inst_per_scene
+    - v1.0.0_50k_scenes_40_inst_per_scene
+```
+
+The versions are named according to the number of scene and question they contains.
+
+For example, the version `v1.0.0_50k_scenes_40_inst_per_scenes` will generate 50 000 scenes and 40 questions per scene for a total of 2 000 000 questions. 
+
+See Scene Generation, Question Generation and Scene production for more info on their usage.
+
+## Output
 By default, a folder named `output` will be created at the root of this repository.
 All generated files will be outputted in a sub-folder named `{VERSION_NB}`
 
@@ -53,22 +71,7 @@ All generated files will be outputted in a sub-folder named `{VERSION_NB}`
 - logs : The whole generation process logs (If run through run_generation.sh)
 ```
 
-#### Default Arguments
-The folder `arguments` at the root of this repository contains the arguments list for each part of the generation process
-
-They are divided by version (Simply create a new folder to add a new version):
-```
-    - v1.0.0_1k_scenes_20_inst_per_scene
-    - v1.0.0_1k_scenes_40_inst_per_scene
-    - v1.0.0_10k_scenes_20_inst_per_scene
-    - v1.0.0_10k_scenes_40_inst_per_scene
-    - v1.0.0_50k_scenes_20_inst_per_scene
-    - v1.0.0_50k_scenes_40_inst_per_scene
-```
-
-See Scene Generation, Question Generation and Scene production for more infos on how their usage
-
-#### Elementary Sounds
+## Elementary Sounds
 Each scenes is composed by assembling a serie of Elementary Sounds together.
 The elementary sounds have been selected from the [Good-Sound Dataset](https://www.upf.edu/web/mtg/good-sounds)
 
@@ -78,14 +81,14 @@ The elementary sounds bank can easily be upgraded by adding new sounds to the `e
 
 This allow to create a whole new scenes with different sounds (Environmental, speech, etc).
 
-#### Scene Generation
+## Scene Generation
 To run the scene generation process :
 ```
  python generate_scenes_definition.py @arguments/{VERSION_NB}/generate_scenes_definition.args --output_version_nb {VERSION_NB}
 ```
 
 
-#### Question Generation
+## Question Generation
 ```
  python generate_questions.py @arguments/{VERSION_NB}/generate_{SET_TYPE}_questions.args --output_version_nb {VERSION_NB}
 ```
@@ -94,7 +97,7 @@ To run the scene generation process :
  python scripts/consolidate_questions.py --set_type {SET_TYPE} --output_version_nb {VERSION_NB}
 ```
 
-#### Scene Production
+## Scene Production
 
 ```
  python produce_scenes_audio.py @arguments/{VERSION_NB}/produce_{SET_TYPE}_scenes_audio.args --output_version_nb {VERSION_NB}
