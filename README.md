@@ -1,5 +1,10 @@
 # CLEAR Dataset Generation<br>Compositional Language and<br>Elementary Acoustic Reasoning
 
+<img src="./img/udes.jpg?raw=true" height="100">
+<img src="./img/kth.png?raw=true" height="100">
+<img src="./img/iglu.jpg?raw=true" height="100">
+![Universite de Sherbrooke](img/udes.jpg) ![](img/kth.png | height=100) ![](img/iglu.jpg)
+
 We introduced the task of acoustic question answering (AQA) at [NeurIPS VIGIL Workshop 2018](https://arxiv.org/abs/1811.10561) <br>
 The first version of the dataset can be downloaded via [IEEE Dataport](https://ieee-dataport.org/open-access/clear-dataset-compositional-language-and-elementary-acoustic-reasoning)
 
@@ -17,6 +22,7 @@ pip install -r requirements.txt
 1. Generation of the scenes definition.
 2. Generation of the questions based on the scenes definition.
 3. Production of the audio recordings of the scenes (Can also produce spectrograms if option provided)
+
 ![Process Overview](img/process_overview.png?raw=true)
 
 
@@ -28,8 +34,8 @@ To run the whole generation process with the default configuration simply run
 See **Default Arguments** section for a list of the default versions
 
 ## Output
-By default, a folder named `output` will be created at the root of this repository.
-All generated files will be outputted in a sub-folder named `{VERSION_NB}`
+By default, a folder named `output` will be created at the root of this repository.<br>
+All generated files will be outputted in a sub-folder named `{VERSION_NB} which has the following structure : 
 
 ```
 - audio : Scene recordings (WAV format) separated by set
@@ -68,17 +74,17 @@ They are divided by version (Simply create a new folder to add a new version):
 The versions are named according to the number of scene and question they contains.<br>
 For example, the version `v1.0.0_50k_scenes_40_inst_per_scenes` will generate 50 000 scenes and 40 questions per scene for a total of 2 000 000 questions (Which is divided into training, validation and test sets). 
 
-We recommend using the arguments files instead of passing the arguments one by one in the command line. <br>
+We recommend using the arguments files instead of passing the arguments one by one in the command line.
+
 See **Scene Generation**, **Question Generation** and **Scene production** sections for more info on their usage.
 
 ## Elementary Sounds
-Each scenes is composed by assembling a serie of Elementary Sounds together.
+Each scenes is composed by assembling a serie of Elementary Sounds together.<br>
 The elementary sounds have been selected from the [Good-Sound Dataset](https://www.upf.edu/web/mtg/good-sounds) and can be found in the `elementary_sounds` folder of this repository.
 
-In this first version of CLEAR, all elementary sounds are recordings of an instrument playing a single sustained note.
+In the first version of CLEAR, all elementary sounds are recordings of an instrument playing a single sustained note.
 
-The elementary sounds bank can easily be extended by adding new sounds to the `elementary_sounds` folder and the `elementary_sounds.json` file.<br>
-This allow to create new scenes with different types of sound (Environmental, speech, etc).
+The elementary sounds bank can easily be extended by adding new sounds to the `elementary_sounds` folder and the `elementary_sounds.json` file.This allow to create new scenes with different types of sound (Environmental, speech, etc).
 
 ## 1. Scene Generation
 To run the scene generation process manually with the default arguments :
@@ -96,7 +102,7 @@ Once the generation process is done, 3 JSON files (one for each set) will be out
 
 
 ## 2. Question Generation
-The question generation process is strongly inspired from the [CLEVR dataset](http://cs.stanford.edu/people/jcjohns/clevr/) question generation [code](https://github.com/facebookresearch/clevr-dataset-gen)<br>
+The question generation process is strongly inspired from the [CLEVR dataset](http://cs.stanford.edu/people/jcjohns/clevr/) question generation [code](https://github.com/facebookresearch/clevr-dataset-gen).<br>
 The question will be instantiated using the templates in `templates/question_templates`.
 
 To run the question generation manually with the default arguments :
@@ -114,7 +120,7 @@ To merge those files into 1 questions files, run :
 
 This process has to be ran 3 times : One for each set scenes (training, validation ,test)
 
-Has with previous processes, the arguments can be specified in the command line inseat of using the argument file<br>
+As with previous processes, the arguments can be specified in the command line instead of using the argument file<br>
 To see a list of the available arguments, run :
 ``` 
  python generate_questions.py --help
