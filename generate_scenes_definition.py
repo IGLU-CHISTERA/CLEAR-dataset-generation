@@ -50,7 +50,7 @@ parser.add_argument('--constraint_min_object_per_family', default=2, type=int,
 parser.add_argument('--constraint_min_nb_families_subject_to_min_object_per_family', default=2, type=int,
                     help='Minimum number of families that must meet the "min_object_per_family" constraint')
 parser.add_argument('--constraint_min_ratio_for_attribute', default=0.15, type=float,
-                    help='Each scene must contain at least X% of all the values for each attributes')
+                    help='Each scene must contain at least X%% of all the values for each attributes')
 
 # Output
 parser.add_argument('--training_set_ratio', default=0.7, type=float,
