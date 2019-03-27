@@ -1,5 +1,111 @@
-# CLEAR Dataset Generation
-# Compositional and Language and Elementary Acoustic Reasoning
+### CLEAR Dataset Generation
+### Compositional Language and Elementary Acoustic Reasoning
+
+
+We introduced the task of acoustic question answering (AQA) in https://arxiv.org/abs/1811.10561 <br>
+We published a dataset for this task at https://ieee-dataport.org/open-access/clear-dataset-compositional-language-and-elementary-acoustic-reasoning
+
+Here is the code that generate the CLEAR dataset.
+
+#### Installation
+This project was written in Python 3<br>
+We recommend creating a virtual environment in order to keep clean dependencies<br>
+Then, install the dependencies using the requirements.txt file
+```
+pip install -r requirements.txt
+```
+
+#### Overview of the generation process
+<object data="./img/process_overview.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="./img/process_overview.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://www.dropbox.com/s/a1hdh6vlcoknwsb/software_achitecture.pdf?dl=0">Download PDF</a>.</p>
+    </embed>
+</object>
+ADD POSTER GRAPH
+1. Generation of the scenes definition
+2. Generation of the questions based on the scenes definition
+3. Production of the audio recordings of the scenes (Can also produce spectrograms)
+
+To run the whole generation process with the default configuration simply run
+``` 
+./run_experiment.sh {VERSION_NB}
+```
+
+See **Default Arguments** section for a list of the default versions
+
+#### Output
+By default, a folder named `output` will be created at the root of this repository.
+All generated files will be outputted in a sub-folder named `{VERSION_NB}`
+
+```
+- audio : Scene recordings (WAV format) separated by set
+    - train
+    - val
+    - test
+- questions : Question definitions (JSON format)
+    - CLEAR_train_questions.json
+    - CLEAR_val_questions.json
+    - CLEAR_test_questions.json
+- scenes : Scene definitions (JSON format)
+    - CLEAR_train_scenes.json
+    - CLEAR_val_scenes.json
+    - CLEAR_test_scenes.json
+- images : Scene spectrograms (PNG format) separated by set
+    - train
+    - val
+    - test
+- arguments : Copy of the arguments used at generation time (If run through run_generation.sh)
+- logs : The whole generation process logs (If run through run_generation.sh)
+```
+
+#### Default Arguments
+The folder `arguments` at the root of this repository contains the arguments list for each part of the generation process
+
+They are divided by version (Simply create a new folder to add a new version):
+```
+    - v1.0.0_1k_scenes_20_inst_per_scene
+    - v1.0.0_1k_scenes_40_inst_per_scene
+    - v1.0.0_10k_scenes_20_inst_per_scene
+    - v1.0.0_10k_scenes_40_inst_per_scene
+    - v1.0.0_50k_scenes_20_inst_per_scene
+    - v1.0.0_50k_scenes_40_inst_per_scene
+```
+
+See Scene Generation, Question Generation and Scene production for more infos on how their usage
+
+#### Elementary Sounds
+Each scenes is composed by assembling a serie of Elementary Sounds together.
+The elementary sounds have been selected from the [Good-Sound Dataset](https://www.upf.edu/web/mtg/good-sounds)
+
+In this first version of CLEAR, all elementary sounds are recordings of an instrument playing a single sustained note.
+
+The elementary sounds bank can easily be upgraded by adding new sounds to the `elementary_sounds` folder and the `elementary_sounds.json` file.
+
+This allow to create a whole new scenes with different sounds (Environmental, speech, etc).
+
+#### Scene Generation
+To run the scene generation process :
+```
+ python generate_scenes_definition.py @arguments/{VERSION_NB}/generate_scenes_definition.args --output_version_nb {VERSION_NB}
+```
+
+
+#### Question Generation
+```
+ python generate_questions.py @arguments/{VERSION_NB}/generate_{SET_TYPE}_questions.args --output_version_nb {VERSION_NB}
+```
+
+```
+ python scripts/consolidate_questions.py --set_type {SET_TYPE} --output_version_nb {VERSION_NB}
+```
+
+#### Scene Production
+
+```
+ python produce_scenes_audio.py @arguments/{VERSION_NB}/produce_{SET_TYPE}_scenes_audio.args --output_version_nb {VERSION_NB}
+```
+
+The code published in this repository 
 
 TODO :
 * Logos (UdeS, KTH, IGLU, CHIST-ERA)
@@ -77,7 +183,7 @@ If you find this code useful in your research then please cite
 }
 ```
 
-All code was developed and tested on OSX and Ubuntu 16.04.
+All code was developed and tested on Ubuntu 18.04 using Python 3.
 
 ## Step 1: Generating Images
 First we render synthetic images using [Blender](https://www.blender.org/), outputting both rendered images as well as a JSON file containing ground-truth scene information for each image.
