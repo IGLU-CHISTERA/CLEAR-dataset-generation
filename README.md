@@ -16,12 +16,7 @@ pip install -r requirements.txt
 ```
 
 #### Overview of the generation process
-<object data="./img/process_overview.pdf" type="application/pdf" width="700px" height="700px">
-    <embed src="./img/process_overview.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://www.dropbox.com/s/a1hdh6vlcoknwsb/software_achitecture.pdf?dl=0">Download PDF</a>.</p>
-    </embed>
-</object>
-ADD POSTER GRAPH
+![Process Overview](img/process_overview.png)
 1. Generation of the scenes definition
 2. Generation of the questions based on the scenes definition
 3. Production of the audio recordings of the scenes (Can also produce spectrograms)
