@@ -6,8 +6,8 @@
 
 # CLEAR Dataset Generation<br>Compositional Language and<br>Elementary Acoustic Reasoning
 
-We introduced the task of acoustic question answering (AQA) at [NeurIPS VIGIL Workshop 2018](https://nips2018vigil.github.io/static/papers/accepted/16.pdf) <br>
-The first version of the dataset can be downloaded via [IEEE Dataport](https://ieee-dataport.org/open-access/clear-dataset-compositional-language-and-elementary-acoustic-reasoning)
+We introduced the task of acoustic question answering (AQA) at [NeurIPS VIGIL Workshop 2018](https://nips2018vigil.github.io/) in [this paper](https://nips2018vigil.github.io/static/papers/accepted/16.pdf). <br>
+The first version of the dataset can be downloaded via [IEEE Dataport](https://ieee-dataport.org/open-access/clear-dataset-compositional-language-and-elementary-acoustic-reasoning).
 
 The code in this repository will generate acoustic scenes and questions/answers for each of those scenes.<br>
 
