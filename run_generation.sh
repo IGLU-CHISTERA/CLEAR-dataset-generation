@@ -1,4 +1,14 @@
 #!/bin/bash
+# CLEAR Dataset
+# >> Full generation run script
+#
+# Author :      Jerome Abdelnour
+# Year :        2018-2019
+# Affiliations: Universite de Sherbrooke - Electrical and Computer Engineering faculty
+#               KTH Stockholm Royal Institute of Technology
+#               IGLU - CHIST-ERA
+
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 OLDDIR=$PWD
 CURRENT_DATE_TIME=$(date +'%d-%m-%Y_%Hh%M')

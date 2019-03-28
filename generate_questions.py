@@ -358,8 +358,8 @@ def instantiate_template(scene_struct, template, metadata, answer_counts,
                         # For filter_count add empty filters equal to the number of singletons
                         num_to_add = sum(1 for k, v in filter_options.items() if len(v) == 1)
                     else:
-                        # FIXME : This should never happen, better refactor the code
                         num_to_add = 0
+
                     add_empty_filter_options(filter_options, metadata, template['_can_be_null_attributes'],
                                              params_in_node, num_to_add)
 

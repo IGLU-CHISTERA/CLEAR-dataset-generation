@@ -7,7 +7,7 @@
 #               KTH Stockholm Royal Institute of Technology
 #               IGLU - CHIST-ERA
 
-import time, argparse, os, sys, random
+import argparse, os, sys, random
 from shutil import rmtree as rm_dir
 from itertools import groupby
 from collections import defaultdict

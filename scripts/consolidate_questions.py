@@ -1,3 +1,18 @@
+# CLEAR Dataset
+# >> Questions file consolidator
+#
+# Author :      Jerome Abdelnour
+# Year :        2018-2019
+# Affiliations: Universite de Sherbrooke - Electrical and Computer Engineering faculty
+#               KTH Stockholm Royal Institute of Technology
+#               IGLU - CHIST-ERA
+
+"""
+This script will merge temporary questions files (questions are written to multiple file to reduce memory usage)
+into a single file.
+"""
+
+
 import os
 import ujson
 import argparse
