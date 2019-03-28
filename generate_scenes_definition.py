@@ -36,8 +36,6 @@ parser.add_argument('--scene_length', default=6, type=int,
 parser.add_argument('--max_nb_scene', default=None, type=int,
                     help='Maximum number of scenes that will be generated.' +
                          'Depending on the scene_length and tree_width, the number of scene generated may be lower.')
-parser.add_argument('--tree_width', default=5, type=int,
-                    help='Number of node explored at each level of the generation tree')
 
 parser.add_argument('--silence_padding_per_object', default=100, type=int,
                     help='Silence length that will be introduced between the objects')
@@ -80,7 +78,6 @@ class Scene_generator:
     Validation is done at every node insertion in order to remove the combinations that do not respect the constraints.
     """
     def __init__(self, nb_objects_per_scene,
-                 nb_tree_branch,
                  silence_padding_per_object,
                  elementary_sounds_folderpath,
                  elementary_sounds_definition_filename,
@@ -92,8 +89,6 @@ class Scene_generator:
                  constraint_min_ratio_for_attribute):
 
         self.nb_objects_per_scene = nb_objects_per_scene
-
-        self.nb_tree_branch = nb_tree_branch
 
         self.version_nb = version_nb
 
@@ -177,7 +172,7 @@ class Scene_generator:
 
         return True
 
-    def _generate_scenes(self, start_index, nb_to_generate):
+    def _generate_scenes(self, nb_to_generate):
         processed_ids = defaultdict(lambda: False)
         valid_ids = defaultdict(lambda: False)
         scenes_objects = []
@@ -265,11 +260,11 @@ class Scene_generator:
 
         return relationships
 
-    def generate(self, start_index=0, nb_to_generate=None, training_set_ratio=0.7, shuffle_scenes=True):
+    def generate(self, nb_to_generate=None, training_set_ratio=0.7, shuffle_scenes=True):
 
         print("Starting Scenes Generation")
 
-        generated_scenes = self._generate_scenes(start_index, nb_to_generate)
+        generated_scenes = self._generate_scenes(nb_to_generate)
 
         print("Generated %d scenes" % len(generated_scenes))
 
@@ -362,7 +357,6 @@ if __name__ == '__main__':
         exit(1)
 
     scene_generator = Scene_generator(args.scene_length,
-                                      args.tree_width,
                                       args.silence_padding_per_object,
                                       args.elementary_sounds_folder,
                                       args.elementary_sounds_definition_filename,
