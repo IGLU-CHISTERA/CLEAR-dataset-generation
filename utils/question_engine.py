@@ -11,7 +11,7 @@
 # The code have been adapted to work with acoustic scenes
 
 
-# FIXME : This copyright should only be scoped on the CLEVR code
+# For the original clevr-dataset-gen code
 # Copyright 2017-present, Facebook, Inc.
 # All rights reserved.
 #

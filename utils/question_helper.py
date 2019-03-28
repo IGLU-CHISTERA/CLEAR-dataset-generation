@@ -11,7 +11,7 @@
 # The code have been adapted to work with acoustic scenes
 
 
-# FIXME : This copyright should only be scoped on the CLEVR code
+# For the original clevr-dataset-gen code
 # Copyright 2017-present, Facebook, Inc.
 # All rights reserved.
 #
@@ -37,7 +37,7 @@ import utils.question_engine as qeng
 """
 
 
-# Constraing validation
+# Constraints validation
 def validate_constraints(template, state, outputs, param_name_to_attribute, verbose):
     """
     Validate that the current state comply with the constraints as defined in the template
