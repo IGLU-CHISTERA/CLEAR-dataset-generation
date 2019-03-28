@@ -69,13 +69,14 @@ parser.add_argument('--random_nb_generator_seed', default=None, type=int,
 
 
 class Scene_generator:
-    # FIXME : Rewrite doc string
     """
     Scene generation logic.
-    Create a tree of depth 'nb_objects_per_scene' and width 'nb_tree_branch'.
-    Each node represent a elementary sound. The tree is instantiated Depth first.
-    A scene is composed by taking a end node and going back up until we reach the root node.
-    Validation is done at every node insertion in order to remove the combinations that do not respect the constraints.
+    Will load all sounds in {elementary_sounds_folder} and randomly sample {scene_length} sounds from the whole set.
+    The chosen sounds will be submitted to various constraints (See arguments definition for more information).
+    If the scene satisfy the constraints, it will be added to the generated scenes up until we got {max_nb_scene}.
+
+    The generated scenes will be splitted in 3 sets (training, validation, test) according to {training_set_ratio}.
+    The rest of the scenes will be evenly splitted into validation and test sets.
     """
     def __init__(self, nb_objects_per_scene,
                  silence_padding_per_object,
