@@ -35,9 +35,9 @@ import random
 
 use_last_position_value = False  # FIXME : Document this, make it a parameter ?
 
-# NOTe : This won't work if the scene is longer than 11
+# NOTE : This won't work if the scene is longer than 11
 idx_to_position_str = [
-    "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth","eleventh"
+    "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "eleventh"
 ]
 
 
@@ -202,11 +202,9 @@ def get_position_instrument(scene_struct, idx, instrument):
     instrument_indexes = scene_struct['instrument_indexes'][instrument]
     relative_position_idx = instrument_indexes.index(idx)
 
-    if relative_position_idx == len(
-            instrument_indexes) - 1 and random.random() > 0.5 and use_last_position_value:
+    if relative_position_idx == len(instrument_indexes) - 1 and random.random() > 0.5 and use_last_position_value:
         return "last"
-    elif len(
-            instrument_indexes) == 1 and random.random() > 0.5 and False:
+    elif len(instrument_indexes) == 1 and random.random() > 0.5 and False:
         return ""
     else:
         return idx_to_position_str[relative_position_idx]
