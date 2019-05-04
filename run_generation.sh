@@ -22,6 +22,13 @@ if [[ "${EXPERIMENT_NAME: -1}" = "/" ]]; then
 fi
 EXPERIMENT_DIR="${DIR}/arguments/${EXPERIMENT_NAME}"
 
+# Optional param : path to custom python
+if [[ -z $2 ]]; then
+    PYTHON_BIN="python"
+else
+    PYTHON_BIN=${2}
+fi
+
 # TODO : Supply another way to provide the output path
 # Output dir must be specified in scene_generator.args (May be omitted from other args file, we will use the extracted one)
 REL_OUTPUT_DIR=$(grep output_folder ${EXPERIMENT_DIR}/generate_scenes_definition.args | awk -F '=' '{print $2}')
@@ -62,34 +69,34 @@ echo "--------------------------------------------------------------------------
 
 ## Generate the scenes
 echo ">> Generating scenes..."
-python generate_scenes_definition.py @${EXPERIMENT_DIR}/generate_scenes_definition.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_scene_generation.log"
+${PYTHON_BIN} generate_scenes_definition.py @${EXPERIMENT_DIR}/generate_scenes_definition.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_scene_generation.log"
 echo -e ">> Scene generation Done\n"
 
 # Scene production
 echo ">> Starting scene production..."
-python produce_scenes_audio.py @${EXPERIMENT_DIR}/produce_train_scenes_audio.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_train_scene_production.log" &
+${PYTHON_BIN} produce_scenes_audio.py @${EXPERIMENT_DIR}/produce_train_scenes_audio.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_train_scene_production.log" &
 TRAIN_SCENE_PRODUCTION_PID=$!
 
 # Sleep to let the first script create the folders and avoid race condition
 sleep 1
 
-python produce_scenes_audio.py @${EXPERIMENT_DIR}/produce_val_scenes_audio.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_val_scene_production.log" &
+${PYTHON_BIN} produce_scenes_audio.py @${EXPERIMENT_DIR}/produce_val_scenes_audio.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_val_scene_production.log" &
 VAL_SCENE_PRODUCTION_PID=$!
 
-python produce_scenes_audio.py @${EXPERIMENT_DIR}/produce_test_scenes_audio.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_test_scene_production.log" &
+${PYTHON_BIN} produce_scenes_audio.py @${EXPERIMENT_DIR}/produce_test_scenes_audio.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_test_scene_production.log" &
 TEST_SCENE_PRODUCTION_PID=$!
 
 ## Question Generation
 echo '>>> Starting Question Generation...'
-python generate_questions.py @${EXPERIMENT_DIR}/generate_train_questions.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_train_question_generation.log" &
+${PYTHON_BIN} generate_questions.py @${EXPERIMENT_DIR}/generate_train_questions.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_train_question_generation.log" &
 TRAINING_QUESTION_GENERATION_PID=$!
 # Sleep to let the first script create the folders and avoid race condition
 sleep 1
 
-python generate_questions.py @${EXPERIMENT_DIR}/generate_val_questions.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_val_question_generation.log" &
+${PYTHON_BIN} generate_questions.py @${EXPERIMENT_DIR}/generate_val_questions.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_val_question_generation.log" &
 VAL_QUESTION_GENERATION_PID=$!
 
-python generate_questions.py @${EXPERIMENT_DIR}/generate_test_questions.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_test_question_generation.log" &
+${PYTHON_BIN} generate_questions.py @${EXPERIMENT_DIR}/generate_test_questions.args --output_version_nb ${EXPERIMENT_NAME} > "${LOG_DIR}/${CURRENT_DATE_TIME}_test_question_generation.log" &
 TEST_QUESTION_GENERATION_PID=$!
 
 # Wait for process to finish
@@ -100,13 +107,13 @@ echo -e ">>> Question generation done\n"
 # Consolidate results
 echo ">>> Consolidating questions json..."
 # Training questions
-python ./scripts/consolidate_questions.py --set_type train --output_folder ${OUTPUT_DIR} --output_version_nb ${EXPERIMENT_NAME} --tmp_folder_prefix TMP_ --remove_tmp > "${LOG_DIR}/${CURRENT_DATE_TIME}_train_question_consolidation.log"
+${PYTHON_BIN} ./scripts/consolidate_questions.py --set_type train --output_folder ${OUTPUT_DIR} --output_version_nb ${EXPERIMENT_NAME} --tmp_folder_prefix TMP_ --remove_tmp > "${LOG_DIR}/${CURRENT_DATE_TIME}_train_question_consolidation.log"
 
 # Validation questions
-python ./scripts/consolidate_questions.py --set_type val  --output_folder ${OUTPUT_DIR} --output_version_nb ${EXPERIMENT_NAME} --tmp_folder_prefix TMP_ --remove_tmp > "${LOG_DIR}/${CURRENT_DATE_TIME}_val_question_consolidation.log"
+${PYTHON_BIN} ./scripts/consolidate_questions.py --set_type val  --output_folder ${OUTPUT_DIR} --output_version_nb ${EXPERIMENT_NAME} --tmp_folder_prefix TMP_ --remove_tmp > "${LOG_DIR}/${CURRENT_DATE_TIME}_val_question_consolidation.log"
 
 # Test questions
-python ./scripts/consolidate_questions.py --set_type test --output_folder ${OUTPUT_DIR} --output_version_nb ${EXPERIMENT_NAME} --tmp_folder_prefix TMP_ --remove_tmp > "${LOG_DIR}/${CURRENT_DATE_TIME}_test_question_consolidation.log"
+${PYTHON_BIN} ./scripts/consolidate_questions.py --set_type test --output_folder ${OUTPUT_DIR} --output_version_nb ${EXPERIMENT_NAME} --tmp_folder_prefix TMP_ --remove_tmp > "${LOG_DIR}/${CURRENT_DATE_TIME}_test_question_consolidation.log"
 
 echo -e ">>> Question consolidation Done\n"
 
