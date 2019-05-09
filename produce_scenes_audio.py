@@ -381,17 +381,23 @@ def mainPool():
 
     # Load and preprocess all elementary sounds into memory
     producer.loadAllElementarySounds()
-
-    # Create process pool
-    pool = Pool(processes=args.nb_process)
-
-    # Start the production
-    pool.map(producer.produceScene, idList)
-
-    pool.close()
-    pool.join()
-
+    
     nb_generated = len(idList)
+    while len(idList) > 0:
+
+        # Create process pool
+        pool = Pool(processes=args.nb_process)
+
+        # We batch the scenes and close the pool everytime to avoid memory leak (not the most elegant fix) #FIXME : Wait for the pool queue to empty instead. See stack overflow
+        nbToProcess = args.nb_process * 100     # TODO : Take the multiplier in parameter (For now, value of 100 take about 8 GB of RAM)
+        toProcess = idList[:nbToProcess]
+        idList = idList[nbToProcess:]
+        # Start the production
+        pool.map(producer.produceScene, toProcess)
+
+        pool.close()
+        pool.join()
+
     print("Job Done !")
     if args.produce_spectrograms:
         print(">>> Produced %d spectrograms." % nb_generated)
