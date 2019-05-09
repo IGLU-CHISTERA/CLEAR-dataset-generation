@@ -153,12 +153,6 @@ class AudioSceneProducer:
             # This is impossible, if the experiment folder doesn't exist we won't be able to retrieve the scenes
             os.mkdir(experiment_output_folder)
 
-        if not os.path.isdir(self.images_output_folder):
-            os.mkdir(self.images_output_folder)
-
-        if not os.path.isdir(self.audio_output_folder):
-            os.mkdir(self.audio_output_folder)
-
         self.images_output_folder = os.path.join(self.images_output_folder, self.setType)
         self.audio_output_folder = os.path.join(self.audio_output_folder, self.setType)
 
