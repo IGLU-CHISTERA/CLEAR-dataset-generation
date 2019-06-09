@@ -199,8 +199,9 @@ def generate_and_write_questions_to_file(scenes, templates, metadata, synonyms,
             file_written += 1
             questions = []
 
-        # Clear filter options for this scene. We won't be needing them anymore
-        del scene['_filter_options']
+        if "_filter_options" in scene:
+            # Clear filter options for this scene. We won't be needing them anymore
+            del scene['_filter_options']
 
     if len(questions) > 0 or file_written == 0:
         # Write the rest of the questions

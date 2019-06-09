@@ -146,29 +146,37 @@ class AudioSceneProducer:
         self.withReverb = withReverb
         self.reverbSettings = reverbSettings
 
-        self.images_output_folder = os.path.join(experiment_output_folder, 'images')
-        self.audio_output_folder = os.path.join(experiment_output_folder, 'audio')
+        root_images_output_folder = os.path.join(experiment_output_folder, 'images')
+        root_audio_output_folder = os.path.join(experiment_output_folder, 'audio')
 
         if not os.path.isdir(experiment_output_folder):
             # This is impossible, if the experiment folder doesn't exist we won't be able to retrieve the scenes
             os.mkdir(experiment_output_folder)
 
-        self.images_output_folder = os.path.join(self.images_output_folder, self.setType)
-        self.audio_output_folder = os.path.join(self.audio_output_folder, self.setType)
+        self.images_output_folder = os.path.join(root_images_output_folder, self.setType)
+        self.audio_output_folder = os.path.join(root_audio_output_folder, self.setType)
 
         if self.produce_audio_files:
-            if not os.path.isdir(self.audio_output_folder):
+            if not os.path.isdir(root_audio_output_folder):
+                os.mkdir(root_audio_output_folder)
                 os.mkdir(self.audio_output_folder)
-            elif clear_existing_files:
-                rm_dir(self.audio_output_folder)
-                os.mkdir(self.audio_output_folder)
+            else:
+                if not os.path.isdir(self.audio_output_folder):
+                    os.mkdir(self.audio_output_folder)
+                elif clear_existing_files:
+                    rm_dir(self.audio_output_folder)
+                    os.mkdir(self.audio_output_folder)
 
         if self.produce_spectrograms:
-            if not os.path.isdir(self.images_output_folder):
+            if not os.path.isdir(root_images_output_folder):
+                os.mkdir(root_images_output_folder)
                 os.mkdir(self.images_output_folder)
-            elif clear_existing_files:
-                rm_dir(self.images_output_folder)
-                os.mkdir(self.images_output_folder)
+            else:
+                if not os.path.isdir(self.images_output_folder):
+                    os.mkdir(self.images_output_folder)
+                elif clear_existing_files:
+                    rm_dir(self.images_output_folder)
+                    os.mkdir(self.images_output_folder)
 
         self.currentSceneIndex = -1  # We start at -1 since nextScene() will increment idx at the start of the fct
         self.nbOfLoadedScenes = len(self.scenes)
