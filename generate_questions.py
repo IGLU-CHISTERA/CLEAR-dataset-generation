@@ -52,7 +52,7 @@ import utils.question_engine as qeng
 
 # File handling
 from utils.question_helper import load_scenes, load_and_prepare_metadata, load_and_prepare_templates, load_synonyms, \
-    write_questions_part_to_file
+    write_questions_part_to_file, write_possible_attributes
 
 # Filtering
 from utils.question_helper import find_relate_filter_options, find_filter_options, add_empty_filter_options
@@ -571,6 +571,8 @@ def main(args):
                                          questions_info,
                                          tmp_output_folder,
                                          questions_filename)
+
+    write_possible_attributes(metadata, os.path.join(experiment_output_folder, 'attributes.json'))
 
     print(">> Questions generation done !")
     print(">> Questions have been written in multiple files in '%s'." % tmp_output_folder)

@@ -194,6 +194,8 @@ def load_and_prepare_metadata(metadata_filepath, scenes):
     # Instantiate the question engine attributes handlers
     qeng.instantiate_attributes_handlers(metadata, instrument_count, max_scene_length)
 
+    metadata['max_scene_length'] = max_scene_length
+
     return metadata
 
 
@@ -479,3 +481,16 @@ def write_questions_part_to_file(tmp_folder_path, filename, info_section, questi
             'info': info_section,
             'questions': questions,
         }, f, indent=2, sort_keys=True, escape_forward_slashes=False)
+
+
+def write_possible_attributes(metadata, output_filepath):
+
+    if not os.path.isfile(output_filepath):
+        cleaned = {key: v['values'] for key, v in metadata['attributes'].items() if not key.startswith('relate')}
+
+        # Count and boolean attributes are not included in the metadata file
+        cleaned['count'] = [str(i) for i in range(metadata['max_scene_length'] + 1)]        # FIXME : metadata['max_scene_length'] might not be the absolute maximum
+        cleaned['boolean'] = ['yes', 'no']
+
+        with open(output_filepath, 'w') as f:
+            ujson.dump(cleaned, f, indent=2, sort_keys=True, escape_forward_slashes=False)
