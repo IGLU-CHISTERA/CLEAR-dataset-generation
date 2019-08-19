@@ -147,11 +147,8 @@ class Scene_generator:
             return False
 
         # Validate that we have the minimum objects per families
-        valid_families_count = 0
-
-        for family, count in families_count.items():
-            if count >= self.constraints['min_objects_per_family']:
-                valid_families_count += 1
+        valid_families_count = sum([1 for family, count in families_count.items()
+                                    if count >= self.constraints['min_objects_per_family']])
 
         if valid_families_count < self.constraints['min_nb_families_subject_to_min_objects_per_family']:
             return False
@@ -171,6 +168,7 @@ class Scene_generator:
             if nb_vals_except_none < len(self.attributes_values[constrained_attribute]):
                 return False
 
+            # Verify that the frequencies validate the constraints
             for key, group in groups.items():
                 if len(group)/self.nb_objects_per_scene <= self.constraints['min_ratio_for_attribute']:
                     return False
@@ -307,11 +305,13 @@ class Scene_generator:
                 scene['scene_filename'] = "CLEAR_train_%06d.wav" % training_index
                 training_index += 1
                 training_scenes.append(scene)
+
             elif scene_count < nb_training + nb_valid:
                 scene['scene_index'] = '%.6d' % valid_index
                 scene['scene_filename'] = "CLEAR_val_%06d.wav" % valid_index
                 valid_index += 1
                 valid_scenes.append(scene)
+
             else:
                 scene['scene_index'] = '%.6d' % test_index
                 scene['scene_filename'] = "CLEAR_test_%06d.wav" % test_index
