@@ -159,17 +159,21 @@ class Scene_generator:
         # Validate the attributes distribution
         for constrained_attribute in self.constrained_attributes:
             # Group by the constrained attribute
-            groups = {}
-            for key, group in groupby(scene_objects, lambda x: x[constrained_attribute]):
-                if key not in groups:
-                    groups[key] = []
-                groups[key] += list(group)
+            groups = defaultdict(lambda : [])
 
-            # Validate distribution
-            distribution = [len(group) / self.nb_objects_per_scene for group in groups.values()]
+            for scene_object in scene_objects:
+                attribute = scene_object[constrained_attribute]
 
-            if min(distribution) <= self.constraints['min_ratio_for_attribute'] or len(distribution) < len(self.attributes_values[constrained_attribute]):
+                groups[attribute].append(scene_object)
+
+            # Must have at least 1 occurence of each attribute (Without counting None values)
+            nb_vals_except_none = len(set(groups.keys()) - {None})
+            if nb_vals_except_none < len(self.attributes_values[constrained_attribute]):
                 return False
+
+            for key, group in groups.items():
+                if len(group)/self.nb_objects_per_scene <= self.constraints['min_ratio_for_attribute']:
+                    return False
 
         return True
 
@@ -289,6 +293,7 @@ class Scene_generator:
 
         scene_count = 0
         for generated_scene in generated_scenes:
+            # FIXME : Silence before is always 0
             silence_before = self._assign_silence_informations(generated_scene)
 
             scene = {
