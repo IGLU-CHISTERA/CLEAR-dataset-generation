@@ -69,13 +69,14 @@ def main():
   output_question_filename = "%s_%s_questions.json" % (args.output_filename_prefix, args.set_type)
   output_question_filepath = os.path.join(question_folder_path, output_question_filename)
 
-  consolidated_data = load_all_tmp_json(tmp_folder_path)
-  write_to_file(output_question_filepath, consolidated_data)
+  if os.path.exists(tmp_folder_path):
+      consolidated_data = load_all_tmp_json(tmp_folder_path)
+      write_to_file(output_question_filepath, consolidated_data)
 
-  if args.remove_tmp:
-    shutil.rmtree(tmp_folder_path)
+      if args.remove_tmp:
+        shutil.rmtree(tmp_folder_path)
 
-  print("Consolidated json part file in folder '%s'" % tmp_folder_path)
+      print("Consolidated json part file in folder '%s'" % tmp_folder_path)
 
 
 if __name__ == "__main__":
