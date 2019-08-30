@@ -16,12 +16,13 @@ import random
 import time
 import ujson
 
-'''
-Random Seed Management
-'''
+
 def init_random_seed(seed):
-  random.seed(seed)
-  np.random.seed(seed)
+    """
+    Random Seed Management
+    """
+    random.seed(seed)
+    np.random.seed(seed)
 
 
 def save_arguments(args, folder_path, filename):
