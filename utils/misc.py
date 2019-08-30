@@ -7,12 +7,14 @@
 #               KTH Stockholm Royal Institute of Technology
 #               IGLU - CHIST-ERA
 
+import os
 import numpy as np
 from array import array
 from pydub import AudioSegment
 from pydub.utils import get_array_type
 import random
 import time
+import ujson
 
 '''
 Random Seed Management
@@ -20,6 +22,17 @@ Random Seed Management
 def init_random_seed(seed):
   random.seed(seed)
   np.random.seed(seed)
+
+
+def save_arguments(args, folder_path, filename):
+    """
+    Arguments saving
+    """
+    if not os.path.isdir(folder_path):
+        os.mkdir(folder_path)
+
+    with open(f"{folder_path}/{filename}", 'w') as f:
+        ujson.dump(args, f, indent=2, escape_forward_slashes=False)
 
 
 '''
