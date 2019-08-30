@@ -137,9 +137,11 @@ def generate_and_write_questions_to_file(scenes, templates, metadata, synonyms,
     file_written = 0
     scene_count = 0
     nb_scenes = len(scenes)
+    print_msg_every = int(nb_scenes*0.1)
 
     for i, scene in enumerate(scenes):
-        print('starting scene %s (%d / %d)' % (scene['scene_filename'], i + 1, nb_scenes))
+        if i % print_msg_every == 0:
+            print('starting scene %s (%d / %d)' % (scene['scene_filename'], i + 1, nb_scenes))
 
         if scene_count % args.reset_counts_every == 0:
             template_counts, template_answer_counts = reset_counts()
@@ -158,7 +160,7 @@ def generate_and_write_questions_to_file(scenes, templates, metadata, synonyms,
             if 'disabled' in template and template['disabled']:
                 continue
 
-            print('    trying template ', template_fn, template_idx, flush=True)
+            #print('    trying template ', template_fn, template_idx, flush=True)
 
             question_texts, programs, answers = instantiate_template(
                 scene,
