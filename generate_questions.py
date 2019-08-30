@@ -529,16 +529,15 @@ def main(args):
         print("The seed must be specified in the arguments.", file=sys.stderr)
         exit(1)
 
-    # Save arguments
-    save_arguments(args, f"{args.output_folder}/{args.output_version_nb}/arguments",
-                   f"produce_scenes_audio_{args.set_type}.args")
-
     # Folder structure creation
     if not os.path.isdir(experiment_output_folder):
         os.mkdir(experiment_output_folder)
 
     if not os.path.isdir(questions_output_folder):
         os.mkdir(questions_output_folder)
+
+    # Save arguments
+    save_arguments(args, f"{experiment_output_folder}/arguments", f"produce_scenes_audio_{args.set_type}.args")
 
     question_file_exist = os.path.isfile(questions_output_filepath)
     if question_file_exist and args.clear_existing_files:

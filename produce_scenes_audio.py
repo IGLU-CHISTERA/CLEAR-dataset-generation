@@ -321,6 +321,13 @@ class AudioSceneProducer:
 def mainPool():
     args = parser.parse_args()
 
+    # Setting & Saving the random seed
+    if args.random_nb_generator_seed is not None:
+        init_random_seed(args.random_nb_generator_seed)
+    else:
+        print("The seed must be specified in the arguments.", file=sys.stderr)
+        exit(1)
+
     # If not producing audio, we will produce spectrograms
     if args.no_audio_files and not args.produce_spectrograms:
         args.produce_spectrograms = True
@@ -348,10 +355,6 @@ def mainPool():
     args.with_background_noise = args.with_background_noise and not args.no_background_noise
     args.with_reverb = args.with_reverb and not args.no_reverb
 
-    # Save arguments
-    save_arguments(args, f"{args.output_folder}/{args.output_version_nb}/arguments",
-                   f"produce_scenes_audio_{args.set_type}.args")
-
     # Creating the producer
     producer = AudioSceneProducer(outputFolder=args.output_folder,
                                   version_nb=args.output_version_nb,
@@ -373,12 +376,9 @@ def mainPool():
                                       'window_overlap': args.spectrogram_window_overlap,
                                   })
 
-    # Setting & Saving the random seed
-    if args.random_nb_generator_seed is not None:
-        init_random_seed(args.random_nb_generator_seed)
-    else:
-        print("The seed must be specified in the arguments.", file=sys.stderr)
-        exit(1)
+    # Save arguments
+    save_arguments(args, f"{args.output_folder}/{args.output_version_nb}/arguments",
+                   f"produce_scenes_audio_{args.set_type}.args")
 
     # Setting ids of scenes to produce
     if args.produce_specific_scenes == '':

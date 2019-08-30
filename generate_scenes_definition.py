@@ -342,9 +342,6 @@ if __name__ == '__main__':
     experiment_output_folder = os.path.join(args.output_folder, args.output_version_nb)
     scenes_output_folder = os.path.join(experiment_output_folder, 'scenes')
 
-    # Save arguments
-    save_arguments(args, f"{args.output_folder}/{args.output_version_nb}/arguments", 'generate_scenes_definition.args')
-
     if not os.path.isdir(experiment_output_folder):
         os.mkdir(experiment_output_folder)
 
@@ -357,6 +354,9 @@ if __name__ == '__main__':
         print("This experiment have already been run. Please bump the version number or delete the previous output.",
             file=sys.stderr)
         exit(1)
+        # Save arguments
+        save_arguments(args, f"{args.output_folder}/{args.output_version_nb}/arguments",
+                       'generate_scenes_definition.args')
 
     # Setting & Saving the random seed
     if args.random_nb_generator_seed is not None:
