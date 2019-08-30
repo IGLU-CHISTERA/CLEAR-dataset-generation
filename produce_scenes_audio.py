@@ -43,6 +43,8 @@ parser.add_argument('--with_background_noise', action='store_true',
 parser.add_argument('--background_noise_gain_range', default="-100,-20", type=str,
                     help='Range for the gain applied to the background noise. '
                          'Should be written as 0,100 for a range from 0 to 100')
+parser.add_argument('--no_background_noise', action='store_true',
+                    help='Override the --with_background_noise setting. If this is set, there will be no background noise.')
 
 parser.add_argument('--with_reverb', action='store_true',
                     help='Use this setting to include ramdom reverberations in the scenes')
@@ -50,6 +52,8 @@ parser.add_argument('--reverb_room_scale_range', default="0,100", type=str,
                     help='Range for the reverberation parameter. Should be written as 0,100 for a range from 0 to 100')
 parser.add_argument('--reverb_delay_range', default="0,500", type=str,
                     help='Range for the reverberation parameter. Should be written as 0,100 for a range from 0 to 100')
+parser.add_argument('--no_reverb', action='store_true',
+                    help='Override the --with_reverb setting. If this is set, there will be no reverberation.')
 
 parser.add_argument('--no_audio_files', action='store_true',
                     help='If set, audio file won\'t be produced. '
@@ -339,6 +343,9 @@ def mainPool():
         'min': int(backgroundNoiseGainRange[0]),
         'max': int(backgroundNoiseGainRange[1])
     }
+
+    args.with_background_noise = args.with_background_noise and not args.no_background_noise
+    args.with_reverb = args.with_reverb and not args.no_reverb
 
     # Creating the producer
     producer = AudioSceneProducer(outputFolder=args.output_folder,
