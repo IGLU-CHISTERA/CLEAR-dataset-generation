@@ -62,7 +62,7 @@ from utils.question_helper import validate_constraints, create_reset_counts_fct,
     question_node_shallow_copy
 
 # Misc
-from utils.misc import init_random_seed, generate_info_section, get_max_scene_length
+from utils.misc import init_random_seed, generate_info_section, get_max_scene_length, save_arguments
 
 
 # Arguments Definition
@@ -528,6 +528,10 @@ def main(args):
     else:
         print("The seed must be specified in the arguments.", file=sys.stderr)
         exit(1)
+
+    # Save arguments
+    save_arguments(args, f"{args.output_folder}/{args.output_version_nb}/arguments",
+                   f"produce_scenes_audio_{args.set_type}.args")
 
     # Folder structure creation
     if not os.path.isdir(experiment_output_folder):

@@ -23,6 +23,7 @@ import matplotlib.pyplot as plt
 
 from utils.audio_processing import add_reverberation, generate_random_noise
 from utils.misc import init_random_seed, pydub_audiosegment_to_float_array, float_array_to_pydub_audiosegment
+from utils.misc import save_arguments
 
 
 """
@@ -347,6 +348,10 @@ def mainPool():
     args.with_background_noise = args.with_background_noise and not args.no_background_noise
     args.with_reverb = args.with_reverb and not args.no_reverb
 
+    # Save arguments
+    save_arguments(args, f"{args.output_folder}/{args.output_version_nb}/arguments",
+                   f"produce_scenes_audio_{args.set_type}.args")
+
     # Creating the producer
     producer = AudioSceneProducer(outputFolder=args.output_folder,
                                   version_nb=args.output_version_nb,
@@ -390,7 +395,7 @@ def mainPool():
 
     # Load and preprocess all elementary sounds into memory
     producer.loadAllElementarySounds()
-    
+
     nb_generated = len(idList)
     while len(idList) > 0:
 

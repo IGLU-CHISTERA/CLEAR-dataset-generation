@@ -15,7 +15,7 @@ from collections import defaultdict
 import ujson
 import numpy as np
 
-from utils.misc import init_random_seed, generate_info_section
+from utils.misc import init_random_seed, generate_info_section, save_arguments
 from utils.elementary_sounds import Elementary_Sounds
 
 # Arguments definition
@@ -341,6 +341,9 @@ if __name__ == '__main__':
 
     experiment_output_folder = os.path.join(args.output_folder, args.output_version_nb)
     scenes_output_folder = os.path.join(experiment_output_folder, 'scenes')
+
+    # Save arguments
+    save_arguments(args, f"{args.output_folder}/{args.output_version_nb}/arguments", 'generate_scenes_definition.args')
 
     if not os.path.isdir(experiment_output_folder):
         os.mkdir(experiment_output_folder)
