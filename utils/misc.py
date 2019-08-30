@@ -63,16 +63,17 @@ def pydub_audiosegment_to_float_array(audio_segment, frame_rate, n_bytes):
 
     bit_depth = 8 * n_bytes
 
-    raw_data = audio_segment.get_array_of_samples()
-
     # Invert the scale of the data
     scale = 1. / float(1 << (bit_depth - 1))
 
     # Construct the format string
     fmt = '<i{:d}'.format(n_bytes)
 
-    # Rescale and format the data buffer
-    return scale * np.frombuffer(raw_data, fmt).astype(from_pydub_bit_depth_to_np_type[bit_depth])
+    np_arr = np.frombuffer(audio_segment._data, fmt)
+
+    scaled = np.multiply(np_arr, scale, dtype=from_pydub_bit_depth_to_np_type[bit_depth])
+
+    return scaled
 
 
 def float_array_to_pydub_audiosegment(float_array, frame_rate, n_bytes):
@@ -80,11 +81,9 @@ def float_array_to_pydub_audiosegment(float_array, frame_rate, n_bytes):
     # Revert the scale of the data
     scale = float(1 << ((bit_depth) - 1))
 
-    scaled = np.multiply(scale, float_array)
+    scaled = np.multiply(scale, float_array).astype(to_pydub_bit_depth_to_np_type[bit_depth])
 
-    array_of_samples = array(get_array_type(bit_depth), scaled.astype(to_pydub_bit_depth_to_np_type[bit_depth]))
-
-    return AudioSegment(array_of_samples,
+    return AudioSegment(scaled.tobytes(),
                         frame_rate=frame_rate,
                         sample_width=n_bytes,
                         channels=1)
