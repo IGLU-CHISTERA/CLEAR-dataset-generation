@@ -30,13 +30,14 @@ def generate_random_noise(duration, gain, frame_width, sample_rate):
   bit_depth = 8 * frame_width
   minval, maxval = get_min_max_value(bit_depth)
   sample_width = get_frame_width(bit_depth)
+  array_type = get_array_type(bit_depth)
 
   gain = db_to_float(gain)
   sample_count = int(sample_rate * (duration / 1000.0))
 
   data = ((np.random.rand(sample_count, 1) * 2) - 1.0) * maxval * gain
 
-  return AudioSegment(data=data.tobytes(), metadata={
+  return AudioSegment(data=data.astype(array_type).tobytes(), metadata={
     "channels": 1,
     "sample_width": sample_width,
     "frame_rate": sample_rate,
