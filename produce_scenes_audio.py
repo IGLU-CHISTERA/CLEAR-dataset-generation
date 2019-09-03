@@ -8,15 +8,17 @@
 #               IGLU - CHIST-ERA
 
 
-import sys, os ,argparse, random
+import sys, os, argparse, random
 from multiprocessing import Pool
 from shutil import rmtree as rm_dir
 
 import ujson
 from pydub import AudioSegment
 from pydub.utils import get_array_type
+import numpy as np
 
 import matplotlib
+
 # Matplotlib options to reduce memory usage
 matplotlib.interactive(False)
 matplotlib.use('agg')
@@ -25,7 +27,6 @@ import matplotlib.pyplot as plt
 from utils.audio_processing import add_reverberation, generate_random_noise
 from utils.misc import init_random_seed, pydub_audiosegment_to_float_array, float_array_to_pydub_audiosegment
 from utils.misc import save_arguments
-
 
 """
 Arguments definition
@@ -95,16 +96,17 @@ parser.add_argument('--nb_process', default=4, type=int,
 """
     Produce audio recording from scene JSON definition
     Can also produce spectrograms of the scene if the correct option is provided
-    
+
         - Load scenes JSON definition from file
         - Calculate random silence duration (Silence between sounds)
         - Concatenate Elementary Sounds (In the order defined by the scene JSON)
         - Generate random white noise and overlay on the scene
         - Apply reverberation effect
         - Write audio scene to file (Either as a WAV file, a spectrogram/PNG or both
-        
+
     The production is distributed across {nb_process} processes
 """
+
 
 class AudioSceneProducer:
     def __init__(self,
@@ -239,7 +241,7 @@ class AudioSceneProducer:
                                                                    self.spectrogramSettings['window_overlap'])
 
                 imageFilename = '%s_%s_%06d.png' % (self.outputPrefix, self.setType, sceneId)
-                spectrogram.savefig(os.path.join(self.images_output_folder, imageFilename),dpi=1)
+                spectrogram.savefig(os.path.join(self.images_output_folder, imageFilename), dpi=1)
 
                 AudioSceneProducer.clearSpectrogram(spectrogram)
 
