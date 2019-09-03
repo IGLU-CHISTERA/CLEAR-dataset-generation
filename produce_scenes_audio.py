@@ -303,7 +303,9 @@ class AudioSceneProducer:
 
         # Generate the spectrogram
         # See https://matplotlib.org/api/_as_gen/matplotlib.pyplot.specgram.html?highlight=matplotlib%20pyplot%20specgram#matplotlib.pyplot.specgram
-        Pxx, freqs, bins, im = plt.specgram(x=sceneAudioSegment.get_array_of_samples(), Fs=sceneAudioSegment.frame_rate,
+        Pxx, freqs, bins, im = plt.specgram(x=np.frombuffer(sceneAudioSegment._data,
+                                                            dtype=get_array_type(8*sceneAudioSegment.frame_width)),
+                                            Fs=sceneAudioSegment.frame_rate,
                                             window=matplotlib.mlab.window_hanning,
                                             NFFT=windowLength,
                                             noverlap=windowOverlap,
