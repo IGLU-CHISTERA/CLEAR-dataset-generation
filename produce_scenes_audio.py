@@ -82,6 +82,8 @@ parser.add_argument('--clear_existing_files', action='store_true',
                     help='If set, will delete all files in the output folder before starting the generation.')
 parser.add_argument('--output_filename_prefix', default='CLEAR', type=str,
                     help='Prefix used for produced files')
+parser.add_argument('--output_frame_rate', default=22050, type=int,
+                    help='Frame rate of the outputed audio file')
 parser.add_argument('--output_version_nb', default='0.1', type=str,
                     help='Version number that will be appended to the produced file')
 parser.add_argument('--produce_specific_scenes', default="", type=str,
@@ -123,7 +125,8 @@ class AudioSceneProducer:
                  elementarySoundsJsonFilename,
                  elementarySoundFolderPath,
                  setType,
-                 outputPrefix):
+                 outputPrefix,
+                 outputFrameRate):
 
         # Paths
         self.outputFolder = outputFolder
@@ -153,6 +156,7 @@ class AudioSceneProducer:
         self.backgroundNoiseGainSetting = backgroundNoiseGainSetting
         self.withReverb = withReverb
         self.reverbSettings = reverbSettings
+        self.outputFrameRate = outputFrameRate
 
         root_images_output_folder = os.path.join(experiment_output_folder, 'images')
         root_audio_output_folder = os.path.join(experiment_output_folder, 'audio')
@@ -231,7 +235,9 @@ class AudioSceneProducer:
 
             if self.produce_audio_files:
                 audioFilename = '%s_%s_%06d.wav' % (self.outputPrefix, self.setType, sceneId)
-                sceneAudioSegment.export(os.path.join(self.audio_output_folder, audioFilename),format='wav')
+                if sceneAudioSegment.frame_rate != self.outputFrameRate:
+                    sceneAudioSegment = sceneAudioSegment.set_frame_rate(self.outputFrameRate)
+                sceneAudioSegment.export(os.path.join(self.audio_output_folder, audioFilename), format='wav')
 
             if self.produce_spectrograms:
                 spectrogram = AudioSceneProducer.createSpectrogram(sceneAudioSegment,
@@ -366,6 +372,7 @@ def mainPool():
                                   elementarySoundsJsonFilename=args.elementary_sounds_definition_filename,
                                   elementarySoundFolderPath=args.elementary_sounds_folder,
                                   setType=args.set_type,
+                                  outputFrameRate=args.output_frame_rate,
                                   outputPrefix=args.output_filename_prefix,
                                   produce_audio_files=not args.no_audio_files,
                                   produce_spectrograms=args.produce_spectrograms,
