@@ -38,7 +38,7 @@ parser.add_argument('--max_nb_scene', default=None, type=int,
                          'Depending on the scene_length and tree_width, the number of scene generated may be lower.')
 
 parser.add_argument('--silence_padding_per_object', default=100, type=int,
-                    help='Silence length that will be introduced between the objects')
+                    help='Silence length that will be introduced between the objects (in ms)')
 
 # Constraints
 parser.add_argument('--constraint_min_nb_families', default=3, type=int,
@@ -204,15 +204,19 @@ class Scene_generator:
         nb_sound = len(scene)
 
         # Initialize equal silences
-        silence_intervals = [full_padding_duration/nb_sound] * nb_sound
+        silence_intervals = [int((full_padding_duration * random.randint(95, 99)/100)/nb_sound)] * nb_sound
 
         # Randomly modify the silence intervals
         for i in range(nb_sound):
+
           # Randomly choose a sound
-          random_index = random.randint(0, nb_sound-1)
+          random_index = random.randint(0, nb_sound - 1)
+          while random_index == i:
+            random_index = random.randint(0, nb_sound - 1)
+
           if silence_intervals[random_index] > 0:
-            # Take between 10% and 70% of the silence portion of one sound and add it to another sound
-            silence_portion = int(silence_intervals[random_index] * random.randint(10, 70)/100)
+            # Take between 10% and 50% of the silence portion of one sound and add it to another sound
+            silence_portion = int(silence_intervals[random_index] * random.randint(1, 50)/100)
             silence_intervals[i] += silence_portion
             silence_intervals[random_index] -= silence_portion
 
@@ -235,7 +239,9 @@ class Scene_generator:
 
         # The rest of the silence duration should be added in the beginning of the scene
         # We calculate the remaining padding this way to make sure that rounding doesn't affect the result
-        return full_padding_duration - padded
+        silence_before = full_padding_duration - padded
+
+        return silence_before
 
     def _generate_relationships(self, scene_composition):
         # TODO : Those relationships are trivial. Could be moved to question engine (Before & after)
@@ -291,7 +297,6 @@ class Scene_generator:
 
         scene_count = 0
         for generated_scene in generated_scenes:
-            # FIXME : Silence before is always 0
             silence_before = self._assign_silence_informations(generated_scene)
 
             scene = {
