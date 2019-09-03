@@ -14,6 +14,7 @@ from shutil import rmtree as rm_dir
 
 import ujson
 from pydub import AudioSegment
+from pydub.utils import get_array_type
 
 import matplotlib
 # Matplotlib options to reduce memory usage
