@@ -209,6 +209,10 @@ class AudioSceneProducer:
             # Creating the audio segment (Suppose WAV format)
             soundFilepath = os.path.join(self.elementarySoundFolderPath, sound['filename'])
             soundAudioSegment = AudioSegment.from_wav(soundFilepath)
+
+            if soundAudioSegment.frame_rate != self.outputFrameRate:
+                soundAudioSegment = soundAudioSegment.set_frame_rate(self.outputFrameRate)
+
             self.loadedSounds.append({
                 'name': sound['filename'],
                 'audioSegment': soundAudioSegment
