@@ -64,10 +64,10 @@ parser.add_argument('--no_audio_files', action='store_true',
 
 parser.add_argument('--produce_spectrograms', action='store_true',
                     help='If set, produce the spectrograms for each scenes')
-parser.add_argument('--spectrogram_height', default=480, type=int,
-                    help='Height of the generated spectrogram image')
-parser.add_argument('--spectrogram_width', default=320, type=int,
-                    help='Width of the generated spectrogram image')
+parser.add_argument('--spectrogram_freq_resolution', default=21, type=int,
+                    help='Resolution of the Y axis in Freq/px ')
+parser.add_argument('--spectrogram_time_resolution', default=3, type=int,
+                    help='Resolution of the X axis in Coef/px')
 parser.add_argument('--spectrogram_window_length', default=1024, type=int,
                     help='Number of samples used in the FFT window')
 parser.add_argument('--spectrogram_window_overlap', default=512, type=int,
@@ -246,13 +246,13 @@ class AudioSceneProducer:
 
             if self.produce_spectrograms:
                 spectrogram = AudioSceneProducer.createSpectrogram(sceneAudioSegment,
-                                                                   self.spectrogramSettings['height'],
-                                                                   self.spectrogramSettings['width'],
+                                                                   self.spectrogramSettings['freqResolution'],
+                                                                   self.spectrogramSettings['timeResolution'],
                                                                    self.spectrogramSettings['window_length'],
                                                                    self.spectrogramSettings['window_overlap'])
 
                 imageFilename = '%s_%s_%06d.png' % (self.outputPrefix, self.setType, sceneId)
-                spectrogram.savefig(os.path.join(self.images_output_folder, imageFilename), dpi=1)
+                spectrogram.savefig(os.path.join(self.images_output_folder, imageFilename), dpi=100)
 
                 AudioSceneProducer.clearSpectrogram(spectrogram)
 
@@ -307,10 +307,17 @@ class AudioSceneProducer:
         return sceneAudioSegment
 
     @staticmethod
-    def createSpectrogram(sceneAudioSegment, spectrogramHeight, spectrogramWidth, windowLength, windowOverlap):
+    def createSpectrogram(sceneAudioSegment, freqResolution, timeResolution, windowLength, windowOverlap):
+        highestFreq = sceneAudioSegment.frame_rate/2
+        height = highestFreq / freqResolution
+
+        # FIXME : Use ms/px instead of bins/px ??
+        nbBins = int(int(sceneAudioSegment.frame_count() / windowLength) * (windowLength / windowOverlap))
+        width = nbBins/timeResolution
+
         # Set figure settings to remove all axis
         spectrogram = plt.figure(frameon=False)
-        spectrogram.set_size_inches(spectrogramWidth, spectrogramHeight)
+        spectrogram.set_size_inches(width/100, height/100)
         ax = plt.Axes(spectrogram, [0., 0., 1., 1.])
         ax.set_axis_off()
         spectrogram.add_axes(ax)
@@ -387,8 +394,8 @@ def mainPool():
                                   withReverb=args.with_reverb,
                                   reverbSettings=reverbSettings,
                                   spectrogramSettings={
-                                      'height': args.spectrogram_height,
-                                      'width': args.spectrogram_width,
+                                      'freqResolution': args.spectrogram_freq_resolution,
+                                      'timeResolution': args.spectrogram_time_resolution,
                                       'window_length': args.spectrogram_window_length,
                                       'window_overlap': args.spectrogram_window_overlap,
                                   })
