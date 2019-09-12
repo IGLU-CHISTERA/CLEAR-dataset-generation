@@ -141,7 +141,7 @@ def generate_and_write_questions_to_file(scenes, templates, metadata, synonyms,
 
     for i, scene in enumerate(scenes):
         if i % print_msg_every == 0:
-            print('starting scene %s (%d / %d)' % (scene['scene_filename'], i + 1, nb_scenes))
+            print('starting scene %s (%d / %d)' % (scene['scene_filename'], i + 1, nb_scenes), flush=True)
 
         if scene_count % args.reset_counts_every == 0:
             template_counts, template_answer_counts = reset_counts()
