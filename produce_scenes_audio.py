@@ -126,7 +126,8 @@ class AudioSceneProducer:
                  elementarySoundFolderPath,
                  setType,
                  outputPrefix,
-                 outputFrameRate):
+                 outputFrameRate,
+                 randomSeed):
 
         # Paths
         self.outputFolder = outputFolder
@@ -200,8 +201,8 @@ class AudioSceneProducer:
         self.show_status_every = int(self.nbOfLoadedScenes / 10)
         self.show_status_every = self.show_status_every if self.show_status_every > 0 else 1
 
-        # Initialize the list that contain the loaded sounds
         self.loadedSounds = []
+        self.randomSeed = randomSeed
 
     def loadAllElementarySounds(self):
         print("Loading elementary sounds")
@@ -229,6 +230,9 @@ class AudioSceneProducer:
             exit(1)
 
     def produceScene(self, sceneId):
+        # Since this function is run by different process, we must set the same seed for every process
+        init_random_seed(self.randomSeed)
+
         if sceneId < self.nbOfLoadedScenes:
 
             scene = self.scenes[sceneId]
@@ -345,11 +349,8 @@ def mainPool():
     args = parser.parse_args()
 
     # Setting & Saving the random seed
-    if args.random_nb_generator_seed is not None:
-        init_random_seed(args.random_nb_generator_seed)
-    else:
-        print("The seed must be specified in the arguments.", file=sys.stderr)
-        exit(1)
+    assert args.random_nb_generator_seed is not None, "The seed must be specified in the arguments."
+    init_random_seed(args.random_nb_generator_seed)
 
     # If not producing audio, we will produce spectrograms
     if args.no_audio_files and not args.produce_spectrograms:
@@ -384,6 +385,7 @@ def mainPool():
                                   elementarySoundsJsonFilename=args.elementary_sounds_definition_filename,
                                   elementarySoundFolderPath=args.elementary_sounds_folder,
                                   setType=args.set_type,
+                                  randomSeed=args.random_nb_generator_seed,
                                   outputFrameRate=args.output_frame_rate,
                                   outputPrefix=args.output_filename_prefix,
                                   produce_audio_files=not args.no_audio_files,
