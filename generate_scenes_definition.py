@@ -31,11 +31,12 @@ parser.add_argument('--metadata_file', default='templates/attributes.json',
                     help='File containing all the information related to the possible attributes of the objects')
 
 # Options
-parser.add_argument('--scene_length', default=6, type=int,
-                    help='Number of elementary sounds in each scene')
-parser.add_argument('--max_nb_scene', default=None, type=int,
-                    help='Maximum number of scenes that will be generated.' +
-                         'Depending on the scene_length and tree_width, the number of scene generated may be lower.')
+parser.add_argument('--min_scene_length', default=3, type=int,
+                    help='Minimum number of elementary sounds in each scene')
+parser.add_argument('--max_scene_length', default=10, type=int,
+                    help='Maximum number of elementary sounds in each scene')
+parser.add_argument('--nb_scene', default=None, type=int,
+                    help='Number of scenes that will be generated.')
 
 parser.add_argument('--silence_padding_per_object', default=100, type=int,
                     help='Silence length that will be introduced between the objects (in ms)')
@@ -78,7 +79,8 @@ class Scene_generator:
     The generated scenes will be splitted in 3 sets (training, validation, test) according to {training_set_ratio}.
     The rest of the scenes will be evenly splitted into validation and test sets.
     """
-    def __init__(self, nb_objects_per_scene,
+    def __init__(self, min_nb_objects_per_scene,
+                 max_nb_objects_per_scene,
                  silence_padding_per_object,
                  elementary_sounds_folderpath,
                  elementary_sounds_definition_filename,
@@ -89,20 +91,25 @@ class Scene_generator:
                  constraint_min_nb_families_subject_to_min_object_per_family,
                  constraint_min_ratio_for_attribute):
 
-        self.nb_objects_per_scene = nb_objects_per_scene
-
         self.version_nb = version_nb
 
         with open(metadata_filepath) as metadata:
             self.attributes_values = {key: val['values'] for key, val in ujson.load(metadata)['attributes'].items()}
 
-        self.elementary_sounds = Elementary_Sounds(elementary_sounds_folderpath, elementary_sounds_definition_filename, nb_objects_per_scene)
+        self.elementary_sounds = Elementary_Sounds(elementary_sounds_folderpath, elementary_sounds_definition_filename)
 
-        # Since the sounds can't repeat themselves in the same scene,
-        # The longest scene is the sum of the X longest elementary sounds + some silence padding
-        # Where X is the number of objects in the scene
-        # Plus the silence
-        self.scene_duration = sum(self.elementary_sounds.longest_durations) + silence_padding_per_object * (nb_objects_per_scene + 1)
+        self.nb_objects_per_scene = {
+            'min': min_nb_objects_per_scene,
+            'max': max_nb_objects_per_scene
+        }
+
+        get_duration = lambda n: self.elementary_sounds.half_longest_durations_mean*n + silence_padding_per_object*(n+1)
+        self.scene_duration = {
+            'min': int(get_duration(self.nb_objects_per_scene['min'])),
+            'max': int(get_duration(self.nb_objects_per_scene['max']))
+        }
+
+        self.silence_padding_per_object = silence_padding_per_object
 
         # Constraints
         self.constraints = {
@@ -112,7 +119,8 @@ class Scene_generator:
             'min_ratio_for_attribute': constraint_min_ratio_for_attribute
         }
 
-        self.constrained_attributes = ['brightness', 'loudness']     # Attributes on which the 'min_ratio_for_attribute' constraint will be applied
+        # Attributes on which the 'min_ratio_for_attribute' constraint will be applied
+        self.constrained_attributes = ['brightness', 'loudness']
 
         # Stats
         self.stats = {
@@ -130,14 +138,17 @@ class Scene_generator:
         # Shuffle all sounds and pick the first 'nb_objects_per_scene' as the scene
         np.random.shuffle(self.elementary_sounds.id_list_shuffled)
 
-        return self.elementary_sounds.id_list_shuffled[:self.nb_objects_per_scene]
+        nb_sound = np.random.randint(self.nb_objects_per_scene['min'], self.nb_objects_per_scene['max'] + 1)
+
+        return self.elementary_sounds.id_list_shuffled[:nb_sound]
 
     def _validate_scene(self, scene_objects):
+        nb_object_in_scene = len(scene_objects)
 
         # Validate duration constraint
         total_sound_duration = sum([s['duration'] for s in scene_objects])
 
-        if total_sound_duration >= self.scene_duration:
+        if self.scene_duration['min'] <= total_sound_duration >= self.scene_duration['max']:
             return False
 
         # Validate min_nb_families constraint
@@ -170,7 +181,7 @@ class Scene_generator:
 
             # Verify that the frequencies validate the constraints
             for key, group in groups.items():
-                if len(group)/self.nb_objects_per_scene <= self.constraints['min_ratio_for_attribute']:
+                if len(group)/nb_object_in_scene <= self.constraints['min_ratio_for_attribute']:     # FIXME : nb_object
                     return False
 
         return True
@@ -178,7 +189,7 @@ class Scene_generator:
     def _generate_scenes(self, nb_to_generate):
         processed_ids = defaultdict(lambda: False)
         valid_ids = defaultdict(lambda: False)
-        scenes_objects = []
+        scenes = []
         counter = 0
 
         while counter < nb_to_generate:
@@ -188,23 +199,23 @@ class Scene_generator:
 
             if not processed_ids[hashmap_index]:
                 processed_ids[hashmap_index] = True
-                if not valid_ids[hashmap_index] :
+                if not valid_ids[hashmap_index]:
                     if self._validate_scene(scene_objects):
                         valid_ids[hashmap_index] = True
-                        scenes_objects.append(scene_objects)
+                        scenes.append(scene_objects)
                         counter += 1
 
-        return scenes_objects
+        return scenes
 
     def _assign_silence_informations(self, scene):
+        nb_sound = len(scene)
         sounds_duration = sum(sound['duration'] for sound in scene)
 
-        full_padding_duration = self.scene_duration - sounds_duration
-
-        nb_sound = len(scene)
+        # Add between 5% and 20% of the sound duration as silence padding
+        full_padding_duration = self.silence_padding_per_object*nb_sound + sounds_duration * random.randint(5, 20)/100
 
         # Initialize equal silences
-        silence_intervals = [int((full_padding_duration * random.randint(95, 99)/100)/nb_sound)] * nb_sound
+        silence_intervals = [int((full_padding_duration * random.randint(80, 99)/100)/nb_sound) for i in range(nb_sound)]
 
         # Randomly modify the silence intervals
         for i in range(nb_sound):
@@ -220,26 +231,13 @@ class Scene_generator:
             silence_intervals[i] += silence_portion
             silence_intervals[random_index] -= silence_portion
 
-        padded = 0
-        scene_reversed = False
-
-        # Reverse the scene order with a probability of 50%
-        # This add more randomness to the silence attribution
-        if random.random() > 0.5:
-          scene.reverse()
-          scene_reversed = True
+        random.shuffle(silence_intervals)
 
         for i, sound in enumerate(scene):
           sound['silence_after'] = silence_intervals[i]
-          padded += sound['silence_after']
-
-        if scene_reversed:
-          # Reverse back the scene to the original order
-          scene.reverse()
 
         # The rest of the silence duration should be added in the beginning of the scene
-        # We calculate the remaining padding this way to make sure that rounding doesn't affect the result
-        silence_before = full_padding_duration - padded
+        silence_before = int(full_padding_duration - sum(silence_intervals))
 
         return silence_before
 
@@ -258,9 +256,10 @@ class Scene_generator:
             }
         ]
 
-        scene_indexes = list(range(0, self.nb_objects_per_scene))   # NOTE : Would not work with variable scene length
+        nb_object = len(scene_composition)
+        scene_indexes = list(range(0, nb_object))   # NOTE : Would not work with variable scene length
 
-        for i in range(0, self.nb_objects_per_scene):
+        for i in range(0, nb_object):
             if i - 1 >= 0:
                 relationships[0]['indexes'].append(relationships[0]['indexes'][i - 1] + [i - 1])
 
@@ -269,7 +268,7 @@ class Scene_generator:
 
         return relationships
 
-    def generate(self, nb_to_generate=None, training_set_ratio=0.7, shuffle_scenes=True):
+    def generate(self, nb_to_generate, training_set_ratio=0.7, shuffle_scenes=True):
 
         print("Starting Scenes Generation")
 
@@ -370,7 +369,8 @@ if __name__ == '__main__':
         print("The seed must be specified in the arguments.", file=sys.stderr)
         exit(1)
 
-    scene_generator = Scene_generator(args.scene_length,
+    scene_generator = Scene_generator(args.min_scene_length,
+                                      args.max_scene_length,
                                       args.silence_padding_per_object,
                                       args.elementary_sounds_folder,
                                       args.elementary_sounds_definition_filename,
@@ -381,7 +381,7 @@ if __name__ == '__main__':
                                       args.constraint_min_nb_families_subject_to_min_object_per_family,
                                       args.constraint_min_ratio_for_attribute)
 
-    scenes = scene_generator.generate(nb_to_generate=args.max_nb_scene, training_set_ratio=args.training_set_ratio)
+    scenes = scene_generator.generate(nb_to_generate=args.nb_scene, training_set_ratio=args.training_set_ratio)
 
     # Write to file
     for set_type, scene_struct in scenes.items():
