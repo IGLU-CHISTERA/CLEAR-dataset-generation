@@ -35,11 +35,6 @@ import random
 
 use_last_position_value = False  # FIXME : Document this, make it a parameter ?
 
-# NOTE : This won't work if the scene is longer than 11
-idx_to_position_str = [
-    "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "eleventh"
-]
-
 
 def scene_handler(scene_struct, inputs, value_inputs):
     # Just return all objects in the scene
@@ -186,7 +181,7 @@ def get_absolute_position(scene_struct, idx):
     if idx == len(scene_struct['objects']) - 1 and random.random() > 0.5 and use_last_position_value:
         return "last"
     else:
-        return idx_to_position_str[idx]
+        return position_strs['position'][idx]
 
 
 def query_absolute_position_handler(scene_struct, inputs, value_inputs):
@@ -207,7 +202,7 @@ def get_position_instrument(scene_struct, idx, instrument):
     elif len(instrument_indexes) == 1 and random.random() > 0.5 and False:
         return ""
     else:
-        return idx_to_position_str[relative_position_idx]
+        return position_strs['position_instrument'][relative_position_idx]
 
 
 # TODO : Generalize for all attributes
@@ -222,12 +217,8 @@ def query_position_instrument_handler(scene_struct, inputs, value_inputs):
 
 def get_position_global(scene_struct, idx):
     part_size = math.floor(len(scene_struct['objects']) / 3)
-    if idx + 1 < part_size:
-        return "beginning"
-    elif idx + 1 <= 2 * part_size:
-        return "middle"
-    else:
-        return "end"
+    pos_id = min(int(idx/part_size), 2)
+    return position_strs['position_global'][pos_id]
 
 
 def query_position_global_handler(scene_struct, inputs, value_inputs):
@@ -235,9 +226,7 @@ def query_position_global_handler(scene_struct, inputs, value_inputs):
     assert len(value_inputs) == 0
     idx = inputs[0]
 
-    position = get_position_global(scene_struct, idx)
-
-    return position + " of the scene"
+    return get_position_global(scene_struct, idx)
 
 
 def get_position(attribute_name, scene_struct, obj_idx):
@@ -451,10 +440,17 @@ functions = {
     }
 }
 
+# String positions retrieved from metadata
+position_strs = {}
+
 functions_to_be_expanded = [name for name, definition in functions.items() if definition['handler'] is None]
 
 
-def instantiate_attributes_handlers(metadata, instrument_count, max_scene_length):
+def instantiate_attributes_handlers(metadata):
+    for attribute, val in metadata['attributes'].items():
+        if 'position' in attribute:
+            position_strs[attribute] = val['values']
+
     for attribute_name in metadata['attributes'].keys():
 
         # Relations are defined separately

@@ -191,8 +191,13 @@ def load_and_prepare_metadata(metadata_filepath, scenes):
         for i, relation_data in enumerate(scene['relationships']):
             scene['_relationships_indexes'][relation_data['type']] = i
 
+
+    # Limit the position values according to the max scene length
+    metadata['attributes']['position']['values'] = metadata['attributes']['position']['values'][:max_scene_length]
+    metadata['attributes']['position_instrument']['values'] = metadata['attributes']['position_instrument']['values'][:max_scene_length]
+
     # Instantiate the question engine attributes handlers
-    qeng.instantiate_attributes_handlers(metadata, instrument_count, max_scene_length)
+    qeng.instantiate_attributes_handlers(metadata)
 
     metadata['max_scene_length'] = max_scene_length
 
@@ -427,8 +432,7 @@ def create_reset_counts_fct(templates, metadata, max_scene_length):
             if output_type == 'bool':
                 answers = [True, False]
             elif output_type == 'integer':
-                answers = list(
-                    range(0, max_scene_length + 1))  # NOTE : This won't hold if the scenes have different length
+                answers = list(range(0, max_scene_length + 1))
             else:
                 answers = metadata['attributes'][output_type]['values']
 

@@ -129,7 +129,7 @@ def generate_and_write_questions_to_file(scenes, templates, metadata, synonyms,
     """
 
     # Helper function
-    reset_counts = create_reset_counts_fct(templates, metadata, get_max_scene_length(scenes))
+    reset_counts = create_reset_counts_fct(templates, metadata, metadata['max_scene_length'])
 
     # Initialisation
     questions = []

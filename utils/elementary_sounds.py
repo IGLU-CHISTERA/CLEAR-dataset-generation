@@ -26,7 +26,7 @@ class Elementary_Sounds:
       - Give an interface to retrieve sounds
     """
 
-    def __init__(self, folder_path, definition_filename, nb_objects_per_scene):
+    def __init__(self, folder_path, definition_filename):
         print("Loading Elementary sounds")
         self.folderpath = folder_path
 
@@ -35,11 +35,11 @@ class Elementary_Sounds:
 
         self.notes = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B']
 
-        self.longest_durations = []
+        self.sorted_durations = []
 
         self.nb_sounds = len(self.definition)
 
-        self._preprocess_sounds(nb_objects_per_scene)
+        self._preprocess_sounds()
 
         self.families_count = {}
 
@@ -63,7 +63,7 @@ class Elementary_Sounds:
     def get(self, index):
         return self.definition[index]
 
-    def _preprocess_sounds(self, nb_objects_per_scene, shuffle_sounds=True):
+    def _preprocess_sounds(self, shuffle_sounds=True):
         """
         Apply some preprocessing on the loaded sounds
           - Calculate the perceptual loudness (ITU-R BS.1770-4 specification) and assign "Loud" or "Quiet" label
@@ -89,7 +89,7 @@ class Elementary_Sounds:
             perceptual_loudness = get_perceptual_loudness(elementary_sound_audiosegment)
             elementary_sound['loudness'] = 'quiet' if perceptual_loudness < -27 else 'loud'
 
-            self.longest_durations.append(elementary_sound['duration'])
+            self.sorted_durations.append(elementary_sound['duration'])
 
             elementary_sound['int_brightness'] = timbral_brightness(elementary_sound_filename)
 
@@ -119,11 +119,8 @@ class Elementary_Sounds:
             del elementary_sound['int_brightness']
             del elementary_sound['rel_brightness']
 
-        # Remove the 20% longest sounds.
-        # Use the sum of the duration of the next 'nb_objects_per_scene' as the scene total duration
-        twenty_percent_index = int(self.nb_sounds * 0.20)
-        sorted_durations = sorted(self.longest_durations, reverse=True)
-        self.longest_durations = sorted_durations[twenty_percent_index:twenty_percent_index + nb_objects_per_scene]
+        self.sorted_durations = sorted(self.sorted_durations)
+        self.half_longest_durations_mean = np.mean(self.sorted_durations[-int(self.nb_sounds/2):])
 
     def sounds_to_families_count(self, sound_list):
         """
