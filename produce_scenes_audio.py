@@ -233,10 +233,11 @@ class AudioSceneProducer:
 
             sceneAudioSegment = self.assembleAudioScene(scene)
 
+            if sceneAudioSegment.frame_rate != self.outputFrameRate:
+                sceneAudioSegment = sceneAudioSegment.set_frame_rate(self.outputFrameRate)
+
             if self.produce_audio_files:
                 audioFilename = '%s_%s_%06d.wav' % (self.outputPrefix, self.setType, sceneId)
-                if sceneAudioSegment.frame_rate != self.outputFrameRate:
-                    sceneAudioSegment = sceneAudioSegment.set_frame_rate(self.outputFrameRate)
                 sceneAudioSegment.export(os.path.join(self.audio_output_folder, audioFilename), format='wav')
 
             if self.produce_spectrograms:
