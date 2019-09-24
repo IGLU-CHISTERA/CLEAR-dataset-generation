@@ -12,6 +12,7 @@ import os
 import numpy as np
 from pydub import AudioSegment
 from collections import defaultdict
+from copy import deepcopy
 
 from timbral_models import timbral_brightness
 from utils.audio_processing import get_perceptual_loudness
@@ -61,7 +62,8 @@ class Elementary_Sounds:
         self.gen_index = 0
 
     def get(self, index):
-        return self.definition[index]
+        # Return copy of element to prevent augmented attribute overwriting
+        return deepcopy(self.definition[index])
 
     def _preprocess_sounds(self, shuffle_sounds=True):
         """

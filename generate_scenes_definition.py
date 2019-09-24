@@ -132,7 +132,7 @@ class Scene_generator:
         }
 
     def _scene_id_list_to_sound_list(self, scene_id_list):
-        return [self.elementary_sounds.definition[idx] for idx in scene_id_list]
+        return [self.elementary_sounds.get(idx) for idx in scene_id_list]
 
     def _generate_scene_id_list(self):
         # Shuffle all sounds and pick the first 'nb_objects_per_scene' as the scene
