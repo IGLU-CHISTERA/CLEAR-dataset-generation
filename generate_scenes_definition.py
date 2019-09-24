@@ -103,6 +103,14 @@ class Scene_generator:
             'max': max_nb_objects_per_scene
         }
 
+        self.all_same_length = min_nb_objects_per_scene == max_nb_objects_per_scene
+
+        if self.all_same_length:
+            # Take the 'max_nb_objects_per_scene' nb of longest sound. They will set the length of the produced scene
+            self.fixed_scene_duration = sum(self.elementary_sounds.sorted_durations[-max_nb_objects_per_scene:])
+            self.fixed_scene_duration += silence_padding_per_object * (max_nb_objects_per_scene + 1)
+
+
         get_duration = lambda n: self.elementary_sounds.half_longest_durations_mean*n + silence_padding_per_object*(n+1)
         self.scene_duration = {
             'min': int(get_duration(self.nb_objects_per_scene['min'])),
@@ -211,8 +219,12 @@ class Scene_generator:
         nb_sound = len(scene)
         sounds_duration = sum(sound['duration'] for sound in scene)
 
-        # Add between 5% and 20% of the sound duration as silence padding
-        full_padding_duration = self.silence_padding_per_object*nb_sound + sounds_duration * random.randint(5, 20)/100
+        if self.all_same_length:
+            # Duration is precalculated, we add silence accordingly
+            full_padding_duration = self.fixed_scene_duration - sounds_duration
+        else:
+            # Add between 5% and 20% of the sound duration as silence padding
+            full_padding_duration = self.silence_padding_per_object*nb_sound +  sounds_duration * random.randint(5, 20)/100
 
         # Initialize equal silences
         silence_intervals = [int((full_padding_duration * random.randint(80, 99)/100)/nb_sound) for i in range(nb_sound)]
