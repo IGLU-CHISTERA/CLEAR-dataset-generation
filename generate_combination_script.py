@@ -387,7 +387,7 @@ def generate_script(label, cmds, total_nb_process, set_types=None, log_paths=Non
     else:
         nb_set_to_gen = len(set_types)
         nb_process_per_gen = int(total_nb_process / nb_set_to_gen)
-        total_nb_process = nb_process_per_gen * nb_set_to_gen       # Set to multiple of nb_process_per_gen
+        total_nb_process = nb_process_per_gen * nb_set_to_gen       # Round to multiple of nb_process_per_gen
 
     if total_nb_process == 1:
         total_nb_process = 0    # Disable the background process instantiation if only 1 process, side effect : Disable file log
@@ -405,9 +405,15 @@ def generate_script(label, cmds, total_nb_process, set_types=None, log_paths=Non
 
     # We split generation so that all the "longer process" will be bundled together to optimize multicore handling
     if longer_set_type is not None:
+        if multiple_process_per_gen:
+            longer_set_nb_process_per_gen = total_nb_process
+        else:
+            longer_set_nb_process_per_gen = nb_process_per_gen
+
         for cmd, log_path in zip(cmds, log_paths):
             line, process_in_use = generate_script_line(cmd, longer_set_type, process_in_use, total_nb_process,
-                                                        nb_process_per_gen, log_path, python_bin, directory_to_check)
+                                                        longer_set_nb_process_per_gen, log_path, python_bin,
+                                                        directory_to_check)
 
             script += line
 
