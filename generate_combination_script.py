@@ -476,6 +476,9 @@ def main(args):
     #spectrogram_window_lengths = [1024]
     #spectrogram_window_overlap = [0.50]
 
+    if args.version_name_prefix[-1] == "_":
+        args.version_name_prefix = args.version_name_prefix[:-1]
+
     # TODO : Add Reverb
     script = generate_script_commands(base_config_paths, args.generated_output_folder, scene_max_lengths,
                                       question_insts_per_scene, spectrogram_window_lengths,
