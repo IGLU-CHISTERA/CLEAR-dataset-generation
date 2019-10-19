@@ -34,6 +34,10 @@ parser.add_argument('--python_bin', default='python', type=str,
 parser.add_argument('--nb_process', default=4, type=int,
                     help='Nb core available for generation')
 
+parser.add_argument('--tar_and_delete', action='store_true',
+                    help='Will archive generated files and delete the non compressed version')
+
+
 def write_script(script, filepath):
     with open(filepath, 'w') as f:
         f.write("#!/usr/bin/env bash\n")
@@ -188,11 +192,41 @@ def generate_symlink_commands(scene_name, question_names, spectrogram_names, out
     return cmds
 
 
+def generate_tar_and_delete_commands(scene_name, question_names, spectrogram_names, output_folder, total_nb_process,
+                                     delete=True):
+    cmds = []
+    for question_name in question_names:
+        question_suffix = question_name.replace(scene_name, '')
+
+        for spectrogram_name in spectrogram_names:
+            cmd = ""
+            spectrogram_suffix = spectrogram_name.replace(scene_name, '')
+
+            new_version_name = f"{scene_name}{question_suffix}{spectrogram_suffix}"
+            new_version_path = f"{output_folder}/{new_version_name}"
+
+            scene_path = f"{output_folder}/{scene_name}"
+            question_path = f"{output_folder}/{question_name}"
+            spectrogram_path = f"{output_folder}/{spectrogram_name}"
+
+            cmd += f"[[ ! -e {new_version_path}.tar.gz ]] && tar cf - {new_version_path} | pigz -9 -n {total_nb_process} > {new_version_path}.tar.gz\n"
+            cmd += f"[[ ! -e {scene_path}.tar.gz ]] && tar cf - {scene_path} | pigz -9 -n {total_nb_process} > {scene_path}.tar.gz\n"
+            cmd += f"[[ ! -e {question_path}.tar.gz ]] && tar cf - {question_path} | pigz -9 -n {total_nb_process} > {question_path}.tar.gz\n"
+            cmd += f"[[ ! -e {spectrogram_path}.tar.gz ]] && tar cf - {spectrogram_path} | pigz -9 -n {total_nb_process} > {spectrogram_path}.tar.gz\n"
+
+            if delete:
+                cmd += f"rm -rf {scene_path} {question_path} {spectrogram_path} {new_version_path}\n"
+
+            cmds.append(cmd)
+
+    return cmds
+
+
 # Script generation
-def generate_symlink_script(label, symlink_cmds):
+def generate_simple_script(label, cmds):
     script = f"\n# {label}\n"
 
-    for cmd in symlink_cmds:
+    for cmd in cmds:
         script += cmd
 
     return script
@@ -232,7 +266,8 @@ def generate_preparation_script(label, new_instance_names, output_folder, direct
 
 
 def generate_script_commands(base_config_paths, output_folder, scene_lengths, question_insts_per_scene,
-                             spectrogram_window_lengths, spectrogram_window_overlap, background_noise_gains, prefix='v3'):
+                             spectrogram_window_lengths, spectrogram_window_overlap, background_noise_gains,
+                             total_nb_process, prefix='v3'):
 
     scene_cmds, scene_names, scene_log_paths = generate_scene_commands(base_config_paths['scene'], prefix, output_folder,
                                                                        scene_lengths)
@@ -260,6 +295,9 @@ def generate_script_commands(base_config_paths, output_folder, scene_lengths, qu
             'log_paths': []
         },
         "symlink": {
+            'cmds': []
+        },
+        "tar_and_delete": {
             'cmds': []
         }
     }
@@ -305,6 +343,10 @@ def generate_script_commands(base_config_paths, output_folder, scene_lengths, qu
         script['symlink']['cmds'] += generate_symlink_commands(scene_name, tmp_question_names,
                                                                tmp_spectrogram_fft_names, output_folder)
 
+        script['tar_and_delete']['cmds'] += generate_tar_and_delete_commands(scene_name, tmp_question_names,
+                                                                             tmp_spectrogram_fft_names, output_folder,
+                                                                             total_nb_process=total_nb_process)
+
         # TODO : Add reverb params
 
     return script
@@ -329,6 +371,10 @@ def generate_script_line(cmd, set_type, process_in_use, total_nb_process, nb_pro
 
         string += f"if [[ ! -e {path_to_dir} ]]; then\n"
 
+    string += f"if [[ -e {output_folder}/{version_name}.tar.gz ]]; then\n"
+    string += f"pigz -dc {output_folder}/{version_name}.tar.gz | tar xf - -C {output_folder}\n"
+    string += "else\n"
+
     string += f"set -x\n{python_bin} {cmd}"
 
     if set_type is not None:
@@ -346,6 +392,8 @@ def generate_script_line(cmd, set_type, process_in_use, total_nb_process, nb_pro
 
         string += " &\n"
         string += "{ set +x; } 2>/dev/null\n"
+
+        string += "fi\n"
 
         # This is patchy, avoid race conditions (On folder creation) by not starting all the process at the same time
         string += "sleep 0.5\n"
@@ -482,7 +530,8 @@ def main(args):
     # TODO : Add Reverb
     script = generate_script_commands(base_config_paths, args.generated_output_folder, scene_max_lengths,
                                       question_insts_per_scene, spectrogram_window_lengths,
-                                      spectrogram_window_overlap, background_noise_gains, args.version_name_prefix)
+                                      spectrogram_window_overlap, background_noise_gains, args.nb_process,
+                                      args.version_name_prefix)
 
     # Scene Generation Script
     scene_preparation_script = generate_preparation_script("Scene Preparation", script['scene']['names'], args.generated_output_folder)
@@ -516,21 +565,27 @@ def main(args):
                                                  longer_set_type='train', multiple_process_per_gen=True,
                                                  python_bin=args.python_bin)
 
-    symlink_script = generate_symlink_script("Linking versions together", script['symlink']['cmds'])
+    symlink_script = generate_simple_script("Linking versions together", script['symlink']['cmds'])
+
+    if args.tar_and_delete:
+        tar_and_delete_script = generate_simple_script("Tar and Delete", script['tar_and_delete']['cmds'])
+    else:
+        tar_and_delete_script = ""
 
     full_script = scene_preparation_script + scene_gen_script + question_preparation_script + question_gen_script + \
                   question_consolidation_script + spectrogram_fft_preparation_script + spectrogram_fft_gen_script + \
-                  symlink_script
+                  symlink_script + tar_and_delete_script
 
-    write_script(full_script, args.output_script_filepath)
+    comment_string = "# Parameters : \n"
+    comment_string += f'## scene_max_lengths: {scene_max_lengths}\n'
+    comment_string += f'## question_insts_per_scene: {question_insts_per_scene}\n'
+    comment_string += f'## spectrogram_window_lengths: {spectrogram_window_lengths}\n'
+    comment_string += f'## spectrogram_window_overlap: {spectrogram_window_overlap}\n\n'
 
-    print("Parameters : ")
-    print(f'>> scene_max_lengths: {scene_max_lengths}')
-    print(f'>> question_insts_per_scene: {question_insts_per_scene}')
-    print(f'>> spectrogram_window_lengths: {spectrogram_window_lengths}')
-    print(f'>> spectrogram_window_overlap: {spectrogram_window_overlap}')
+    write_script(comment_string + full_script, args.output_script_filepath)
 
-    print("\nScript written to '%s'" % args.output_script_filepath)
+    print(comment_string)
+    print("Script written to '%s'" % args.output_script_filepath)
 
 
 if __name__ == "__main__":
