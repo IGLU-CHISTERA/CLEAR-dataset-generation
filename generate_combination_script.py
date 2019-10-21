@@ -209,10 +209,10 @@ def generate_tar_and_delete_commands(scene_name, question_names, spectrogram_nam
             question_path = f"{output_folder}/{question_name}"
             spectrogram_path = f"{output_folder}/{spectrogram_name}"
 
-            cmd += f"[[ ! -e {new_version_path}.tar.gz ]] && tar cf - {new_version_path} | pigz -9 -n {total_nb_process} > {new_version_path}.tar.gz\n"
-            cmd += f"[[ ! -e {scene_path}.tar.gz ]] && tar cf - {scene_path} | pigz -9 -n {total_nb_process} > {scene_path}.tar.gz\n"
-            cmd += f"[[ ! -e {question_path}.tar.gz ]] && tar cf - {question_path} | pigz -9 -n {total_nb_process} > {question_path}.tar.gz\n"
-            cmd += f"[[ ! -e {spectrogram_path}.tar.gz ]] && tar cf - {spectrogram_path} | pigz -9 -n {total_nb_process} > {spectrogram_path}.tar.gz\n"
+            cmd += f"[[ ! -e {new_version_path}.tar.gz ]] && tar cf - {new_version_path} | pigz -9 -p {total_nb_process} > {new_version_path}.tar.gz\n"
+            cmd += f"[[ ! -e {scene_path}.tar.gz ]] && tar cf - {scene_path} | pigz -9 -p {total_nb_process} > {scene_path}.tar.gz\n"
+            cmd += f"[[ ! -e {question_path}.tar.gz ]] && tar cf - {question_path} | pigz -9 -p {total_nb_process} > {question_path}.tar.gz\n"
+            cmd += f"[[ ! -e {spectrogram_path}.tar.gz ]] && tar cf - {spectrogram_path} | pigz -9 -p {total_nb_process} > {spectrogram_path}.tar.gz\n"
 
             if delete:
                 cmd += f"rm -rf {scene_path} {question_path} {spectrogram_path} {new_version_path}\n"
