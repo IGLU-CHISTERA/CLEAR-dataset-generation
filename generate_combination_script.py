@@ -219,7 +219,7 @@ def generate_tar_and_delete_commands(scene_name, question_names, spectrogram_nam
             cmd += "fi\n"
             cmd += f"if [[ ! -e {question_path}.tar.gz ]];then\n"
             cmd += f'echo "Tarring {question_path}.tar.gz\n"'
-            cmd += "tar cf - {question_path} | pigz -9 -p {total_nb_process} > {question_path}.tar.gz\n"
+            cmd += f"tar cf - {question_path} | pigz -9 -p {total_nb_process} > {question_path}.tar.gz\n"
             cmd += "fi\n"
             cmd += f"if [[ ! -e {spectrogram_path}.tar.gz ]];then"
             cmd += f'echo "Tarring {spectrogram_path}.tar.gz\n"'
