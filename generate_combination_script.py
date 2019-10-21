@@ -386,7 +386,7 @@ def generate_script_line(cmd, set_type, process_in_use, total_nb_process, nb_pro
         string += f"if [[ ! -e {path_to_dir} ]]; then\n"
 
     string += f"if [[ -e {output_folder}/{version_name}.tar.gz ]]; then\n"
-    string += f"Untaring '{version_name}.tar.gz'\n"
+    string += f'echo "Untaring \'{version_name}.tar.gz\'"\n'
     string += f"pigz -dc {output_folder}/{version_name}.tar.gz | tar xf - -C {output_folder}\n"
     string += "else\n"
 
