@@ -372,6 +372,7 @@ def generate_script_line(cmd, set_type, process_in_use, total_nb_process, nb_pro
         string += f"if [[ ! -e {path_to_dir} ]]; then\n"
 
     string += f"if [[ -e {output_folder}/{version_name}.tar.gz ]]; then\n"
+    string += f"Untaring '{version_name}.tar.gz'\n"
     string += f"pigz -dc {output_folder}/{version_name}.tar.gz | tar xf - -C {output_folder}\n"
     string += "else\n"
 
@@ -576,11 +577,14 @@ def main(args):
                   question_consolidation_script + spectrogram_fft_preparation_script + spectrogram_fft_gen_script + \
                   symlink_script + tar_and_delete_script
 
-    comment_string = "# Parameters : \n"
+    comment_string = "\n# Parameters : \n"
     comment_string += f'## scene_max_lengths: {scene_max_lengths}\n'
     comment_string += f'## question_insts_per_scene: {question_insts_per_scene}\n'
     comment_string += f'## spectrogram_window_lengths: {spectrogram_window_lengths}\n'
-    comment_string += f'## spectrogram_window_overlap: {spectrogram_window_overlap}\n\n'
+    comment_string += f'## spectrogram_window_overlap: {spectrogram_window_overlap}\n'
+    comment_string += f'## Base scene arguments : {base_config_paths["scene"]}\n'
+    comment_string += f'## Base question arguments : {base_config_paths["question"]}\n'
+    comment_string += f'## Base spectrogram arguments : {base_config_paths["spectrogram"]}\n\n'
 
     write_script(comment_string + full_script, args.output_script_filepath)
 
