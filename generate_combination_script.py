@@ -210,19 +210,19 @@ def generate_tar_and_delete_commands(scene_name, question_names, spectrogram_nam
             spectrogram_path = f"{output_folder}/{spectrogram_name}"
 
             cmd += f"if [[ ! -e {new_version_path}.tar.gz ]];then\n"
-            cmd += f"Tarring {new_version_path}.tar.gz\n"
+            cmd += f'echo " {new_version_path}.tar.gz\n'
             cmd += f"tar cf - {new_version_path} | pigz -9 -p {total_nb_process} > {new_version_path}.tar.gz\n"
             cmd += "fi\n"
             cmd += f"if [[ ! -e {scene_path}.tar.gz ]];then\n"
-            cmd += f"Tarring {scene_path}.tar.gz\n"
+            cmd += f'echo " {scene_path}.tar.gz\n'
             cmd += f"tar cf - {scene_path} | pigz -9 -p {total_nb_process} > {scene_path}.tar.gz\n"
             cmd += "fi\n"
             cmd += f"if [[ ! -e {question_path}.tar.gz ]];then\n"
-            cmd += f"Tarring {question_path}.tar.gz\n"
+            cmd += f'echo " {question_path}.tar.gz\n'
             cmd += "tar cf - {question_path} | pigz -9 -p {total_nb_process} > {question_path}.tar.gz\n"
             cmd += "fi\n"
             cmd += f"if [[ ! -e {spectrogram_path}.tar.gz ]];then"
-            cmd += f"Tarring {spectrogram_path}.tar.gz\n"
+            cmd += f'echo " {spectrogram_path}.tar.gz\n'
             cmd += f"tar cf - {spectrogram_path} | pigz -9 -p {total_nb_process} > {spectrogram_path}.tar.gz\n"
             cmd += "fi"
 
