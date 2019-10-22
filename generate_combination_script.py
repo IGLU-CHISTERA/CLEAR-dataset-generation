@@ -194,7 +194,7 @@ def generate_symlink_commands(scene_name, question_names, spectrogram_names, out
 
 def generate_tar_and_delete_commands(scene_name, question_names, spectrogram_names, output_folder, total_nb_process,
                                      delete=True):
-    cmds = []
+    cmds = [f"cd {output_folder}\n"]
     for question_name in question_names:
         question_suffix = question_name.replace(scene_name, '')
 
@@ -203,32 +203,27 @@ def generate_tar_and_delete_commands(scene_name, question_names, spectrogram_nam
             spectrogram_suffix = spectrogram_name.replace(scene_name, '')
 
             new_version_name = f"{scene_name}{question_suffix}{spectrogram_suffix}"
-            new_version_path = f"{output_folder}/{new_version_name}"
 
-            scene_path = f"{output_folder}/{scene_name}"
-            question_path = f"{output_folder}/{question_name}"
-            spectrogram_path = f"{output_folder}/{spectrogram_name}"
-
-            cmd += f"if [[ ! -e {new_version_path}.tar.gz ]];then\n"
-            cmd += f'echo "Tarring {new_version_path}.tar.gz"\n'
-            cmd += f"tar cf - {new_version_path} -C {output_folder} | pigz -9 -p {total_nb_process} > {new_version_path}.tar.gz\n"
+            cmd += f"if [[ ! -e {new_version_name}.tar.gz ]];then\n"
+            cmd += f'echo "Tarring {new_version_name}.tar.gz"\n'
+            cmd += f"tar cf - {new_version_name} | pigz -9 -p {total_nb_process} > {new_version_name}.tar.gz\n"
             cmd += "fi\n"
-            cmd += f"if [[ ! -e {scene_path}.tar.gz ]];then\n"
-            cmd += f'echo "Tarring {scene_path}.tar.gz"\n'
-            cmd += f"tar cf - {scene_path} -C {output_folder} | pigz -9 -p {total_nb_process} > {scene_path}.tar.gz\n"
+            cmd += f"if [[ ! -e {scene_name}.tar.gz ]];then\n"
+            cmd += f'echo "Tarring {scene_name}.tar.gz"\n'
+            cmd += f"tar cf - {scene_name} | pigz -9 -p {total_nb_process} > {scene_name}.tar.gz\n"
             cmd += "fi\n"
-            cmd += f"if [[ ! -e {question_path}.tar.gz ]];then\n"
-            cmd += f'echo "Tarring {question_path}.tar.gz"\n'
-            cmd += f"tar cf - {question_path} -C {output_folder} | pigz -9 -p {total_nb_process} > {question_path}.tar.gz\n"
+            cmd += f"if [[ ! -e {question_name}.tar.gz ]];then\n"
+            cmd += f'echo "Tarring {question_name}.tar.gz"\n'
+            cmd += f"tar cf - {question_name} | pigz -9 -p {total_nb_process} > {question_name}.tar.gz\n"
             cmd += "fi\n"
-            cmd += f"if [[ ! -e {spectrogram_path}.tar.gz ]];then\n"
-            cmd += f'echo "Tarring {spectrogram_path}.tar.gz"\n'
-            cmd += f"tar cf - {spectrogram_path} -C {output_folder} | pigz -9 -p {total_nb_process} > {spectrogram_path}.tar.gz\n"
+            cmd += f"if [[ ! -e {spectrogram_name}.tar.gz ]];then\n"
+            cmd += f'echo "Tarring {spectrogram_name}.tar.gz"\n'
+            cmd += f"tar cf - {spectrogram_name} | pigz -9 -p {total_nb_process} > {spectrogram_name}.tar.gz\n"
             cmd += "fi\n"
 
             if delete:
                 cmd += "set -x\n"
-                cmd += f"rm -rf {scene_path} {question_path} {spectrogram_path} {new_version_path}\n"
+                cmd += f"rm -rf {scene_name} {question_name} {spectrogram_name} {new_version_name}\n"
                 cmd += "{ set +x; } 2>/dev/null\n"
 
             cmds.append(cmd)
@@ -387,7 +382,7 @@ def generate_script_line(cmd, set_type, process_in_use, total_nb_process, nb_pro
 
     string += f"if [[ -e {output_folder}/{version_name}.tar.gz ]]; then\n"
     string += f'echo "Untaring \'{version_name}.tar.gz\'"\n'
-    string += f"pigz -dc {output_folder}/{version_name}.tar.gz | tar xf -\n"
+    string += f"pigz -dc {output_folder}/{version_name}.tar.gz | tar xf - -C {output_folder}\n"
     string += "else\n"
 
     string += f"set -x\n{python_bin} {cmd}"
