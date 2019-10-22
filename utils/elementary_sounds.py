@@ -27,7 +27,8 @@ class Elementary_Sounds:
       - Give an interface to retrieve sounds
     """
 
-    def __init__(self, folder_path, definition_filename):
+    def __init__(self, folder_path, definition_filename, fix_silence_bug=False):
+        self.fix_silence_bug = fix_silence_bug
         print("Loading Elementary sounds")
         self.folderpath = folder_path
 
@@ -62,8 +63,11 @@ class Elementary_Sounds:
         self.gen_index = 0
 
     def get(self, index):
-        # Return copy of element to prevent augmented attribute overwriting
-        return deepcopy(self.definition[index])
+        if self.fix_silence_bug:
+            # Return copy of element to prevent augmented attribute overwriting
+            return deepcopy(self.definition[index])
+        else:
+            return self.definition[index]
 
     def _preprocess_sounds(self, shuffle_sounds=True):
         """
