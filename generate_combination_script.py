@@ -192,9 +192,8 @@ def generate_symlink_commands(scene_name, question_names, spectrogram_names, out
     return cmds
 
 
-def generate_tar_and_delete_commands(scene_name, question_names, spectrogram_names, output_folder, total_nb_process,
-                                     delete=True):
-    cmds = [f"cd {output_folder}\n"]
+def generate_tar_and_delete_commands(scene_name, question_names, spectrogram_names, total_nb_process, delete=True):
+    cmds = []
     for question_name in question_names:
         question_suffix = question_name.replace(scene_name, '')
 
@@ -307,7 +306,7 @@ def generate_script_commands(base_config_paths, output_folder, scene_lengths, qu
             'cmds': []
         },
         "tar_and_delete": {
-            'cmds': []
+            'cmds': [f"cd {output_folder}\n"]
         }
     }
 
@@ -353,7 +352,7 @@ def generate_script_commands(base_config_paths, output_folder, scene_lengths, qu
                                                                tmp_spectrogram_fft_names, output_folder)
 
         script['tar_and_delete']['cmds'] += generate_tar_and_delete_commands(scene_name, tmp_question_names,
-                                                                             tmp_spectrogram_fft_names, output_folder,
+                                                                             tmp_spectrogram_fft_names,
                                                                              total_nb_process=total_nb_process)
 
         # TODO : Add reverb params
