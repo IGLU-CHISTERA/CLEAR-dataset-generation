@@ -362,22 +362,31 @@ def generate_script_commands(base_config_paths, output_folder, scene_lengths, qu
 
 def generate_script_line(cmd, set_type, process_in_use, total_nb_process, nb_process_per_gen, log_path=None,
                          python_bin="python", directory_to_check=None):
-
     string = ""
 
+    # This is patchy, there is way more elegant way of retrieving those infos. This is just faster than refactoring...
+    reg = re.compile(r'.*--output_folder\s(.[^\s]+).*--output_version_nb\s(.[^\s]+)')
+    matches = re.match(reg, cmd)
+    output_folder, version_name = matches[1], matches[2]
+
     if directory_to_check is not None:
-        # This is patchy, there is way more elegant way of retrieving those infos. This is just faster than refactoring...
-        reg = re.compile(r'.*--output_folder\s(.[^\s]+).*--output_version_nb\s(.[^\s]+)')
-        matches = re.match(reg, cmd)
+        if type(directory_to_check) != list:
+            directory_to_check = [directory_to_check]
 
-        output_folder, version_name = matches[1], matches[2]
+        string += "if [[ "
 
-        path_to_dir = f"{output_folder}/{version_name}/{directory_to_check}"
+        for i, directory in enumerate(directory_to_check):
+            path_to_dir = f"{output_folder}/{version_name}/{directory}"
 
-        if set_type is not None:
-            path_to_dir = path_to_dir % set_type
+            if set_type is not None:
+                path_to_dir = path_to_dir % set_type
 
-        string += f"if [[ ! -e {path_to_dir} ]]; then\n"
+            if i > 0:
+                string += " && "
+
+            string += f"! -e {path_to_dir}"
+
+        string += " ]]; then\n"
 
     string += f"if [[ -e {output_folder}/{version_name}.tar.gz ]]; then\n"
     string += f'echo "Untaring \'{version_name}.tar.gz\'"\n'
