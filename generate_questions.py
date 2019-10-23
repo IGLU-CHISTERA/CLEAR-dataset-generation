@@ -545,9 +545,7 @@ def main(args):
     if question_file_exist and args.clear_existing_files:
         os.remove(questions_output_filepath)
     elif question_file_exist:
-        print("This experiment have already been run. Please bump the version number or delete the previous output.",
-              file=sys.stderr)
-        exit(1)
+        assert False, "This experiment have already been run. Please bump the version number or delete the previous output."
 
     # Create tmp folder to store questions (separated in small files)
     if not os.path.isdir(tmp_output_folder):
@@ -556,8 +554,7 @@ def main(args):
         rm_dir(tmp_output_folder)
         os.mkdir(tmp_output_folder)
     else:
-        print("Directory %s already exist. Please change the experiment name", file=sys.stderr)
-        exit(1)
+        assert False, "Directory %s already exist. Please change the experiment name" % tmp_output_folder
 
     # Load templates, scenes, metadata and synonyms from file
     scenes, scene_info = load_scenes(scene_filepath, args.scene_start_idx, args.num_scenes)
