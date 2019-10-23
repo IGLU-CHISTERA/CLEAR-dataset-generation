@@ -564,7 +564,8 @@ def main(args):
     question_gen_script = generate_script(f"Question Generation", script['question']['cmds'],
                                           args.nb_process, set_types, script['question']['log_paths'],
                                           longer_set_type='train',
-                                          directory_to_check='questions/CLEAR_%s_questions.json', python_bin=args.python_bin)
+                                          directory_to_check=['questions/CLEAR_%s_questions.json', 'questions/TMP_%s'],
+                                          python_bin=args.python_bin)
 
     # Question Consolidation
     question_consolidation_script = generate_script(f"Question Consolidation", script['question']['consolidation'],
