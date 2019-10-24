@@ -65,14 +65,14 @@ def write_to_file(filepath, data):
 
 # New approach, stream writing to file
 def stream_write(output_filepath, tmp_folder_path, indent=2):
-    with open(output_filepath, 'w') as f:
+    with open(output_filepath, 'wb+') as f:
 
         info_section = None
         for fn in os.listdir(tmp_folder_path):
             if not fn.endswith('.json'):
                 continue
 
-            with open(os.path.join(tmp_folder_path, fn), 'r') as tmp_f:
+            with open(os.path.join(tmp_folder_path, fn), 'rb') as tmp_f:
                 try:
                     file_content = ujson.load(tmp_f)
 
@@ -80,18 +80,25 @@ def stream_write(output_filepath, tmp_folder_path, indent=2):
                         info_section = file_content['info']
 
                         # Beginning of file
-                        f.write('{\n')
-                        f.write(f'{" "*indent}"info": {to_json_string(info_section, indent=indent, indent_level=1)},\n')
-                        f.write(f'{" "*indent}"questions": [\n')
+                        f.write(bytes('{\n', encoding='utf8'))
+                        f.write(bytes(f'{" "*indent}"info": {to_json_string(info_section, indent=indent, indent_level=1)},\n', encoding='utf8'))
+                        f.write(bytes(f'{" "*indent}"questions": [\n', encoding='utf8'))
 
                     for question in file_content['questions']:
-                        f.write(to_json_string(question, indent=indent, indent_level=2))
-                        f.write(',\n')
+                        f.write(bytes(to_json_string(question, indent=indent, indent_level=2), encoding='utf8'))
+                        f.write(bytes(',\n', encoding='utf8'))
+                        
                 except ValueError:
                     print("[ERROR] Could not load question file %s" % fn)
 
-        f.write(f'{" "*indent}]\n')
-        f.write('}\n')
+        # Remove last ','
+        f.seek(-2, 2)
+        f.truncate()
+        f.write(bytes("\n", encoding='utf8'))
+
+        # Close array & object
+        f.write(bytes(f'{" " * indent}]\n', encoding='utf8'))
+        f.write(bytes('}\n', encoding='utf8'))
 
 
 def to_json_string(dict_obj, indent=2, indent_level=0):
