@@ -30,10 +30,11 @@ parser.add_argument('--set_type', default='train', type=str,
     help="Specify the set type (train/val/test)")
 parser.add_argument('--output_filename_prefix', default='CLEAR',
     help="Prefix for the output file")
-parser.add_argument('--remove_tmp', action="store_true", default=True,
+parser.add_argument('--remove_tmp', action="store_true",
     help="Will delete the tmp folder after consolidation")
 
 
+# Old approach (Load everything in memory)
 def load_all_tmp_json(folder_path):
   info_section = None
   questions = []
@@ -62,6 +63,55 @@ def write_to_file(filepath, data):
     ujson.dump(data, f, indent=2, sort_keys=True, escape_forward_slashes=False)
 
 
+# New approach, stream writing to file
+def stream_write(output_filepath, tmp_folder_path, indent=2):
+    with open(output_filepath, 'w') as f:
+
+        info_section = None
+        for fn in os.listdir(tmp_folder_path):
+            if not fn.endswith('.json'):
+                continue
+
+            with open(os.path.join(tmp_folder_path, fn), 'r') as tmp_f:
+                try:
+                    file_content = ujson.load(tmp_f)
+
+                    if info_section is None:
+                        info_section = file_content['info']
+
+                        # Beginning of file
+                        f.write('{\n')
+                        f.write(f'{" "*indent}"info": {to_json_string(info_section, indent=indent, indent_level=1)},\n')
+                        f.write(f'{" "*indent}"questions": [\n')
+
+                    for question in file_content['questions']:
+                        f.write(to_json_string(question, indent=indent, indent_level=2))
+                        f.write(',\n')
+                except ValueError:
+                    print("[ERROR] Could not load question file %s" % fn)
+
+        f.write(f'{" "*indent}]\n')
+        f.write('}\n')
+
+
+def to_json_string(dict_obj, indent=2, indent_level=0):
+    json_string = ujson.dumps(dict_obj, indent=indent, escape_forward_slashes=False)
+
+    if indent_level > 0:
+        json_string_lines = json_string.split('\n')
+        new_lines = []
+
+        for line in json_string_lines:
+            new_line = line
+            for i in range(indent_level):
+                new_line = " " * indent + new_line
+
+            new_lines.append(new_line)
+
+        json_string = '\n'.join(new_lines)
+
+    return json_string
+
 def main():
   args = parser.parse_args()
   question_folder_path = os.path.join(args.output_folder, args.output_version_nb, 'questions')
@@ -70,8 +120,11 @@ def main():
   output_question_filepath = os.path.join(question_folder_path, output_question_filename)
 
   if os.path.exists(tmp_folder_path):
-      consolidated_data = load_all_tmp_json(tmp_folder_path)
-      write_to_file(output_question_filepath, consolidated_data)
+
+      stream_write(output_question_filepath, tmp_folder_path)
+
+      #consolidated_data = load_all_tmp_json(tmp_folder_path)
+      #write_to_file(output_question_filepath, consolidated_data)
 
       if args.remove_tmp:
         shutil.rmtree(tmp_folder_path)
