@@ -1,4 +1,4 @@
---min_scene_length=5
+--min_scene_length=10
 --max_scene_length=10
 --constraint_min_nb_families=3
 --constraint_min_object_per_family=2
