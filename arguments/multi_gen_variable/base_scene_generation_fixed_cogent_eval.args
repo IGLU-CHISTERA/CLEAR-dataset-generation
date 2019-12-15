@@ -1,0 +1,12 @@
+--min_scene_length=10
+--max_scene_length=10
+--constraint_min_nb_families=3
+--constraint_min_object_per_family=2
+--constraint_min_nb_families_subject_to_min_object_per_family=2
+--training_set_ratio=0.7
+--elementary_sounds_folder=elementary_sounds
+--elementary_sounds_definition_filename=elementary_sounds_cogent_eval.json
+--metadata_file=templates/attributes.json
+--output_folder=output
+--output_filename_prefix=CLEAR
+--random_nb_generator_seed=549379
