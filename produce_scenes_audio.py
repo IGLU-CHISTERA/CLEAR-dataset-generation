@@ -9,15 +9,16 @@
 
 
 import sys, os, argparse, random
-from multiprocessing import Pool
+from multiprocessing import Process, Queue
 from shutil import rmtree as rm_dir
+from datetime import datetime
+import time
 import gc
 
 import ujson
 from pydub import AudioSegment
 from pydub.utils import get_array_type
 import numpy as np
-
 import matplotlib
 
 # Matplotlib options to reduce memory usage
@@ -230,6 +231,26 @@ class AudioSceneProducer:
             print('[ERROR] Could not retrieve loaded audio segment \'' + name + '\' from memory.')
             exit(1)
 
+    def produceSceneProcess(self, queue, emptyQueueTimeout=5):
+        # Wait 1 sec for the main thread to fillup the queue
+        time.sleep(1)
+
+        emptyQueueCount = 0
+        while emptyQueueCount < emptyQueueTimeout:
+            if not queue.empty():
+                # Reset empty queue count
+                emptyQueueCount = 0
+
+                # Retrieve Id and produce scene
+                idToProcess = queue.get()
+                self.produceScene(idToProcess)
+            else:
+                emptyQueueCount += 1
+                time.sleep(random.random())
+
+        return
+
+
     def produceScene(self, sceneId):
         # Since this function is run by different process, we must set the same seed for every process
         init_random_seed(self.randomSeed)
@@ -423,34 +444,40 @@ def mainPool():
         idList = range(bounds[0], bounds[1])
         nb_generated = bounds[1] - bounds[0]
 
+    idList = iter(idList)
+
     # Load and preprocess all elementary sounds into memory
     producer.loadAllElementarySounds()
 
-    idList = iter(idList)
-    nbToProcess = args.nb_process * 50  # TODO : Take the multiplier in parameter (For now, value of 100 take about 8 GB of RAM)
+    startTime = datetime.now()
+
+    id_queue = Queue(maxsize=1000)
+    worker_processes = [Process(target=producer.produceSceneProcess, args=(id_queue,)) for i in range(args.nb_process)]
+
+    for p in worker_processes:
+        p.start()
+
     done = False
     while not done:
+        if not id_queue.full():
+            try:
+                id_queue.put(next(idList))
+            except StopIteration:
+                # Reached the end of the iterator
+                done = True
+        else:
+            # Producing the scenes take quite some time.
+            # We wait for 30 seconds in order to reduce context switch between main process and worker processes
+            time.sleep(30)
 
-        # Create process pool
-        pool = Pool(processes=args.nb_process)
+    print("Done filling worker processes queue")
 
-        # FIXME : Wait for the pool queue to empty instead. See stack overflow
-        # We batch the scenes and close the pool everytime to avoid memory leak (not the most elegant fix)
-        toProcess = []
-        try:
-            for i in range(nbToProcess):
-                toProcess.append(next(idList))
-        except StopIteration:
-            # Reached the end of the iterator
-            done = True
-
-        # Start the production
-        pool.map(producer.produceScene, toProcess)
-
-        pool.close()
-        pool.join()
+    # Wait for all processes to finish
+    for p in worker_processes:
+        p.join()
 
     print("Job Done !")
+    print(f"Took {str(datetime.now() - startTime)}")
     if args.produce_spectrograms:
         print(">>> Produced %d spectrograms." % nb_generated)
 
