@@ -11,6 +11,7 @@
 import sys, os, argparse, random
 from multiprocessing import Pool
 from shutil import rmtree as rm_dir
+import gc
 
 import ujson
 from pydub import AudioSegment
@@ -328,7 +329,7 @@ class AudioSceneProducer:
 
         # Generate the spectrogram
         # See https://matplotlib.org/api/_as_gen/matplotlib.pyplot.specgram.html?highlight=matplotlib%20pyplot%20specgram#matplotlib.pyplot.specgram
-        Pxx, freqs, bins, im = plt.specgram(x=np.frombuffer(sceneAudioSegment._data,
+        Pxx, freqs, bins, im = ax.specgram(x=np.frombuffer(sceneAudioSegment._data,
                                                             dtype=get_array_type(8*sceneAudioSegment.frame_width)),
                                             Fs=sceneAudioSegment.frame_rate,
                                             window=matplotlib.mlab.window_hanning,
@@ -343,6 +344,7 @@ class AudioSceneProducer:
         # Close and Clear the figure
         plt.close(spectrogram)
         spectrogram.clear()
+        gc.collect()
 
 
 def mainPool():
