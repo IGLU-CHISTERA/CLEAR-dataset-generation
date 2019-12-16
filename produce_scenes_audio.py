@@ -408,7 +408,8 @@ def mainPool():
 
     # Setting ids of scenes to produce
     if args.produce_specific_scenes == '':
-        idList = list(range(producer.nbOfLoadedScenes))
+        idList = range(producer.nbOfLoadedScenes)
+        nb_generated = producer.nbOfLoadedScenes
     else:
         bounds = [int(x) for x in args.produce_specific_scenes.split(",")]
         if len(bounds) != 2 or bounds[0] > bounds[1]:
@@ -417,21 +418,30 @@ def mainPool():
             exit(1)
 
         bounds[1] = bounds[1] if bounds[1] < producer.nbOfLoadedScenes else producer.nbOfLoadedScenes
-        idList = list(range(bounds[0], bounds[1]))
+        idList = range(bounds[0], bounds[1])
+        nb_generated = bounds[1] - bounds[0]
 
     # Load and preprocess all elementary sounds into memory
     producer.loadAllElementarySounds()
 
-    nb_generated = len(idList)
-    while len(idList) > 0:
+    idList = iter(idList)
+    nbToProcess = args.nb_process * 50  # TODO : Take the multiplier in parameter (For now, value of 100 take about 8 GB of RAM)
+    done = False
+    while not done:
 
         # Create process pool
         pool = Pool(processes=args.nb_process)
 
-        # We batch the scenes and close the pool everytime to avoid memory leak (not the most elegant fix) #FIXME : Wait for the pool queue to empty instead. See stack overflow
-        nbToProcess = args.nb_process * 100     # TODO : Take the multiplier in parameter (For now, value of 100 take about 8 GB of RAM)
-        toProcess = idList[:nbToProcess]
-        idList = idList[nbToProcess:]
+        # FIXME : Wait for the pool queue to empty instead. See stack overflow
+        # We batch the scenes and close the pool everytime to avoid memory leak (not the most elegant fix)
+        toProcess = []
+        try:
+            for i in range(nbToProcess):
+                toProcess.append(next(idList))
+        except StopIteration:
+            # Reached the end of the iterator
+            done = True
+
         # Start the production
         pool.map(producer.produceScene, toProcess)
 
