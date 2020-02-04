@@ -1,8 +1,8 @@
 --output_folder=output
 --elementary_sounds_folder=elementary_sounds
 --elementary_sounds_definition_filename=elementary_sounds.json
---spectrogram_freq_resolution=21
---spectrogram_time_resolution=3
+--spectrogram_freq_resolution=50
+--spectrogram_time_resolution=200
 --spectrogram_window_length=1024
 --spectrogram_window_overlap=512
 --nb_process=2
