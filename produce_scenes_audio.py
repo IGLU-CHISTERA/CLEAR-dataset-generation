@@ -69,7 +69,7 @@ parser.add_argument('--produce_spectrograms', action='store_true',
 parser.add_argument('--spectrogram_freq_resolution', default=21, type=int,
                     help='Resolution of the Y axis in Freq/px ')
 parser.add_argument('--spectrogram_time_resolution', default=3, type=int,
-                    help='Resolution of the X axis in Coef/px')
+                    help='Resolution of the X axis in ms/px')
 parser.add_argument('--spectrogram_window_length', default=1024, type=int,
                     help='Number of samples used in the FFT window')
 parser.add_argument('--spectrogram_window_overlap', default=512, type=int,
@@ -335,11 +335,8 @@ class AudioSceneProducer:
     @staticmethod
     def createSpectrogram(sceneAudioSegment, freqResolution, timeResolution, windowLength, windowOverlap):
         highestFreq = sceneAudioSegment.frame_rate/2
-        height = highestFreq / freqResolution
-
-        # FIXME : Use ms/px instead of bins/px ??
-        nbBins = int(int(sceneAudioSegment.frame_count() / windowLength) * (windowLength / windowOverlap))
-        width = nbBins/timeResolution
+        height = highestFreq // freqResolution
+        width = sceneAudioSegment.duration_seconds * 1000 // timeResolution
 
         # Set figure settings to remove all axis
         spectrogram = plt.figure(frameon=False)
