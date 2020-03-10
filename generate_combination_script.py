@@ -192,7 +192,7 @@ def generate_symlink_commands(scene_name, question_names, spectrogram_names, out
     return cmds
 
 
-def generate_tar_and_delete_commands(scene_name, question_names, spectrogram_names, total_nb_process, delete=True):
+def generate_tar_and_delete_commands(scene_name, question_names, spectrogram_names, total_nb_process, delete=False):
     cmds = []
     for question_name in question_names:
         question_suffix = question_name.replace(scene_name, '')
