@@ -539,7 +539,7 @@ def main(args):
         os.mkdir(questions_output_folder)
 
     # Save arguments
-    save_arguments(args, f"{experiment_output_folder}/arguments", f"produce_scenes_audio_{args.set_type}.args")
+    save_arguments(args, f"{experiment_output_folder}/arguments", f"question_generation_{args.set_type}.args")
 
     question_file_exist = os.path.isfile(questions_output_filepath)
     if question_file_exist and args.clear_existing_files:
