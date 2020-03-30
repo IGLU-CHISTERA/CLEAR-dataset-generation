@@ -68,10 +68,13 @@ def stream_write(output_filepath, tmp_folder_path, indent=2):
     with open(output_filepath, 'wb+') as f:
 
         info_section = None
-        for fn in os.listdir(tmp_folder_path):
-            if not fn.endswith('.json'):
-                continue
 
+        file_ext = '.json'
+        filenames = [fn for fn in os.listdir(tmp_folder_path) if fn.endswith(file_ext)]
+        # Sort files according to index (Ex : CLEAR_train_XXXX.json where XXXX is the index)
+        filenames = sorted(filenames, key=lambda fn: int(fn[fn.rfind('_')+1:-len(file_ext)]))
+
+        for fn in filenames:
             with open(os.path.join(tmp_folder_path, fn), 'rb') as tmp_f:
                 try:
                     file_content = ujson.load(tmp_f)
