@@ -7,7 +7,7 @@
 #               KTH Stockholm Royal Institute of Technology
 #               IGLU - CHIST-ERA
 
-import ujson
+import json
 import os
 import numpy as np
 from pydub import AudioSegment
@@ -32,7 +32,7 @@ class Elementary_Sounds:
         self.folderpath = folder_path
 
         with open(os.path.join(self.folderpath, definition_filename)) as file:
-            self.definition = ujson.load(file)
+            self.definition = json.load(file)
 
         self.notes = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B']
 

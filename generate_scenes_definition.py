@@ -12,7 +12,7 @@ from shutil import rmtree as rm_dir
 from itertools import groupby
 from collections import defaultdict
 
-import ujson
+import json
 import numpy as np
 
 from utils.misc import init_random_seed, generate_info_section, save_arguments
@@ -94,7 +94,7 @@ class Scene_generator:
         self.version_nb = version_nb
 
         with open(metadata_filepath) as metadata:
-            self.attributes_values = {key: val['values'] for key, val in ujson.load(metadata)['attributes'].items()}
+            self.attributes_values = {key: val['values'] for key, val in json.load(metadata)['attributes'].items()}
 
         self.elementary_sounds = Elementary_Sounds(elementary_sounds_folderpath, elementary_sounds_definition_filename)
 
@@ -402,6 +402,6 @@ if __name__ == '__main__':
         scenes_filepath = os.path.join(scenes_output_folder, scenes_filename)
 
         with open(scenes_filepath, 'w') as f:
-            ujson.dump(scene_struct, f, indent=2, sort_keys=True, escape_forward_slashes=False)
+            json.dump(scene_struct, f, indent=2, sort_keys=True, escape_forward_slashes=False)
 
     print('done')

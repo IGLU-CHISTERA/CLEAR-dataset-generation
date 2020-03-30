@@ -14,7 +14,7 @@ into a single file.
 
 
 import os
-import ujson
+import json
 import argparse
 import shutil
 
@@ -42,7 +42,7 @@ def load_all_tmp_json(folder_path):
     if not fn.endswith('.json'): continue
     with open(os.path.join(folder_path, fn), 'r') as f:
       try:
-        file_content = ujson.load(f)
+        file_content = json.load(f)
         questions += file_content['questions']
 
         if info_section is None:
@@ -60,7 +60,7 @@ def load_all_tmp_json(folder_path):
 
 def write_to_file(filepath, data):
   with open(filepath, 'w') as f:
-    ujson.dump(data, f, indent=2, sort_keys=True, escape_forward_slashes=False)
+    json.dump(data, f, indent=2, sort_keys=True, escape_forward_slashes=False)
 
 
 # New approach, stream writing to file
@@ -77,7 +77,7 @@ def stream_write(output_filepath, tmp_folder_path, indent=2):
         for fn in filenames:
             with open(os.path.join(tmp_folder_path, fn), 'rb') as tmp_f:
                 try:
-                    file_content = ujson.load(tmp_f)
+                    file_content = json.load(tmp_f)
 
                     if info_section is None:
                         info_section = file_content['info']
@@ -105,7 +105,7 @@ def stream_write(output_filepath, tmp_folder_path, indent=2):
 
 
 def to_json_string(dict_obj, indent=2, indent_level=0):
-    json_string = ujson.dumps(dict_obj, indent=indent, escape_forward_slashes=False)
+    json_string = json.dumps(dict_obj, indent=indent, escape_forward_slashes=False)
 
     if indent_level > 0:
         json_string_lines = json_string.split('\n')

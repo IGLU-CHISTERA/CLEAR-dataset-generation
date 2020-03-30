@@ -24,7 +24,7 @@ from collections import OrderedDict
 from functools import reduce
 from itertools import groupby
 
-import ujson
+import json
 import numpy as np
 import utils.question_engine as qeng
 
@@ -99,7 +99,7 @@ def load_and_prepare_templates(template_dir, metadata):
         if not fn.endswith('.json'): continue
         with open(os.path.join(template_dir, fn), 'r') as f:
             try:
-                template_json = ujson.load(f)
+                template_json = json.load(f)
                 for i, template in enumerate(template_json):
                     num_loaded_templates += 1
                     key = (fn, i)
@@ -130,7 +130,7 @@ def load_and_prepare_templates(template_dir, metadata):
 def load_scenes(scene_filepath, start_idx, nb_scenes_to_gen):
     # Read file containing input scenes
     with open(scene_filepath, 'r') as f:
-        scene_data = ujson.load(f)
+        scene_data = json.load(f)
         scenes = scene_data['scenes']
         nb_scenes_loaded = len(scenes)
         scene_info = scene_data['info']
@@ -150,7 +150,7 @@ def load_scenes(scene_filepath, start_idx, nb_scenes_to_gen):
 def load_and_prepare_metadata(metadata_filepath, scenes):
     # Loading metadata
     with open(metadata_filepath, 'r') as f:
-        metadata = ujson.load(f)
+        metadata = json.load(f)
 
     # To initialize the metadata, we first need to know how many instruments each scene contains
     instrument_count_empty = {}
@@ -207,7 +207,7 @@ def load_and_prepare_metadata(metadata_filepath, scenes):
 def load_synonyms(synonyms_filepath):
     # Read synonyms file
     with open(synonyms_filepath, 'r') as f:
-        return ujson.load(f)
+        return json.load(f)
 
 
 # Tree Filtering
@@ -481,7 +481,7 @@ def write_questions_part_to_file(tmp_folder_path, filename, info_section, questi
     print("Writing to file %s" % tmp_filepath)
 
     with open(tmp_filepath, 'w') as f:
-        ujson.dump({
+        json.dump({
             'info': info_section,
             'questions': questions,
         }, f, indent=2, sort_keys=True, escape_forward_slashes=False)
@@ -497,4 +497,4 @@ def write_possible_attributes(metadata, output_filepath):
         cleaned['boolean'] = ['yes', 'no']
 
         with open(output_filepath, 'w') as f:
-            ujson.dump(cleaned, f, indent=2, sort_keys=True, escape_forward_slashes=False)
+            json.dump(cleaned, f, indent=2, sort_keys=True, escape_forward_slashes=False)

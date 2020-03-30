@@ -1,6 +1,6 @@
 import os
 import sys
-import ujson
+import json
 from operator import attrgetter
 from shutil import copy2 as copyfile
 from shutil import rmtree as rmdir
@@ -15,7 +15,7 @@ def load_elementary_sounds_definition(elementary_sounds_folder_path, elementary_
   print("Loading elementary sounds definition")
   elementary_sounds_definition_filepath = os.path.join(elementary_sounds_folder_path, elementary_sounds_definition_filename)
   with open(elementary_sounds_definition_filepath, 'r') as f:
-    definition = ujson.load(f)
+    definition = json.load(f)
   return definition
 
 

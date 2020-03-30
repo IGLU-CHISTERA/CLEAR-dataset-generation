@@ -15,7 +15,7 @@ from datetime import datetime
 import time
 import gc
 
-import ujson
+import json
 from pydub import AudioSegment
 from pydub.utils import get_array_type
 import numpy as np
@@ -146,13 +146,13 @@ class AudioSceneProducer:
 
         # Loading elementary sounds definition from json definition file
         with open(os.path.join(self.elementarySoundFolderPath, elementarySoundsJsonFilename)) as file:
-            self.elementarySounds = ujson.load(file)
+            self.elementarySounds = json.load(file)
 
         # Loading scenes definition
         sceneFilename = '%s_%s_scenes.json' % (self.outputPrefix, self.setType)
         sceneFilepath = os.path.join(experiment_output_folder, 'scenes', sceneFilename)
         with open(sceneFilepath) as scenesJson:
-            self.scenes = ujson.load(scenesJson)['scenes']
+            self.scenes = json.load(scenesJson)['scenes']
 
         self.spectrogramSettings = spectrogramSettings
         self.withBackgroundNoise = withBackgroundNoise
