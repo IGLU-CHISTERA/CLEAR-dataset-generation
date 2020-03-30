@@ -402,6 +402,6 @@ if __name__ == '__main__':
         scenes_filepath = os.path.join(scenes_output_folder, scenes_filename)
 
         with open(scenes_filepath, 'w') as f:
-            json.dump(scene_struct, f, indent=2, sort_keys=True, escape_forward_slashes=False)
+            json.dump(scene_struct, f, indent=2, sort_keys=True)
 
     print('done')

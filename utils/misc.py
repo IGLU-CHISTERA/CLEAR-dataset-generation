@@ -33,7 +33,7 @@ def save_arguments(args, folder_path, filename):
         os.mkdir(folder_path)
 
     with open(f"{folder_path}/{filename}", 'w') as f:
-        json.dump(args, f, indent=2, escape_forward_slashes=False)
+        json.dump(args, f, indent=2)
 
 
 '''

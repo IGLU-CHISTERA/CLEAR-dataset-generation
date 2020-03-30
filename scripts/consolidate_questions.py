@@ -60,7 +60,7 @@ def load_all_tmp_json(folder_path):
 
 def write_to_file(filepath, data):
   with open(filepath, 'w') as f:
-    json.dump(data, f, indent=2, sort_keys=True, escape_forward_slashes=False)
+    json.dump(data, f, indent=2, sort_keys=True)
 
 
 # New approach, stream writing to file
@@ -105,7 +105,7 @@ def stream_write(output_filepath, tmp_folder_path, indent=2):
 
 
 def to_json_string(dict_obj, indent=2, indent_level=0):
-    json_string = json.dumps(dict_obj, indent=indent, escape_forward_slashes=False)
+    json_string = json.dumps(dict_obj, indent=indent)
 
     if indent_level > 0:
         json_string_lines = json_string.split('\n')

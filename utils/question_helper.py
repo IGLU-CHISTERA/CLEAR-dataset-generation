@@ -484,7 +484,7 @@ def write_questions_part_to_file(tmp_folder_path, filename, info_section, questi
         json.dump({
             'info': info_section,
             'questions': questions,
-        }, f, indent=2, sort_keys=True, escape_forward_slashes=False)
+        }, f, indent=2, sort_keys=True)
 
 
 def write_possible_attributes(metadata, output_filepath):
@@ -497,4 +497,4 @@ def write_possible_attributes(metadata, output_filepath):
         cleaned['boolean'] = ['yes', 'no']
 
         with open(output_filepath, 'w') as f:
-            json.dump(cleaned, f, indent=2, sort_keys=True, escape_forward_slashes=False)
+            json.dump(cleaned, f, indent=2, sort_keys=True)
