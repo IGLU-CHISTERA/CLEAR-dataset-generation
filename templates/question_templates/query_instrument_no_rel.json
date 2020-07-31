@@ -1,7 +1,7 @@
 [
   {
     "text":[
-      "Among the <B> sounds, what is the instrument that play the <L> sound ?"
+      "Among the <B> sounds, what is the instrument that plays the <L> sound ?"
     ],
     "nodes":[
       {
@@ -38,7 +38,7 @@
   },
   {
     "text":[
-      "Among the <B> sounds, what is the instrument that play the <HN> note ?"
+      "Among the <B> sounds, what is the instrument that plays the <HN> note ?"
     ],
     "nodes":[
       {
@@ -75,7 +75,7 @@
   },
   {
     "text":[
-      "Among the <L> sounds, what is the instrument that play the <B> sound ?"
+      "Among the <L> sounds, what is the instrument that plays the <B> sound ?"
     ],
     "nodes":[
       {
@@ -112,7 +112,7 @@
   },
   {
     "text":[
-      "Among the <L> sounds, what is the instrument that play the <HN> note ?"
+      "Among the <L> sounds, what is the instrument that plays the <HN> note ?"
     ],
     "nodes":[
       {
@@ -149,7 +149,7 @@
   },
   {
     "text":[
-      "Among the <HN> notes in the scene, what is the instrument that play the <B> sound ?"
+      "Among the <HN> notes in the scene, what is the instrument that plays the <B> sound ?"
     ],
     "nodes":[
       {
@@ -186,7 +186,7 @@
   },
   {
     "text":[
-      "Among the <HN> notes in the scene, what is the instrument that play the <L> sound ?"
+      "Among the <HN> notes in the scene, what is the instrument that plays the <L> sound ?"
     ],
     "nodes":[
       {
@@ -223,7 +223,7 @@
   },
   {
     "text":[
-      "What is the name of the instrument that play the <P> sound ?",
+      "What is the name of the instrument that plays the <P> sound ?",
       "By what instrument is the <P> sound played by ?"
     ],
     "nodes":[
@@ -689,7 +689,7 @@
   },
   {
     "text":[
-      "What is the other instrument that play a sound with the same brightness as the <PI> <I> ?"
+      "What is the other instrument that plays a sound with the same brightness as the <PI> <I> ?"
     ],
     "nodes":[
       {
