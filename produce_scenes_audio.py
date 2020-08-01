@@ -86,6 +86,8 @@ parser.add_argument('--output_filename_prefix', default='CLEAR', type=str,
                     help='Prefix used for produced files')
 parser.add_argument('--output_frame_rate', default=22050, type=int,
                     help='Frame rate of the outputed audio file')
+parser.add_argument('--do_resample', action='store_true',
+                    help='If set, will use the --output_frame_rate to resample the audio')
 parser.add_argument('--output_version_nb', default='0.1', type=str,
                     help='Version number that will be appended to the produced file')
 parser.add_argument('--produce_specific_scenes', default="", type=str,
@@ -213,7 +215,7 @@ class AudioSceneProducer:
             soundFilepath = os.path.join(self.elementarySoundFolderPath, sound['filename'])
             soundAudioSegment = AudioSegment.from_wav(soundFilepath)
 
-            if soundAudioSegment.frame_rate != self.outputFrameRate:
+            if self.outputFrameRate and soundAudioSegment.frame_rate != self.outputFrameRate:
                 soundAudioSegment = soundAudioSegment.set_frame_rate(self.outputFrameRate)
 
             self.loadedSounds.append({
@@ -263,7 +265,7 @@ class AudioSceneProducer:
 
             sceneAudioSegment = self.assembleAudioScene(scene)
 
-            if sceneAudioSegment.frame_rate != self.outputFrameRate:
+            if self.outputFrameRate and sceneAudioSegment.frame_rate != self.outputFrameRate:
                 sceneAudioSegment = sceneAudioSegment.set_frame_rate(self.outputFrameRate)
 
             if self.produce_audio_files:
@@ -406,7 +408,7 @@ def mainPool():
                                   elementarySoundFolderPath=args.elementary_sounds_folder,
                                   setType=args.set_type,
                                   randomSeed=args.random_nb_generator_seed,
-                                  outputFrameRate=args.output_frame_rate,
+                                  outputFrameRate=args.output_frame_rate if args.do_resample else None ,
                                   outputPrefix=args.output_filename_prefix,
                                   produce_audio_files=not args.no_audio_files,
                                   produce_spectrograms=args.produce_spectrograms,
