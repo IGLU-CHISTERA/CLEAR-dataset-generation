@@ -1,6 +1,27 @@
 [
   {
     "text":[
+      "How many sounds are playing ?"
+    ],
+    "nodes":[
+      {
+        "inputs":[
+
+        ],
+        "type":"scene"
+      },
+      {
+        "value_inputs":[
+        ],
+        "inputs":[
+          0
+        ],
+        "type":"count"
+      }
+    ]
+  },
+  {
+    "text":[
       "Among the <I> sounds, how many are <B> ?"
     ],
     "nodes":[
