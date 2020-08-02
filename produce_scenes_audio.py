@@ -269,8 +269,8 @@ class AudioSceneProducer:
                 sceneAudioSegment = sceneAudioSegment.set_frame_rate(self.outputFrameRate)
 
             if self.produce_audio_files:
-                audioFilename = '%s_%s_%06d.wav' % (self.outputPrefix, self.setType, sceneId)
-                sceneAudioSegment.export(os.path.join(self.audio_output_folder, audioFilename), format='wav')
+                audioFilename = '%s_%s_%06d.flac' % (self.outputPrefix, self.setType, sceneId)
+                sceneAudioSegment.export(os.path.join(self.audio_output_folder, audioFilename), format='flac')
 
             if self.produce_spectrograms:
                 spectrogram = AudioSceneProducer.createSpectrogram(sceneAudioSegment,
