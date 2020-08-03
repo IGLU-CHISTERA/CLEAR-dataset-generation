@@ -13,11 +13,11 @@ parser.add_argument('--spectrogram_window_lengths', default='512,1024', type=str
 parser.add_argument('--spectrogram_window_overlap', default='0.50', type=str)
 
 
-parser.add_argument('--base_scene_args', default='arguments/multi_gen_variable/base_scene_generation.args', type=str,
+parser.add_argument('--base_scene_args', default='arguments/base_scene_generation.args', type=str,
                     help='Base Arguments for scene generation')
-parser.add_argument('--base_question_args', default='arguments/multi_gen_variable/base_question_generation.args',
+parser.add_argument('--base_question_args', default='arguments/base_question_generation.args',
                     type=str, help='Base Arguments for question generation')
-parser.add_argument('--base_spectrogram_args', default='arguments/multi_gen_variable/base_spectrogram_generation.args',
+parser.add_argument('--base_audio_args', default='arguments/base_audio_generation.args',
                     type=str, help='Base Arguments for spectrogram generation')
 parser.add_argument('--generated_output_folder', default='output', type=str,
                     help='Output path that will be used when generating dataset')
