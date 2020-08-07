@@ -44,7 +44,7 @@
     "instrument": {
       "placeholder" : "<I>",
       "values" : [
-        "cello", "clarinet", "flute", "trumpet", "violin"
+        "cello", "clarinet", "flute", "trumpet", "violin", "bass"
       ]
     },
     "relate_timing": {
