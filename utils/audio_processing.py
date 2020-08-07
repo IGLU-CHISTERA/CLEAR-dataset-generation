@@ -17,7 +17,7 @@ from utils.misc import pydub_audiosegment_to_float_array
 
 
 def get_perceptual_loudness(pydub_audio_segment):
-  loudness_meter = pyloudnorm.Meter(pydub_audio_segment.frame_rate, block_size=0.5)
+  loudness_meter = pyloudnorm.Meter(pydub_audio_segment.frame_rate, block_size=0.4)
 
   sound_float_array = pydub_audiosegment_to_float_array(pydub_audio_segment,
                                                         pydub_audio_segment.frame_rate,
