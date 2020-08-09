@@ -28,7 +28,7 @@ parser.add_argument('--output_path', type=str, default="./elementary_sounds",
 parser.add_argument('--output_definition_filename', type=str, default="elementary_sounds.json",
                     help='Filename for the json file that store the attributes of the elementary sounds')
 
-parser.add_argument('--do_amplification', type='store_true', help='Will amplify the elementary sounds')
+parser.add_argument('--do_amplification', action='store_true', help='Will amplify the elementary sounds')
 
 parser.add_argument('--random_seed', type=int, default=42, help='Random seed')
 
