@@ -9,6 +9,7 @@ from pydub import AudioSegment
 from pydub.silence import split_on_silence
 
 from utils.audio_processing import get_perceptual_loudness
+from utils.misc import init_random_seed
 
 '''
 Arguments definition
@@ -26,6 +27,10 @@ parser.add_argument('--output_path', type=str, default="./elementary_sounds",
 
 parser.add_argument('--output_definition_filename', type=str, default="elementary_sounds.json",
                     help='Filename for the json file that store the attributes of the elementary sounds')
+
+parser.add_argument('--do_amplification', type='store_true', help='Will amplify the elementary sounds')
+
+parser.add_argument('--random_seed', type=int, default=42, help='Random seed')
 
 # Preprocessing parameters
 # FIXME : Write the help messages
@@ -211,6 +216,8 @@ def main(args):
     # Cello       3 4
     # Bass        3 4
 
+    init_random_seed(args.random_seed)
+
     database = connect_db(os.path.join(args.good_sounds_folder, args.good_sounds_database_filename))
 
     # Loading sounds
@@ -234,11 +241,12 @@ def main(args):
     #                                                                   fadeout_ratio=0.25,
     #                                                                   crossfade_ratio=0.03)
 
-    # Amplify sounds that are in a certain range of perceptual loudness
-    # CLEAR_elementary_sounds_preprocessed = amplify_if_perceptual_loudness_in_range(CLEAR_elementary_sounds_preprocessed,
-    #                                                                                args.amplification_factor,
-    #                                                                                args.amplification_low_bound,
-    #                                                                                args.amplification_high_bound)
+    if args.do_amplification:
+        # Amplify sounds that are in a certain range of perceptual loudness
+        CLEAR_elementary_sounds_preprocessed = amplify_if_perceptual_loudness_in_range(CLEAR_elementary_sounds_preprocessed,
+                                                                                       args.amplification_factor,
+                                                                                       args.amplification_low_bound,
+                                                                                       args.amplification_high_bound)
 
     # Write to file
     write_sounds_to_files(CLEAR_elementary_sounds_preprocessed, args.output_path, args.output_definition_filename)
