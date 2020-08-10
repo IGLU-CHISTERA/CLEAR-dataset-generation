@@ -28,8 +28,6 @@ parser.add_argument('--output_path', type=str, default="./elementary_sounds",
 parser.add_argument('--output_definition_filename', type=str, default="elementary_sounds.json",
                     help='Filename for the json file that store the attributes of the elementary sounds')
 
-parser.add_argument('--do_amplification', action='store_true', help='Will amplify the elementary sounds')
-
 parser.add_argument('--random_seed', type=int, default=42, help='Random seed')
 
 # Preprocessing parameters
@@ -159,6 +157,21 @@ def remove_silence(sounds, silence_thresh, min_silence_duration):
     return sounds
 
 
+def amplify_by_instrument(sounds, amplification_factors):
+    """
+    Amplify the signals with different gain based on the instrument
+    """
+    print("Amplifying sounds by instruments...")
+    print(json.dumps(amplification_factors, indent=2))
+    for sound in sounds:
+        if sound['instrument'] in amplification_factors:
+            amplification_factor = amplification_factors[sound['instrument']]
+            if amplification_factor:
+                sound['audio_segment'] = sound['audio_segment'].apply_gain(amplification_factor)
+
+    return sounds
+
+
 def amplify_if_perceptual_loudness_in_range(sounds, amplification_factor, low_bound, high_bound):
     """
     If the perceptual loudness of the sound is between low_bound and high_bound --> Amplify it by the amplification_factor
@@ -173,6 +186,49 @@ def amplify_if_perceptual_loudness_in_range(sounds, amplification_factor, low_bo
 
     return sounds
 
+
+def reduce_duration_linear_by_instrument(sounds, keep_ratios, fadeout_ratio=0.2):
+    print("Reduce elementary sounds duration by instrument...")
+    print(json.dumps(keep_ratios, indent=2))
+
+    for sound in sounds:
+        duration = int(sound['audio_segment'].duration_seconds * 1000)
+
+        if sound['instrument'] not in keep_ratios:
+            continue
+
+        if keep_ratios[sound['instrument']] is None:
+            continue
+
+        new_duration = int(duration * keep_ratios[sound['instrument']])
+
+        sound['audio_segment'] = sound['audio_segment'][:new_duration].fade_out(int(new_duration * fadeout_ratio))
+
+    return sounds
+
+
+def reduce_duration_linear_violin(sounds, keep_ratio_by_max_duration, fadeout_ratio=0.2):
+    for sound in sounds:
+        if sound['instrument'] != 'violin':
+            continue
+
+        duration = int(sound['audio_segment'].duration_seconds * 1000)
+
+        ratio_to_use = None
+        for max_duration, keep_ratio in keep_ratio_by_max_duration.items():
+            if duration < max_duration:
+                ratio_to_use = keep_ratio
+                break
+
+        if ratio_to_use is None:
+            ratio_to_use = list(keep_ratio_by_max_duration.values())[-1]
+
+        if ratio_to_use:
+            new_duration = int(duration * ratio_to_use)
+
+            sound['audio_segment'] = sound['audio_segment'][:new_duration].fade_out(int(new_duration * fadeout_ratio))
+
+    return sounds
 
 def reduce_duration_linear(sounds, keep_ratio, fadeout_ratio=0.2):
     for sound in sounds:
@@ -232,21 +288,38 @@ def main(args):
                                                           args.min_silence_duration)
 
     # Reduce the duration of the sounds
-    CLEAR_elementary_sounds_preprocessed = reduce_duration_linear(CLEAR_elementary_sounds_preprocessed,
-                                                                  keep_ratio=0.3,
-                                                                  fadeout_ratio=0.1)
 
-    #  CLEAR_elementary_sounds_preprocessed = reduce_duration_crossfade(CLEAR_elementary_sounds_preprocessed,
-    #                                                                   keep_ratio=0.25,
-    #                                                                   fadeout_ratio=0.25,
-    #                                                                   crossfade_ratio=0.03)
+    duration_ratios = {
+        'flute': 0.18,
+        'trumpet': 0.2,
+        'clarinet': 0.2,
+        'cello': 0.5,
+        'bass': 0.45,
+        'violin': None      # We use a different function to reduce the size of the violin sounds
+    }
 
-    if args.do_amplification:
-        # Amplify sounds that are in a certain range of perceptual loudness
-        CLEAR_elementary_sounds_preprocessed = amplify_if_perceptual_loudness_in_range(CLEAR_elementary_sounds_preprocessed,
-                                                                                       args.amplification_factor,
-                                                                                       args.amplification_low_bound,
-                                                                                       args.amplification_high_bound)
+    CLEAR_elementary_sounds_preprocessed = reduce_duration_linear_by_instrument(CLEAR_elementary_sounds_preprocessed,
+                                                                                keep_ratios=duration_ratios,
+                                                                                fadeout_ratio=0.1)
+
+    violin_duration_ratios = {
+        4000: 0.3,
+        5000: 0.13
+    }
+    CLEAR_elementary_sounds_preprocessed = reduce_duration_linear_violin(CLEAR_elementary_sounds_preprocessed,
+                                                                         keep_ratio_by_max_duration=violin_duration_ratios,
+                                                                         fadeout_ratio=0.1)
+
+    amplification_factors = {
+        'flute': -8,
+        'trumpet': -10.8,
+        'violin': -5,
+        'clarinet': 1.1,
+        'cello': 0.3,
+        'bass': -0.5
+    }
+
+    CLEAR_elementary_sounds_preprocessed = amplify_by_instrument(CLEAR_elementary_sounds_preprocessed, amplification_factors)
 
     # Write to file
     write_sounds_to_files(CLEAR_elementary_sounds_preprocessed, args.output_path, args.output_definition_filename)
