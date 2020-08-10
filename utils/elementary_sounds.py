@@ -83,8 +83,10 @@ class Elementary_Sounds:
         if shuffle_sounds:
             np.random.shuffle(self.definition)
 
-        # Store max and min brightness for each instrument. Used for brightness normalization
-        brightness_per_instrument = defaultdict(lambda: {'max': 0, 'min': 9999})
+        max_brightness = -9999
+        min_brightness = 9999
+        max_loudness = -9999
+        min_loudness = 9999
 
         for id, elementary_sound in enumerate(self.definition):
             elementary_sound_filename = os.path.join(self.folderpath, elementary_sound['filename'])
@@ -95,40 +97,50 @@ class Elementary_Sounds:
             elementary_sound['duration'] = int(elementary_sound_audiosegment.duration_seconds * 1000)
 
             perceptual_loudness = get_perceptual_loudness(elementary_sound_audiosegment)
-            if save_raw_values:
-                elementary_sound['raw_loudness'] = perceptual_loudness
-            elementary_sound['loudness'] = 'quiet' if perceptual_loudness < -27 else 'loud'
+            elementary_sound['raw_loudness'] = perceptual_loudness
 
             self.sorted_durations.append(elementary_sound['duration'])
 
             elementary_sound['raw_brightness'] = timbral_brightness(elementary_sound_filename)
 
-            if elementary_sound['raw_brightness'] > brightness_per_instrument[elementary_sound['instrument']]['max']:
-                brightness_per_instrument[elementary_sound['instrument']]['max'] = elementary_sound['raw_brightness']
-            elif elementary_sound['raw_brightness'] < brightness_per_instrument[elementary_sound['instrument']]['min']:
-                brightness_per_instrument[elementary_sound['instrument']]['min'] = elementary_sound['raw_brightness']
+            if min_brightness > elementary_sound['raw_brightness']:
+                min_brightness = elementary_sound['raw_brightness']
+
+            if max_brightness < elementary_sound['raw_brightness']:
+                max_brightness = elementary_sound['raw_brightness']
+
+            if min_loudness > elementary_sound['raw_loudness']:
+                min_loudness = elementary_sound['raw_loudness']
+
+            if max_loudness < elementary_sound['raw_loudness']:
+                max_loudness = elementary_sound['raw_loudness']
 
         # Normalize the brightness per instrument and assign the brightness label
         for id, elementary_sound in enumerate(self.definition):
-            max_brightness = brightness_per_instrument[elementary_sound['instrument']]['max']
-            min_brightness = brightness_per_instrument[elementary_sound['instrument']]['min']
-            cur_brightness = elementary_sound['raw_brightness']
-
-            # Normalize brightness per instrument
-            elementary_sound['rel_brightness'] = (cur_brightness - min_brightness) / (max_brightness - min_brightness)
+            # Normalize attributes
+            normalized_brightness = (elementary_sound['raw_brightness'] - min_brightness) / (max_brightness - min_brightness)
+            normalized_loudness = (elementary_sound['raw_loudness'] - min_loudness) / (max_loudness - min_loudness)
 
             # Assign brightness label
-            if elementary_sound['rel_brightness'] > 0.6:
+            if normalized_brightness > 0.47:
                 elementary_sound['brightness'] = 'bright'
-            elif elementary_sound['rel_brightness'] < 0.4:
+            elif normalized_brightness < 0.42:
                 elementary_sound['brightness'] = 'dark'
             else:
                 elementary_sound['brightness'] = None
 
+            # Assign loudness label
+            if normalized_loudness > 0.62:
+                elementary_sound['loudness'] = 'loud'
+            elif normalized_loudness < 0.57:
+                elementary_sound['loudness'] = 'quiet'
+            else:
+                elementary_sound['loudness'] = None
+
             if not save_raw_values:
                 # Cleanup unused properties
+                del elementary_sound['raw_loudness']
                 del elementary_sound['raw_brightness']
-                del elementary_sound['rel_brightness']
 
         self.sorted_durations = sorted(self.sorted_durations)
         self.half_longest_durations_mean = np.mean(self.sorted_durations[-int(self.nb_sounds/2):])
