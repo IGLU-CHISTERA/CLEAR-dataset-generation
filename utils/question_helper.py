@@ -95,7 +95,7 @@ def load_and_prepare_templates(template_dir, metadata):
 
     num_loaded_templates = 0
     templates = OrderedDict()
-    for fn in os.listdir(template_dir):
+    for fn in sorted(os.listdir(template_dir)):
         if not fn.endswith('.json'): continue
         with open(os.path.join(template_dir, fn), 'r') as f:
             try:
