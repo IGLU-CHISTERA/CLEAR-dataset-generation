@@ -389,12 +389,6 @@
           1
         ],
         "type":"filter_count"
-      },
-      {
-        "inputs":[
-          2
-        ],
-        "type":"query_position_global"
       }
     ]
   },
