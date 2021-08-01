@@ -13,4 +13,3 @@
 --reverb_room_scale=30,100
 --reverb_delay_range=50,400
 --random_nb_generator_seed=623633
---produce_spectrograms
