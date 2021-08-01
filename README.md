@@ -39,57 +39,34 @@ pip install -r requirements.txt
 ```
 
 ## Running the whole generation process
-
 To run the whole generation process with the default configuration simply run
 ``` 
-./run_experiment.sh {VERSION_NB}
+./generate_CLEAR_dataset.sh
 ```
-
-See **Default Arguments** section for a list of the default versions
 
 By default, a folder named `output` will be created at the root of this repository.<br>
-All generated files will be outputted in a sub-folder named `{VERSION_NB}` which has the following structure : 
-
+The generated files are separated in different folders :
 ```
-- audio : Scene recordings (WAV format) separated by set
-    - train
-    - val
-    - test
-- questions : Question definitions (JSON format)
-    - CLEAR_train_questions.json
-    - CLEAR_val_questions.json
-    - CLEAR_test_questions.json
-- scenes : Scene definitions (JSON format)
-    - CLEAR_train_scenes.json
-    - CLEAR_val_scenes.json
-    - CLEAR_test_scenes.json
-- images : Scene spectrograms (PNG format) separated by set
-    - train
-    - val
-    - test
-- arguments : Copy of the arguments used at generation time (If run through run_generation.sh)
-- logs : The whole generation process logs (If run through run_generation.sh)
+    - CLEAR_50k : Scene definitions (JSON format)
+        - CLEAR_train_scenes.json
+        - CLEAR_val_scenes.json
+        - CLEAR_test_scenes.json
+
+    - CLEAR_50k_4_inst : Question definitions (JSON format)
+        - CLEAR_train_questions.json
+        - CLEAR_val_questions.json
+        - CLEAR_test_questions.
+
+    - CLEAR_50k_audio : Scene recordings (FLAC format) separated by set
+        - train
+        - val
+        - test
+
+    - CLEAR_50k_4_inst_audio : Contains symlinks to the other folders. This link all the parts of the dataset
+        - Useful to generate different version of the dataset with more or less scenes/questions without wasting space
 ```
 
-## Default Arguments
-The folder `arguments` at the root of this repository contains the arguments list for each part of the generation process.
-
-They are divided by version (Simply create a new folder to add a new version with different arguments):
-```
-    - v1.0.0_1k_scenes_20_inst_per_scene
-    - v1.0.0_1k_scenes_40_inst_per_scene
-    - v1.0.0_10k_scenes_20_inst_per_scene
-    - v1.0.0_10k_scenes_40_inst_per_scene
-    - v1.0.0_50k_scenes_20_inst_per_scene
-    - v1.0.0_50k_scenes_40_inst_per_scene
-```
-
-The versions are named according to the number of scene and question they generate.<br>
-For example, the version `v1.0.0_50k_scenes_40_inst_per_scenes` will generate 50 000 scenes and 40 questions per scene for a total of 2 000 000 questions (Which are divided into training, validation and test sets). 
-
-We recommend using the arguments files instead of passing the arguments one by one in the command line for ease of use.
-
-See **Scene Generation**, **Question Generation** and **Scene production** sections for more info on their usage.
+The generated dataset reside in the folder `output/CLEAR_50k_4_inst_audio`
 
 ## Elementary Sounds
 Each scenes is composed by assembling a serie of Elementary Sounds together (randomly sampled).<br>
@@ -102,7 +79,7 @@ The elementary sounds bank can easily be extended by adding new sounds to the `e
 ## 1. Scene Generation
 To run the scene generation process manually with the default arguments :
 ```
- python generate_scenes_definition.py @arguments/{VERSION_NB}/generate_scenes_definition.args --output_version_nb {VERSION_NB}
+ python generate_scenes_definition.py @arguments/base_scene_generation.args --nb_scene 50000 --output_version_nb CLEAR_50k
 ```
 
 The arguments can also be specified in the command line instead of using the argument file.<br>
@@ -111,7 +88,7 @@ To see a list of the available arguments, run :
  python generate_scenes_definition.py --help
 ``` 
 
-Once the generation process is done, 3 JSON files (one for each set) will be outputted to `output/{VERSION_NB}scenes`.
+Once the generation process is done, 3 JSON files (one for each set) will be outputted to `output/CLEAR_50k/scenes`.
 
 
 ## 2. Question Generation
@@ -121,14 +98,14 @@ The question will be instantiated using the templates in `templates/question_tem
 To run the question generation manually with the default arguments :
 
 ```
- python generate_questions.py @arguments/{VERSION_NB}/generate_{SET_TYPE}_questions.args --output_version_nb {VERSION_NB}
+ python generate_questions.py @arguments/base_question_generation.args --templates_per_scene 4 --output_version_nb CLEAR_50k_4_inst --set_type {train,val,test}
 ```
 
-This will generate multiple JSON files in `output/{VERSION_NB}/questions/TMP_{SET_TYPE}`.
+This will generate multiple JSON files in `output/CLEAR_50k_4_inst/questions/TMP_{train,val,test}`.
 
 To merge those files into 1 questions files, run :
 ```
- python scripts/consolidate_questions.py --set_type {SET_TYPE} --output_version_nb {VERSION_NB}
+ python scripts/consolidate_questions.py --set_type {train,val,test} --output_version_nb CLEAR_50k_4_inst --remove_tmp
 ```
 
 This process has to be ran 3 times : One for each set of scenes (training, validation ,test)
@@ -139,15 +116,16 @@ To see a list of the available arguments, run :
  python generate_questions.py --help
 ```
 
-## 3. Scene Production
+## 3. Acoustic Scene Production
 The last step is to produce the scenes audio recordings from the scene definition files.
 
 To run the scene production manually with the default arguments :
 ```
- python produce_scenes_audio.py @arguments/{VERSION_NB}/produce_{SET_TYPE}_scenes_audio.args --output_version_nb {VERSION_NB}
+ python produce_scenes_audio.py @arguments/base_audio_generation.args --output_version_nb CLEAR_50k_1024_win_50_overlap --spectrogram_window_length 1024 \
+                                                                      --spectrogram_window_overlap 512 --set_type {train,val,test} --nb_process 2
 ```
 
-Audio files will be stored in `output/{VERSION_NB}/audio/{SET_TYPE}`. If the option to generate spectrograms is enabled, they will be stored in `output/{VERSION_NB}/images/{SET_TYPE}`
+Audio files will be stored in `output/CLEAR_50k_1024_win_50_overlap/audio/{train,val,test}`. If the option to generate spectrograms is enabled, they will be stored in `output/CLEAR_50k_1024_win_50_overlap/images/{train,val,test}`
 
 As with the question generation, this process had to be ran 3 times : One for each set of scenes.
 

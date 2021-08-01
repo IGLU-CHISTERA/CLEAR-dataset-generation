@@ -503,7 +503,7 @@ def main(args):
     base_config_paths = {
         'scene': args.base_scene_args,
         'question': args.base_question_args,
-        'spectrogram': args.base_spectrogram_args
+        'spectrogram': args.base_audio_args
     }
 
     set_types = args.set_to_produce.split(',')
