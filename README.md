@@ -21,6 +21,15 @@ The code in this repository will generate acoustic scenes and questions/answers 
 If you find this code useful in your research then please cite
 
 ```
+@article{abdelnour2023NAAQA,
+  title={{NAAQA}: A Neural Architecture for Acoustic Question Answering},
+  author={Abdelnour, Jerome and Rouat, Jean and Salvi, Giampiero},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2023},
+  pages={4997--5009},
+  volume={45},
+  number={4}
+}
 @inproceedings{abdelnour2018Clear,
   title={CLEAR: A Dataset for Compositional Language and Elementary Acoustic Reasoning},
   author={Abdelnour, Jerome and Salvi, Giampiero and Rouat, Jean },
