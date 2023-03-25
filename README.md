@@ -31,7 +31,7 @@ If you find this code useful in your research then please cite
   number={4}
 }
 @inproceedings{abdelnour2018Clear,
-  title={CLEAR: A Dataset for Compositional Language and Elementary Acoustic Reasoning},
+  title={{CLEAR}: A Dataset for Compositional Language and Elementary Acoustic Reasoning},
   author={Abdelnour, Jerome and Salvi, Giampiero and Rouat, Jean },
   maintitle={NeurIPS},
   booktitle={Visually Grounded Interaction and Language Workshop (VIGIL)},
